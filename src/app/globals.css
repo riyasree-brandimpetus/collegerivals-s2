@@ -1,0 +1,403 @@
+@tailwind base;
+html {
+  scroll-behavior: smooth;
+}
+@tailwind components;
+@tailwind utilities;
+
+/* for the font face rules and declearation of classes */
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-weight: 700;
+  font-style: normal;
+  src: local("Helvetica Neue Bold"),
+    url("../../public/fonts/helveticaneue/HelveticaNeueBd.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-weight: 500;
+  font-style: normal;
+  src: local("Helvetica Neue Medium"),
+    url("../../public/fonts/helveticaneue/HelveticaNeue-Medium.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-weight: 400;
+  font-style: normal;
+  src: local("Helvetica Neue Regular"),
+    url("../../public/fonts/helveticaneue/HelveticaNeueMed.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-weight: 300;
+  font-style: normal;
+  src: local("Helvetica Neue Thin"),
+    url("../../public/fonts/helveticaneue/HelveticaNeue-Thin.ttf")
+      format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ppFormula";
+  /* font-weight: 300; */
+  font-style: normal;
+  src: local("PP Formula"),
+    url("../../public/fonts/ppFormula/PPFormula-CondensedBlack.otf")
+      format("truetype");
+  font-display: swap;
+}
+
+.helvetica-font {
+  font-family: "Helvetica Neue", sans-serif;
+  /* font-weight: 700; */
+}
+
+.helvetica-medium-font {
+  font-family: "Helvetica Neue", sans-serif;
+  /* font-weight: 500; */
+}
+
+.helvetica-light-font {
+  font-family: "Helvetica Neue", sans-serif;
+  /* font-weight: 400; */
+}
+
+.helvetica-extralight-font {
+  font-family: "Helvetica Neue", sans-serif;
+  /* font-weight: 300; */
+}
+
+.ppFormula-font {
+  font-family: "ppFormula", sans-serif;
+  /* font-weight: 700; */
+}
+
+/* styling the slick slider */
+
+.homepage-ticker {
+  background-color: #d1ff45;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  transform: rotate(-2.47deg);
+  width: 104%;
+}
+
+.about-us-slider {
+  width: 100%;
+  padding-top: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .about-us-slider {
+    padding-top: 1rem;
+  }
+}
+
+.field::placeholder {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.glass-bg {
+  backdrop-filter: blur(4px) saturate(0.6);
+}
+
+/* .animate-button:active {
+  box-shadow: 10px #666;
+  transform: translateY(4px);
+  /* transition: 0.1s; */
+
+/* Custom class to hide the checkbox icon */
+.hide-checkbox input[type="checkbox"] + span {
+  opacity: 0;
+  pointer-events: none;
+  display: none !important;
+}
+
+/* styles of contact us page */
+.contactUsForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.errorDiv {
+  color: #ff077c;
+}
+
+.message-field {
+  min-height: 7.1875rem;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  border-color: #33333380;
+}
+
+.filtered-college-list {
+  height: 10.25rem;
+  width: 100%;
+  background: #fff;
+  top: 91%;
+  position: absolute;
+  z-index: 10;
+  overflow-y: scroll;
+  border: "1px solid #B4B4B4";
+  border-top: none;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.filtered-college-point {
+  cursor: pointer;
+  padding-top: 0.938rem;
+  padding-bottom: 0.938rem;
+  border-bottom: "1px solid rgba(180, 180, 180, 0.3)";
+}
+
+.features-container-rival {
+  background: linear-gradient(
+    159deg,
+    rgba(255, 255, 255, 0.75) 0%,
+    rgba(255, 255, 255, 0.17) 100%
+  );
+
+  /* BG Blur */
+  backdrop-filter: blur(6.5px);
+}
+.scrollmenu {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.scrollmenu a {
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+/*
+
+HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEEDED
+
+.slick-arrow {
+  height: auto !important;
+  width: auto !important;
+  top: -7% !important;
+}
+
+.slick-prev {
+  right: 11% !important;
+  left: auto !important;
+}
+
+.slick-next {
+  right: 5% !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .slick-arrow {
+    bottom: -50% !important;
+    top: auto !important;
+  }
+
+  .slick-prev {
+    right: auto !important;
+    left: 5% !important;
+  }
+
+  .slick-next {
+    right: auto !important;
+    left: 18% !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .slick-next {
+    right: auto !important;
+    left: 25% !important;
+  }
+}
+
+.slick-track {
+  display: flex !important;
+  gap: 0.8rem;
+}
+
+.slide {
+  display: flex !important;
+} */
+
+.scrollmenu .slick-slider .slick-track {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.video-slider-container .slick-slider .slick-track {
+  display: flex;
+  gap: 20px;
+}
+
+.video-slider-container .slick-slider .slick-track {
+  margin-left: -20px;
+  padding-left: 20px;
+}
+
+.scrollmenu .slick-slider .slick-list {
+  margin-left: -0.75rem;
+}
+
+/* vertical slider animation hero home styles */
+.vertical-slider {
+  max-height: 56px;
+  max-width: 56px;
+  overflow: hidden;
+}
+
+.vertical-slider .slide-container {
+  height: 56px;
+  width: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vertical-slider .slide-container .slide-image {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.feature-card {
+  background: linear-gradient(180deg, #ede9ea 0%, rgba(237, 233, 234, 0) 100%);
+}
+
+.feature-card-home {
+  background: linear-gradient(180deg, #ede9ea 0%, rgba(237, 233, 234, 0) 100%);
+}
+
+.max-screen-desktop {
+  max-width: 1440px;
+}
+
+.button-style:hover {
+  opacity: 90%;
+}
+
+.button-style:active {
+  filter: drop-shadow(3px 3px 1px #d1ff45);
+  transform: skew(-12deg) translate(2px, 2px);
+}
+
+/* for making the zoomin effect in the div with background image in news page */
+.news-card-bg-image {
+  transition: background-size 0.75s ease-in-out;
+}
+
+.gentle-tilt-move-image {
+  animation: tilt-n-move-shaking 2s infinite;
+}
+
+@keyframes tilt-n-move-shaking {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  7.5% {
+    transform: translate(3px, 3px) rotate(2deg);
+  }
+  15% {
+    transform: translate(0, 0) rotate(0eg);
+  }
+  22.5% {
+    transform: translate(-3px, 3px) rotate(-2deg);
+  }
+  30% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* for the functionality of only showing the arrow on hover in desktop screens */
+.feature-arrow-home {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.feature-card-home:hover .feature-arrow-home {
+  opacity: 1;
+}
+
+.ticker-element {
+  width: auto !important;
+}
+
+.news-link:hover {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.news-link {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-bg {
+  background: linear-gradient(180deg, #ede9ea 0%, rgba(237, 233, 234, 0) 100%);
+}
+
+.home-slider .slick-slider .slick-dots {
+  position: absolute;
+  bottom: 30px !important;
+}
+
+/* .home-slider .slick-slider .slick-dots li button:before {
+  opacity: .75;
+  color: black;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  background: #D1FF45;
+  opacity : 0.5;
+} */
+
+.home-slider .slick-slider .slick-dots li button:before {
+  font-size: 20px !important;
+  opacity: 0.5 !important;
+  color: #d1ff45 !important;
+}
+
+.home-slider .slick-slider .slick-dots li.slick-active button:before {
+  opacity: 1 !important;
+}
+
+.slick-dots li {
+  margin: 0 3px !important;
+}
+
+@media only screen and (max-width: 480px) {
+  .home-slider .slick-slider .slick-dots {
+    bottom: 15px !important;
+  }
+
+  .home-slider .slick-slider .slick-dots li button:before {
+    font-size: 15px !important;
+  }
+
+  .slick-dots li {
+    margin: 0 1.5px !important;
+  }
+}
