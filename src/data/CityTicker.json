@@ -1,0 +1,41 @@
+[
+    {
+      "id": 1,
+      "name":"BENGALURU",
+      "Imgsrc": "/assets/city1.png"
+     
+    },
+    {
+        "id": 2,
+        "name":"PUNE",
+        "Imgsrc": "/assets/city2.png"
+    },
+    {
+        "id": 3,
+        "name":"HYDERABAD",
+        "Imgsrc": "/assets/city3.png"
+    },
+    {
+        "id": 4,
+      "name":"KOLKATA",
+      "Imgsrc": "/assets/city4.png"
+      },
+      {
+        "id": 5,
+      "name":"NEW DELHI",
+      "Imgsrc": "/assets/city5.png"
+      },
+     
+      {
+        "id": 7,
+        "name":"JAIPUR",
+        "Imgsrc": "/assets/city6.png"
+      },
+      {
+        "id": 7,
+        "name":"JAIPUR",
+        "Imgsrc": "/assets/city6.png"
+      }
+    
+  ]
+  

@@ -82,6 +82,11 @@ html {
   /* font-weight: 700; */
 }
 
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  /* font-weight: 700; */
+}
+
 /* styling the slick slider */
 
 .homepage-ticker {
@@ -400,4 +405,58 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
   .slick-dots li {
     margin: 0 1.5px !important;
   }
+}
+
+.outer-border {
+  position: relative;
+  display: inline-block;
+  padding: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.clip-bg {
+  border-right: 6px solid #dbfd67;
+  border-bottom: 4px solid #dbfd67;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 32px) 0,
+    100% 21px,
+    100% 100%,
+    44px 100%,
+    0 calc(100% - 23px)
+  );
+  padding: 8px;
+}
+.custom-button {
+  background-image: url("../assets/btn1.svg");
+  background-repeat: no-repeat;
+  box-shadow: 11px 6px 0 5px #dbfd67;
+}
+
+.city-bg {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.gaming-slider-bg {
+  background-image: url("../assets/slider-bg.png");
+}
+
+.highlights-slides .slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.highlights-slides .slick-center img {
+  width: 500px !important;
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
 }

@@ -1,27 +1,25 @@
-"use client";
-import Hero from "@/components/homePage/hero";
-import TickerContainer from "@/components/homePage/tickerContainer";
-import Rivals from "@/components/homePage/rivals";
-import Redemption from "@/components/homePage/redemption";
-import Faq from "@/components/homePage/faq";
-import Navbar from "@/components/globalComponents/Navbar";
-import Footer from "@/components/globalComponents/Footer";
-import Graphics from "@/components/globalComponents/Graphics";
-import { Flex } from "@chakra-ui/react";
-import { useState } from "react";
+
+
+import HeroSection from "@/components/homePage/HeroSection";
+import NavbarSeason2 from "@/components/globalComponents/NavbarSeason2";
+import GamingSlider from "@/components/homePage/GamingSlider";
+import Winner from "@/components/homePage/Winner";
+import CityTicker from "@/components/homePage/CityTicker";
+import Highlights from "@/components/homePage/Highlights";
+import News from "@/components/homePage/News";
+
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <Navbar setIsOpen={setIsOpen} isOpen={isOpen} />
-      <Graphics isOpen={isOpen} />
-      <Hero />
-      <TickerContainer />
-      <Rivals />
-      <Redemption />
-      <Faq />
-      <Footer />
+      <NavbarSeason2 />
+      <HeroSection />
+      <GamingSlider />
+      <Winner />
+      <CityTicker />
+      <Highlights />
+      <News />
     </>
   );
 }
