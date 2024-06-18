@@ -1,28 +1,28 @@
 [
     {
       "id": 1,
-      "src": "../../assets/high2.png"
+      "src": "/assets/high2.png"
      
     },
     {
       "id": 2,
-      "src": "../../assets/high2.png"
+      "src": "/assets/high2.png"
     },
     {
       "id": 3,
-      "src": "../../assets/high2.png"
+      "src": "/assets/high2.png"
     },
     {
         "id": 3,
-        "src": "../../assets/high2.png"
+        "src": "/assets/high2.png"
       },
       {
         "id": 3,
-        "src": "../../assets/high2.png"
+        "src": "/assets/high2.png"
       },
       {
         "id": 3,
-        "src": "../../assets/high2.png"
+        "src": "/assets/high2.png"
       }
     
   ]
