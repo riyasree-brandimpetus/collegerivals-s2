@@ -10,13 +10,17 @@ const CityTicker = () => {
     const Cityslides: CitySlides[] = CityData;
 
   const slidesettings = {
-    slidesToShow: 6,
+    slidesToShow: 8,
+infinite:true,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 0,
-    speed: 2000,
+    pauseOnHover:false,
+    speed: 1500,
     cssEase: "linear",
     arrows: false,
+    draggable: false,
+    swipe: false,
     responsive: [
       {
         breakpoint: 830,

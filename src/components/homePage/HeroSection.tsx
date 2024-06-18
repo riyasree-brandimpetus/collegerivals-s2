@@ -7,11 +7,8 @@ import heroImg from "../../../public/home-hero.gif";
 const HeroSection = () => {
   return (
     <div className="flex flex-col items-center justify-center pt-56">
-      <Image
-        src={heroImg}
-        alt="hero-img"
-        className="w-full h-screen object-cover absolute top-0 -z-2"
-      />
+     
+      <video src="/assets/hero-homepage.mp4" autoPlay={true} controls={false} loop={true} muted={true} className="w-full h-screen object-cover absolute top-0 -z-2"/>
       <div className="px-0.938rem text-xs text-white rounded-2.063rem py-3 bg-#151515 bg-opacity-40 flex gap-1 backdrop-blur-md helvetica-font relative -z-1">
         <Image src={playbtn} alt="playbtn" />
         PLAY AFTERMOVIE

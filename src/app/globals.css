@@ -468,3 +468,25 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
   transform: scale(1.2);
   transition: transform 0.3s ease-in-out;
 }
+
+.gradient-border {
+  position: relative;
+  display: inline-block;
+  padding: 1px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.24),
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.07)
+  );
+}
+
+.gradient-border .inner {
+  display: inline-block;
+  background-color: #0f1011;
+  /* padding: 1rem 1.5rem; */
+  border-radius: inherit;
+  color: white;
+  font-weight: 600;
+}
