@@ -20,7 +20,7 @@ const News =()=>{
                     </div>
                     <div className="flex flex-col xl:gap-3 gap-2 py-5">
                         <h3 className="xl:text-2xl text-xl helvetica-light-font ">Masters Shanghai merch collection</h3>
-                        <p className="text-base xl:font-normal font-light helvetica-extralight-font  ">Celebrate Masters Shanghai with this limited-edition merch collection</p>
+                        <p className="text-base xl:font-normal font-light helvetica-extralight-font opacity-70 ">Celebrate Masters Shanghai with this limited-edition merch collection</p>
                     </div>
                     </Link>
                 </div>
@@ -34,7 +34,7 @@ const News =()=>{
                     </div>
                     <div className="flex flex-col xl:gap-3 gap-2 py-5">
                         <h3 className="xl:text-2xl text-xl helvetica-light-font ">Masters Shanghai merch collection</h3>
-                        <p className="text-base xl:font-normal helvetica-extralight-font ">We’ve done some small updates to Brimstone’s Sky Smoke (E) to ensure that
+                        <p className="text-base xl:font-normal helvetica-extralight-font opacity-70 ">We’ve done some small updates to Brimstone’s Sky Smoke (E) to ensure that
                             it fully covers the area indicated by the UI when you are placing it. </p>
                     </div>
                     </Link>
@@ -47,7 +47,7 @@ const News =()=>{
                     </div>
                     <div className="flex flex-col xl:gap-3 gap-2 py-5">
                         <h3 className="xl:text-2xl text-xl helvetica-extralight-font  ">Masters Shanghai merch collection</h3>
-                        <p className="text-base xl:font-normal ">Celebrate Masters Shanghai with this limited-edition merch collection</p>
+                        <p className="text-base xl:font-normal  opacity-70 ">Celebrate Masters Shanghai with this limited-edition merch collection</p>
                     </div>
                     </Link>
                 </div>

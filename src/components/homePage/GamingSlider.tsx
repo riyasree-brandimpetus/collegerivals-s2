@@ -66,11 +66,14 @@ const GamingSlider = () => {
   };
 
   return (
-    <div className="bg-black">
+    <div className="bg-black relative">
+       <Image src="/pink-gaming-slider-bg.svg" alt="pink-bg" className="w-full absolute md:-top-20 -top-9 bg-black " width="1440" height={300} />
+   
       <div className="w-full  flex justify-center bg-#E7327C rounded-xl">
-        <div className=" max-w-[1440px] w-full h-full rounded-xl md:p-12 p-2 flex justify-center ">
+      
+        <div className=" max-w-[1440px] w-full h-full rounded-xl md:p-12 p-2 max-md:pb-6 flex justify-center ">
           <div className=" w-full justify-center items-center">
-            <div className="flex flex-row gap-4 text-3xl w-full font-semibold pt-24 pl-6 pr-6 place-items-center justify-center md:mb-28 mb-10">
+            <div className="flex flex-row gap-4 text-3xl w-full font-semibold md:pt-24 pl-6 pr-6 place-items-center justify-center md:mb-28 mb-10">
               <div className="md:p-20 p-8 relative flex justify-center">
                 <p className="lg:w-3/5 w-full text-white text-center md:text-2xl text-lg md:font-normal font-light helvetica-light-font">
                   Get ready to experience the ultimate college esports clash at{" "}
@@ -172,6 +175,7 @@ const GamingSlider = () => {
           </div>
         </div>
       </div>
+    
     </div>
   );
 };
