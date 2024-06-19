@@ -592,3 +592,17 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
   background-repeat: no-repeat;
   box-shadow: 15px 6px 0 5px #f46da4;
 }
+
+.custom-select-arrow {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../../public/dropdown-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 92%;
+  background-position-y: 50%;
+}
+
+a.active {
+  color: red;
+}
