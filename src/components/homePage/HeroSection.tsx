@@ -9,7 +9,7 @@ const HeroSection = () => {
     <div className="flex flex-col items-center justify-center pt-56">
      
       <video src="/assets/hero-homepage.mp4" autoPlay={true} controls={false} loop={true} muted={true} className="w-full h-screen object-cover absolute top-0 -z-2"/>
-      <div className="px-0.938rem text-xs text-white rounded-2.063rem py-3 bg-#151515 bg-opacity-40 flex gap-1 backdrop-blur-md helvetica-font relative -z-1">
+      <div className="px-0.938rem text-xs text-white rounded-2.063rem py-3 bg-#151515 bg-opacity-40 flex gap-1 backdrop-blur-md helvetica-font font-bold relative -z-1">
         <Image src={playbtn} alt="playbtn" />
         PLAY AFTERMOVIE
       </div>
@@ -19,10 +19,11 @@ const HeroSection = () => {
       <div className="text-white -mt-4 md:text-4xl text-lg ppFormula-font italic ">
         IS BACK WITH SEASON 2
       </div>
-      <div className="clip-bg rounded-lg mt-1.37rem">
+      <div className="clip-bg rounded-lg mt-1.37rem overflow-hidden relative">
     <button className="custom-button px-14 py-5 text-1.063rem rounded-lg bg-cover helvetica-medium-font text-#DBFD67 backdrop-blur-md">
        REGISTER NOW
     </button>
+    <div className="reflection"></div>
 </div>
 
       <div className="w-full flex flex-col items-center city-bg">
@@ -36,7 +37,7 @@ const HeroSection = () => {
                   alt="strip1"
                 />
                 <div className="flex flex-row p-1 place-items-baseline gap-2">
-                  <p className="xl:text-7xl md:text-5xl text-4xl font-extrabold text-[#E7327C]">
+                  <p className="xl:text-7xl md:text-5xl text-4xl font-extrabold text-[#E7327C] ppFormula-font">
                     <em>20+</em>
                   </p>
                   <p className="xl:text-2xl text-lg text-white md:-ml-12 ml-auto font-bold helvetica-font">
@@ -54,7 +55,7 @@ const HeroSection = () => {
                   className="xl:h-[72px] md:h-[52px] object-contain md:block hidden"
                 />
                 <div className="flex flex-row p-1 place-items-baseline gap-2">
-                  <p className="xl:text-7xl md:text-5xl text-4xl font-extrabold text-[#E7327C]">
+                  <p className="xl:text-7xl md:text-5xl text-4xl font-extrabold text-[#E7327C] ppFormula-font">
                     <em>50</em>
                   </p>
                   <p className="xl:text-2xl text-lg text-white md:-ml-12 ml-auto font-bold helvetica-font">
@@ -72,7 +73,7 @@ const HeroSection = () => {
                   className="xl:h-[72px] md:h-[52px] object-contain md:block hidden"
                 />
                 <div className="flex flex-row p-1 place-items-baseline gap-2">
-                  <p className="xl:text-7xl md:text-5xl text-4xl font-extrabold text-[#E7327C]">
+                  <p className="xl:text-7xl md:text-5xl text-4xl font-extrabold text-[#E7327C] ppFormula-font">
                     <em>50L</em>
                   </p>
                   <p className="xl:text-2xl text-lg text-white md:-ml-12 ml-auto font-bold helvetica-font">

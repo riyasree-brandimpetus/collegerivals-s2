@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -7,11 +6,22 @@ import "slick-carousel/slick/slick-theme.css";
 import { useRef, useState } from "react";
 import { Button } from "@chakra-ui/react";
 import { GamingSlides } from "@/types/homepage/home";
-import data from "../../data/GamingSlider.json"
+import data from "../../data/GamingSlider.json";
 
 const GamingSlider = () => {
 
-    const gaming: GamingSlides[] = data;
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
+
+  const handleMouseEnter = (id: number) => {
+      setHoveredId(id);
+  };
+
+  const handleMouseLeave = () => {
+      setHoveredId(null);
+  };
+
+
+  const gaming: GamingSlides[] = data;
 
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
@@ -103,32 +113,33 @@ const GamingSlider = () => {
 
             <div className="product-slider pr-4">
               <Slider ref={sliderRef} {...slidesettings}>
-
-  
-{
-    gaming.map((slides,index)=>(
-
-        <div key={index} className=" pl-2 md:p-6 relative">
-        <Button className=" helvetica-font rounded-full text-xs lg:text-sm font-bold bg-neon absolute md:right-[13%] right-[12%] md:top-[20%] top-[18%]">
-        {slides.Device}
-      </Button>
-          <div className="w-full flex justify-left p-8">
-            <p className="text-white md:text-xl text-base font-bold absolute bottom-[10%]">
-           {slides.name}
-            </p>
-          </div>
-          <Image width={388} height={479}
-            src={slides.Imgsrc}
-
-            alt="game-slider"
-            className="object-contain rounded-2xl"
-          />
-        </div>
-
-    ))
-}
-
-  
+                {gaming.map((slides, index) => (
+                  <div key={index} className=" pl-2 md:p-6 relative">
+               
+                    <Button className=" helvetica-font rounded-full text-xs lg:text-sm font-bold bg-neon absolute md:right-[13%] right-[12%] md:top-[20%] top-[18%]">
+                      {slides.Device}
+                    </Button>
+                    <div className="w-full flex justify-left p-8">
+                      <p  className={`md:text-xl text-base font-bold absolute z-50 bottom-[10%] target-heading ${hoveredId === slides.id ? 'hovered' : ''}`}>
+                        {slides.name}
+                      </p>
+                    </div>
+                    <div
+                       onMouseEnter={() => handleMouseEnter(slides.id)}
+                       onMouseLeave={handleMouseLeave}
+                    
+                    className="hover:border-#DBFD67 border border-#E7327C relative rounded-2xl cursor-pointer gamingcard">
+                    <Image 
+                      width={388}
+                      height={479}
+                      src={slides.Imgsrc}
+                      alt="game-slider"
+                      className="object-contain rounded-2xl relative -z-20"
+                    />
+                    </div>
+              
+                  </div>
+                ))}
               </Slider>
             </div>
 
@@ -137,13 +148,25 @@ const GamingSlider = () => {
                 onClick={() => goToSlide(activeSlideIndex - 1)}
                 id="desktop-prev"
               >
-                <Image alt="" width={62} height={44} src="../../../assets/left-arrow.svg" className="w-full" />
+                <Image
+                  alt=""
+                  width={62}
+                  height={44}
+                  src="../../../assets/left-arrow.svg"
+                  className="w-full"
+                />
               </button>
               <button
                 onClick={() => goToSlide(activeSlideIndex + 1)}
                 id="desktop-next"
               >
-                <Image  width={62} height={44}  alt="" src="../../../assets/right-arrow.svg" className="w-full" />
+                <Image
+                  width={62}
+                  height={44}
+                  alt=""
+                  src="../../../assets/right-arrow.svg"
+                  className="w-full"
+                />
               </button>
             </div>
           </div>

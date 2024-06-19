@@ -5,14 +5,15 @@ const Winner = ()=>{
 
     return(
      
-        <div className="w-full flex flex-col items-center bg-black">
+        <div className="w-full flex flex-col items-center bg-black relative">
+                        <Image width={574} height={242} src="../../assets/win-yellow.svg" alt="illustrationImg" className="absolute bottom-0 left-0 z-1 md:w-auto w-1/3"/>
+                        <Image width={574} height={242}  src="../../assets/win-pink.svg" alt="illustrationImg" className="absolute right-0 top-[60%] z-1 md:w-auto w-1/3"/>
         <div className="max-w-[1440px] w-full h-full flex flex-col justify-center">
 
             <div className="w-full h-full relative flex flex-col justify-center xl:px-20 xl:py-12 md:p-12 p-6 gap-4">
 
             <Image width={1260} height={319} src="../../assets/win-season.svg" alt="season1Img" className="absolute top-[12%] z-1 xl:w-fit md:w-[90%] md:block hidden"/>
-            <Image width={574} height={242} src="../../assets/win-yellow.svg" alt="illustrationImg" className="absolute bottom-0 left-0 z-1 md:w-auto w-1/3"/>
-            <Image width={574} height={242}  src="../../assets/win-pink.svg" alt="illustrationImg" className="absolute right-0 top-[60%] z-1 md:w-auto w-1/3"/>
+
 
             <h2 className="md:text-7xl text-2xl xl:mb-60 md:mb-56 mb-12 mt-12 text-center font-medium text-white z-10 ppFormula-font"><em>WINNERS</em></h2>
 

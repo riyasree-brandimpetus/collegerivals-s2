@@ -2,13 +2,15 @@
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Highlight } from "@/types/homepage/home";
 import data from "../../data/HighlightsData.json"
 import season from "../../assets/2023season.png";
 import Image from "next/image";
 
 const Highlights = () =>{
+
+
     const highlights: Highlight[] = data;
 
  
@@ -64,10 +66,11 @@ const Highlights = () =>{
 
     return(
 
-    <div className="w-full bg-black flex justify-center">
+    <div className="w-full bg-black flex justify-center relative">
+             <Image width={315} height={762} src="/assets/high-pink.svg" alt="" className="absolute top-0 right-0 z-1 md:w-auto w-24"/>
+             <Image width={315} height={762} src="/assets/high-yellow.svg" alt="" className="absolute left-0 bottom-0 z-1 md:w-auto w-24"/>
     <div className="max-w-[1440px] w-full h-full relative md:py-12 py-4 justify-center ">
-        <Image width={315} height={762} src="/assets/high-pink.svg" alt="" className="absolute top-0 right-0 z-1 md:w-auto w-24"/>
-        <Image width={315} height={762} src="/assets/high-yellow.svg" alt="" className="absolute left-0 bottom-0 z-1 md:w-auto w-24"/>
+   
         <div className=" relative md:px-12 px-4 flex flex-col text-3xl w-full font-semibold p-6 place-items-center justify-center md:mb-28 mb-10">
         <Image className="max-md:hidden absolute -top-20%" src={season} width={737} height={335} alt=""/>
             <h2 className="md:text-6xl text-2xl mb-2 text-center font-medium text-white italic ppFormula-font tracking-wide ">
@@ -88,7 +91,9 @@ const Highlights = () =>{
                     {
     highlights.map((slide,index)=>(
         <div key={index} className="p-8">
-        <Image width={570} height={380} src={slide.src} alt="highlight" className="mb-4 object-contain rounded-xl" />
+            <div className="highlight-gradient rounded-xl relative " >
+        <Image width={570} height={380} src={slide.src} alt="highlight" className="mb-4 object-contain rounded-xl relative -z-20" />
+        </div>
     </div>
     ))
 }

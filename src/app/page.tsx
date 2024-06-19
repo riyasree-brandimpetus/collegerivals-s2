@@ -7,6 +7,10 @@ import Winner from "@/components/homePage/Winner";
 import CityTicker from "@/components/homePage/CityTicker";
 import Highlights from "@/components/homePage/Highlights";
 import News from "@/components/homePage/News";
+import FAQ from "@/components/homePage/faq";
+import Footer from "@/components/globalComponents/Footer";
+import TrackOurtruck from "@/components/homePage/TrackOurtruck";
+
 
 
 export default function Home() {
@@ -19,7 +23,10 @@ export default function Home() {
       <Winner />
       <CityTicker />
       <Highlights />
+      <TrackOurtruck/>
       <News />
+      <FAQ/>
+      <Footer/>
     </>
   );
 }
