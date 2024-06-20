@@ -1,92 +1,29 @@
 'use client';
-import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
+import { Field, Form, Formik, FormikHelpers } from 'formik';
 import {
   Input,
   Button,
   Heading,
   Flex,
-  Select,
   Box,
   Divider,
   FormLabel,
-  useToast,
-  Checkbox,
-  Text,
-  Link,
+  useToast
 } from '@chakra-ui/react';
-import { FirstFormSchema } from '@/schemas/register';
-import { RegistrationCities } from '@/constants/cities';
 import api from '@/utils/axios/instance';
-import { FirstFormValues, UserAgentDetails } from '@/types/register/register';
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { UserContext } from '@/utils/context/user.context';
-import { useSearchParams } from 'next/navigation';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { verifyCaptcha } from '@/utils/captcha/ServerActions';
-// import QualifierText from './QualifierText';
-import UAParser from 'ua-parser-js';
+import { LoginFormValues } from '@/types/login/login';
+import { LoginFormSchema } from '@/schemas/login';
 
 export default function BasicDetailsForm() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [isVerified, setIsverified] = useState<boolean>(false);
-  const [userAgentDetailsArray, setUserAgentDetailsArray] =
-    useState<UserAgentDetails>();
   const toast = useToast();
   const { dispatch } = useContext(UserContext);
-  const searchParams = useSearchParams();
-  const referral = searchParams.get('ref');
-
-  /**
-   * To Fetch User Agent Details
-   */
-  useEffect(() => {
-    // Get the user agent string when the component loads
-    const userAgent = navigator.userAgent;
-    // Call the function to extract user agent details
-    const details = extractUserAgentDetails(userAgent);
-    // Update the state with the details
-    setUserAgentDetailsArray({ ...details });
-  }, []);
-
-  /**
-   * Function to extract user agent details and store them in an object
-   * @param userAgent
-   * @returns
-   */
-  function extractUserAgentDetails(userAgent: string): UserAgentDetails {
-    const parser = new UAParser(userAgent);
-    const browser = parser.getBrowser();
-    const os = parser.getOS();
-    const device = parser.getDevice();
-    const engine = parser.getEngine();
-    const ua = parser.getUA();
-    // Check if the device type is explicitly "desktop" or if it's null/empty (indicating desktop)
-    const deviceType =
-      device.type === 'desktop' || !device.type ? 'desktop' : device.type;
-
-    return {
-      browser: {
-        name: browser.name || 'Unknown',
-        version: browser.version || 'Unknown',
-        major: browser.major || 'Unknown',
-      },
-      os: {
-        name: os.name || 'Unknown',
-        version: os.version || 'Unknown',
-      },
-      device: {
-        vendor: device.vendor || 'Unknown',
-        model: device.model || 'Unknown',
-        type: deviceType || 'Unknown',
-      },
-      engine: {
-        name: engine.name || 'Unknown',
-        version: engine.version || 'Unknown',
-      },
-      ua: ua || 'Unknown',
-    };
-  }
-
+  
   /**
    * Handle Captcha Submission
    * @param token
@@ -100,12 +37,8 @@ export default function BasicDetailsForm() {
   /**
    * Initialize first form values
    */
-  const firstFormInitialValues: FirstFormValues = {
-    name: '',
-    whatsappNumber: '',
-    email: '',
-    cityCenter: '',
-    agreedToTerms: false,
+  const firstFormInitialValues: LoginFormValues = {
+    whatsappNumber: ''
   };
 
   /**
@@ -114,22 +47,22 @@ export default function BasicDetailsForm() {
    * @param actions FormikHelpers
    */
   const handleSubmit = async (
-    values: FirstFormValues,
-    actions: FormikHelpers<FirstFormValues>
+    values: LoginFormValues,
+    actions: FormikHelpers<LoginFormValues>
   ) => {
     try {
-      const response = await api.post('/users/register', {
-        ...values,
-        whatsappCountryCode: '+91',
-        queryParams: referral || '',
-        userAgentDetails: userAgentDetailsArray,
+      console.log('heree');
+      const response = await api.post('/users/id', {
+        ...values
       });
       const data = response.data;
+      console.log(data)
       if (data) {
-        const otpResp = await api.post('/otp/send-otp', {
-          userId: data._id,
-          mobileNumber: data.whatsappNumber,
+        const otpResp = await api.post('/otp/send-login-otp', {
+          userId: data,
+          mobileNumber: `${values.whatsappNumber}`,
         });
+      console.log(otpResp.data.userDetails);
         if (otpResp.data) {
           toast({
             title: `OTP Sent Successfully`,
@@ -139,7 +72,7 @@ export default function BasicDetailsForm() {
           });
           dispatch({
             type: 'UPDATE',
-            payload: { ...data, isWhatsAppVerified: false },
+            payload: { ...otpResp.data.userDetails },
           });
         }
       }
@@ -157,11 +90,11 @@ export default function BasicDetailsForm() {
   return (
     <Formik
       initialValues={firstFormInitialValues}
-      validationSchema={FirstFormSchema}
+      validationSchema={LoginFormSchema}
       onSubmit={handleSubmit}
     >
       {({ errors, touched, isSubmitting }) => (
-        <Form className="flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 pt-8 md:max-h-[80vh]">
+        <Form className="text-white flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 pt-8 md:max-h-[80vh]">
           <Heading
             pb={{ base: '0.5rem', lg: '0.25rem' }}
             className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
@@ -171,7 +104,7 @@ export default function BasicDetailsForm() {
               DETAILS
             </Box>
           </Heading>
-          <Text pb={{ base: '2.125rem', lg: '1.25rem' }}>
+          {/* <Text pb={{ base: '2.125rem', lg: '1.25rem' }}>
             You are creating an account on{' '}
             <Text as={'span'} fontWeight={'700'}>
               {' '}
@@ -183,9 +116,9 @@ export default function BasicDetailsForm() {
                 Ampverse
               </Link>
             </Text>
-          </Text>
+          </Text> */}
           <Box overflowY="auto">
-            <Flex
+            {/* <Flex
               width={{ base: '100%', lg: '80%' }}
               direction={{ base: 'column', lg: 'row' }}
               justifyContent="space-between"
@@ -235,7 +168,7 @@ export default function BasicDetailsForm() {
                   <div className="text-pink">{errors.email}</div>
                 )}
               </Flex>
-            </Flex>
+            </Flex> */}
 
             <Flex
               width={{ base: '100%', lg: '80%' }}
@@ -259,82 +192,23 @@ export default function BasicDetailsForm() {
                   placeholder="Eg. 9887762732"
                   height="4.063rem"
                   borderRadius="0.75rem"
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                 />
                 {errors.whatsappNumber && touched.whatsappNumber && (
                   <div className="text-pink">{errors.whatsappNumber}</div>
                 )}
               </Flex>
 
-              {/* <Flex
-                pb={{ base: '2.625rem', lg: '2.938rem' }}
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                className="field"
-                pt={{ base: '1.25rem', lg: '0rem' }}
-              >
-                <FormLabel>City Center</FormLabel>
-                <Field
-                  as={Select}
-                  id="cityCenter"
-                  name="cityCenter"
-                  // mt="0.75rem"
-                  height="4.063rem"
-                  borderRadius="0.75rem"
-                  placeholder="Select City"
-                  focusBorderColor="#FF077C"
-                >
-                  <option key="delhi" value="Delhi" disabled>
-                    Delhi - Registrations Closed
-                  </option>
-                  <option key="hyderabad" value="Hyderabad" disabled>
-                    Hyderabad - Registrations Closed
-                  </option>
-                  <option key="hyderabad" value="Bangalore" disabled>
-                    Bangalore - Registrations Closed
-                  </option>
-                  <option key="pune" value="Pune" disabled>
-                    Pune - Registrations Closed
-                  </option>
-                  {RegistrationCities.map(city => (
-                    <option key={city} value={city}>
-                      {city}
-                    </option>
-                  ))}
-                </Field>
-                {errors.cityCenter && touched.cityCenter && (
-                  <div className="text-pink">{errors.cityCenter}</div>
-                )}
-                <QualifierText />
-              </Flex> */}
-
-              <Flex direction="column" className="pb-4">
-                <Field
-                  as={Checkbox}
-                  id="agreedToTerms"
-                  name="agreedToTerms"
-                  colorScheme="white"
-                  iconColor="#FF077C"
-                  className="text-sm italic"
-                  alignItems="baseline"
-                >
-                  I agree to receiving communication, marketing and promotional
-                  material from Ampverse DMI Pvt Ltd.
-                </Field>
-                {errors.agreedToTerms && touched.agreedToTerms && (
-                  <div className="errorDiv">{errors.agreedToTerms}</div>
-                )}
-              </Flex>
-              <Box className="my-2 lg:my-4">
+              <Box className="my-2 lg:my-4 w-full">
                 <ReCAPTCHA
-                  sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
+                  sitekey="6LfBSbQnAAAAAIKsL73tstGkEeMBa-u7Ip5Z4Rpg"
                   ref={recaptchaRef}
                   onChange={handleCaptchaSubmission}
                 />
               </Box>
             </Flex>
           </Box>
-          <Box className="sticky bg-white bottom-0">
+          <Box className="stick bottom-0 mt-auto">
             <Divider
               marginTop="auto"
               borderColor={'black'}

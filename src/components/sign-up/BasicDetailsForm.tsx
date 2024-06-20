@@ -171,7 +171,7 @@ export default function BasicDetailsForm() {
               DETAILS
             </Box>
           </Heading>
-          {/* <Text pb={{ base: '2.125rem', lg: '1.25rem' }}>
+          <Text pb={{ base: '2.125rem', lg: '1.25rem' }}>
             You are creating an account on{' '}
             <Text as={'span'} fontWeight={'700'}>
               {' '}
@@ -183,9 +183,9 @@ export default function BasicDetailsForm() {
                 Ampverse
               </Link>
             </Text>
-          </Text> */}
+          </Text>
           <Box overflowY="auto">
-            {/* <Flex
+            <Flex
               width={{ base: '100%', lg: '80%' }}
               direction={{ base: 'column', lg: 'row' }}
               justifyContent="space-between"
@@ -235,7 +235,7 @@ export default function BasicDetailsForm() {
                   <div className="text-pink">{errors.email}</div>
                 )}
               </Flex>
-            </Flex> */}
+            </Flex>
 
             <Flex
               width={{ base: '100%', lg: '80%' }}
@@ -308,7 +308,7 @@ export default function BasicDetailsForm() {
                 <QualifierText />
               </Flex> */}
 
-              {/* <Flex direction="column" className="pb-4">
+              <Flex direction="column" className="pb-4">
                 <Field
                   as={Checkbox}
                   id="agreedToTerms"
@@ -324,7 +324,7 @@ export default function BasicDetailsForm() {
                 {errors.agreedToTerms && touched.agreedToTerms && (
                   <div className="errorDiv">{errors.agreedToTerms}</div>
                 )}
-              </Flex> */}
+              </Flex>
               <Box className="my-2 lg:my-4">
                 <ReCAPTCHA
                   sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"

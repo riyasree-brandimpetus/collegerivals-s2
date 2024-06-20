@@ -9,22 +9,14 @@ import Footer from '@/components/globalComponents/Footer';
 import Graphics from '@/components/globalComponents/Graphics';
 import { Flex } from '@chakra-ui/react';
 import { useState } from 'react';
-import BasicDetailsForm from '@/components/login/BasicDetailsForm';
+import BasicDetailsForm from '@/components/sign-up/BasicDetailsForm';
 import LoginForm from '@/components/login/LoginForm';
 
 export default function Login() {
-//   const [isOpen, setIsOpen] = useState(false);
+  //   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      {/* <Navbar setIsOpen={setIsOpen} isOpen={isOpen} />
-      <Graphics isOpen={isOpen} />
-      <Hero />
-      <TickerContainer />
-      <Rivals />
-      <Redemption />
-      <Faq />
-      <Footer /> */}
-      <LoginForm/>
+      <LoginForm />
     </>
   );
 }

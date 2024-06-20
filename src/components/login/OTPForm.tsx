@@ -34,7 +34,7 @@ export default function OTPForm() {
       if (response.status === 200) {
         dispatch({
           type: 'UPDATE',
-          payload: { ...state, isWhatsAppVerified: true },
+          payload: { ...state, isLoggedIn: true },
         });
         toast({
           title: `Successfully Verified OTP`,
@@ -106,6 +106,7 @@ export default function OTPForm() {
       paddingRight={{ base: '2rem', lg: '0rem' }}
       paddingTop="2rem"
       maxHeight="80vh"
+      className='text-white'
     >
       <Heading
         // pb="1.25rem"
@@ -186,12 +187,12 @@ export default function OTPForm() {
       </HStack>
 
       <Flex className="pt-4 flex-wrap flex-col items-start">
-        <Alert status="info" className="w-auto">
-          <AlertIcon />
+        <Alert status="info" className="w-auto bg-slate-900">
+          <AlertIcon color={'white'}/>
           OTP will be sent to your WhatsApp and Email.
         </Alert>
         <Button
-          className="pt-4"
+          className="pt-4 text-white"
           isDisabled={disableResendButton}
           variant="link"
           _hover={{

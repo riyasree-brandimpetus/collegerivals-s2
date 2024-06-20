@@ -11,20 +11,13 @@ import { Flex } from '@chakra-ui/react';
 import { useState } from 'react';
 import BasicDetailsForm from '@/components/sign-up/BasicDetailsForm';
 import SignUpForm from '@/components/sign-up/SignUpForm';
+import ProfileDashboard from '@/components/my-profile/ProfileDashboard';
 
-export default function SignUp() {
-//   const [isOpen, setIsOpen] = useState(false);
+export default function MyProfile() {
+  //   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      {/* <Navbar setIsOpen={setIsOpen} isOpen={isOpen} />
-      <Graphics isOpen={isOpen} />
-      <Hero />
-      <TickerContainer />
-      <Rivals />
-      <Redemption />
-      <Faq />
-      <Footer /> */}
-      <SignUpForm />
+    <ProfileDashboard/>
     </>
   );
 }

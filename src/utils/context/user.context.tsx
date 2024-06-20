@@ -12,13 +12,14 @@ const initialState: UserDetailsType = {
   age: 0,
   cityCenter: '',
   degreeStudyField: '',
-  idUrl:'',
+  idUrl: '',
   verified: false,
   _id: '',
   isWhatsAppVerified: false,
   isUserVerified: false,
-  collegeName:'',
-  gameDetails:[]
+  collegeName: '',
+  gameDetails: [],
+  isLoggedIn:false
   // hasBasicDetails: false,
   // step: '1.1',
 }; //1.1 - Basic details,1.2- OTP,2.1-Academic Details, 3.1- Game Selection, 3.2 - Game Details

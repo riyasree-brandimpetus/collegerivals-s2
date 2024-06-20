@@ -401,3 +401,34 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
     margin: 0 1.5px !important;
   }
 }
+.custom-background{
+  background-image:  url('/form-image.png'),url('/registration-image-step-1.svg');
+  background-position: center;
+      background-size: 60%, cover;
+    background-repeat: no-repeat;
+}
+.custom-gradient {
+            background-color: linear-gradient(to right, #050607 50%, #010101 73.14%, #000000 76%);
+        }
+
+        .clip-bg {
+            border-right: 6px solid #DBFD67;
+            border-bottom: 4px solid #DBFD67;
+            clip-path: polygon(0 0, calc(100% - 32px) 0, 100% 21px, 100% 100%, 44px 100%, 0 calc(100% - 23px));
+            padding: 8px;
+        }
+
+        .custom-button {
+            background-image: url("../../public/btn1.svg");
+            background-repeat: no-repeat;
+            box-shadow: 11px 6px 0 5px #DBFD67;
+        }
+
+        .translucent-bg {
+            /* background: rgba(25, 25, 25, 0.85);             */
+            backdrop-filter: blur(10px);
+        }
+
+        .clip-main-bg {
+            clip-path: polygon(0 70px, 70px 70px, 70px 0, calc(100% - 70px) 0, calc(100% - 70px) 70px, 100% 70px, 100% 100%, 0 100%);
+        }

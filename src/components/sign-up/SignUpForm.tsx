@@ -24,7 +24,6 @@ import { useContext, useEffect } from 'react';
 import BasicDetailsForm from './BasicDetailsForm';
 import OTPForm from './OTPForm';
 
-
 const steps = [
   { description: 'Enter Details' },
   { description: 'Verification' },
@@ -178,9 +177,9 @@ export default function SignUpForm() {
           />
           {activeStep === 1 ? (
             // <FirstForm />
-            <BasicDetailsForm />
+            <BasicDetailsForm/>
           ) : activeStep === 2 ? (
-            <OTPForm />
+            <OTPForm/>
           ) : activeStep === 3 ? (
             <ThirdForm />
           ) : null}

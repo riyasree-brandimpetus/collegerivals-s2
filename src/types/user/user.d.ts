@@ -13,5 +13,6 @@ export interface UserDetailsType {
   isUserVerified: Boolean;
   collegeName:string;
   gameDetails:any;
+  isLoggedIn:Boolean;
   // step:string
 }

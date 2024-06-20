@@ -24,10 +24,11 @@ import { useContext, useEffect } from 'react';
 import BasicDetailsForm from './BasicDetailsForm';
 import OTPForm from './OTPForm';
 
+
 const steps = [
   { description: 'Enter Details' },
   { description: 'Verification' },
-  { description: 'Create Profile' },
+  { description: 'Log In' },
 ];
 
 export default function LoginForm() {
@@ -37,52 +38,29 @@ export default function LoginForm() {
     count: steps.length,
   });
   const router = useRouter();
+useEffect(() => {
+  if (state.isWhatsAppVerified) {
+    // router.push('/my-profile');
+    console.log('Enter OTP');
+    setActiveStep(2);
+  }
+}, [state.isWhatsAppVerified]);
+
 
   useEffect(() => {
-    if (state.isWhatsAppVerified) {
-      console.log('Whatsapp is verified entered');
-      setActiveStep(2);
+    if (state.isLoggedIn) {
+      router.push('/my-profile');
+      console.log('OTP is verified');
+      // setActiveStep(2);
     }
-  }, [state.isWhatsAppVerified]);
-  useEffect(() => {
-    if (
-      state.isWhatsAppVerified &&
-      state.age &&
-      state.degreeStudyField &&
-      state.collegeName
-    ) {
-      console.log('Academic details are verified');
-      setActiveStep(3);
-    }
-  }, [
-    state.isWhatsAppVerified,
-    state.age,
-    state.degreeStudyField,
-    state.collegeName,
-  ]);
-  useEffect(() => {
-    if (state.isWhatsAppVerified && state.gameDetails.length > 0) {
-      console.log('Game Details are verified');
-      // setActiveStep(4);
-      router.push('/registration-successful');
-    }
-  }, [state.gameDetails]);
+  }, [state.isLoggedIn]);
 
   return (
     <>
-      <Flex minHeight="100vh" minWidth="100vw">
+      <Flex minHeight="100vh" minWidth="100vw" className="bg-[#050607]">
         <Box
           width={{ lg: '40%' }}
-          // backgroundImage="url('/registration-image.jpg')"
-          backgroundImage={
-            activeStep === 1
-              ? "url('/registration-image-step-1.svg')"
-              : activeStep === 2
-              ? "url('/registration-image-step-2.webp')"
-              : activeStep === 3
-              ? "url('/registration-image-step-3.webp')"
-              : "url('/registration-image-step-final.webp')"
-          }
+          className='custom-background'
           padding="2rem"
           display={{ base: 'none', md: 'none', lg: 'block' }}
           backgroundRepeat="no-repeat"
@@ -90,7 +68,7 @@ export default function LoginForm() {
         >
           <Link href="/">
             <Image
-              src="./footer-logo.svg"
+              src="./college-rivals-white-logo.svg"
               alt="Logo"
               width="5rem"
               height="auto"
@@ -137,7 +115,7 @@ export default function LoginForm() {
                         border={isActive || isCompleted ? 'none' : '1px solid'}
                         borderColor={isActive ? 'yellow.500' : 'black.500'}
                         backgroundColor={
-                          isActive || isCompleted ? '#d1ff45' : 'transparent'
+                          isActive || isCompleted ? '#E7327C' : 'transparent'
                         }
                         display="flex"
                         alignItems="center"
@@ -148,7 +126,7 @@ export default function LoginForm() {
                           <StepIcon />
                         ) : (
                           <Text
-                            color="black.500"
+                            className='text-white'
                             fontWeight="bold"
                             fontSize={isActive ? 'lg' : 'md'}
                           >
@@ -156,12 +134,12 @@ export default function LoginForm() {
                           </Text>
                         )}
                       </Box>
-                      <StepDescription className="text-sm font-bold pt-1.5 text-center ">
+                      <StepDescription className="text-white text-sm font-bold pt-1.5 text-center ">
                         {step.description}
                       </StepDescription>
                     </Flex>
 
-                    <StepSeparator className="bg-stone-950 h-1.3" />
+                    <StepSeparator className="bg-[#FFFFFF] h-1.3" />
                   </Box>
                 </Step>
               );
@@ -176,10 +154,9 @@ export default function LoginForm() {
             zIndex="2"
           />
           {activeStep === 1 ? (
-            // <FirstForm />
-            <BasicDetailsForm/>
+            <BasicDetailsForm />
           ) : activeStep === 2 ? (
-            <OTPForm/>
+            <OTPForm />
           ) : activeStep === 3 ? (
             <ThirdForm />
           ) : null}
