@@ -1,15 +1,21 @@
+"use client"
 import Image from "next/image";
 import playbtn from "../../../public/hero-movie-btn.svg";
 import stripe1 from "../../../public/assets/strip1.png";
 import stripe2 from "../../../public/assets/strip2.png";
 import stripe3 from "../../../public/assets/strip3.png";
-import heroImg from "../../../public/home-hero.gif";
 const HeroSection = () => {
+
+const openvideo = ()=>{
+ const url = "https://youtu.be/_rZbggv13po?si=5UVJMt8OU-AqmmWc"
+  window.open(url, '_blank');
+}
+
   return (
-    <div className="flex flex-col items-center justify-center pt-56 md:pb-20 pb-32 bg-black relative -z-1">
+    <div className="flex flex-col items-center justify-center pt-56 relative ">
      
       <video src="/assets/hero-homepage.mp4" autoPlay={true} controls={false} loop={true} muted={true} className="w-full h-screen object-cover absolute top-0 -z-2"/>
-      <div className="px-0.938rem text-xs text-white rounded-2.063rem py-3 bg-#151515 bg-opacity-40 flex gap-1 backdrop-blur-md helvetica-font font-bold relative -z-1">
+      <div onClick={openvideo} className="px-0.938rem text-xs cursor-pointer text-white rounded-2.063rem py-3 bg-#151515 bg-opacity-40 flex gap-1 backdrop-blur-md helvetica-font font-bold relative ">
         <Image src={playbtn} alt="playbtn" />
         PLAY AFTERMOVIE
       </div>

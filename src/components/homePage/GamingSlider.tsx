@@ -66,7 +66,9 @@ const GamingSlider = () => {
   };
 
   return (
-    <div className="bg-black relative">
+    <div className="pt-16 md:pt-20 bg-black w-full">
+    <div className="bg-black relative   ">
+   
        <Image src="/pink-gaming-slider-bg.svg" alt="pink-bg" className="w-full absolute md:-top-20 -top-9 bg-black " width="1440" height={300} />
    
       <div className="w-full  flex justify-center bg-#E7327C rounded-xl">
@@ -176,6 +178,7 @@ const GamingSlider = () => {
         </div>
       </div>
     
+    </div>
     </div>
   );
 };

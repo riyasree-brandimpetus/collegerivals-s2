@@ -4,11 +4,11 @@ import EsportsNavbar from "./EsportsNavbar";
 
 const Esports = () => {
   return (
-    <div className="w-full flex flex-col place-items-center justify-center bg-black">
+    <div id="section1" className="w-full flex flex-col place-items-center justify-center bg-black section">
          <EsportsNavbar/>
       <div className="max-w-[1440px] w-full h-full mt-12 flex flex-col justify-center items-center slate-400 lg:p-24 p-6 gap-4 ">
         <div>
-        <select className="w-64 mb-14 p-4 border border-#DBFD67 bg-black text-white rounded-lg helvetica-medium-font text-lg" name="cars" id="cars">
+        <select className="w-64 mb-14 p-4 border border-#DBFD67 bg-black text-white rounded-lg helvetica-medium-font text-lg custom-select-arrow" name="cars" id="cars">
   <option value="volvo">BGMI</option>
   <option value="saab">VALORANT</option>
   <option value="mercedes">CSGO</option>
@@ -19,18 +19,18 @@ const Esports = () => {
         <div className="flex md:flex-row flex-col xl:justify-between justify-center w-full gap-5 mb-8 text-white">
        
           <div className="flex flex-col md:py-11 md:px-24 p-7 justify-center place-items-center bg-[#131313] md:w-1/2 w-full">
-            <h3 className="font-extrabold md:text-6xl text-2xl mb-6">
+            <h3 className="font-extrabold md:text-6xl text-2xl mb-6 ppFormula-font italic ">
               <em>ONLINE</em>
             </h3>
             <p className="md:text-lg text-sm font-extrabold mb-8 ppFormula-font italic text-#8D8D8D">
               <em>MONTHLY QUALIFIERS</em>
             </p>
             <div className="grid grid-cols-3 gap-4">
-              <div className="px-8 py-5 bg-[#3B3B3B] text-[#666666] text-sm flex items-center justify-center rounded-lg">
+              <div className="px-8 py-5 bg-[#3B3B3B] text-[#666666] text-sm flex items-center justify-center rounded-lg ppFormula-font italic">
                 <p>AUG</p>
               </div>
               <div className="px-8 bg-[#282828] flex flex-col items-center justify-center rounded-lg">
-                <p className="text-[#D1FF45] text-sm">SEP</p>
+                <p className="text-[#D1FF45] text-sm ppFormula-font italic ">SEP</p>
                 <div className="text-[#E7327C] bg-[#2D2D2F] rounded-xl mt-1 py-1 px-3 flex flex-row gap-1">
                   <Image
                     width={2}
@@ -41,22 +41,22 @@ const Esports = () => {
                   <p className="text-xs">LIVE</p>
                 </div>
               </div>
-              <div className="px-8 py-5 bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg">
+              <div className="px-8 py-5 bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic ">
                 <p>OCT</p>
               </div>
-              <div className="px-8 py-5 bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg">
+              <div className="px-8 py-5 bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic  ">
                 <p>NOV</p>
               </div>
-              <div className="px-8 py-5 bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg">
+              <div className="px-8 py-5 bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic  ">
                 <p>DEC</p>
               </div>
-              <div className="px-8 py-5 bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg">
+              <div className="px-8 py-5 bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font   italic ">
                 <p>JAN</p>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col md:py-11 md:px-24 p-7 justify-center place-items-center bg-[#131313] md:w-1/2 w-full">
+          <div className="flex flex-col md:py-11 md:px-24 p-7 justify-center place-items-center bg-[#131313] md:w-1/2 w-full ppFormula-font italic ">
             <h3 className="font-extrabold md:text-6xl text-2xl mb-6">
               <em>OFFLINE</em>
             </h3>
@@ -65,21 +65,21 @@ const Esports = () => {
             </p>
             <div className="md:flex hidden justify-center place-items-center relative rounded-xl w-full">
               <Image
-                width={335}
+                width={705}
                 height={134}
                 src="/assets/offline-img.png"
                 alt=""
                 className="w-full"
               />
-              <p className="absolute text-3xl font-extrabold">
+              <p className="absolute text-3xl font-extrabold  ppFormula-font italic ">
                 <em>50 COLLEGES</em>
               </p>
             </div>
             <div className="md:hidden flex flex-row bg-[#141619] rounded-xl w-full p-6 justify-center place-items-baseline">
-              <p className="text-8xl font-extrabold text-[#E7327C]">
+              <p className="text-8xl font-extrabold text-[#E7327C]  ppFormula-font italic ">
                 <em>50</em>
               </p>
-              <p className="text-2xl -ml-14 font-bold">
+              <p className="text-2xl -ml-14 font-bold  ppFormula-font italic ">
                 <em>COLLEGES</em>
               </p>
             </div>
@@ -220,7 +220,7 @@ const Esports = () => {
             <h3 className="font-extrabold md:text-3xl text-xl mb-6 text-[#DBFD67]">
               6 PLAYERS FROM
             </h3>
-            <p className="text-base md:mb-12 mb-8">
+            <p className="text-base md:mb-12 mb-8  ">
               <em>MONTHLY QUALIFIERS</em>
             </p>
             <div className=" bg-[#DBFD67] md:text-3xl text-xl font-extrabold rounded-lg text-[#333132] md:px-24 px-9 md:py-9 py-6 relative  ppFormula-font italic ">
@@ -236,8 +236,8 @@ const Esports = () => {
           </div>
         </div>
 
-        <div className="flex md:flex-row flex-col xl:justify-between justify-center w-full gap-5 mb-8 text-white">
-          <div className="flex flex-col py-11 px-8 justify-center place-items-center md:w-1/2">
+        <div className="flex md:flex-row flex-col xl:justify-between justify-center w-full gap-5  text-white">
+          <div className="flex flex-col justify-center place-items-center md:w-1/2">
             <div className="flex justify-center -space-x-3 mb-4">
               <div className="rounded-full p-1 bg-black">
                 <Image
@@ -293,12 +293,12 @@ const Esports = () => {
             <h3 className="font-extrabold md:text-3xl text-xl mb-6 text-[#DBFD67]">
               48 PLAYERS FROM
             </h3>
-            <p className="text-base md:mb-12 mb-8">
+            <p className="text-base ">
               <em>8 FROM EACH MONTHLY FINALS</em>
             </p>
           </div>
 
-          <div className="flex flex-col py-11 px-8 justify-center place-items-center md:w-1/2">
+          <div className="flex flex-col  justify-center place-items-center md:w-1/2">
             <div className="flex justify-center -space-x-3 mb-4">
               <div className="rounded-full p-1 bg-black">
                 <Image
@@ -356,6 +356,7 @@ const Esports = () => {
             </h3>
           </div>
         </div>
+        <div className="w-full justify-center items-center flex"> <Image src="/esports-illustration1.svg" width={656} height={136} alt="" /> </div>
 
         <div className="flex flex-row flex-wrap justify-center w-full gap-5 text-white">
           <div className="w-fit bg-[#18191A] md:text-3xl text-xl font-extrabold rounded-2xl text-[#DBFD67] md:px-12 px-6 md:py-6 py-3">
@@ -378,8 +379,9 @@ const Esports = () => {
             </div>
           </div>
         </div>
+        <div className="flex w-full items-center justify-center"><Image src='/esports-illustration2.svg' alt="" width={2} height={104} /></div>
 
-        <div className="flex flex-col flex-wrap justify-center place-items-center w-full gap-5 md:px-12 px-6 md:py-9 py-9 text-white relative">
+        <div className="flex flex-col flex-wrap justify-center place-items-center w-full gap-5 md:px-12 px-6  text-white relative">
           <Image
             width={1208}
             height={144}
@@ -396,7 +398,7 @@ const Esports = () => {
               alt=""
               className="md:w-auto w-1/3"
             />
-            <p className="md:text-5xl text-xl font-extrabold text-[#DBFD67]">
+            <p className="md:text-5xl text-xl font-extrabold text-[#DBFD67]  ppFormula-font italic ">
               <em>GRAND FINALE</em>
             </p>
           </div>

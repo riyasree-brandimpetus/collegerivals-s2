@@ -43,7 +43,6 @@ const EsportsNavbar: React.FC = () =>{
 
 
 
-
     return(
         <div className="w-full">
   <div className="bg-[#131313] max-xl:hidden fixed -left-40 top-[46%] flex gap-16 px-7 py-5  rounded-lg z-50 rotate-90">
