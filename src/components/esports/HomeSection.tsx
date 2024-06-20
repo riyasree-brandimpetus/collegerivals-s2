@@ -22,7 +22,7 @@ const Esports = () => {
             <h3 className="font-extrabold md:text-6xl text-2xl mb-6">
               <em>ONLINE</em>
             </h3>
-            <p className="md:text-lg text-sm font-extrabold mb-8">
+            <p className="md:text-lg text-sm font-extrabold mb-8 ppFormula-font italic text-#8D8D8D">
               <em>MONTHLY QUALIFIERS</em>
             </p>
             <div className="grid grid-cols-3 gap-4">
@@ -60,10 +60,10 @@ const Esports = () => {
             <h3 className="font-extrabold md:text-6xl text-2xl mb-6">
               <em>OFFLINE</em>
             </h3>
-            <p className="md:text-lg text-sm font-extrabold mb-8 md:block hidden">
+            <p className="md:text-lg text-sm font-extrabold mb-8 md:block hidden  ppFormula-font italic text-#8D8D8D">
               <em>COLLEGE PLAYOFFS</em>
             </p>
-            <div className="md:flex hidden justify-center place-items-center relative rounded-xl">
+            <div className="md:flex hidden justify-center place-items-center relative rounded-xl w-full">
               <Image
                 width={335}
                 height={134}
@@ -143,11 +143,11 @@ const Esports = () => {
             <h3 className="font-extrabold md:text-3xl text-xl mb-6 text-[#DBFD67]">
               64 PLAYERS FROM
             </h3>
-            <p className="text-base md:mb-12 mb-8">
+            <p className="text-base md:mb-12 mb-8 ">
               <em>MONTHLY QUALIFIERS</em>
             </p>
          
-            <button className=" bg-[#DBFD67] md:text-3xl text-xl font-extrabold rounded-lg text-[#333132] md:px-24 px-9 md:py-9 py-6 relative">
+            <div className=" bg-[#DBFD67] md:text-3xl text-xl font-extrabold rounded-lg text-[#333132] md:px-24 px-9 md:py-9 py-6 relative  ppFormula-font italic ">
               <em>MONTHLY FINALS</em>
               <Image
                 width={428}
@@ -156,7 +156,7 @@ const Esports = () => {
                 alt=""
                 className="absolute bottom-0 left-0 z-1"
               />
-            </button>
+            </div>
     
           </div>
 
@@ -223,7 +223,7 @@ const Esports = () => {
             <p className="text-base md:mb-12 mb-8">
               <em>MONTHLY QUALIFIERS</em>
             </p>
-            <button className=" bg-[#DBFD67] md:text-3xl text-xl font-extrabold rounded-lg text-[#333132] md:px-24 px-9 md:py-9 py-6 relative">
+            <div className=" bg-[#DBFD67] md:text-3xl text-xl font-extrabold rounded-lg text-[#333132] md:px-24 px-9 md:py-9 py-6 relative  ppFormula-font italic ">
               <em>COLLEGE PLAYOFFS</em>
               <Image
                 width={428}
@@ -232,7 +232,7 @@ const Esports = () => {
                 alt=""
                 className="absolute bottom-0 left-0 z-1"
               />
-            </button>
+            </div>
           </div>
         </div>
 
@@ -357,9 +357,9 @@ const Esports = () => {
           </div>
         </div>
 
-        <div className="flex flex-row flex-wrap justify-center w-full gap-5 mb-8 text-white">
-          <button className="w-fit bg-[#18191A] md:text-3xl text-xl font-extrabold rounded-2xl text-[#DBFD67] md:px-12 px-6 md:py-6 py-3">
-            <div className="w-full relative px-3 py-6 md:px-12 md:py-6">
+        <div className="flex flex-row flex-wrap justify-center w-full gap-5 text-white">
+          <div className="w-fit bg-[#18191A] md:text-3xl text-xl font-extrabold rounded-2xl text-[#DBFD67] md:px-12 px-6 md:py-6 py-3">
+            <div className="w-full relative px-3 py-6 md:px-12 md:py-6  ppFormula-font italic ">
               <em>LEAGUE STAGE</em>
               <Image
                 width={46}
@@ -376,7 +376,7 @@ const Esports = () => {
                 className="absolute bottom-0 right-0 z-1"
               />
             </div>
-          </button>
+          </div>
         </div>
 
         <div className="flex flex-col flex-wrap justify-center place-items-center w-full gap-5 md:px-12 px-6 md:py-9 py-9 text-white relative">
