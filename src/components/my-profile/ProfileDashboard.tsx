@@ -40,30 +40,30 @@ const ProfileDashboard = () => {
                 </div>
                 <div className="flex flex-col md:place-items-start place-items-center gap-1">
                   <p className="text-[#CFCFCF] md:text-xl text-lg">
-                    Jessica Rebel
+                    Riyasree
                   </p>
                   <p className="text-[#5D5D5E] text-base">
-                    Joined on 31st Aug ‘23
+                    Joined on 20th Jun ‘24
                   </p>
                 </div>
               </div>
               <div className="flex flex-col md:gap-14 gap-7 md:place-items-start place-items-center ">
                 <h2 className="xl:text-6xl md:text-4xl text-3xl font-extrabold text-white md:mt-20 mt-6 tracking-tighter">
-                  <em>HELLO, JESSICA</em>
+                  <em>HELLO, RIYASREE</em>
                   <span className="text-[#DBFD67]">!</span>
                 </h2>
                 <div className="grid xl:grid-cols-3 grid-cols-2 xl:gap-12 gap-4">
                   <div className="flex flex-col flex-wrap">
                     <p className="text-[#5D5D5E] text-base">Age</p>
-                    <p className="text-[#CFCFCF] text-xl">24 yrs</p>
+                    <p className="text-[#CFCFCF] text-xl">28 yrs</p>
                   </div>
                   <div className="flex flex-col flex-wrap">
                     <p className="text-[#5D5D5E] text-base">City</p>
-                    <p className="text-[#CFCFCF] text-xl">Bengaluru</p>
+                    <p className="text-[#CFCFCF] text-xl">Kolkata</p>
                   </div>
                   <div className="flex flex-col flex-wrap">
                     <p className="text-[#5D5D5E] text-base">Email Address</p>
-                    <p className="text-[#CFCFCF] text-xl">jess123@ gmail.com</p>
+                    <p className="text-[#CFCFCF] text-xl">riyasree.gh@gmail.com</p>
                   </div>
                   <div className="flex flex-col flex-wrap">
                     <p className="text-[#5D5D5E] text-base">College</p>
@@ -78,7 +78,7 @@ const ProfileDashboard = () => {
 
                   <div className="flex flex-col flex-wrap">
                     <p className="text-[#5D5D5E] text-base">Phone no.</p>
-                    <p className="text-[#CFCFCF] text-xl">9876543210</p>
+                    <p className="text-[#CFCFCF] text-xl">8582823466</p>
                   </div>
                   <div className="md:hidden flex flex-col flex-wrap">
                     <p className="text-[#5D5D5E] text-base">Mode</p>
@@ -86,14 +86,14 @@ const ProfileDashboard = () => {
                   </div>
                   <div className="md:hidden flex flex-col flex-wrap">
                     <p className="text-[#5D5D5E] text-base">Selected Games</p>
-                    <div className="flex flex-row gap-1.5">
+                    {/* <div className="flex flex-row gap-1.5">
                       <img src="/prof1.svg" alt="" />
                       <img src="/prof2.svg" alt="" />
-                    </div>
+                    </div> */}
                   </div>
                   <div className="md:hidden flex flex-col flex-wrap">
                     <p className="text-[#5D5D5E] text-base">Date & Time</p>
-                    <p className="text-[#CFCFCF] text-xl">22nd Aug, 5:30 PM</p>
+                    {/* <p className="text-[#CFCFCF] text-xl">22nd Aug, 5:30 PM</p> */}
                   </div>
                 </div>
               </div>
