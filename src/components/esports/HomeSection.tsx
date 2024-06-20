@@ -1,20 +1,104 @@
+"use client"
 import Image from "next/image";
 import EsportsNavbar from "./EsportsNavbar";
 
+import { useEffect, useRef, useState } from "react";
+import { Data, GameData } from "@/types/Esports/esports";
 
-const Esports = () => {
+
+  const Esports: React.FC = () => {
+
+
+
+  const [selectedOption, setSelectedOption] = useState<string>('BGMI');
+  const [data, setData] = useState<GameData | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("./Esports.json");
+      const json: Data = await res.json();
+      console.log(json)
+      setData(json[selectedOption]);
+    };
+
+    fetchData();
+  }, [selectedOption]);
+
+
+
+// custom dropdown
+  const [selectedItem, setSelectedItem] = useState<string>('BGMI');
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const toggleDropdown = () => setIsOpen(!isOpen);
+
+  const selectItem = (item: string) => {
+setSelectedOption(item);
+setSelectedItem(item);
+    setIsOpen(false);
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+
+
   return (
     <div id="section1" className="w-full flex flex-col place-items-center justify-center bg-black section">
          <EsportsNavbar/>
       <div className="max-w-[1440px] w-full h-full mt-12 flex flex-col justify-center items-center slate-400 lg:p-24 p-6 gap-4 ">
+     
         <div>
-        <select className="w-64 mb-14 p-4 border border-#DBFD67 bg-black text-white rounded-lg helvetica-medium-font text-lg custom-select-arrow" name="cars" id="cars">
-  <option value="volvo">BGMI</option>
-  <option value="saab">VALORANT</option>
-  <option value="mercedes">CSGO</option>
-</select>
+          <div>
+          <div className="relative inline-block" ref={dropdownRef}>
+      <button
+        className="w-64 mb-14 text-left p-4 border border-#DBFD67 bg-black text-white rounded-lg helvetica-medium-font uppercase text-lg custom-select-arrow"
+        onClick={toggleDropdown}
+      >
+        {selectedItem}
+      </button>
+      {isOpen && (
+        <div className="absolute top-16 w-full text-lg bg-black shadow-lg mt-1 helvetica-medium-font  rounded-md z-10">
+          <a
+            href="#"
+            className="block px-4 py-4 text-white "
+            onClick={() => selectItem('BGMI')}
+          >
+         BGMI
+          </a>
+          <a
+            href="#"
+            className="block px-4 py-4 bg-[#131313] text-white "
+            onClick={() => selectItem('Valorant')}
+          >
+           VALORANT
+          </a>
+          <a
+            href="#"
+            className="block px-4 py-4 text-white "
+            onClick={() => selectItem('FIFA')}
+          >
+          FIFA
+          </a>
         </div>
-       
+      )}
+    </div>
+
+          </div>
+        </div>
+     
+      
   
         <div className="flex md:flex-row flex-col xl:justify-between justify-center w-full gap-5 mb-8 text-white">
        
@@ -72,12 +156,16 @@ const Esports = () => {
                 className="w-full"
               />
               <p className="absolute text-3xl font-extrabold  ppFormula-font italic ">
-                <em>50 COLLEGES</em>
+                <em>{ data && (
+            <span >{data.offline.colleges}</span>
+          )} COLLEGES</em>
               </p>
             </div>
             <div className="md:hidden flex flex-row bg-[#141619] rounded-xl w-full p-6 justify-center place-items-baseline">
               <p className="text-8xl font-extrabold text-[#E7327C]  ppFormula-font italic ">
-                <em>50</em>
+              { data && (
+            <span >{data.offline.colleges}</span>
+          )}
               </p>
               <p className="text-2xl -ml-14 font-bold  ppFormula-font italic ">
                 <em>COLLEGES</em>
@@ -89,51 +177,21 @@ const Esports = () => {
         <div className="flex md:flex-row flex-col xl:justify-between justify-center w-full gap-5 mb-8 text-white">
           <div className="flex flex-col py-11 px-8 justify-center items-center md:w-1/2">
             <div className="flex justify-center -space-x-3 mb-4">
+            <div>
+            { data && (
+            <div className="flex justify-center -space-x-3 mb-4" >{data.Online.monthly_finals_img.map((img,index)=>(
               <div className="rounded-full p-1 bg-black">
-                <Image
+              <Image
                   width={34}
                   height={34}
-                  src="/assets/avtar1.svg"
+                  src={img}
                   alt="Player 1"
                   className="rounded-full"
                 />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={34}
-                  height={34}
-                  src="/assets/avtar2.svg"
-                  alt="Player 2"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={34}
-                  height={34}
-                  src="/assets/avtar3.svg"
-                  alt="Player 3"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={34}
-                  height={34}
-                  src="/assets/avtar1.svg"
-                  alt="Player 4"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={34}
-                  height={34}
-                  src="/assets/avtar1.svg"
-                  alt="Player 5"
-                  className="rounded-full"
-                />
-              </div>
+                    </div>
+            ))}</div>
+          )}
+          </div>
               <div className="rounded-full p-1 bg-black">
                 <div className="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-white">
                   +59
@@ -141,7 +199,9 @@ const Esports = () => {
               </div>
             </div>
             <h3 className="font-extrabold md:text-3xl text-xl mb-6 text-[#DBFD67]">
-              64 PLAYERS FROM
+            { data && (
+            <span >{data.Online.monthly_qualifiers}</span>
+          )} PLAYERS FROM
             </h3>
             <p className="text-base md:mb-12 mb-8 ">
               <em>MONTHLY QUALIFIERS</em>
@@ -162,63 +222,26 @@ const Esports = () => {
 
           <div className="flex flex-col py-11 px-8 justify-center place-items-center md:w-1/2">
             <div className="flex justify-center -space-x-3 mb-4">
+
+            { data && (
+            <div className="flex justify-center -space-x-3 mb-4" >
+              {data.offline.monthly_qualifiers_img.map((img,index)=>(
               <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar1.svg"
+              <Image
+                   width={34}
+                   height={34}
+                  src={img}
                   alt="Player 1"
                   className="rounded-full"
                 />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar2.svg"
-                  alt="Player 2"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar3.svg"
-                  alt="Player 3"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar1.svg"
-                  alt="Player 4"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar1.svg"
-                  alt="Player 5"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar1.svg"
-                  alt="Player 5"
-                  className="rounded-full"
-                />
-              </div>
+                    </div>
+            ))}</div>
+          )}
             </div>
             <h3 className="font-extrabold md:text-3xl text-xl mb-6 text-[#DBFD67]">
-              6 PLAYERS FROM
+            { data && (
+            <span >{data.offline.monthly_qualifiers}</span>
+          )} PLAYERS FROM
             </h3>
             <p className="text-base md:mb-12 mb-8  ">
               <em>MONTHLY QUALIFIERS</em>
@@ -239,51 +262,21 @@ const Esports = () => {
         <div className="flex md:flex-row flex-col xl:justify-between justify-center w-full gap-5  text-white">
           <div className="flex flex-col justify-center place-items-center md:w-1/2">
             <div className="flex justify-center -space-x-3 mb-4">
+
+            { data && (
+            <div className="flex justify-center -space-x-3 mb-4" >
+              {data.Online.monthly_finals_img.map((img,index)=>(
               <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar1.svg"
+              <Image
+                   width={46}
+                   height={46}
+                  src={img}
                   alt="Player 1"
                   className="rounded-full"
                 />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar2.svg"
-                  alt="Player 2"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar3.svg"
-                  alt="Player 3"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar1.svg"
-                  alt="Player 4"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar1.svg"
-                  alt="Player 5"
-                  className="rounded-full"
-                />
-              </div>
+                    </div>
+            ))}</div>
+          )}
               <div className="rounded-full p-1 bg-black">
                 <div className="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-white">
                   +43
@@ -291,7 +284,9 @@ const Esports = () => {
               </div>
             </div>
             <h3 className="font-extrabold md:text-3xl text-xl mb-6 text-[#DBFD67]">
-              48 PLAYERS FROM
+            { data && (
+            <span >{data.Online.monthly_finals}</span>
+          )} PLAYERS FROM
             </h3>
             <p className="text-base ">
               <em>8 FROM EACH MONTHLY FINALS</em>
@@ -300,51 +295,23 @@ const Esports = () => {
 
           <div className="flex flex-col  justify-center place-items-center md:w-1/2">
             <div className="flex justify-center -space-x-3 mb-4">
+            
+              { data && (
+            <div className="flex justify-center -space-x-3 mb-4" >
+              {data.offline.monthly_finals_img.map((img,index)=>(
               <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar1.svg"
+              <Image
+                   width={46}
+                   height={46}
+                  src={img}
                   alt="Player 1"
                   className="rounded-full"
                 />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar2.svg"
-                  alt="Player 2"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar3.svg"
-                  alt="Player 3"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar1.svg"
-                  alt="Player 4"
-                  className="rounded-full"
-                />
-              </div>
-              <div className="rounded-full p-1 bg-black">
-                <Image
-                  width={46}
-                  height={46}
-                  src="/assets/avtar1.svg"
-                  alt="Player 5"
-                  className="rounded-full"
-                />
-              </div>
+                    </div>
+            ))}</div>
+          )}
+
+               
               <div className="rounded-full p-1 bg-black">
                 <div className="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-white">
                   +11
@@ -352,7 +319,9 @@ const Esports = () => {
               </div>
             </div>
             <h3 className="font-extrabold md:text-3xl text-xl mb-6 text-[#DBFD67]">
-              16 PLAYERS FROM
+            { data && (
+            <span >{data.offline.college_playoffs}</span>
+          )}   PLAYERS FROM
             </h3>
           </div>
         </div>

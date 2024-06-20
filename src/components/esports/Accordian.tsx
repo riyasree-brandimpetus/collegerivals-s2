@@ -235,7 +235,8 @@ const EsportsAccordian = () => {
   let isOpen: any;
   const scrollRef = useRef(null);
   return (
-    <Box className=" overflow-hidden max-w-[1440px] mx-auto">
+    <Box className="w-full bg-black">
+    <Box className=" overflow-hidden max-w-[1440px] mx-auto ">
       <Heading
         ref={scrollRef}
         as={motion.div}
@@ -251,10 +252,10 @@ const EsportsAccordian = () => {
         // gap={{ base: "1.25rem", lg: "1.25rem" }}
         size={"3xl"}
       >
-        <Text as={"span"} color={"#000"} mr={{ base: "0.3rem", lg: "0.8rem" }}>
+        <Text as={"span"} color={"#ffffff"} mr={{ base: "0.3rem", lg: "0.8rem" }}>
           the
         </Text>{" "}
-        <Text as={"span"} className="text-pink">
+        <Text as={"span"} className="text-white">
           finalists 
         </Text>
       </Heading>
@@ -290,14 +291,11 @@ const EsportsAccordian = () => {
         {finalists.map(({ svg, title, students }, idx) => {
           return (
             <AccordionItem
-              className="bg-neon"
+              className="bg-neon round rounded-t-1.25rem"
               padding="0"
               key={title}
               mb={isOpen ? "" : "5px"}
-              borderRadius={{
-                base: idx === 0 ? "1.25rem 1.25rem 0px 0px" : "",
-                lg: "unset",
-              }}
+              
             >
               {({ isExpanded }) => (
                 <>
@@ -348,9 +346,9 @@ const EsportsAccordian = () => {
                           <Flex
                             direction={{ base: "column", lg: "row" }}
                             backgroundColor={
-                              studIdx % 2 === 0 ? "#333333" : "#FFFFFF"
+                              studIdx % 2 === 0 ? "rgb(20, 20, 20, 1)" : "#050607"
                             }
-                            color={studIdx % 2 === 0 ? "#FFFFFF" : "#333333"}
+                            color="#FFFFFF"
                             padding={{
                               base: "1rem 0 1rem 1.25rem",
                               lg: "1.56rem 0 1.375rem 3.75rem",
@@ -386,9 +384,7 @@ const EsportsAccordian = () => {
                             >
                               <Box>
                                 <Icon2
-                                  fill={
-                                    studIdx % 2 === 0 ? "#FFFFFF" : "#333333"
-                                  }
+                                  fill="#FFFFFF"
                                 />
                               </Box>
                               <Text>{universityName}</Text>
@@ -404,6 +400,7 @@ const EsportsAccordian = () => {
           );
         })}
       </Accordion>
+    </Box>
     </Box>
   );
 };
