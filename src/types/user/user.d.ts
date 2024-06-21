@@ -16,3 +16,4 @@ export interface UserDetailsType {
   isLoggedIn:Boolean;
   // step:string
 }
+
