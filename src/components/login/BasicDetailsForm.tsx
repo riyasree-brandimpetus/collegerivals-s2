@@ -8,7 +8,8 @@ import {
   Box,
   Divider,
   FormLabel,
-  useToast
+  useToast,
+  Text
 } from '@chakra-ui/react';
 import api from '@/utils/axios/instance';
 import { useContext, useRef, useState } from 'react';
@@ -94,16 +95,17 @@ export default function BasicDetailsForm() {
       onSubmit={handleSubmit}
     >
       {({ errors, touched, isSubmitting }) => (
-        <Form className="text-white flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 pt-8 md:max-h-[80vh]">
+        <Form className="text-white flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 lg:pt-20 pt-8 md:max-h-[80vh]">
           <Heading
             pb={{ base: '0.5rem', lg: '0.25rem' }}
-            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem]  tracking-wide lg:tracking-wider"
           >
             ENTER YOUR{' '}
-            <Box as="span" className="text-pink">
+            <Box as="span" className="text-[#DBFD67]">
               DETAILS
             </Box>
           </Heading>
+          <Text className='helvetica-light-font font-normal'>You are logging into your account on Ampverse</Text>
           {/* <Text pb={{ base: '2.125rem', lg: '1.25rem' }}>
             You are creating an account on{' '}
             <Text as={'span'} fontWeight={'700'}>
@@ -208,16 +210,16 @@ export default function BasicDetailsForm() {
               </Box>
             </Flex>
           </Box>
-          <Box className="stick bottom-0 mt-auto">
-            <Divider
+          <Box className="fixed pt-6 lg:pl-16 border-t border-[fffffef] lg:w-[55%] w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
+            {/* <Divider
               marginTop="auto"
-              borderColor={'black'}
+              borderColor={'black'} 
               borderBottomWidth="1px"
               borderBottomStyle="dotted"
               ml={{ base: '0rem', lg: '-5.063rem' }}
               width={{ base: '100%', lg: '109%' }}
-            />
-            <Button
+            /> */}
+            {/* <Button
               id="basic-details-form-submit-btn"
               type="submit"
               color={'#fff'}
@@ -236,7 +238,7 @@ export default function BasicDetailsForm() {
               alignItems={'center'}
               fontSize={'1rem'}
               mt="1.25rem"
-              mb="1.25rem"
+              mb="2.5rem"
               height={{ base: '4.125rem', lg: '4.063rem' }}
               width={{ base: '17rem', lg: '22rem' }}
               isLoading={isSubmitting}
@@ -244,7 +246,23 @@ export default function BasicDetailsForm() {
               isDisabled={!isVerified || isSubmitting}
             >
               Proceed to verify
-            </Button>
+            </Button> */}
+            <div className='helvetica-light-font font-normal max-lg:hidden'>
+              Already a member? <span className='text-[#DBFD67] helvetica-font font-bold underline'>Login</span>
+            </div>
+
+            <div className="clip-bg-neon rounded-lg w-fit mb-10 mr-20">
+      <button  
+       id="basic-details-form-submit-btn"
+              type="submit"
+              disabled={!isVerified || isSubmitting}
+        className="custom-button-neon px-9 lg:py-5 py-1.125rem text-lg text-white rounded-lg bg-cover"
+      >
+        PROCEED TO VERIFY
+      </button>
+    </div>
+
+           
           </Box>
         </Form>
       )}
