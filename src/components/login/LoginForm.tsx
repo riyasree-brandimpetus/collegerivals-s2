@@ -81,10 +81,16 @@ useEffect(() => {
           flexDirection="column"
         >
           <Stepper
+          background="linear-gradient(0deg, rgba(255,255,255,0.1) 22%, rgba(255,255,255,0) 63%)"
+          borderBottom="1px solid #ffffff2e"
             size="lg"
             index={activeStep}
             paddingTop="2rem"
+            paddingBottom="2rem"
             paddingLeft="2rem"
+            gap='0'
+            colorScheme='gray' 
+           
           >
             {steps.map((step, index) => {
               const isCompleted = index < activeStep - 1;
@@ -92,8 +98,9 @@ useEffect(() => {
 
               return (
                 <Step
-                  key={index}
+                     key={index}
                   className="flex flex-col w-4/12 justify-start"
+                  
                 >
                   <Box
                     display="flex"
@@ -106,7 +113,7 @@ useEffect(() => {
                       direction="column"
                       justifyContent="center"
                       alignItems="center"
-                      width="55%"
+                      width="45%"
                     >
                       <Box
                         width={{ base: '2rem', lg: '2.5rem' }}
@@ -134,12 +141,12 @@ useEffect(() => {
                           </Text>
                         )}
                       </Box>
-                      <StepDescription className="text-white text-sm font-bold pt-1.5 text-center ">
+                      <StepDescription className="text-white text-base font-bold pt-1.5 text-center ">
                         {step.description}
                       </StepDescription>
                     </Flex>
 
-                    <StepSeparator className="bg-[#FFFFFF] h-1.3" />
+                    <StepSeparator  className='bg-white bg-opacity-20 h-px ' />
                   </Box>
                 </Step>
               );
