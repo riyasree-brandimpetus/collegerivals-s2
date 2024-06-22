@@ -1,3 +1,5 @@
+"use client"
+import { useState } from "react";
 import userData from "./Profiledata.json"
 
 const ProfileDashboard = () => {
@@ -27,6 +29,8 @@ const ProfileDashboard = () => {
   }
   
   const User : UserProfile= userData;
+
+const [progress, setprogress] = useState<number>(45)
 
 
 
@@ -99,7 +103,7 @@ const ProfileDashboard = () => {
                   </div>
                   <div className="flex flex-col flex-wrap">
                     <p className="text-[#5D5D5E] text-base">Email Address</p>
-                    <p className="text-[#CFCFCF] text-xl">{userData.email}</p>
+                    <p className="text-[#CFCFCF] md:text-xl">{userData.email}</p>
                   </div>
                   <div className="flex flex-col flex-wrap">
                     <p className="text-[#5D5D5E] text-base">College</p>
@@ -138,9 +142,11 @@ const ProfileDashboard = () => {
             <div className="flex flex-row gap-10 w-full justify-center place-items-end">
               <div className="flex flex-col md:w-3/5 w-full gap-2">
                 <div className="bg-[#333132] w-full h-[17px] rounded-sm">
-                  <div className="w-1/2 bg-[#E7327C] h-full rounded-sm"></div>
+                  <div className=" bg-[#E7327C] h-full rounded-sm" 
+                          style={{ width: `${progress}%` }}
+                  ></div>
                 </div>
-                <p className="text-white">50% Complete</p>
+                <p className="text-white">{progress}% Complete</p>
               </div>
               <div className="clip-bg rounded-lg w-fit md:block hidden ">
                 <button className="custom-button xl:px-9 px-4 py-5 xl:text-lg text-base text-white rounded-lg bg-cover bg-black">
