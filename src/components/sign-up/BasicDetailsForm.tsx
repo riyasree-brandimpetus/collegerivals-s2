@@ -165,7 +165,7 @@ export default function BasicDetailsForm() {
           <div className='flex lg:h-[65vh] h-[60vh]  flex-col pl-6 lg:pl-16 pr-6 lg:pr-0 pt-8'>
           <Heading
             pb={{ base: '0.5rem', lg: '0.25rem' }}
-            className="ppFormula-font text-white italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+            className="ppFormula-font flex gap-3 text-white italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
           >
             ENTER YOUR
             <Box as="span" className="text-[#DBFD67]">
