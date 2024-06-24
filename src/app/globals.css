@@ -484,10 +484,10 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
 
 .gradient-border .inner {
   display: inline-block;
-  background-color: #0f1011;
+
   /* padding: 1rem 1.5rem; */
   border-radius: inherit;
-  color: white;
+
   font-weight: 600;
 }
 

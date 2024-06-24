@@ -29,7 +29,15 @@ const NavbarSeason2 =() =>{
                 <Link className="text-white opacity-65% text-xs helvetica-medium-font" href="">ABOUT US</Link>
                 <Link className="text-white opacity-65% text-xs helvetica-medium-font" href="">STORE</Link>
             </div>
-            <button className="bg-#E7327C px-1.75rem py-1.125rem rounded-md text-white text-xs helvetica-medium-font">REGISTER NOW</button>
+            <button className="bg-#E7327C  px-1.75rem py-1.125rem rounded-md text-white text-xs helvetica-medium-font">REGISTER NOW</button>
+            <div className=" hidden h-fit w-fit">
+                            <button className="inner bg-[#0F1011] bg-opacity-50 md:px-12 md:py-1.125rem px-12 py-2.5 helvetica-medium-font text-xs  text-#E7327C ">
+                              <div className="flex gap-1">
+                            <Image  src="/navbar-dot.svg" alt="" width={6} height={6}/>
+                            MY PROFILE
+                            </div>
+                            </button>
+                        </div>
           </div>
           <div className="lg:hidden flex mobilenav ">
         <div onClick={toggleNavbar}  >
@@ -46,7 +54,12 @@ const NavbarSeason2 =() =>{
           <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="">PRESS</Link>
           <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="">ABOUT US</Link>
           <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="">STORE</Link>
-          <button className="bg-#E7327C px-1.75rem py-1.125rem rounded-md text-white text-xs helvetica-medium-font">REGISTER NOW</button>
+          <button className=" bg-#E7327C px-1.75rem py-1.125rem rounded-md text-white text-xs helvetica-medium-font">REGISTER NOW</button>
+          <div className="gradient-border h-fit w-fit hidden">
+                            <button className="inner md:px-1.5rem md:py-1.25rem px-12 py-1.125 helvetica-medium-font text-base">
+                                VIEW RULEBOOK
+                            </button>
+                        </div>
           </div>
           </div>
         </div>
