@@ -39,7 +39,7 @@ const [progress, setprogress] = useState<number>(45)
         <img
           src="/profile-yellow.svg"
           alt=""
-          className="absolute right-0 md:bottom-0 bottom-44 z-0 md:w-1/2 w-1/2"
+          className="absolute right-0 bottom-0 z-0 md:w-1/2 w-1/2"
         />
           <img
           src="/profile-illustration.svg"
@@ -50,11 +50,11 @@ const [progress, setprogress] = useState<number>(45)
       
 
         <div className="xl:p-10  flex flex-col gap-14 w-full z-10 relative ">
-          <div className="absolute w-full h-full -z-1  justify-center ">
+          <div className="absolute w-full md:hidden flex h-full -z-1  justify-center ">
             <img
               src="/mobile-bg-blur.svg"
               alt=""
-              className="absolute inset-0 w-[100vw] lg:h-[67vh] h-[100vh]  object-fill   "
+              className="absolute inset-0 w-[100vw] lg:h-[67vh] h-[100vh]   object-fill   "
             />
           </div>
           <div className="absolute w-full h-full -z-1 lg:flex hidden justify-center  ">
@@ -64,9 +64,16 @@ const [progress, setprogress] = useState<number>(45)
               className="absolute inset-0 w-[100vw] lg:h-[71vh] h-[100vh]  object-fill backdrop-blur-md rounded-lg  "
             />
           </div>
+          <div className="absolute w-full h-full -z-1 md:flex lg:hidden hidden  justify-center  ">
+            <img
+              src="/profile-blur-bg.svg"
+              alt=""
+              className="absolute inset-0 w-[100vw]   object-contain backdrop-blur-md rounded-lg  "
+            />
+          </div>
         
         
-          <div className="flex flex-col justify-center items-center md:gap-14  lg:-mt-20 z-50 relative px-10">
+          <div className="flex  custom-clip flex-col justify-center items-center md:gap-14  lg:-mt-20 z-50 relative px-10">
             <div className="flex lg:flex-row flex-col lg:gap-10 gap-0 w-full justify-center place-items-center">
               <div className="flex h-full justify-between flex-col  md:place-items-start  items-center">
                 <div>
@@ -106,9 +113,9 @@ const [progress, setprogress] = useState<number>(45)
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">City</p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">{User.city}</p>
                   </div>
-                  <div className="flex flex-col flex-wrap ">
+                  <div className="flex flex-col max-lg:col-span-2 flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">Email Address</p>
-                    <p className="text-[#CFCFCF] md:text-xl helvetica-font font-bold">{userData.email}</p>
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">{userData.email}</p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">College</p>
@@ -118,7 +125,7 @@ const [progress, setprogress] = useState<number>(45)
                   </div>
                   <div className="flex flex-col flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">Degree</p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">{User.degreeStudyField}</p>
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">{User.degreeStudyField ? User.degreeStudyField : '-'}</p>
                   </div>
 
                   <div className="flex flex-col flex-wrap ">

@@ -95,7 +95,8 @@ export default function BasicDetailsForm() {
       onSubmit={handleSubmit}
     >
       {({ errors, touched, isSubmitting }) => (
-        <Form className="text-white flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 lg:pt-20 pt-8 md:max-h-[80vh]">
+        <Form className="text-white flex flex-col grow  lg:pt-20 pt-8 md:max-h-[80vh]">
+          <div className='pl-6 lg:pl-16 pr-6 lg:pr-0'>
           <Heading
             pb={{ base: '0.5rem', lg: '0.25rem' }}
             className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem]  tracking-wide lg:tracking-wider"
@@ -210,7 +211,8 @@ export default function BasicDetailsForm() {
               </Box>
             </Flex>
           </Box>
-          <Box className="fixed pt-6 lg:pl-16 border-t border-[fffffef] lg:w-[55%] w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
+          </div>
+          <Box className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%] w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
             {/* <Divider
               marginTop="auto"
               borderColor={'black'} 
@@ -247,21 +249,20 @@ export default function BasicDetailsForm() {
             >
               Proceed to verify
             </Button> */}
-            <div className='helvetica-light-font font-normal max-lg:hidden'>
+        <div className='helvetica-light-font font-normal text-white  max-lg:hidden'>
               Already a member? <span className='text-[#DBFD67] helvetica-font font-bold underline'>Login</span>
             </div>
 
-            <div className="clip-bg-neon rounded-lg w-fit mb-10 mr-20">
+            <div className="clip-bg-neon rounded-lg w-fit mb-7 lg:mb-10 lg:mr-20">
       <button  
        id="basic-details-form-submit-btn"
               type="submit"
               disabled={!isVerified || isSubmitting}
-        className="custom-button-neon px-9 lg:py-5 py-1.125rem text-lg text-white rounded-lg bg-cover"
+        className="custom-button-neon px-9 lg:py-5 py-1.125rem text-sm lg:text-lg text-[#DBFD67] rounded-lg bg-cover"
       >
         PROCEED TO VERIFY
       </button>
     </div>
-
            
           </Box>
         </Form>

@@ -192,7 +192,7 @@ export default function LoginForm() {
           <div className="py-2rem flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
             <div className="flex items-center flex-col">
               <div
-                className="rounded-full w-[43px] h-[43px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
+                className="rounded-full lg:w-[43px] lg:h-[43px] w-[29px] h-[29px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
                   backgroundColor: activeStep == 1 ? "#E7327C" : "transparent",
                 }}
@@ -219,7 +219,7 @@ export default function LoginForm() {
             />
             <div className="flex items-center flex-col">
               <div
-                className="rounded-full w-[43px] h-[43px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
+                className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
                   backgroundColor: activeStep == 2 ? "#E7327C" : "transparent",
                 }}
@@ -246,7 +246,7 @@ export default function LoginForm() {
             />
             <div className="flex items-center flex-col">
               <div
-                className="rounded-full w-[43px] h-[43px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
+                className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
                   backgroundColor: activeStep == 3 ? "#E7327C" : "transparent",
                 }}

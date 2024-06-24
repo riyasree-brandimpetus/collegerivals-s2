@@ -340,7 +340,7 @@ export default function BasicDetailsForm() {
             </Flex>
           </Box>
           </div>
-          <Box className="fixed bg-black pt-6 lg:pl-16 border-t border-[fffffef] md:w-[55%] w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
+          <Box className="fixed bg-black pt-6 lg:pl-16 border-t border-[fffffef] lg:w-[55%] w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
                {/* 
            <Divider
               marginTop="auto"
