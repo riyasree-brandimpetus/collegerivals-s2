@@ -10,9 +10,9 @@ import {
   Box,
   Flex,
   useSteps,
-  Image,
+
   Stepper,
-  Link,
+
   StepIcon,
   Text,
   Divider,
@@ -23,6 +23,8 @@ import {
 import { useContext, useEffect } from 'react';
 import BasicDetailsForm from './BasicDetailsForm';
 import OTPForm from './OTPForm';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const steps = [
   { description: 'Enter Details' },
@@ -70,7 +72,7 @@ export default function SignUpForm() {
 
   return (
     <>
-      <Flex minHeight="100vh" minWidth="100vw">
+      {/* <Flex minHeight="100vh" minWidth="100vw">
         <Box
           width={{ lg: '40%' }}
           // backgroundImage="url('/registration-image.jpg')"
@@ -92,8 +94,9 @@ export default function SignUpForm() {
             <Image
               src="./footer-logo.svg"
               alt="Logo"
-              width="5rem"
-              height="auto"
+              width={82}
+              height={23}
+             
             />
           </Link>
         </Box>
@@ -184,7 +187,114 @@ export default function SignUpForm() {
             <ThirdForm />
           ) : null}
         </Flex>
-      </Flex>
+      </Flex> */}
+
+
+<div className="w-full flex h-screen bg-black">
+        <div className=" max-lg:hidden w-45% custom-background pt-10 pl-11">
+          <Link href="/">
+            <Image
+              src="./college-rivals-white-logo.svg"
+              alt="Logo"
+              width={85}
+              height={48}
+            />
+          </Link>
+        </div>
+        <div className="w-[55%] max-lg:w-full ">
+        <Link className="lg:hidden " href="/">
+            <Image
+            className="pl-6 pt-6"
+              src="./college-rivals-white-logo.svg"
+              alt="Logo"
+              width={82}
+              height={23}
+            />
+          </Link>
+          <div className="py-2rem flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
+            <div className="flex items-center flex-col">
+              <div
+                className="rounded-full w-[43px] h-[43px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
+                style={{
+                  backgroundColor: activeStep == 1 ? "#E7327C" : "transparent",
+                }}
+              >
+                1
+              </div>
+              <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs">
+                Enter Credentials
+              </p>
+            </div>
+            <Image
+              src="/stepper-seprator.svg"
+              alt=""
+              width="0"
+              height="0"
+              className="w-[30%] max-lg:hidden  h-auto -mt-9"
+            />
+             <Image
+              src="/md-stepper-seprator.svg"
+              alt=""
+              width="0"
+              height="0"
+              className="w-[15%] lg:hidden h-auto -mt-7"
+            />
+            <div className="flex items-center flex-col">
+              <div
+                className="rounded-full w-[43px] h-[43px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
+                style={{
+                  backgroundColor: activeStep == 2 ? "#E7327C" : "transparent",
+                }}
+              >
+                2
+              </div>
+              <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs">
+                Verification
+              </p>
+            </div>
+            <Image
+              src="/stepper-seprator.svg"
+              alt=""
+              width="0"
+              height="0"
+              className="w-[30%] max-lg:hidden  h-auto -mt-9"
+            />
+             <Image
+              src="/md-stepper-seprator.svg"
+              alt=""
+              width="0"
+              height="0"
+              className="w-[15%] lg:hidden h-auto -mt-7"
+            />
+            <div className="flex items-center flex-col">
+              <div
+                className="rounded-full w-[43px] h-[43px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
+                style={{
+                  backgroundColor: activeStep == 3 ? "#E7327C" : "transparent",
+                }}
+              >
+                3
+              </div>
+              <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs ">
+                Create Profile
+              </p>
+            </div>
+          </div>
+          <div className="w-full relative">
+          {activeStep === 1 ? (
+            // <FirstForm />
+            <BasicDetailsForm/>
+          ) : activeStep === 2 ? (
+            <OTPForm/>
+          ) : activeStep === 3 ? (
+            <ThirdForm />
+          ) : null}
+            
+          </div>
+        </div>
+      </div>
+
+
     </>
   );
 }

@@ -161,17 +161,18 @@ export default function BasicDetailsForm() {
       onSubmit={handleSubmit}
     >
       {({ errors, touched, isSubmitting }) => (
-        <Form className="flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 pt-8 md:max-h-[80vh]">
+        <Form className="flex flex-col ">
+          <div className='flex lg:h-[65vh] h-[60vh]  flex-col pl-6 lg:pl-16 pr-6 lg:pr-0 pt-8'>
           <Heading
             pb={{ base: '0.5rem', lg: '0.25rem' }}
-            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+            className="ppFormula-font text-white italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
           >
-            ENTER YOUR{' '}
-            <Box as="span" className="text-pink">
+            ENTER YOUR
+            <Box as="span" className="text-[#DBFD67]">
               DETAILS
             </Box>
           </Heading>
-          <Text pb={{ base: '2.125rem', lg: '1.25rem' }}>
+          <Text color="white" pb={{ base: '2.125rem', lg: '1.25rem' }}>
             You are creating an account on{' '}
             <Text as={'span'} fontWeight={'700'}>
               {' '}
@@ -184,7 +185,7 @@ export default function BasicDetailsForm() {
               </Link>
             </Text>
           </Text>
-          <Box overflowY="auto">
+          <Box overflowY="scroll">
             <Flex
               width={{ base: '100%', lg: '80%' }}
               direction={{ base: 'column', lg: 'row' }}
@@ -195,7 +196,7 @@ export default function BasicDetailsForm() {
                 direction="column"
                 className="field"
               >
-                <FormLabel htmlFor="name">Full Name</FormLabel>
+                <FormLabel htmlFor="name" color="white">Full Name</FormLabel>
                 <Field
                   as={Input}
                   id="name"
@@ -204,11 +205,12 @@ export default function BasicDetailsForm() {
                   placeholder="Eg. Rakesh Oberoi"
                   height="4.063rem"
                   borderRadius="0.75rem"
+                  color="white"
                   disabled={isSubmitting}
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                 />
                 {errors.name && touched.name && (
-                  <div className="text-pink">{errors.name}</div>
+                  <div className="text-[#DBFD67]">{errors.name}</div>
                 )}
               </Flex>
 
@@ -218,7 +220,7 @@ export default function BasicDetailsForm() {
                 pt={{ base: '1.25rem', lg: '0rem' }}
                 className="field"
               >
-                <FormLabel htmlFor="email">Email Address</FormLabel>
+                <FormLabel htmlFor="email" color="white">Email Address</FormLabel>
                 <Field
                   as={Input}
                   id="email"
@@ -227,12 +229,13 @@ export default function BasicDetailsForm() {
                   // mt="0.75rem"
                   placeholder="Eg. rakesh@gmail.com"
                   height="4.063rem"
+                  color="white"
                   borderRadius="0.75rem"
                   disabled={isSubmitting}
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                 />
                 {errors.email && touched.email && (
-                  <div className="text-pink">{errors.email}</div>
+                  <div className="text-[#DBFD67]">{errors.email}</div>
                 )}
               </Flex>
             </Flex>
@@ -249,7 +252,7 @@ export default function BasicDetailsForm() {
                 direction="column"
                 className="field"
               >
-                <FormLabel htmlFor="name">WhatsApp Number</FormLabel>
+                <FormLabel htmlFor="name" color="white">WhatsApp Number</FormLabel>
                 <Field
                   as={Input}
                   id="whatsappNumber"
@@ -258,11 +261,12 @@ export default function BasicDetailsForm() {
                   // mt="0.75rem"
                   placeholder="Eg. 9887762732"
                   height="4.063rem"
+                  color="white"
                   borderRadius="0.75rem"
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                 />
                 {errors.whatsappNumber && touched.whatsappNumber && (
-                  <div className="text-pink">{errors.whatsappNumber}</div>
+                  <div className="text-[#DBFD67]">{errors.whatsappNumber}</div>
                 )}
               </Flex>
 
@@ -308,19 +312,20 @@ export default function BasicDetailsForm() {
                 <QualifierText />
               </Flex> */}
 
-              <Flex direction="column" className="pb-4">
+              <Flex direction="column" className="pt-6 pb-1">
                 <Field
                   as={Checkbox}
                   id="agreedToTerms"
                   name="agreedToTerms"
                   colorScheme="white"
-                  iconColor="#FF077C"
+                  iconColor="#DBFD67"
                   className="text-sm italic"
                   alignItems="baseline"
+                  color="white"
                 >
                   I agree to receiving communication, marketing and promotional
                   material from Ampverse DMI Pvt Ltd.
-                </Field>
+                </Field >
                 {errors.agreedToTerms && touched.agreedToTerms && (
                   <div className="errorDiv">{errors.agreedToTerms}</div>
                 )}
@@ -334,8 +339,10 @@ export default function BasicDetailsForm() {
               </Box>
             </Flex>
           </Box>
-          <Box className="sticky bg-white bottom-0">
-            <Divider
+          </div>
+          <Box className="fixed bg-black pt-6 lg:pl-16 border-t border-[fffffef] md:w-[55%] w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
+               {/* 
+           <Divider
               marginTop="auto"
               borderColor={'black'}
               borderBottomWidth="1px"
@@ -343,6 +350,7 @@ export default function BasicDetailsForm() {
               ml={{ base: '0rem', lg: '-5.063rem' }}
               width={{ base: '100%', lg: '109%' }}
             />
+        
             <Button
               id="basic-details-form-submit-btn"
               type="submit"
@@ -370,7 +378,24 @@ export default function BasicDetailsForm() {
               isDisabled={!isVerified || isSubmitting}
             >
               Proceed to verify
-            </Button>
+            </Button> */}
+         
+
+<div className='helvetica-light-font font-normal text-white max-lg:hidden'>
+              Already a member? <span className='text-[#DBFD67] helvetica-font font-bold underline'>Login</span>
+            </div>
+
+            <div className="clip-bg-neon rounded-lg w-fit mb-7 lg:mb-10 lg:mr-20">
+      <button  
+       id="basic-details-form-submit-btn"
+              type="submit"
+              disabled={!isVerified || isSubmitting}
+        className="custom-button-neon px-9 lg:py-5 py-1.125rem text-sm lg:text-lg text-[#DBFD67] rounded-lg bg-cover"
+      >
+        PROCEED TO VERIFY
+      </button>
+    </div>
+
           </Box>
         </Form>
       )}
