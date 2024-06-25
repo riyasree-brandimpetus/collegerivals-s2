@@ -156,7 +156,7 @@ const [progress, setprogress] = useState<number>(45)
 console.log('userData', state);
 
   return (
-    <div className="w-full flex flex-col items-center lg:h-screen h-full bg-black overflow-visible">
+    <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-visible">
       <img
         src="/profile-yellow.svg"
         alt=""
