@@ -268,7 +268,7 @@ export default function LoginForm() {
           ) : activeStep === 3 ? (
             <ThirdForm />
           ) : null}
-          <div className="py-16"></div>
+          <div className="py-16 max-md:py-20"></div>
             
           </div>
         </div>
