@@ -276,15 +276,15 @@ export default function RegisterPage() {
               </p>
             </div>
           </div>
-          <div className="w-full relative">
+          <div className="w-full relative bg-black">
           {activeStep === 1 ? (
-            <FirstForm />
+       <SelectMode/>
           ) : activeStep === 2 ? (
             <SecondForm />
           ) : activeStep === 3 ? (
             <ThirdForm />
           ) : null}
-            
+        
           </div>
         </div>
       </div>

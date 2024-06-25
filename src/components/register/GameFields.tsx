@@ -12,11 +12,12 @@ function GameFields({ game }: any) {
       flexDirection={{ lg: "row", base: "column" }}
     >
       <Flex
-        height={{ lg: "100%", base: "7rem" }}
-        width={{ lg: "40%", base: "30%" }}
+        height="7.5rem"
+        width={{ lg: "35%", base: "60%" }}
         backgroundColor="#d1ff45"
         justifyContent="center"
         alignItems="center"
+        
         borderRadius="8px"
       >
         <Image src={game?.imageUrl} alt={game?.name} />
@@ -32,7 +33,7 @@ function GameFields({ game }: any) {
               pl={{ lg: "1.25rem" }}
               className="field"
             >
-              <FormLabel htmlFor={`${game.name}.${requirement.key}`}>
+              <FormLabel color={"white"} htmlFor={`${game.name}.${requirement.key}`}>
                 {`Provide your ${requirement.name}`}
                 {requirement.isMandatory && " *"}
               </FormLabel>
@@ -46,12 +47,12 @@ function GameFields({ game }: any) {
                 height="4.063rem"
                 borderRadius="0.75rem"
                 errorBorderColor="red.300"
-                focusBorderColor="#FF077C"
+                focusBorderColor="#D1FF45"
               />
               <ErrorMessage
                 name={`${game.name}.${requirement.key}`}
                 component="div"
-                className="errorDiv"
+                className="errorDiv text-#DBFD67"
               />
             </Flex>
           ))}

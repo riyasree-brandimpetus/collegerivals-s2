@@ -142,7 +142,7 @@ export default function ThirdForm() {
   return (
     <>
       {!showGameFields ? (
-        <Flex className="flex-col grow pt-8 md:max-h-[80vh]">
+        <Flex className="flex-col grow pt-8 md:max-h-[80vh] ">
           <Heading
             // pb="1.25rem"
             paddingLeft={{ base: "2rem", lg: "4rem" }}
@@ -171,11 +171,12 @@ export default function ThirdForm() {
               flexWrap="wrap"
               gap="0.5rem"
               overflowY="auto"
-              paddingLeft={{ base: "2rem", lg: "4rem" }}
+              paddingLeft={{ base: "1.25rem", lg: "4rem" }}
             >
               {gameData.length > 0 &&
                 gameData.map((game: any) => (
                   <GameCheckBox
+                  className="max-md:w-[46%]"
                     game={game}
                     key={game.name}
                     {...getCheckboxProps({ value: game.name })}
@@ -184,6 +185,7 @@ export default function ThirdForm() {
             </Flex>
           </Skeleton>
 
+<div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
          
           <Button
             type="submit"
@@ -222,9 +224,11 @@ export default function ThirdForm() {
           >
             Choose & Proceed
           </Button>
+          </div>
         </Flex>
       ) : (
-        <Formik
+        <Formik 
+       
           initialValues={gameDetailsInitialValues}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
@@ -254,6 +258,7 @@ export default function ThirdForm() {
                   selectedGameData.map((game: any) => (
                     <GameFields game={game} key={game.name} />
                   ))}
+                <div className="p-12"></div>
               </Flex>
               <Box className="mt-auto sticky bg-black bottom-0">
               
@@ -262,6 +267,7 @@ export default function ThirdForm() {
                   width={{ base: "100%", lg: "92%" }}
                   justifyContent={{ base: "center", lg: "start" }}
                 >
+                  <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full flex-row  flex items-center justify-between lg:right-0 bottom-0 ">
                   <Button
                     colorScheme="whiteAlpha"
                     _hover={{ opacity: "90%" }}
@@ -291,6 +297,7 @@ export default function ThirdForm() {
                     fontSize={"1rem"}
                     mt="1.25rem"
                     mb="1.25rem"
+                    mr="1.25rem"
                     ml="auto"
                     isLoading={isSubmitting}
                     loadingText="Submitting"
@@ -298,6 +305,7 @@ export default function ThirdForm() {
                   >
                     Submit
                   </Button>
+                  </div>
                 </Flex>
               </Box>
             </Form>

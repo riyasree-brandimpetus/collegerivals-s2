@@ -13,10 +13,10 @@ function GameCheckBox(props: any) {
       gridColumnGap={2}
       width="30%"
       justifyContent="center"
-      height="6rem"
+      height="7.5rem"
       borderWidth="1px"
       borderRadius="8px"
-      borderColor="#B4B4B4"
+      borderColor="#232424"
       _checked={{
         color: 'white',
         borderColor: 'transparent',
