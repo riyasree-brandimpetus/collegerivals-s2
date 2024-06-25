@@ -1,0 +1,51 @@
+{
+    "BGMI": {
+      "Online": {
+        "monthly_qualifiers":"64",
+        "monthly_qualifiers_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ],
+        "monthly_finals":"48",
+        "monthly_finals_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ]
+      },
+      "offline": {
+        "colleges":"50",
+        "monthly_qualifiers":"6",
+        "monthly_qualifiers_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ],
+        "college_playoffs":"16",
+        "monthly_finals_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ]
+
+      }
+ 
+    },
+    "Valorant": {
+        "Online": {
+            "monthly_qualifiers":"64",
+            "monthly_qualifiers_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ],
+            "monthly_finals":"48",
+            "monthly_finals_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ]
+          },
+          "offline": {
+            "colleges":"20",
+            "monthly_qualifiers":"6",
+            "monthly_qualifiers_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ],
+            "college_playoffs":"16",
+            "monthly_finals_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ]
+    
+          }
+    },
+    "FIFA": {
+        "Online": {
+            "monthly_qualifiers":"62",
+            "monthly_qualifiers_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ],
+            "monthly_finals":"4",
+            "monthly_finals_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ]
+          },
+          "offline": {
+            "colleges":"100",
+            "monthly_qualifiers":"6",
+            "monthly_qualifiers_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ],
+            "college_playoffs":"16",
+            "monthly_finals_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ]
+    
+          }
+    }
+  }
