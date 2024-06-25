@@ -44,6 +44,14 @@ export const SecondFormSchema = Yup.object().shape({
   gender: Yup.string().required('Gender is required'),
 });
 
+export const SelectProfileSchema = Yup.object().shape({
+  modeSelected: Yup.string().required('Select a mode'),
+});
+
+export const SelectModeSchema = Yup.object().shape({
+  modeSelected: Yup.string().required('Select a mode'),
+});
+
 export const ThirdFormSchema = Yup.object().shape({
   gameDetails: Yup.array().min(1).required('Game Details is required'),
 });

@@ -21,6 +21,8 @@ import {
   Step,
 } from "@chakra-ui/react";
 import { useContext, useEffect } from "react";
+import SelectMode from "./SelectMode";
+
 
 const steps = [
   { description: "Basic Details" },
@@ -36,34 +38,34 @@ export default function RegisterPage() {
   });
   const router = useRouter();
 
-  useEffect(() => {
-    if (state.isWhatsAppVerified) {
-      console.log("Whatsapp is verified entered");
-      setActiveStep(2);
-    }
-  }, [state.isWhatsAppVerified]);
-  useEffect(() => {
-    if (
-      state.isWhatsAppVerified &&
-      state.age &&
-      state.degreeStudyField &&
-      state.collegeName
-    ) {
-      console.log('Academic details are verified');
-      setActiveStep(3);
-    }
-  }, [
-    state.isWhatsAppVerified,state.age,
-    state.degreeStudyField,
-    state.collegeName,
-  ]);
-  useEffect(() => {
-    if (state.isWhatsAppVerified && state.gameDetails.length > 0) {
-      console.log('Game Details are verified');
-      // setActiveStep(4);
-      router.push('/registration-successful');
-    }
-  }, [state.gameDetails]);
+  // useEffect(() => {
+  //   if (state.isWhatsAppVerified) {
+  //     console.log("Whatsapp is verified entered");
+  //     setActiveStep(2);
+  //   }
+  // }, [state.isWhatsAppVerified]);
+  // useEffect(() => {
+  //   if (
+  //     state.isWhatsAppVerified &&
+  //     state.age &&
+  //     state.degreeStudyField &&
+  //     state.collegeName
+  //   ) {
+  //     console.log('Academic details are verified');
+  //     setActiveStep(3);
+  //   }
+  // }, [
+  //   state.isWhatsAppVerified,state.age,
+  //   state.degreeStudyField,
+  //   state.collegeName,
+  // ]);
+  // useEffect(() => {
+  //   if (state.isWhatsAppVerified && state.gameDetails.length > 0) {
+  //     console.log('Game Details are verified');
+  //     // setActiveStep(4);
+  //     router.push('/registration-successful');
+  //   }
+  // }, [state.gameDetails]);
 
   return (
     <>
@@ -168,7 +170,8 @@ export default function RegisterPage() {
             zIndex="2"
           />
           {activeStep === 1 ? (
-            <FirstForm />
+            // <FirstForm />
+            <SelectMode/>
           ) : activeStep === 2 ? (
             <SecondForm />
           ) : activeStep === 3 ? (
