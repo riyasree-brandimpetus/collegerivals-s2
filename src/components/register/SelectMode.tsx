@@ -77,7 +77,7 @@ export default function SelectProfile() {
           >
             SELECT{' '}
             <Box as="span" className="text-pink">
-              PROFILE
+              MODE
             </Box>
           </Heading>
           <Box overflowY="auto">
