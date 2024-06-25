@@ -39,36 +39,56 @@ export default function SignUpForm() {
     count: steps.length,
   });
   const router = useRouter();
+  console.log('state', state)
+ useEffect(() => {
+   if (state._id && !state.isWhatsAppVerified) {
+     // router.push('/my-profile');
+     console.log('Enter OTP');
+     setActiveStep(2);
+   }
+ }, [state._id,state.isWhatsAppVerified]);
 
-  useEffect(() => {
-    if (state.isWhatsAppVerified) {
-      console.log('Whatsapp is verified entered');
-      setActiveStep(2);
-    }
-  }, [state.isWhatsAppVerified]);
-  useEffect(() => {
-    if (
-      state.isWhatsAppVerified &&
-      state.age &&
-      state.degreeStudyField &&
-      state.collegeName
-    ) {
-      console.log('Academic details are verified');
-      setActiveStep(3);
-    }
-  }, [
-    state.isWhatsAppVerified,
-    state.age,
-    state.degreeStudyField,
-    state.collegeName,
-  ]);
-  useEffect(() => {
-    if (state.isWhatsAppVerified && state.gameDetails.length > 0) {
-      console.log('Game Details are verified');
-      // setActiveStep(4);
-      router.push('/registration-successful');
-    }
-  }, [state.gameDetails]);
+ useEffect(() => {
+   if (state.isLoggedIn) {
+     // Convert the data to a JSON string
+     const userDataString = JSON.stringify(state);
+     // Store the data in localStorage with a key
+     localStorage.setItem('user', userDataString);
+     router.push('/my-profile');
+     console.log('OTP is verified');
+     // setActiveStep(2);
+   }
+ }, [state.isLoggedIn]);
+
+  // useEffect(() => {
+  //   if (state.isWhatsAppVerified) {
+  //     console.log('Whatsapp is verified entered');
+  //     setActiveStep(2);
+  //   }
+  // }, [state.isWhatsAppVerified]);
+  // useEffect(() => {
+  //   if (
+  //     state.isWhatsAppVerified &&
+  //     state.age &&
+  //     state.degreeStudyField &&
+  //     state.collegeName
+  //   ) {
+  //     console.log('Academic details are verified');
+  //     setActiveStep(3);
+  //   }
+  // }, [
+  //   state.isWhatsAppVerified,
+  //   state.age,
+  //   state.degreeStudyField,
+  //   state.collegeName,
+  // ]);
+  // useEffect(() => {
+  //   if (state.isWhatsAppVerified && state.gameDetails.length > 0) {
+  //     console.log('Game Details are verified');
+  //     // setActiveStep(4);
+  //     router.push('/registration-successful');
+  //   }
+  // }, [state.gameDetails]);
 
   return (
     <>

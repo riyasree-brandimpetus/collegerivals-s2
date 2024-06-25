@@ -34,7 +34,7 @@ export default function OTPForm() {
       if (response.status === 200) {
         dispatch({
           type: 'UPDATE',
-          payload: { ...state, isWhatsAppVerified: true },
+          payload: { ...state, isWhatsAppVerified: true, isLoggedIn:true },
         });
         toast({
           title: `Successfully Verified OTP`,
@@ -58,7 +58,7 @@ export default function OTPForm() {
   const resendOtp = async () => {
     try {
       setDisableResendButton(true);
-      const otpResp = await api.post('/otp/send-otp', {
+      const otpResp = await api.post('/otp/send-login-otp', {
         userId: state._id,
         mobileNumber: state.whatsappNumber,
       });

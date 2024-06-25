@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
-
+import { UserContext } from "@/utils/context/user.context";
+// import { UserContext } from "@/utils/context/state.context";
+import { useContext, useEffect, useState } from "react";
 // format for joined date
 const formatJoinedDate = (createdAt: string): string => {
   const date = new Date(createdAt);
@@ -79,66 +80,76 @@ const formatTime = (time: string): string => {
 };
 
 const ProfileDashboard = () => {
-  interface UserProfile {
-    name: string;
-    email: string;
-    whatsappNumber: string;
-    whatsappCountryCode: string;
-    isOnlineModeSelected: boolean;
-    selectedDate: string;
-    selectedTimeSlot: string;
-    isWhatsAppVerified: boolean;
-    gameDetails: string;
-    city: string;
-    isUserVerified: boolean;
-    createdAt: string;
-    dob: string;
-    collegeName: string;
-    degreeStudyField: string;
-    profilePhoto: string;
-    userAgentDetails: string;
-    queryParams: Record<string, unknown>;
-    agreedToTerms: boolean;
-    gender: string;
-  }
+  // interface UserProfile {
+  //   name: string;
+  //   email: string;
+  //   whatsappNumber: string;
+  //   whatsappCountryCode: string;
+  //   isOnlineModeSelected: boolean;
+  //   selectedDate: string;
+  //   selectedTimeSlot: string;
+  //   isWhatsAppVerified: boolean;
+  //   gameDetails: string;
+  //   city: string;
+  //   isUserVerified: boolean;
+  //   createdAt: string;
+  //   dob: string;
+  //   collegeName: string;
+  //   degreeStudyField: string;
+  //   profilePhoto: string;
+  //   userAgentDetails: string;
+  //   queryParams: Record<string, unknown>;
+  //   agreedToTerms: boolean;
+  //   gender: string;
+  // }
 
   // fetching Data
+// "use client"
 
-  const [User, setUser] = useState<UserProfile | null>(null);
+// import { UserContext } from "@/utils/context/user.context";
+// // import { UserContext } from "@/utils/context/state.context";
+// import { useContext, useEffect, useState } from "react";
+// import userData from "./Profiledata.json"
+
+// const ProfileDashboard = () => {
+  const { state } = useContext(UserContext);
+const [progress, setprogress] = useState<number>(45)
+
+  // const [User, setUser] = useState<UserProfile | null>(null);
   const [age, setAge] = useState<number | null>(null);
   const [joinedDate, setJoinedDate] = useState<string>("");
   const [selectedDateTime, setSelectedDateTime] = useState<string>("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch("/Profiledata.json"); // Fetch the data from the public directory
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data: UserProfile = await res.json();
-        const formattedDate = formatJoinedDate(data.createdAt);
-        setJoinedDate(formattedDate);
-        // Format selected date and time slot
-        if (data.selectedDate && data.selectedTimeSlot) {
-          const formattedSelectedDateTime = formatSelectedDateTime(
-            data.selectedDate,
-            data.selectedTimeSlot
-          );
-          setSelectedDateTime(formattedSelectedDateTime);
-        }
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const res = await fetch("/Profiledata.json"); // Fetch the data from the public directory
+  //       if (!res.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       const data: UserProfile = await res.json();
+  //       const formattedDate = formatJoinedDate(data.createdAt);
+  //       setJoinedDate(formattedDate);
+  //       // Format selected date and time slot
+  //       if (data.selectedDate && data.selectedTimeSlot) {
+  //         const formattedSelectedDateTime = formatSelectedDateTime(
+  //           data.selectedDate,
+  //           data.selectedTimeSlot
+  //         );
+  //         setSelectedDateTime(formattedSelectedDateTime);
+  //       }
 
-        const newage = calculateAge(data.dob);
-        setAge(newage);
-        setUser(data);
-        console.log(data); // Log the data to ensure it's fetched correctly
-      } catch (error) {
-        console.error("Failed to fetch data:", error);
-      }
-    };
+  //       const newage = calculateAge(data.dob);
+  //       setAge(newage);
+  //       setUser(data);
+  //       console.log(data); // Log the data to ensure it's fetched correctly
+  //     } catch (error) {
+  //       console.error("Failed to fetch data:", error);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   // calculate age
   function calculateAge(dobString: string): number {
@@ -151,7 +162,8 @@ const ProfileDashboard = () => {
   }
 
   // Progress Bar
-  const [progress, setprogress] = useState<number>(45);
+  // const [progress, setprogress] = useState<number>(45);
+console.log('userData', state);
 
   return (
     <div className="w-full flex flex-col items-center lg:h-screen h-full bg-black overflow-visible">
@@ -201,7 +213,7 @@ const ProfileDashboard = () => {
                   <div className=" lg:pr-6">
                     <div className="relative">
                       <img
-                        src={User?.profilePhoto}
+                        src={state.profilePhoto || '/profile-img.jpg'}
                         alt=""
                         className="rounded-2xl"
                       />
@@ -210,10 +222,10 @@ const ProfileDashboard = () => {
                   </div>
                   <div className="flex flex-col mt-3  items-center lg:place-items-start place-items-center gap-1">
                     <p className="text-[#CFCFCF] md:text-xl text-lg helvetica-font font-bold">
-                      {User?.name}
+                      {state.name}
                     </p>
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      {joinedDate}
+                      Joined on 20th Jun ‘24
                     </p>
                   </div>
                 </div>
@@ -223,13 +235,13 @@ const ProfileDashboard = () => {
                     Mode
                   </p>
                   <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                    {User?.isOnlineModeSelected ? "Online" : "Offline"}
+                    {state.isOnlineModeSelected ? 'Online' : 'Offline'}
                   </p>
                 </div>
               </div>
               <div className="flex flex-col lg:gap-14  lg:place-items-start items-center ">
                 <h2 className="md:text-7xl  text-3xl font-extrabold text-white lg:mt-12 mt-7   uppercase ppFormula-font">
-                  <em>HELLO, {User?.name}</em>
+                  <em>HELLO, {state.name}</em>
                   <span className="text-[#DBFD67]"> !</span>
                 </h2>
                 <div className="grid items-center max-lg:mt-5 lg:grid-cols-3 grid-cols-2 lg:gap-5 gap-4">
@@ -238,7 +250,7 @@ const ProfileDashboard = () => {
                       Age
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {age} yrs
+                      28 yrs
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -246,7 +258,7 @@ const ProfileDashboard = () => {
                       City
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {User?.city}
+                      {state.city || '-'}
                     </p>
                   </div>
                   <div className="flex flex-col max-lg:col-span-2 flex-wrap ">
@@ -254,7 +266,7 @@ const ProfileDashboard = () => {
                       Email Address
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {User?.email}
+                      {state.email || '-'}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -262,7 +274,7 @@ const ProfileDashboard = () => {
                       College
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {User?.collegeName}
+                      {state.collegeName}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -270,7 +282,7 @@ const ProfileDashboard = () => {
                       Degree
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {User?.degreeStudyField ? User.degreeStudyField : "-"}
+                      {state.degreeStudyField || '-'}
                     </p>
                   </div>
 
@@ -279,7 +291,7 @@ const ProfileDashboard = () => {
                       Phone no.
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {User?.whatsappNumber}
+                      {state.whatsappNumber || '-'}
                     </p>
                   </div>
                   <div className=" lg:hidden flex flex-col flex-wrap ">
@@ -287,7 +299,7 @@ const ProfileDashboard = () => {
                       Mode
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {User?.isOnlineModeSelected ? "Online" : "Offline"}
+                      {state.isOnlineModeSelected ? 'Online' : 'Offline'}
                     </p>
                   </div>
 
@@ -305,15 +317,7 @@ const ProfileDashboard = () => {
                       Date & Time
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {selectedDateTime}
-                    </p>
-                  </div>
-                  <div className=" flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      City
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      Mysore
+                      22nd Aug, 5:30 PM
                     </p>
                   </div>
                 </div>

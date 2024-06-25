@@ -14,10 +14,10 @@ import {
   Text,
   Link,
 } from '@chakra-ui/react';
-import { FirstFormSchema } from '@/schemas/register';
+// import { FirstFormSchema } from '@/schemas/register';
 import { RegistrationCities } from '@/constants/cities';
 import api from '@/utils/axios/instance';
-import { FirstFormValues, UserAgentDetails } from '@/types/register/register';
+// import { UserAgentDetails } from '@/types/register/register';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { UserContext } from '@/utils/context/user.context';
 import { useSearchParams } from 'next/navigation';
@@ -25,6 +25,8 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { verifyCaptcha } from '@/utils/captcha/ServerActions';
 // import QualifierText from './QualifierText';
 import UAParser from 'ua-parser-js';
+import { SignUpFormValues, UserAgentDetails } from '@/types/sign-up/sign-up';
+import { SignUpFormSchema } from '@/schemas/sign-up';
 
 export default function BasicDetailsForm() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -100,11 +102,10 @@ export default function BasicDetailsForm() {
   /**
    * Initialize first form values
    */
-  const firstFormInitialValues: FirstFormValues = {
+  const firstFormInitialValues: SignUpFormValues = {
     name: '',
     whatsappNumber: '',
     email: '',
-    cityCenter: '',
     agreedToTerms: false,
   };
 
@@ -114,11 +115,11 @@ export default function BasicDetailsForm() {
    * @param actions FormikHelpers
    */
   const handleSubmit = async (
-    values: FirstFormValues,
-    actions: FormikHelpers<FirstFormValues>
+    values: SignUpFormValues,
+    actions: FormikHelpers<SignUpFormValues>
   ) => {
     try {
-      const response = await api.post('/users/register', {
+      const response = await api.post('/users/sign-up', {
         ...values,
         whatsappCountryCode: '+91',
         queryParams: referral || '',
@@ -126,7 +127,7 @@ export default function BasicDetailsForm() {
       });
       const data = response.data;
       if (data) {
-        const otpResp = await api.post('/otp/send-otp', {
+        const otpResp = await api.post('/otp/send-login-otp', {
           userId: data._id,
           mobileNumber: data.whatsappNumber,
         });
@@ -157,7 +158,7 @@ export default function BasicDetailsForm() {
   return (
     <Formik
       initialValues={firstFormInitialValues}
-      validationSchema={FirstFormSchema}
+      validationSchema={SignUpFormSchema}
       onSubmit={handleSubmit}
     >
       {({ errors, touched, isSubmitting }) => (
@@ -332,7 +333,7 @@ export default function BasicDetailsForm() {
               </Flex>
               <Box className="my-2 lg:my-4">
                 <ReCAPTCHA
-                  sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
+                  sitekey="6LfBSbQnAAAAAIKsL73tstGkEeMBa-u7Ip5Z4Rpg"
                   ref={recaptchaRef}
                   onChange={handleCaptchaSubmission}
                 />
@@ -402,3 +403,10 @@ export default function BasicDetailsForm() {
     </Formik>
   );
 }
+
+
+
+
+// /api/users/sign-up
+// /otp/send-login-otp
+// /otp/verify-otp

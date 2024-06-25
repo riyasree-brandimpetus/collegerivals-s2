@@ -18,6 +18,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { verifyCaptcha } from '@/utils/captcha/ServerActions';
 import { LoginFormValues } from '@/types/login/login';
 import { LoginFormSchema } from '@/schemas/login';
+import Link from 'next/link';
 
 export default function BasicDetailsForm() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -106,7 +107,9 @@ export default function BasicDetailsForm() {
               DETAILS
             </Box>
           </Heading>
-          <Text className='helvetica-light-font font-normal'>You are logging into your account on Ampverse</Text>
+          <Text className="helvetica-light-font font-normal">
+            You are logging into your account on Ampverse
+          </Text>
           {/* <Text pb={{ base: '2.125rem', lg: '1.25rem' }}>
             You are creating an account on{' '}
             <Text as={'span'} fontWeight={'700'}>
@@ -249,21 +252,25 @@ export default function BasicDetailsForm() {
             >
               Proceed to verify
             </Button> */}
-        <div className='helvetica-light-font font-normal text-white  max-lg:hidden'>
-              Already a member? <span className='text-[#DBFD67] helvetica-font font-bold underline'>Login</span>
+            <div className="helvetica-light-font font-normal max-lg:hidden">
+              Not a member?{' '}
+              <Link href="/sign-up">
+                <span className="text-[#DBFD67] helvetica-font font-bold underline">
+                  Register
+                </span>
+              </Link>
             </div>
 
-            <div className="clip-bg-neon rounded-lg w-fit mb-7 lg:mb-10 lg:mr-20">
-      <button  
-       id="basic-details-form-submit-btn"
-              type="submit"
-              disabled={!isVerified || isSubmitting}
-        className="custom-button-neon px-9 lg:py-5 py-1.125rem text-sm lg:text-lg text-[#DBFD67] rounded-lg bg-cover"
-      >
-        PROCEED TO VERIFY
-      </button>
-    </div>
-           
+            <div className="clip-bg-neon rounded-lg w-fit mb-10 mr-20">
+              <button
+                id="basic-details-form-submit-btn"
+                type="submit"
+                disabled={!isVerified || isSubmitting}
+                className="custom-button-neon px-9 lg:py-5 py-1.125rem text-lg text-white rounded-lg bg-cover"
+              >
+                PROCEED TO VERIFY
+              </button>
+            </div>
           </Box>
         </Form>
       )}
