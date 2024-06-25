@@ -11,6 +11,7 @@ import {
   FormLabel,
   useToast,
   Text,
+  Center,
 } from '@chakra-ui/react';
 import { SelectProfileSchema } from '@/schemas/register';
 import api from '@/utils/axios/instance';
@@ -18,6 +19,7 @@ import { useContext } from 'react';
 import { UserContext } from '@/utils/context/user.context';
 import RadioGroup from './RadioGroup';
 import CustomRadio from './CustomRadio';
+import { relative } from 'path';
 
 interface SelectMode {
   modeSelected: string;
@@ -69,41 +71,44 @@ export default function SelectProfile() {
       onSubmit={handleSubmit}
     >
       {({ values, touched, errors, setFieldValue, isSubmitting }) => (
-        <Form className="flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 pt-8 md:max-h-[80vh]">
+        <Form className="flex flex-col grow  pt-8 md:max-h-[80vh]">
+<div className='pl-6 lg:pl-16 pr-6 lg:pr-0'>
           <Heading
             // pb={{ base: '2.125rem', lg: '1.25rem' }}
             pb={{ base: '2.125rem', lg: '1.25rem' }}
-            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal text-white tracking-wide lg:tracking-wider"
           >
             SELECT{' '}
-            <Box as="span" className="text-pink">
+            <Box as="span" className="text-#DBFD67">
               MODE
             </Box>
           </Heading>
           <Box overflowY="auto">
             <Flex
-              width={{ base: '100%', lg: '95%' }}
+              width={{ base: '100%', lg: '100%' }}
               pt="1.25rem"
               flexDirection={{ base: 'column', lg: 'row' }}
               justifyContent="space-between"
             >
               <Flex
-                width={{ base: '100%', lg: '48%' }}
+                width="100%"
                 direction="column"
-                className="field"
+                className="field "
               >
                 {/* <FormLabel htmlFor="mode">
                   Choose your Degree/ Study field
                 </FormLabel> */}
                 <div style={{ overflowX: 'auto' }}>
                   <RadioGroup
+                
                     name="modeSelected"
-                    flexWrap={{ base: 'nowrap', lg: 'wrap' }}
-                    className="whitespace-nowrap lg:whitespace-normal"
+                    flexWrap="wrap"
+                    className="whitespace-nowrap lg:whitespace-normal max-md:flex-col max-md:items-center "
                     mb="2.063rem"
                     minWidth="100%"
+               
                     display={'flex'}
-                    gap="0.3rem"
+                    gap="1.5rem"
                   >
                     <CustomRadio
                       key="online"
@@ -111,29 +116,31 @@ export default function SelectProfile() {
                       name="online"
                       imageUrl="/online.svg"
                     />
+                
                     <CustomRadio
                       key="offline"
                       value="offline"
                       name="offline"
                       imageUrl="/offline.svg"
                     />
+                    {values.modeSelected == 'offline' && (  <div className=' xl:ml-[350px] lg:ml-[250px] md:ml-[240px]  -mt-3 rounded-md px-7 py-4 bg-[#191919] text-[#5D5D5E] text-xs'>Only available in some cities.</div>
+                 )}
+              
+                  
+                  
                   </RadioGroup>
                   {touched.modeSelected && errors.modeSelected && (
-                    <div className="text-pink">{errors.modeSelected}</div>
+                    <div className="text-#DBFD67">{errors.modeSelected}</div>
                   )}
                 </div>
               </Flex>
+       
             </Flex>
           </Box>
+          </div>
+          <div className='py-16'></div>
           <Box className="mt-auto sticky bg-white bottom-0">
-            <Divider
-              marginTop="auto"
-              borderColor={'black'}
-              borderBottomWidth="1px"
-              borderBottomStyle="dotted"
-              ml={{ base: '0rem', lg: '-5.063rem' }}
-              width={{ base: '100%', lg: '109%' }}
-            />
+        <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full flex-row  flex items-center justify-between lg:right-0 bottom-0 ">
             <Button
               id="academic-details-form-submit-btn"
               type="submit"
@@ -161,6 +168,7 @@ export default function SelectProfile() {
             >
               Proceed
             </Button>
+            </div>
           </Box>
         </Form>
       )}

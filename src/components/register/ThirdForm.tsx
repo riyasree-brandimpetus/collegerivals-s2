@@ -301,7 +301,8 @@ export default function ThirdForm() {
                     ml="auto"
                     isLoading={isSubmitting}
                     loadingText="Submitting"
-                    width={"40%"}
+                    height={{ base: "3rem", lg: "4.063rem" }}
+                    width={{ base: "7rem", lg: "22rem" }}
                   >
                     Submit
                   </Button>

@@ -148,7 +148,8 @@ export default function AcademicDetailsForm() {
       onSubmit={handleSubmit}
     >
       {({ values, touched, errors, setFieldValue, isSubmitting }) => (
-        <Form className="flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 pt-8 md:max-h-[80vh]">
+        <Form className="flex flex-col grow  pt-8 md:max-h-[80vh]">
+          <div className='pl-6 lg:pl-16 pr-6 lg:pr-0'>
           <Heading
             // pb={{ base: '2.125rem', lg: '1.25rem' }}
             pb={{ base: '2.125rem', lg: '1.25rem' }}
@@ -319,16 +320,11 @@ export default function AcademicDetailsForm() {
                 )}
               </Flex>
             </Flex>
+            <div className='py-16'></div>
           </Box>
-          <Box className="mt-auto sticky bg-black bottom-0">
-            <Divider
-              marginTop="auto"
-              borderColor={'black'}
-              borderBottomWidth="1px"
-              borderBottomStyle="dotted"
-              ml={{ base: '0rem', lg: '-5.063rem' }}
-              width={{ base: '100%', lg: '109%' }}
-            />
+          </div>
+          <Box className="mt-auto  bg-black bottom-0">
+          <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
             <Button
               id="academic-details-form-submit-btn"
               type="submit"
@@ -356,6 +352,7 @@ export default function AcademicDetailsForm() {
             >
               Upload & Proceed
             </Button>
+            </div>
           </Box>
         </Form>
       )}

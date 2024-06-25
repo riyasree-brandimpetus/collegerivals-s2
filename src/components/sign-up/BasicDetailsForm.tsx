@@ -163,7 +163,7 @@ export default function BasicDetailsForm() {
     >
       {({ errors, touched, isSubmitting }) => (
         <Form className="flex flex-col ">
-          <div className='flex  h-[60vh]  flex-col pl-6 lg:pl-16 pr-6 lg:pr-0 pt-8'>
+          <div className='flex  h-[65vh]  flex-col pl-6 lg:pl-16 pr-6 lg:pr-0 pt-8'>
           <Heading
             pb={{ base: '0.5rem', lg: '0.25rem' }}
             className="ppFormula-font flex gap-3 text-white italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
@@ -352,6 +352,7 @@ export default function BasicDetailsForm() {
               width={{ base: '100%', lg: '109%' }}
             />
         */}
+        <div className='text-white helvetica-light-font font-normal'>Already a member? <Link className='text-#DBFD67 underline helvetica-font'>Login</Link></div>
             <Button
               id="basic-details-form-submit-btn"
               type="submit"

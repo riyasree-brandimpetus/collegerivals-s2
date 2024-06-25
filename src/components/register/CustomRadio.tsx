@@ -44,9 +44,11 @@ const CustomRadio = React.forwardRef((props: Props, ref) => {
         borderWidth="1px"
         borderRadius="12px"
         boxShadow="md"
-        width="fit-content"
+        width={{ base: '220px', lg: '220px' , xl:'291px' }}
+        className='flex justify-center items-center'
+        height="169px"
         _checked={{
-          bg: '#FF077C',
+          bg: '#D1FF45',
           color: 'white',
           borderColor: 'transparent',
         }}
@@ -58,7 +60,10 @@ const CustomRadio = React.forwardRef((props: Props, ref) => {
       >
         {/* <Text {...getLabelProps()}>{degree}</Text> */}
         <Image {...getLabelProps()} src={props.imageUrl} alt={props.value} />
+        
       </Box>
+     
+
     </chakra.label>
   );
 });
