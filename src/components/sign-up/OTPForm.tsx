@@ -110,21 +110,22 @@ export default function OTPForm() {
       <Heading
         // pb="1.25rem"
         pb={{ base: '2.125rem', lg: '1.25rem' }}
-        className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+        className="ppFormula-font text-white italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
       >
         ENTER{' '}
-        <Box as="span" className="text-pink">
+        <Box as="span" className="text-#DBFD67">
           OTP
         </Box>
       </Heading>
-      <Text pb="1rem">
+      <Text pb="1rem" color='white'>
         OTP Sent to your whatsapp number XXXXXXX{state.whatsappNumber.slice(-3)}
       </Text>
       <HStack>
         <PinInput
-          focusBorderColor="#FF077C"
+          focusBorderColor="#DBFD67"
           otp
           size="lg"
+          
           onComplete={value => verifyOtp(value)}
           placeholder="_" //TO DO: Update the Placeholder
         >
@@ -134,7 +135,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[0]"
           />
           <PinInputField
@@ -143,7 +144,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[1]"
           />
           <PinInputField
@@ -152,7 +153,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[2]"
           />
           <PinInputField
@@ -161,7 +162,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[3]"
           />
           <PinInputField
@@ -170,7 +171,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[4]"
           />
           <PinInputField
@@ -179,30 +180,31 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[5]"
           />
         </PinInput>
       </HStack>
 
       <Flex className="pt-4 flex-wrap flex-col items-start">
-        <Alert status="info" className="w-auto">
-          <AlertIcon />
+        <Alert status="info" className="w-auto bg-slate-900 text-white">
+          <AlertIcon color={'white'} />
           OTP will be sent to your WhatsApp and Email.
         </Alert>
         <Button
           className="pt-4"
           isDisabled={disableResendButton}
           variant="link"
+          color={'white'}
           _hover={{
-            color: '#FF077C',
+            color: '#DBFD67',
           }}
           onClick={() => resendOtp()}
         >
           Re-send OTP
         </Button>
         {disableResendButton && (
-          <Text className="text-sm w-full">Retry in: {seconds} seconds</Text>
+          <Text className="text-sm w-full text-white">Retry in: {seconds} seconds</Text>
         )}
       </Flex>
     </Flex>

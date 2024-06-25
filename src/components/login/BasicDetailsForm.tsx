@@ -215,7 +215,7 @@ export default function BasicDetailsForm() {
             </Flex>
           </Box>
           </div>
-          <Box className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%] w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
+          <Box className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
             {/* <Divider
               marginTop="auto"
               borderColor={'black'} 
@@ -224,7 +224,7 @@ export default function BasicDetailsForm() {
               ml={{ base: '0rem', lg: '-5.063rem' }}
               width={{ base: '100%', lg: '109%' }}
             /> */}
-            {/* <Button
+             <Button
               id="basic-details-form-submit-btn"
               type="submit"
               color={'#fff'}
@@ -251,26 +251,8 @@ export default function BasicDetailsForm() {
               isDisabled={!isVerified || isSubmitting}
             >
               Proceed to verify
-            </Button> */}
-            <div className="helvetica-light-font font-normal max-lg:hidden">
-              Not a member?{' '}
-              <Link href="/sign-up">
-                <span className="text-[#DBFD67] helvetica-font font-bold underline">
-                  Register
-                </span>
-              </Link>
-            </div>
-
-            <div className="clip-bg-neon rounded-lg w-fit mb-10 mr-20">
-              <button
-                id="basic-details-form-submit-btn"
-                type="submit"
-                disabled={!isVerified || isSubmitting}
-                className="custom-button-neon px-9 lg:py-5 py-1.125rem text-lg text-white rounded-lg bg-cover"
-              >
-                PROCEED TO VERIFY
-              </button>
-            </div>
+            </Button> 
+          
           </Box>
         </Form>
       )}

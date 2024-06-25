@@ -163,7 +163,7 @@ export default function BasicDetailsForm() {
     >
       {({ errors, touched, isSubmitting }) => (
         <Form className="flex flex-col ">
-          <div className='flex lg:h-[65vh] h-[60vh]  flex-col pl-6 lg:pl-16 pr-6 lg:pr-0 pt-8'>
+          <div className='flex  h-[60vh]  flex-col pl-6 lg:pl-16 pr-6 lg:pr-0 pt-8'>
           <Heading
             pb={{ base: '0.5rem', lg: '0.25rem' }}
             className="ppFormula-font flex gap-3 text-white italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
@@ -341,7 +341,7 @@ export default function BasicDetailsForm() {
             </Flex>
           </Box>
           </div>
-          <Box className="fixed bg-black pt-6 lg:pl-16 border-t border-[fffffef] lg:w-[55%] w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
+          <Box className="fixed bg-black pt-6 lg:pl-16 border-t border-[fffffef] lg:w-[55%] w-full   lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
                {/* 
            <Divider
               marginTop="auto"
@@ -351,7 +351,7 @@ export default function BasicDetailsForm() {
               ml={{ base: '0rem', lg: '-5.063rem' }}
               width={{ base: '100%', lg: '109%' }}
             />
-        
+        */}
             <Button
               id="basic-details-form-submit-btn"
               type="submit"
@@ -379,23 +379,10 @@ export default function BasicDetailsForm() {
               isDisabled={!isVerified || isSubmitting}
             >
               Proceed to verify
-            </Button> */}
+            </Button> 
          
 
-<div className='helvetica-light-font font-normal text-white max-lg:hidden'>
-              Already a member? <span className='text-[#DBFD67] helvetica-font font-bold underline'>Login</span>
-            </div>
 
-            <div className="clip-bg-neon rounded-lg w-fit mb-7 lg:mb-10 lg:mr-20">
-      <button  
-       id="basic-details-form-submit-btn"
-              type="submit"
-              disabled={!isVerified || isSubmitting}
-        className="custom-button-neon px-9 lg:py-5 py-1.125rem text-sm lg:text-lg text-[#DBFD67] rounded-lg bg-cover"
-      >
-        PROCEED TO VERIFY
-      </button>
-    </div>
 
           </Box>
         </Form>

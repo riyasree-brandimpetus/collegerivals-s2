@@ -168,19 +168,19 @@ export default function LoginForm() {
 
       
 
-      <div className="w-full flex h-screen bg-black">
+<div className="w-full flex h-screen bg-black">
         <div className=" max-lg:hidden w-45% custom-background pt-10 pl-11">
           <Link href="/">
             <Image
               src="./college-rivals-white-logo.svg"
               alt="Logo"
               width={85}
-              height={48}
+              height={47}
             />
           </Link>
         </div>
         <div className="w-[55%] max-lg:w-full ">
-        <Link className="lg:hidden " href="/">
+        <Link className="lg:hidden" href="/">
             <Image
             className="pl-6 pt-6"
               src="./college-rivals-white-logo.svg"
@@ -189,7 +189,8 @@ export default function LoginForm() {
               height={23}
             />
           </Link>
-          <div className="py-2rem flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
+          <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
+           
             <div className="flex items-center flex-col">
               <div
                 className="rounded-full lg:w-[43px] lg:h-[43px] w-[29px] h-[29px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -199,7 +200,7 @@ export default function LoginForm() {
               >
                 1
               </div>
-              <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs">
+              <p className="text-white  pt-3 helvetica-font font-bold md:text-base text-xs">
                 Enter Credentials
               </p>
             </div>
@@ -208,14 +209,14 @@ export default function LoginForm() {
               alt=""
               width="0"
               height="0"
-              className="w-[30%] max-lg:hidden  h-auto -mt-9"
+              className="w-[20%] max-lg:hidden  h-auto -mt-9"
             />
              <Image
               src="/md-stepper-seprator.svg"
               alt=""
               width="0"
               height="0"
-              className="w-[15%] lg:hidden h-auto -mt-7"
+              className="w-[15%] lg:hidden h-auto -mx-3  -mt-7"
             />
             <div className="flex items-center flex-col">
               <div
@@ -235,14 +236,14 @@ export default function LoginForm() {
               alt=""
               width="0"
               height="0"
-              className="w-[30%] max-lg:hidden  h-auto -mt-9"
+              className="w-[20%] max-lg:hidden  h-auto -mt-9"
             />
              <Image
               src="/md-stepper-seprator.svg"
               alt=""
               width="0"
               height="0"
-              className="w-[15%] lg:hidden h-auto -mt-7"
+              className="w-[15%] lg:hidden h-auto -mx-3 -mt-7"
             />
             <div className="flex items-center flex-col">
               <div
@@ -260,12 +261,14 @@ export default function LoginForm() {
           </div>
           <div className="w-full relative">
           {activeStep === 1 ? (
-            <BasicDetailsForm />
+            // <FirstForm />
+            <BasicDetailsForm/>
           ) : activeStep === 2 ? (
-            <OTPForm />
+            <OTPForm/>
           ) : activeStep === 3 ? (
             <ThirdForm />
           ) : null}
+          <div className="py-16"></div>
             
           </div>
         </div>
