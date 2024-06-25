@@ -1,23 +1,27 @@
-"use client";
-import { UserContext } from "@/utils/context/user.context";
-// import { UserContext } from "@/utils/context/state.context";
-import { useContext, useEffect, useState } from "react";
+'use client';
+import { UserContext } from '@/utils/context/user.context';
+import {
+  useToast,
+  Spinner,
+} from '@chakra-ui/react';
+import { useContext, useEffect, useState } from 'react';
+import api from '@/utils/axios/instance';
 // format for joined date
 const formatJoinedDate = (createdAt: string): string => {
   const date = new Date(createdAt);
   const monthNames = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
   ];
   const day = date.getDate();
   const month = date.getMonth();
@@ -29,16 +33,16 @@ const formatJoinedDate = (createdAt: string): string => {
   return formattedDate;
 };
 const getOrdinalSuffix = (day: number): string => {
-  if (day > 3 && day < 21) return "th";
+  if (day > 3 && day < 21) return 'th';
   switch (day % 10) {
     case 1:
-      return "st";
+      return 'st';
     case 2:
-      return "nd";
+      return 'nd';
     case 3:
-      return "rd";
+      return 'rd';
     default:
-      return "th";
+      return 'th';
   }
 };
 
@@ -49,18 +53,18 @@ const formatSelectedDateTime = (
 ): string => {
   const date = new Date(selectedDate);
   const monthNames = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
   ];
   const day = date.getDate();
   const month = date.getMonth();
@@ -69,78 +73,83 @@ const formatSelectedDateTime = (
   return `${formattedDate}, ${formattedTimeSlot}`;
 };
 const formatTimeSlot = (timeSlot: string): string => {
-  const [startTime, endTime] = timeSlot.split(" to ");
+  const [startTime, endTime] = timeSlot.split(' to ');
   return `${formatTime(startTime)} to ${formatTime(endTime)}`;
 };
 
 const formatTime = (time: string): string => {
-  const [hour, period] = time.split(" ");
-  const [hours, minutes = "00"] = hour.split(":");
+  const [hour, period] = time.split(' ');
+  const [hours, minutes = '00'] = hour.split(':');
   return `${hours}:${minutes} ${period}`;
 };
 
 const ProfileDashboard = () => {
-  // interface UserProfile {
-  //   name: string;
-  //   email: string;
-  //   whatsappNumber: string;
-  //   whatsappCountryCode: string;
-  //   isOnlineModeSelected: boolean;
-  //   selectedDate: string;
-  //   selectedTimeSlot: string;
-  //   isWhatsAppVerified: boolean;
-  //   gameDetails: string;
-  //   city: string;
-  //   isUserVerified: boolean;
-  //   createdAt: string;
-  //   dob: string;
-  //   collegeName: string;
-  //   degreeStudyField: string;
-  //   profilePhoto: string;
-  //   userAgentDetails: string;
-  //   queryParams: Record<string, unknown>;
-  //   agreedToTerms: boolean;
-  //   gender: string;
-  // }
-
-  // fetching Data
-// "use client"
-
-// import { UserContext } from "@/utils/context/user.context";
-// // import { UserContext } from "@/utils/context/state.context";
-// import { useContext, useEffect, useState } from "react";
-// import userData from "./Profiledata.json"
-
-// const ProfileDashboard = () => {
   const { state } = useContext(UserContext);
-const [progress, setprogress] = useState<number>(45)
+  const [progress, setprogress] = useState<number>(45);
+  const [gameData, setGameData] = useState<any>([]);
+  const [gameImgUrls, setGameImgUrls] = useState<any>([]);
+  const [showLoader, setShowLoader] = useState<boolean>(true);
 
   // const [User, setUser] = useState<UserProfile | null>(null);
   const [age, setAge] = useState<number | null>(null);
-  const [joinedDate, setJoinedDate] = useState<string>("");
-  const [selectedDateTime, setSelectedDateTime] = useState<string>("");
-
- 
+  const [joinedDate, setJoinedDate] = useState<string>('');
+  const [selectedDateTime, setSelectedDateTime] = useState<string>('');
+  const toast = useToast();
 
   useEffect(() => {
     const fetchData = async () => {
-      const newage =  calculateAge(state.dob)
-      setAge(newage)
-    
+      const newage = calculateAge(state.dob);
+      setAge(newage);
+
       const formattedDate = formatJoinedDate(state.createdAt);
-    setJoinedDate(formattedDate);
-      
-    if (state.selectedDate && state.selectedTimeSlot) {
-              const formattedSelectedDateTime = formatSelectedDateTime(
-                state.selectedDate,
-                state.selectedTimeSlot
-              );
-              setSelectedDateTime(formattedSelectedDateTime);
-            }
+      setJoinedDate(formattedDate);
+
+      if (state.selectedDate && state.selectedTimeSlot) {
+        const formattedSelectedDateTime = formatSelectedDateTime(
+          state.selectedDate,
+          state.selectedTimeSlot
+        );
+        setSelectedDateTime(formattedSelectedDateTime);
+      }
     };
+    const fetchGameDetails = async () => {
+      try {
+        const response = await api.get('/games/');
+        const data = response?.data;
+        setGameData(data);
+        setShowLoader(false);
+      } catch (error: any) {
+        const message = error?.response?.data?.error;
+        toast({
+          title: `Error fetching Data`,
+          status: 'error',
+          isClosable: true,
+          description: message,
+        });
+        console.error('Error fetching Data:', error);
+      }
+    };
+    fetchGameDetails();
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (state.gameDetails.length > 0 && gameData.length > 0) {
+      const gameNames = state.gameDetails.map((game: any) =>
+        game?.name.toLowerCase()
+      );
+      console.log('gameNames', gameNames);
+      // Find the corresponding image URLs from gameData
+      const imageUrls = gameNames.map((name: string) => {
+        const game = gameData.find((g: any) => g.name.toLowerCase() === name);
+        return game ? game.imageUrl : null;
+      });
+      setGameImgUrls(imageUrls);
+      console.log('imageUrls', imageUrls);
+    }
+  }, [gameData]);
+
+  console.log(gameImgUrls);
   // calculate age
   function calculateAge(dobString: string): number {
     const dob = new Date(dobString);
@@ -151,10 +160,8 @@ const [progress, setprogress] = useState<number>(45)
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
-  // Progress Bar
-  // const [progress, setprogress] = useState<number>(45);
-console.log('userData', state);
-
+  console.log('userData', state);
+  console.log('gameData', gameData);
   return (
     <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-visible">
       <img
@@ -174,28 +181,6 @@ console.log('userData', state);
       />
       <div className="max-w-[1440px] w-full h-full flex flex-col justify-center place-items-center xl:px-24 md:px-12 px-6 py-32 md:gap-24 gap-8 relative z-0 overflow-visible">
         <div className="xl:p-10  flex flex-col gap-14 w-full z-10 relative ">
-          {/* <div className="absolute w-full md:hidden flex h-full -z-1  justify-center ">
-            <img
-              src="/mobile-bg-blur.svg"
-              alt=""
-              className="absolute inset-0 w-[100vw] lg:h-[67vh] h-[100vh]   object-fill   "
-            />
-          </div>
-          <div className="absolute w-full h-full -z-1 lg:flex hidden justify-center  ">
-            <img
-              src="/profile-blur-bg.svg"
-              alt=""
-              className="absolute top-20 -left-0  h-[60vh]  object-fill backdrop-blur-md rounded-lg  "
-            />
-          </div>
-          <div className="absolute w-full h-full -z-1 md:flex lg:hidden hidden  justify-center  ">
-            <img
-              src="/profile-blur-bg.svg"
-              alt=""
-              className="absolute inset-0 w-[100vw]   object-contain backdrop-blur-md rounded-lg  "
-            />
-          </div> */}
-
           <div className="flex profile-bg lg:pb-24 custom-clip flex-col justify-center items-center md:gap-14  z-50 relative px-10">
             <div className="flex lg:flex-row flex-col lg:gap-10 gap-0 w-full justify-center place-items-center">
               <div className="flex h-full justify-between flex-col  md:place-items-start  items-center">
@@ -203,7 +188,7 @@ console.log('userData', state);
                   <div className=" lg:pr-6">
                     <div className="relative">
                       <img
-                        src={state.profilePhoto || '/profile-img.jpg'}
+                        src={state.profilePhoto || '/profile-img.svg'}
                         alt=""
                         className="rounded-2xl"
                       />
@@ -215,8 +200,7 @@ console.log('userData', state);
                       {state.name}
                     </p>
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                    
-                      {joinedDate !== undefined && joinedDate !== null ? '-'  :  `  Joined on ${joinedDate} `}
+                      {joinedDate ? `Joined on ${joinedDate}` : '-'}
                     </p>
                   </div>
                 </div>
@@ -226,7 +210,11 @@ console.log('userData', state);
                     Mode
                   </p>
                   <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                    {state.isOnlineModeSelected ? 'Online' : 'Offline'}
+                    {state.gameDetails.length > 0
+                      ? state.isOnlineModeSelected
+                        ? 'Online'
+                        : 'Offline'
+                      : '-'}
                   </p>
                 </div>
               </div>
@@ -241,7 +229,7 @@ console.log('userData', state);
                       Age
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                    {age !== undefined && age !== null ? '-'  :  `${age} yrs`}
+                      {age !== undefined && age !== null ? '-' : `${age} yrs`}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -265,7 +253,7 @@ console.log('userData', state);
                       College
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.collegeName}
+                      {state.collegeName || '-'}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -298,9 +286,29 @@ console.log('userData', state);
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
                       Selected Games
                     </p>
+
                     <div className="flex mt-2 flex-row gap-1.5">
-                      <img src="/prof1.svg" alt="" />
-                      <img src="/prof2.svg" alt="" />
+                      {showLoader ? (
+                        <div className="flex">
+                          <p>Loading Games...</p>
+                          <Spinner size="xs" color="white" />
+                        </div>
+                      ) : gameImgUrls.length > 0 ? (
+                        <>
+                          {gameImgUrls.map((url: string, index: number) => (
+                            <div className="bg-[#DBFD67] p-4 rounded-lg">
+                              <img
+                                className="h-4"
+                                key={index}
+                                src={url}
+                                alt={`Game Image ${index}`}
+                              />
+                            </div>
+                          ))}
+                        </>
+                      ) : (
+                        '-'
+                      )}
                     </div>
                   </div>
                   <div className=" flex flex-col flex-wrap ">
@@ -308,7 +316,7 @@ console.log('userData', state);
                       Date & Time
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                    {selectedDateTime  || "-"}
+                      {selectedDateTime || '-'}
                     </p>
                   </div>
                 </div>
