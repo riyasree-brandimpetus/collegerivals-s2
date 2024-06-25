@@ -14,6 +14,7 @@ import SignUpForm from '@/components/sign-up/SignUpForm';
 import ProfileDashboard from '@/components/my-profile/ProfileDashboard';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
+import NavbarSeason2 from '@/components/globalComponents/NavbarSeason2';
 
 
 export default function MyProfile() {
@@ -47,7 +48,9 @@ export default function MyProfile() {
   //     router.push('/login');
   //   }
   // }, [userData]);
+ 
   
+  return  <div><NavbarSeason2/> <ProfileDashboard/></div>
   
-  return <>{showLoader ? 'Loading' : <ProfileDashboard/>}</>;
+  // return <>{showLoader ? 'Loading' : <ProfileDashboard/>}</>;
 }

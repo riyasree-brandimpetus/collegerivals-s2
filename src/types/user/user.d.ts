@@ -16,6 +16,10 @@ export interface UserDetailsType {
   isLoggedIn: Boolean;
   profilePhoto: string;
   isOnlineModeSelected: Boolean;
+  selectedDate: string,
+  selectedTimeSlot: string,
+  createdAt: string,
+  dob: string,
   // step:string
 }
 

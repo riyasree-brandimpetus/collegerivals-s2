@@ -22,7 +22,7 @@ const formatJoinedDate = (createdAt: string): string => {
   const day = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear().toString().slice(-2);
-  const formattedDate = `Joined on ${day}${getOrdinalSuffix(day)} ${
+  const formattedDate = `${day}${getOrdinalSuffix(day)} ${
     monthNames[month]
   } ‘${year}`;
 
@@ -120,36 +120,26 @@ const [progress, setprogress] = useState<number>(45)
   const [joinedDate, setJoinedDate] = useState<string>("");
   const [selectedDateTime, setSelectedDateTime] = useState<string>("");
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await fetch("/Profiledata.json"); // Fetch the data from the public directory
-  //       if (!res.ok) {
-  //         throw new Error("Network response was not ok");
-  //       }
-  //       const data: UserProfile = await res.json();
-  //       const formattedDate = formatJoinedDate(data.createdAt);
-  //       setJoinedDate(formattedDate);
-  //       // Format selected date and time slot
-  //       if (data.selectedDate && data.selectedTimeSlot) {
-  //         const formattedSelectedDateTime = formatSelectedDateTime(
-  //           data.selectedDate,
-  //           data.selectedTimeSlot
-  //         );
-  //         setSelectedDateTime(formattedSelectedDateTime);
-  //       }
+ 
 
-  //       const newage = calculateAge(data.dob);
-  //       setAge(newage);
-  //       setUser(data);
-  //       console.log(data); // Log the data to ensure it's fetched correctly
-  //     } catch (error) {
-  //       console.error("Failed to fetch data:", error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const newage =  calculateAge(state.dob)
+      setAge(newage)
+    
+      const formattedDate = formatJoinedDate(state.createdAt);
+    setJoinedDate(formattedDate);
+      
+    if (state.selectedDate && state.selectedTimeSlot) {
+              const formattedSelectedDateTime = formatSelectedDateTime(
+                state.selectedDate,
+                state.selectedTimeSlot
+              );
+              setSelectedDateTime(formattedSelectedDateTime);
+            }
+    };
+    fetchData();
+  }, []);
 
   // calculate age
   function calculateAge(dobString: string): number {
@@ -184,7 +174,7 @@ console.log('userData', state);
       />
       <div className="max-w-[1440px] w-full h-full flex flex-col justify-center place-items-center xl:px-24 md:px-12 px-6 py-32 md:gap-24 gap-8 relative z-0 overflow-visible">
         <div className="xl:p-10  flex flex-col gap-14 w-full z-10 relative ">
-          <div className="absolute w-full md:hidden flex h-full -z-1  justify-center ">
+          {/* <div className="absolute w-full md:hidden flex h-full -z-1  justify-center ">
             <img
               src="/mobile-bg-blur.svg"
               alt=""
@@ -204,9 +194,9 @@ console.log('userData', state);
               alt=""
               className="absolute inset-0 w-[100vw]   object-contain backdrop-blur-md rounded-lg  "
             />
-          </div>
+          </div> */}
 
-          <div className="flex  custom-clip flex-col justify-center items-center md:gap-14  z-50 relative px-10">
+          <div className="flex profile-bg lg:pb-24 custom-clip flex-col justify-center items-center md:gap-14  z-50 relative px-10">
             <div className="flex lg:flex-row flex-col lg:gap-10 gap-0 w-full justify-center place-items-center">
               <div className="flex h-full justify-between flex-col  md:place-items-start  items-center">
                 <div>
@@ -225,7 +215,8 @@ console.log('userData', state);
                       {state.name}
                     </p>
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Joined on 20th Jun ‘24
+                    
+                      {joinedDate !== undefined && joinedDate !== null ? '-'  :  `  Joined on ${joinedDate} `}
                     </p>
                   </div>
                 </div>
@@ -250,7 +241,7 @@ console.log('userData', state);
                       Age
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      28 yrs
+                    {age !== undefined && age !== null ? '-'  :  `${age} yrs`}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -317,7 +308,7 @@ console.log('userData', state);
                       Date & Time
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      22nd Aug, 5:30 PM
+                    {selectedDateTime  || "-"}
                     </p>
                   </div>
                 </div>
@@ -325,7 +316,7 @@ console.log('userData', state);
             </div>
 
             <div className="flex lg:flex-row flex-col max-lg:mt-9 gap-10 w-full justify-center lg:place-items-end items-center">
-              <div className="flex flex-col lg:w-3/5 md:w-[80%] w-full gap-2">
+              <div className="flex flex-col lg:w-3/5 max-lg:w-[40%] max-sm:w-[90%] w-full gap-2">
                 <div className="bg-[#333132] w-full h-[17px] rounded-sm">
                   <div
                     className=" bg-[#E7327C] h-full rounded-sm"

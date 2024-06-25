@@ -679,3 +679,21 @@ a.active {
   background-repeat: no-repeat;
   box-shadow: 6px 5px 0px 5px #dbfd67;
 }
+
+.profile-bg {
+  background-image: url("../../public/profile-blur-bg.svg");
+  background-repeat: no-repeat;
+  inset: 0;
+
+  background-position: center;
+  background-size: 100% 100%;
+}
+@media only screen and (max-width: 1024px) {
+  .profile-bg {
+    background-image: url("../../public/mobile-bg-blur.svg");
+    background-repeat: no-repeat;
+    inset: 0;
+    background-position: center;
+    background-size: 100% 100%;
+  }
+}
