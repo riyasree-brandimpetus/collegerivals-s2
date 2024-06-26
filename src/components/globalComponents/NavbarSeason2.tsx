@@ -56,7 +56,7 @@ const NavbarSeason2 = () => {
           </div>
           {!state.isLoggedIn ? (
             <Link
-              href="/register"
+              href="/sign-up"
               className="bg-#E7327C  px-1.75rem py-1.125rem rounded-md text-white text-xs helvetica-medium-font"
             >
               REGISTER NOW
