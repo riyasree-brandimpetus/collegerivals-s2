@@ -27,7 +27,8 @@ function GameCheckBox(props: any) {
       }}
       cursor="pointer"
       {...htmlProps}
-      background={state.isChecked ? '#d1ff45' : 'white'}
+      background={state.isChecked ? '#d1ff45' : 'transparent'}
+  
     >
       <input {...getInputProps()} hidden className="hide-checkbox" />
       <Flex
@@ -37,7 +38,8 @@ function GameCheckBox(props: any) {
         className="hide-checkbox"
       >
       </Flex>
-      <Image src={props.game.imageUrl} alt={props.game.value} />
+      <Image   
+       filter={state.isChecked ? 'invert(0%)' : 'invert(100%)'}  src={props.game.imageUrl} alt={props.game.value} />
     </chakra.label>
   );
 }

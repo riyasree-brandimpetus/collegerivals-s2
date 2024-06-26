@@ -185,7 +185,7 @@ export default function ThirdForm() {
             </Flex>
           </Skeleton>
 
-<div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
+<div className="fixed pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
          
           <Button
             type="submit"
@@ -260,7 +260,7 @@ export default function ThirdForm() {
                   ))}
                 <div className="p-12"></div>
               </Flex>
-              <Box className="mt-auto sticky bg-black bottom-0">
+              <Box className="mt-auto sticky z-50 bg-black bottom-0">
               
                 <Flex
                   className="form-submit-button-container"

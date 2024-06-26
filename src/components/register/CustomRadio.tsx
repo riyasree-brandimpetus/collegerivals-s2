@@ -36,17 +36,17 @@ const CustomRadio = React.forwardRef((props: Props, ref) => {
     });
 
   return (
-    <chakra.label {...htmlProps} cursor="pointer">
+    <chakra.label className='w-[40%]' {...htmlProps} cursor="pointer">
       <input {...getInputProps({}, ref)} hidden />
       <Box
         {...getRadioProps()}
         cursor="pointer"
-        borderWidth="1px"
+      bg="#232424"
         borderRadius="12px"
         boxShadow="md"
-        width={{ base: '220px', lg: '220px' , xl:'291px' }}
+        width="100%"
         className='flex justify-center items-center'
-        height="169px"
+        height={{sm: '169px' , base: '110px'}}
         _checked={{
           bg: '#D1FF45',
           color: 'white',
@@ -62,6 +62,7 @@ const CustomRadio = React.forwardRef((props: Props, ref) => {
         <Image {...getLabelProps()} src={props.imageUrl} alt={props.value} />
         
       </Box>
+     
      
 
     </chakra.label>

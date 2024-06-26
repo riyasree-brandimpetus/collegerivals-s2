@@ -46,6 +46,7 @@ function GameFields({ game }: any) {
                 placeholder={`Eg. ${requirement.placeholder}`}
                 height="4.063rem"
                 borderRadius="0.75rem"
+                color="white"
                 errorBorderColor="red.300"
                 focusBorderColor="#D1FF45"
               />

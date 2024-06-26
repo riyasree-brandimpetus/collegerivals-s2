@@ -35,7 +35,7 @@ const steps = [
 export default function RegisterPage() {
   const { state } = useContext(UserContext);
   const { activeStep, setActiveStep } = useSteps({
-    index: 2,
+    index: 1,
     count: steps.length,
   });
   const router = useRouter();

@@ -83,7 +83,7 @@ export default function SelectProfile() {
               MODE
             </Box>
           </Heading>
-          <Box overflowY="auto">
+          <Box >
             <Flex
               width={{ base: '100%', lg: '100%' }}
               pt="1.25rem"
@@ -98,12 +98,12 @@ export default function SelectProfile() {
                 {/* <FormLabel htmlFor="mode">
                   Choose your Degree/ Study field
                 </FormLabel> */}
-                <div style={{ overflowX: 'auto' }}>
+                <div className='relative flex flex-col items-end ' >
                   <RadioGroup
                 
                     name="modeSelected"
-                    flexWrap="wrap"
-                    className="whitespace-nowrap lg:whitespace-normal max-md:flex-col max-md:items-center "
+                
+                    className="whitespace-nowrap lg:whitespace-normal  max-md:items-center max-md:justify-center"
                     mb="2.063rem"
                     minWidth="100%"
                
@@ -112,6 +112,7 @@ export default function SelectProfile() {
                   >
                     <CustomRadio
                       key="online"
+                    
                       value="online"
                       name="online"
                       imageUrl="/online.svg"
@@ -121,14 +122,14 @@ export default function SelectProfile() {
                       key="offline"
                       value="offline"
                       name="offline"
-                      imageUrl="/offline.svg"
-                    />
-                    {values.modeSelected == 'offline' && (  <div className=' xl:ml-[350px] lg:ml-[250px] md:ml-[240px]  -mt-3 rounded-md px-7 py-4 bg-[#191919] text-[#5D5D5E] text-xs'>Only available in some cities.</div>
-                 )}
               
-                  
-                  
+                      imageUrl="/offline.svg"
+                    
+                    />
+              
                   </RadioGroup>
+                  {values.modeSelected == 'offline' && (  <div className=' absolute -bottom-7 right-[22%]   rounded-md   px-7 py-4 bg-[#191919] text-[#5D5D5E] text-xs'>Only available in some cities.</div>
+                 )}
                   {touched.modeSelected && errors.modeSelected && (
                     <div className="text-#DBFD67">{errors.modeSelected}</div>
                   )}

@@ -163,6 +163,7 @@ const ProfileDashboard = () => {
   console.log('userData', state);
   console.log('gameData', gameData);
   return (
+    
     <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-visible">
       <img
         src="/profile-yellow.svg"
@@ -181,18 +182,18 @@ const ProfileDashboard = () => {
       />
       <div className="max-w-[1440px] w-full h-full flex flex-col justify-center place-items-center xl:px-24 md:px-12 px-6 py-32 md:gap-24 gap-8 relative z-0 overflow-visible">
         <div className="xl:p-10  flex flex-col gap-14 w-full z-10 relative ">
-          <div className="flex profile-bg lg:pb-24 custom-clip flex-col justify-center items-center md:gap-14  z-50 relative px-10">
+          <div className="flex profile-bg lg:pb-20 custom-clip flex-col justify-center items-center md:gap-14  z-50 relative px-20">
             <div className="flex lg:flex-row flex-col lg:gap-10 gap-0 w-full justify-center place-items-center">
               <div className="flex h-full justify-between flex-col  md:place-items-start  items-center">
                 <div>
                   <div className=" lg:pr-6">
-                    <div className="relative">
+                    <div className="relative -mt-4 flex justify-center items-center">
                       <img
                         src={state.profilePhoto || '/profile-img.svg'}
                         alt=""
                         className="rounded-2xl"
                       />
-                      <div className="bg-[#191919] p-4 rounded-full absolute -top-3 -right-3"></div>
+                      {/* <div className="bg-[#191919] p-4 rounded-full absolute -top-3 -right-3"></div> */}
                     </div>
                   </div>
                   <div className="flex flex-col mt-3  items-center lg:place-items-start place-items-center gap-1">
@@ -219,7 +220,7 @@ const ProfileDashboard = () => {
                 </div>
               </div>
               <div className="flex flex-col lg:gap-14  lg:place-items-start items-center ">
-                <h2 className="md:text-7xl  text-3xl font-extrabold text-white lg:mt-12 mt-7   uppercase ppFormula-font">
+                <h2 className="xl:text-7xl lg:text-6xl   text-3xl font-extrabold text-white xl:-mt-5 lg:mt-0 mt-7   uppercase ppFormula-font">
                   <em>HELLO, {state.name}</em>
                   <span className="text-[#DBFD67]"> !</span>
                 </h2>
@@ -244,7 +245,7 @@ const ProfileDashboard = () => {
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
                       Email Address
                     </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold w-full">
                       {state.email || '-'}
                     </p>
                   </div>
