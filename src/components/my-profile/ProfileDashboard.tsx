@@ -163,7 +163,6 @@ const ProfileDashboard = () => {
   console.log('userData', state);
   console.log('gameData', gameData);
   return (
-    
     <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-visible">
       <img
         src="/profile-yellow.svg"
@@ -308,7 +307,7 @@ const ProfileDashboard = () => {
                           ))}
                         </>
                       ) : (
-                        '-'
+                        <p>-</p>
                       )}
                     </div>
                   </div>

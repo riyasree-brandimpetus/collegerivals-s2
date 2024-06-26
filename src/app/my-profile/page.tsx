@@ -50,7 +50,17 @@ export default function MyProfile() {
   // }, [userData]);
  
   
-  return  <div><NavbarSeason2/> <ProfileDashboard/></div>
+  // return  
   
-  // return <>{showLoader ? 'Loading' : <ProfileDashboard/>}</>;
+  return (
+    <>
+      {showLoader ? (
+        'Loading'
+      ) : (
+        <div>
+          <NavbarSeason2 /> <ProfileDashboard />
+        </div>
+      )}
+    </>
+  );
 }

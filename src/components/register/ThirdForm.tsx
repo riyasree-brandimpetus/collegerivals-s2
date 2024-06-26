@@ -26,7 +26,7 @@ let validationSchema: any = {};
 export default function ThirdForm() {
   const [gameData, setGameData] = useState<any>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
-  const [showGameFields, setShowGameFields] = useState<boolean>(true);
+  const [showGameFields, setShowGameFields] = useState<boolean>(false);
   const [selectedGameData, setSelectedGameData] = useState<any>([]);
   const toast = useToast();
   const { value, getCheckboxProps } = useCheckboxGroup();
@@ -228,7 +228,6 @@ export default function ThirdForm() {
         </Flex>
       ) : (
         <Formik 
-       
           initialValues={gameDetailsInitialValues}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}

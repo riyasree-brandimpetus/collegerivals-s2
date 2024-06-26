@@ -26,22 +26,17 @@ export const OTPSchema = Yup.object().shape({
 export const SecondFormSchema = Yup.object().shape({
   age: Yup.number().required('Age is required'),
   degreeStudyField: Yup.string().required('Degree is required'),
-  file: Yup.mixed()
-    .nullable()
+  collegeName: Yup.string()
+    .required('College Name is required')
     .test(
-      'fileType',
-      'Only PDF, JPEG, JPG, and PNG files are allowed',
-      value => {
-        if (!value) return true; // Allow empty file field
-        return supportedFileFormats.includes((value as FileWithMeta).type);
+      'city-required',
+      'City must be provided before College Name',
+      function (value) {
+        return !!this.parent.city;
       }
-    )
-    .test('fileSize', 'File size must be less than 5MB', value => {
-      if (!value) return true; // Allow empty file field
-      return (value as FileWithMeta).size <= maxFileSize;
-    }),
-  collegeName: Yup.string().required('College Name is required'),
+    ),
   gender: Yup.string().required('Gender is required'),
+  city: Yup.string().required('City is required'),
 });
 
 export const SelectProfileSchema = Yup.object().shape({
@@ -50,6 +45,12 @@ export const SelectProfileSchema = Yup.object().shape({
 
 export const SelectModeSchema = Yup.object().shape({
   modeSelected: Yup.string().required('Select a mode'),
+});
+
+
+export const SelectDateTimeSchema = Yup.object().shape({
+  selectedDate: Yup.string().required('Select a date'),
+  selectedTimeSlot: Yup.string().required('Select a time slot')
 });
 
 export const ThirdFormSchema = Yup.object().shape({

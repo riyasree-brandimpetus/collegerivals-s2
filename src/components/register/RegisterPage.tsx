@@ -184,9 +184,6 @@ export default function RegisterPage() {
         </Flex>
       </Flex> */}
 
-
-
-
       <div className="w-full flex h-screen bg-black">
         <div className=" max-lg:hidden w-45% custom-background pt-10 pl-11">
           <Link href="/">
@@ -199,9 +196,9 @@ export default function RegisterPage() {
           </Link>
         </div>
         <div className="w-[55%] max-lg:w-full ">
-        <Link className="lg:hidden" href="/">
+          <Link className="lg:hidden" href="/">
             <Image
-            className="pl-6 pt-6"
+              className="pl-6 pt-6"
               src="./college-rivals-white-logo.svg"
               alt="Logo"
               width={82}
@@ -209,12 +206,11 @@ export default function RegisterPage() {
             />
           </Link>
           <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
-           
             <div className="flex items-center flex-col">
               <div
                 className="rounded-full lg:w-[43px] lg:h-[43px] w-[29px] h-[29px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
-                  backgroundColor: activeStep == 1 ? "#E7327C" : "transparent",
+                  backgroundColor: activeStep == 1 ? '#E7327C' : 'transparent',
                 }}
               >
                 1
@@ -230,7 +226,7 @@ export default function RegisterPage() {
               height="0"
               className="w-[20%] max-lg:hidden  h-auto -mt-9"
             />
-             <Image
+            <Image
               src="/md-stepper-seprator.svg"
               alt=""
               width="0"
@@ -241,7 +237,7 @@ export default function RegisterPage() {
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
-                  backgroundColor: activeStep == 2 ? "#E7327C" : "transparent",
+                  backgroundColor: activeStep == 2 ? '#E7327C' : 'transparent',
                 }}
               >
                 2
@@ -257,7 +253,7 @@ export default function RegisterPage() {
               height="0"
               className="w-[20%] max-lg:hidden  h-auto -mt-9"
             />
-             <Image
+            <Image
               src="/md-stepper-seprator.svg"
               alt=""
               width="0"
@@ -268,7 +264,7 @@ export default function RegisterPage() {
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
-                  backgroundColor: activeStep == 3 ? "#E7327C" : "transparent",
+                  backgroundColor: activeStep == 3 ? '#E7327C' : 'transparent',
                 }}
               >
                 3
@@ -279,14 +275,13 @@ export default function RegisterPage() {
             </div>
           </div>
           <div className="w-full relative bg-black">
-          {activeStep === 1 ? (
-  <SelectDate/>
-          ) : activeStep === 2 ? (
-            <SecondForm />
-          ) : activeStep === 3 ? (
-            <ThirdForm />
-          ) : null}
-        
+            {activeStep === 1 ? (
+              <SelectMode />
+            ) : activeStep === 2 ? (
+              <SecondForm />
+            ) : activeStep === 3 ? (
+              <SelectDate />
+            ) : null}
           </div>
         </div>
       </div>
