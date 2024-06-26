@@ -24,6 +24,7 @@ import { useContext, useEffect } from "react";
 import SelectMode from "./SelectMode";
 import Image from "next/image";
 import Link from "next/link";
+import BasicDetailsForm from "./BasicDetailsForm";
 
 
 const steps = [
@@ -278,7 +279,7 @@ export default function RegisterPage() {
           </div>
           <div className="w-full relative bg-black">
           {activeStep === 1 ? (
-       <SelectMode/>
+     <FirstForm />
           ) : activeStep === 2 ? (
             <SecondForm />
           ) : activeStep === 3 ? (

@@ -36,7 +36,7 @@ const CustomRadio = React.forwardRef((props: Props, ref) => {
     });
 
   return (
-    <chakra.label className='w-[40%]' {...htmlProps} cursor="pointer">
+    <chakra.label className='w-40%' {...htmlProps} cursor="pointer">
       <input {...getInputProps({}, ref)} hidden />
       <Box
         {...getRadioProps()}

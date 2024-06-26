@@ -215,7 +215,7 @@ export default function BasicDetailsForm() {
             </Flex>
           </Box>
           </div>
-          <Box className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
+          <Box className="fixed pt-6 z-50 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
             {/* <Divider
               marginTop="auto"
               borderColor={'black'} 

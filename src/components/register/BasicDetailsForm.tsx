@@ -162,7 +162,8 @@ export default function BasicDetailsForm() {
       onSubmit={handleSubmit}
     >
       {({ errors, touched, isSubmitting }) => (
-        <Form className="flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 pt-8 md:max-h-[80vh]">
+        <Form className="flex flex-col grow  pt-8 md:max-h-[80vh]">
+          <div className="pl-6 lg:pl-16 pr-6 lg:pr-0">
           <Heading
             pb={{ base: '0.5rem', lg: '0.25rem' }}
             className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
@@ -336,16 +337,19 @@ export default function BasicDetailsForm() {
                 />
               </Box>
             </Flex>
+            <div className="py-16"></div>
           </Box>
-          <Box className="sticky bg-black bottom-0">
-            <Divider
+          </div>
+          <Box className="sticky z-50 bg-black bottom-0">
+          <div className="fixed pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
+            {/* <Divider
               marginTop="auto"
               borderColor={'black'}
               borderBottomWidth="1px"
               borderBottomStyle="dotted"
               ml={{ base: '0rem', lg: '-5.063rem' }}
               width={{ base: '100%', lg: '109%' }}
-            />
+            /> */}
             <Button
               id="basic-details-form-submit-btn"
               type="submit"
@@ -374,6 +378,7 @@ export default function BasicDetailsForm() {
             >
               Proceed to verify
             </Button>
+            </div>
           </Box>
         </Form>
       )}
