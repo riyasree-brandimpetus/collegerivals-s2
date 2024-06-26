@@ -25,6 +25,7 @@ import SelectMode from "./SelectMode";
 import Image from "next/image";
 import Link from "next/link";
 import BasicDetailsForm from "./BasicDetailsForm";
+import SelectDate from "./SelectDate";
 
 
 const steps = [
@@ -279,7 +280,7 @@ export default function RegisterPage() {
           </div>
           <div className="w-full relative bg-black">
           {activeStep === 1 ? (
-     <FirstForm />
+  <SelectDate/>
           ) : activeStep === 2 ? (
             <SecondForm />
           ) : activeStep === 3 ? (
