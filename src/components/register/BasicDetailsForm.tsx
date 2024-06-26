@@ -162,8 +162,8 @@ export default function BasicDetailsForm() {
       onSubmit={handleSubmit}
     >
       {({ errors, touched, isSubmitting }) => (
-        <Form className="flex flex-col grow  pt-8 md:max-h-[80vh]">
-          <div className="pl-6 lg:pl-16 pr-6 lg:pr-0">
+        <Form className="flex flex-col grow   pt-8 md:max-h-[80vh]">
+          <div className="pl-6 lg:pl-16 pr-6 lg:pr-0 overflow-scroll ">
           <Heading
             pb={{ base: '0.5rem', lg: '0.25rem' }}
             className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
@@ -202,12 +202,13 @@ export default function BasicDetailsForm() {
                   as={Input}
                   id="name"
                   name="name"
+                  color="white"
                   type="text"
                   placeholder="Eg. Rakesh Oberoi"
                   height="4.063rem"
                   borderRadius="0.75rem"
                   disabled={isSubmitting}
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                 />
                 {errors.name && touched.name && (
                   <div className="text-#DBFD67">{errors.name}</div>
@@ -226,12 +227,13 @@ export default function BasicDetailsForm() {
                   id="email"
                   name="email"
                   type="text"
+                    color="white"
                   // mt="0.75rem"
                   placeholder="Eg. rakesh@gmail.com"
                   height="4.063rem"
                   borderRadius="0.75rem"
                   disabled={isSubmitting}
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                 />
                 {errors.email && touched.email && (
                   <div className="text-#DBFD67">{errors.email}</div>
@@ -256,6 +258,7 @@ export default function BasicDetailsForm() {
                   as={Input}
                   id="whatsappNumber"
                   name="whatsappNumber"
+                    color="white"
                   type="number"
                   // mt="0.75rem"
                   placeholder="Eg. 9887762732"
@@ -284,6 +287,7 @@ export default function BasicDetailsForm() {
                   
                   height="4.063rem"
                   borderRadius="0.75rem"
+                    color="white"
                   placeholder="Select City"
                   focusBorderColor="#DBFD67"
                 >
@@ -335,13 +339,15 @@ export default function BasicDetailsForm() {
                   ref={recaptchaRef}
                   onChange={handleCaptchaSubmission}
                 />
+                 
               </Box>
+         
             </Flex>
-            <div className="py-16"></div>
+            <div className=" py-20 "></div>
           </Box>
           </div>
-          <Box className="sticky z-50 bg-black bottom-0">
-          <div className="fixed pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
+          <Box className=" bg-black bottom-0">
+          <div className="fixed  pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
             {/* <Divider
               marginTop="auto"
               borderColor={'black'}
