@@ -24,8 +24,8 @@ const NavbarSeason2 =() =>{
           <div className="w-63.5% items-center justify-between lg:flex hidden ">
             <div className="flex gap-2.125rem">
                 <Link className="text-white opacity-65% text-xs helvetica-medium-font" href="/esports">ESPORTS</Link>
-                <Link className="text-white opacity-65% text-xs helvetica-medium-font" href="/esports#truck-locator">TRUCK LOCATOR</Link>
-                <Link className="text-white opacity-65% text-xs helvetica-medium-font" href="/esports#press">PRESS</Link>
+                <Link className="text-white opacity-65% text-xs helvetica-medium-font" href="/#truck-locator">TRUCK LOCATOR</Link>
+                <Link className="text-white opacity-65% text-xs helvetica-medium-font" href="/#press">PRESS</Link>
                 <Link className="text-white opacity-65% text-xs helvetica-medium-font" href="">ABOUT US</Link>
                 <Link className="text-white opacity-65% text-xs helvetica-medium-font" href="">STORE</Link>
             </div>
@@ -52,9 +52,9 @@ const NavbarSeason2 =() =>{
           <div className="flex flex-col w-full items-center h-full">
           <div onClick={toggleNavbar} className="w-full flex justify-end mt-1.813rem mr-8 mb-6"> <Image src={closeIcon} alt="closeIcon"/></div>
           <div className="flex flex-col gap-10 text-center">
-          <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="">ESPORTS</Link>
-          <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="">TRUCK LOCATOR</Link>
-          <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="">PRESS</Link>
+          <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="/esports">ESPORTS</Link>
+          <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="/#truck-locator">TRUCK LOCATOR</Link>
+          <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="/#press">PRESS</Link>
           <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="">ABOUT US</Link>
           <Link className="text-white opacity-65% text-xs helvetica-medium-font"  href="">STORE</Link>
           {

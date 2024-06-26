@@ -6,7 +6,7 @@ const News =()=>{
 
 
     return(
-        <div className="w-full flex flex-col items-center bg-black">
+        <div id="press" className="w-full flex flex-col items-center bg-black">
         <div className="max-w-[1440px] w-full h-full flex flex-col justify-center slate-400 xl:px-20 xl:py-12 lg:p-12 p-6 gap-4">
 
             <h2 className="md:text-7xl text-2xl md:mb-24 mb-4 mt-12 text-center font-bold text-white ppFormula-font"><em>NEWS & UPDATES</em></h2>
