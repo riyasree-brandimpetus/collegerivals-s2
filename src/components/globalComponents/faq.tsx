@@ -43,7 +43,7 @@ const FAQ = () => {
           fontWeight={"300"}
         >
           FREQUENTLY ASKED{" "}
-          <Text as="span" className="text-pink">
+          <Text as="span" className="text-pink ">
             QUESTIONS
           </Text>
         </Heading>

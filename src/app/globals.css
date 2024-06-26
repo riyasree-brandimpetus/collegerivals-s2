@@ -56,6 +56,14 @@ html {
       format("truetype");
   font-display: swap;
 }
+@font-face {
+  font-family: "Montserrat";
+  /* font-weight: 300; */
+  font-style: normal;
+  src: local("Montserrat"),
+    url("../../public/fonts/Montserrat/Montserrat.ttf") format("truetype");
+  font-display: swap;
+}
 
 .helvetica-font {
   font-family: "Helvetica Neue", sans-serif;
@@ -79,6 +87,11 @@ html {
 
 .ppFormula-font {
   font-family: "ppFormula", sans-serif;
+  /* font-weight: 700; */
+}
+
+.Montserrat {
+  font-family: "Montserrat", sans-serif;
   /* font-weight: 700; */
 }
 
@@ -399,5 +412,288 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
 
   .slick-dots li {
     margin: 0 1.5px !important;
+  }
+}
+
+.outer-border {
+  position: relative;
+  display: inline-block;
+  padding: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.clip-bg {
+  border-right: 9px solid #dbfd67;
+
+  border-bottom: 4px solid #dbfd67;
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 16px) 0px,
+    100% 13px,
+    100% 100%,
+    28px 100%,
+    0 calc(100% - 14px)
+  );
+  padding: 2px;
+}
+.custom-button {
+  background-image: url("../assets/btn1.svg");
+  background-repeat: no-repeat;
+  box-shadow: 6px 5px 0px 5px #dbfd67;
+}
+
+.city-bg {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.gaming-slider-bg {
+  background-image: url("../assets/slider-bg.png");
+}
+
+.highlights-slides .slick-slide {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.highlights-slides .slick-center img {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.gradient-border {
+  position: relative;
+  display: inline-block;
+  padding: 1px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.24),
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.07)
+  );
+}
+
+.gradient-border .inner {
+  display: inline-block;
+
+  /* padding: 1rem 1.5rem; */
+  border-radius: inherit;
+
+  font-weight: 600;
+}
+
+.gamingcard:hover {
+  background: rgb(219, 253, 103);
+  background: linear-gradient(
+    0deg,
+    rgba(219, 253, 103, 0.8) 22%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
+.gamingcard {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgb(0, 0, 0, 0.8) 22%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
+
+.target-heading {
+  color: white;
+}
+
+.target-heading.hovered {
+  color: black;
+}
+
+.highlight-gradient {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgb(0, 0, 0, 0.8) 22%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
+.slick-center .highlight-gradient {
+  background: none !important;
+}
+
+.news-container img {
+  width: 100%;
+  transition: transform 0.3s ease; /* Smooth transition for transform */
+}
+
+/* Scale the image on hover of the parent div */
+.news-container:hover img {
+  transform: scale(1.2);
+}
+
+.reflection {
+  position: absolute;
+  z-index: 1000000;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 20px;
+  background-color: #dbfd67;
+  filter: blur(15px);
+  rotate: 1deg;
+  border-radius: 8px;
+  opacity: 0.5;
+
+  z-index: 0;
+  animation: reflect-animation 2s infinite;
+}
+
+@keyframes reflect-animation {
+  0% {
+    transform: scaleY(-1) translateX(-100%);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scaleY(-1) translateX(1400%);
+    opacity: 0.5;
+  }
+}
+
+.outline-text {
+  color: white;
+  -webkit-text-fill-color: black; /* Will override color (regardless of order) */
+  -webkit-text-stroke: 1px white;
+}
+
+.clip-bg-pink {
+  border-right: 3px solid #f46da4;
+  border-bottom: 3px solid #f46da4;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 39px) 0,
+    100% 21px,
+    100% 100%,
+    65px 100%,
+    0 calc(100% - 28px)
+  );
+  padding: 9px;
+}
+.custom-button-pink {
+  background-image: url("../../public/btn2.svg");
+  background-repeat: no-repeat;
+  box-shadow: 15px 6px 0 5px #f46da4;
+}
+
+.custom-select-arrow {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../../public/dropdown-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 92%;
+  background-position-y: 50%;
+}
+
+a.active {
+  color: #e7327c;
+}
+.custom-background {
+  background-image: url("/form-image.png"),
+    url("/registration-image-step-1.svg");
+  background-position: center;
+  background-size: 60%, cover;
+  background-repeat: no-repeat;
+}
+.custom-gradient {
+  background-color: linear-gradient(
+    to right,
+    #050607 50%,
+    #010101 73.14%,
+    #000000 76%
+  );
+}
+
+.clip-bg {
+  border-right: 6px solid #dbfd67;
+  border-bottom: 4px solid #dbfd67;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 32px) 0,
+    100% 21px,
+    100% 100%,
+    44px 100%,
+    0 calc(100% - 23px)
+  );
+  padding: 8px;
+}
+
+.custom-button {
+  background-image: url("../../public/btn1.svg");
+  background-repeat: no-repeat;
+  box-shadow: 11px 6px 0 5px #dbfd67;
+}
+
+.translucent-bg {
+  /* background: rgba(25, 25, 25, 0.85);             */
+  backdrop-filter: blur(10px);
+}
+
+.clip-main-bg {
+  clip-path: polygon(
+    0 70px,
+    70px 70px,
+    70px 0,
+    calc(100% - 70px) 0,
+    calc(100% - 70px) 70px,
+    100% 70px,
+    100% 100%,
+    0 100%
+  );
+}
+
+.clip-bg-neon {
+  border-right: 9px solid #dbfd67;
+
+  border-bottom: 4px solid #dbfd67;
+  clip-path: polygon(
+    0% 0%,
+    calc(100% - 16px) 0px,
+    100% 13px,
+    100% 100%,
+    28px 100%,
+    0 calc(100% - 14px)
+  );
+  padding: 2px;
+}
+.custom-button-neon {
+  background-image: url("../../public/btn1.svg");
+  background-repeat: no-repeat;
+  box-shadow: 6px 5px 0px 5px #dbfd67;
+}
+
+.profile-bg {
+  background-image: url("../../public/profile-blur-bg.svg");
+  background-repeat: no-repeat;
+  inset: 0;
+
+  background-position: center;
+  background-size: 100% 100%;
+}
+@media only screen and (max-width: 1024px) {
+  .profile-bg {
+    background-image: url("../../public/mobile-bg-blur.svg");
+    background-repeat: no-repeat;
+    inset: 0;
+    background-position: center;
+    background-size: 100% 100%;
   }
 }

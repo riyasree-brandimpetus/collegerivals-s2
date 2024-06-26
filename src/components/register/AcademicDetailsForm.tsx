@@ -148,14 +148,15 @@ export default function AcademicDetailsForm() {
       onSubmit={handleSubmit}
     >
       {({ values, touched, errors, setFieldValue, isSubmitting }) => (
-        <Form className="flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 pt-8 md:max-h-[80vh]">
+        <Form className="flex flex-col grow  pt-8 md:max-h-[80vh]">
+          <div className='pl-6 lg:pl-16 pr-6 lg:pr-0'>
           <Heading
             // pb={{ base: '2.125rem', lg: '1.25rem' }}
             pb={{ base: '2.125rem', lg: '1.25rem' }}
-            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
           >
             VERIFY YOU'RE A{' '}
-            <Box as="span" className="text-pink">
+            <Box as="span" className="text-#DBFD67">
               STUDENT
             </Box>
           </Heading>
@@ -168,11 +169,12 @@ export default function AcademicDetailsForm() {
               <Flex
                 width={{ base: '100%', lg: '48%' }}
                 direction="column"
-                className="field"
+                color={'white'}
+                className="field text-white"
               >
-                <CollegeSearchForm name="collegeName" />
+                <CollegeSearchForm     color="white" name="collegeName" />
                 {touched.collegeName && errors.collegeName && (
-                  <div className="text-pink">{errors.collegeName}</div>
+                  <div className="text-#DBFD67">{errors.collegeName}</div>
                 )}
               </Flex>
               <Flex
@@ -181,14 +183,15 @@ export default function AcademicDetailsForm() {
                 direction="column"
                 className="field"
               >
-                <FormLabel htmlFor="Age">Age</FormLabel>
+                <FormLabel color={'white'} htmlFor="Age">Age</FormLabel>
                 <Field
                   as={Select}
                   id="age"
                   name="age"
                   height="4.063rem"
                   borderRadius="0.75rem"
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
+                     color="#ffffff"
                 >
                   {Array.from({ length: 13 }, (_, index) => index + 18).map(
                     age => (
@@ -205,15 +208,17 @@ export default function AcademicDetailsForm() {
                 direction="column"
                 className="field"
               >
-                <FormLabel htmlFor="gender">Gender</FormLabel>
+                <FormLabel color={'white'} htmlFor="gender">Gender</FormLabel>
                 <Field
                   as={Select}
                   id="gender"
                   name="gender"
                   height="4.063rem"
                   borderRadius="0.75rem"
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                   placeholder="Select option"
+               color="#ffffff"
+                  
                 >
                   {genderOptions.map(gender => (
                     <option key={gender} value={gender}>
@@ -222,7 +227,7 @@ export default function AcademicDetailsForm() {
                   ))}
                 </Field>
                 {errors.gender && touched.gender && (
-                  <div className="text-pink">{errors.gender}</div>
+                  <div className="text-#DBFD67">{errors.gender}</div>
                 )}
               </Flex>
             </Flex>
@@ -237,7 +242,7 @@ export default function AcademicDetailsForm() {
                 direction="column"
                 className="field"
               >
-                <FormLabel htmlFor="degree">
+                <FormLabel color={'white'} htmlFor="degree">
                   Choose your Degree/ Study field
                 </FormLabel>
                 <div style={{ overflowX: 'auto' }}>
@@ -247,6 +252,7 @@ export default function AcademicDetailsForm() {
                     className="whitespace-nowrap lg:whitespace-normal"
                     mb="2.063rem"
                     minWidth="100%"
+                    color={'white'}
                     display={'flex'}
                     gap="0.3rem"
                   >
@@ -262,7 +268,7 @@ export default function AcademicDetailsForm() {
                     })}
                   </RadioGroup>
                   {touched.degreeStudyField && errors.degreeStudyField && (
-                    <div className="text-pink">{errors.degreeStudyField}</div>
+                    <div className="text-#DBFD67">{errors.degreeStudyField}</div>
                   )}
                 </div>
               </Flex>
@@ -273,13 +279,14 @@ export default function AcademicDetailsForm() {
                 pt={{ base: '1.25rem', lg: '0rem' }}
                 pb={{ base: '1.875rem', lg: '0rem' }}
               >
-                <FormLabel htmlFor="idFile">Upload College ID</FormLabel>
+                <FormLabel color={'white'} htmlFor="idFile">Upload College ID</FormLabel>
                 <Box
                   width="100%"
                   height="7.063rem"
                   position="relative"
                   cursor="pointer"
                   border="1px dotted"
+                  color={'white'}
                   borderRadius="12px"
                   borderColor="#B4B4B4"
                   p={2}
@@ -309,20 +316,15 @@ export default function AcademicDetailsForm() {
                   />
                 </Box>
                 {touched.file && errors.file && (
-                  <div className="text-pink">{errors.file}</div>
+                  <div className="text-#DBFD67">{errors.file}</div>
                 )}
               </Flex>
             </Flex>
+            <div className='py-16'></div>
           </Box>
-          <Box className="mt-auto sticky bg-white bottom-0">
-            <Divider
-              marginTop="auto"
-              borderColor={'black'}
-              borderBottomWidth="1px"
-              borderBottomStyle="dotted"
-              ml={{ base: '0rem', lg: '-5.063rem' }}
-              width={{ base: '100%', lg: '109%' }}
-            />
+          </div>
+          <Box className="mt-auto  bg-black bottom-0">
+          <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
             <Button
               id="academic-details-form-submit-btn"
               type="submit"
@@ -350,6 +352,7 @@ export default function AcademicDetailsForm() {
             >
               Upload & Proceed
             </Button>
+            </div>
           </Box>
         </Form>
       )}

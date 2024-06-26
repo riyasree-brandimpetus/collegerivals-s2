@@ -26,7 +26,7 @@ let validationSchema: any = {};
 export default function ThirdForm() {
   const [gameData, setGameData] = useState<any>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
-  const [showGameFields, setShowGameFields] = useState<boolean>(false);
+  const [showGameFields, setShowGameFields] = useState<boolean>(true);
   const [selectedGameData, setSelectedGameData] = useState<any>([]);
   const toast = useToast();
   const { value, getCheckboxProps } = useCheckboxGroup();
@@ -142,23 +142,23 @@ export default function ThirdForm() {
   return (
     <>
       {!showGameFields ? (
-        <Flex className="flex-col grow pt-8 md:max-h-[80vh]">
+        <Flex className="flex-col grow pt-8 md:max-h-[80vh] ">
           <Heading
             // pb="1.25rem"
             paddingLeft={{ base: "2rem", lg: "4rem" }}
             pb={{ base: "2.125rem", lg: "1.25rem" }}
-            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal text-white tracking-wide lg:tracking-wider"
           >
             CHOOSE YOUR{" "}
-            <Box as="span" color="#EA337D">
+            <Box as="span" color="#D1FF45">
               GAMES
             </Box>
           </Heading>
           {showLoader && (
             <Flex>
               {" "}
-              <Text paddingLeft="4rem">Loading Games...</Text>
-              <Spinner size="xs" />
+              <Text paddingLeft="4rem" color="white">Loading Games...</Text>
+              <Spinner size="xs"  color="white"/>
             </Flex>
           )}
 
@@ -171,11 +171,12 @@ export default function ThirdForm() {
               flexWrap="wrap"
               gap="0.5rem"
               overflowY="auto"
-              paddingLeft={{ base: "2rem", lg: "4rem" }}
+              paddingLeft={{ base: "1.25rem", lg: "4rem" }}
             >
               {gameData.length > 0 &&
                 gameData.map((game: any) => (
                   <GameCheckBox
+                  className="max-md:w-[46%]"
                     game={game}
                     key={game.name}
                     {...getCheckboxProps({ value: game.name })}
@@ -184,17 +185,11 @@ export default function ThirdForm() {
             </Flex>
           </Skeleton>
 
-          <Divider
-            marginTop="auto"
-            borderColor={"black"}
-            borderBottomWidth="1px"
-            borderBottomStyle="dotted"
-            ml={{ base: "0rem", lg: "-5.063rem" }}
-            width={{ base: "100%", lg: "109%" }}
-            paddingLeft="4rem"
-          />
+<div className="fixed pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
+         
           <Button
             type="submit"
+           
             onClick={() =>
               value.length > 0
                 ? filterGameData()
@@ -229,9 +224,11 @@ export default function ThirdForm() {
           >
             Choose & Proceed
           </Button>
+          </div>
         </Flex>
       ) : (
-        <Formik
+        <Formik 
+       
           initialValues={gameDetailsInitialValues}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
@@ -241,10 +238,10 @@ export default function ThirdForm() {
               <Heading
                 // pb="1.25rem"
                 pb={{ base: "2.125rem", lg: "1.25rem" }}
-                className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+                className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
               >
                 ENTER YOUR{" "}
-                <Box as="span" color="#EA337D">
+                <Box as="span" color="#D1FF45">
                   GAME IDS
                 </Box>
               </Heading>
@@ -261,23 +258,18 @@ export default function ThirdForm() {
                   selectedGameData.map((game: any) => (
                     <GameFields game={game} key={game.name} />
                   ))}
+                <div className="p-12"></div>
               </Flex>
-              <Box className="mt-auto sticky bg-white bottom-0">
-                <Divider
-                  marginTop="auto"
-                  borderColor={"black"}
-                  borderBottomWidth="1px"
-                  borderBottomStyle="dotted"
-                  ml={{ base: "0rem", lg: "-5.063rem" }}
-                  width={{ base: "100%", lg: "109%" }}
-                />
+              <Box className="mt-auto sticky z-50 bg-black bottom-0">
+              
                 <Flex
                   className="form-submit-button-container"
                   width={{ base: "100%", lg: "92%" }}
                   justifyContent={{ base: "center", lg: "start" }}
                 >
+                  <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full flex-row  flex items-center justify-between lg:right-0 bottom-0 ">
                   <Button
-                    colorScheme="blackAlpha"
+                    colorScheme="whiteAlpha"
                     _hover={{ opacity: "90%" }}
                     variant="link"
                     onClick={() => setShowGameFields(false)}
@@ -305,13 +297,16 @@ export default function ThirdForm() {
                     fontSize={"1rem"}
                     mt="1.25rem"
                     mb="1.25rem"
+                    mr="1.25rem"
                     ml="auto"
                     isLoading={isSubmitting}
                     loadingText="Submitting"
-                    width={"40%"}
+                    height={{ base: "3rem", lg: "4.063rem" }}
+                    width={{ base: "7rem", lg: "22rem" }}
                   >
                     Submit
                   </Button>
+                  </div>
                 </Flex>
               </Box>
             </Form>

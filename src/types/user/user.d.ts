@@ -2,7 +2,7 @@ export interface UserDetailsType {
   name: string;
   whatsappNumber: string;
   email: string;
-  cityCenter: string;
+  city: string;
   whatsappCountryCode: string;
   age: number;
   degreeStudyField: string;
@@ -11,7 +11,15 @@ export interface UserDetailsType {
   _id: string;
   isWhatsAppVerified: Boolean;
   isUserVerified: Boolean;
-  collegeName:string;
-  gameDetails:any;
+  collegeName: string;
+  gameDetails: any;
+  isLoggedIn: Boolean;
+  profilePhoto: string;
+  isOnlineModeSelected: Boolean;
+  selectedDate: string,
+  selectedTimeSlot: string,
+  createdAt: string,
+  dob: string,
   // step:string
 }
+
