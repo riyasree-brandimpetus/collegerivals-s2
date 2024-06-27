@@ -159,6 +159,7 @@ const ProfileDashboard = () => {
   useEffect(() => {
       const fetchData = async () => {
         const newage = calculateAge(state.dob);
+     console.log(state.dob)
         setAge(newage);
 
         const formattedDate = formatJoinedDate(state.createdAt);
@@ -209,27 +210,27 @@ const ProfileDashboard = () => {
       <Image
         src="/profile-yellow.svg"
         alt=""
-        width={1006}
+        width={706}
         height={424}
-        className="absolute right-0 bottom-0 z-0 md:w-1/2 w-1/2"
+        className="absolute right-0 bottom-0 z-0 "
       />
       <Image
         src="/profile-illustration.svg"
         alt=""
-        width={454}
+        width={254}
         height={460}
         className="absolute top-0 right-0 z-0"
       />
       <Image
         src="/profile-illustration2.svg"
         alt=""
-        width={422}
-        height={428}
+        width={122}
+        height={228}
         className="absolute bottom-0 left-0  z-0"
       />
       <div className="max-w-[1440px] w-full h-full flex flex-col justify-center place-items-center xl:px-24 md:px-12 px-6 py-32 md:gap-24 gap-8 relative z-0 overflow-visible">
         <div className="xl:p-10  flex flex-col gap-14 w-full z-10 relative ">
-          <div className="flex profile-bg lg:pb-20 custom-clip flex-col justify-center items-center md:gap-14  z-50 relative px-20">
+          <div className="flex profile-bg lg:pb-20 custom-clip flex-col justify-center items-center md:gap-14  z-50 relative lg:px-20">
             <div className="flex lg:flex-row flex-col lg:gap-10 gap-0 w-full justify-center place-items-center">
               <div className="flex h-full justify-between flex-col  md:place-items-start  items-center">
                 <div>
@@ -386,17 +387,21 @@ const ProfileDashboard = () => {
                 </div>
                 <p className="text-white">{progress}% Complete</p>
               </div>
+              {progress !== 100 && (
               <div className="clip-bg rounded-lg w-fit lg:block hidden ">
-                <button className="custom-button xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal">
+                <Link href={registrationUrl}>
+                <div  className="custom-button xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
                   COMPLETE PROFILE
-                </button>
+                </div>
+                </Link>
               </div>
+                  )}
             </div>
           </div>
         </div>
         {progress !== 100 && (
           <div className="clip-bg rounded-lg lg:hidden flex w-fit  z-10">
-            <Link href={registrationUrl}>Complete Profile</Link>
+            <Link className="custom-button xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal" href={registrationUrl}>Complete Profile</Link>
           </div>
         )}
       </div>
