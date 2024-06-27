@@ -5,6 +5,7 @@ import EsportsAccordian from '@/components/esports/Accordian';
 import FAQ from '@/components/esports/faq';
 import Footer from '@/components/globalComponents/Footer';
 import NavbarSeason2 from '@/components/globalComponents/NavbarSeason2';
+import FooterSeason2 from '@/components/globalComponents/FooterSeason2';
 
 const Page = () => {
   return (
@@ -14,7 +15,7 @@ const Page = () => {
       <EsportsAccordian />
       <Rules />
       <FAQ />
-      <Footer />
+ <FooterSeason2/>
     </div>
   );
 };
