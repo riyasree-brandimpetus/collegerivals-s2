@@ -236,7 +236,7 @@ const ProfileDashboard = () => {
                   <div className=" lg:pr-6">
                     <div className="relative -mt-4 flex justify-center items-center">
                       <Image
-                        src={state.profilePhoto || '/profile-Img.svg'}
+                        src={state.profilePhoto || '/profile-img.svg'}
                         alt="profile photo"
                         width={181}
                         height={181}
