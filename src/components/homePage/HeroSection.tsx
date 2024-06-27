@@ -25,8 +25,8 @@ const openvideo = ()=>{
       <div className="text-white -mt-4 md:text-4xl text-lg ppFormula-font italic ">
         IS BACK WITH SEASON 2
       </div>
-      <div className="clip-bg rounded-lg mt-1.37rem overflow-hidden relative">
-    <button className="custom-button px-14 py-5 text-1.063rem rounded-lg bg-cover helvetica-medium-font text-#DBFD67 backdrop-blur-md">
+      <div className="clip-bg-neon rounded-lg mt-1.37rem overflow-hidden relative">
+    <button className="custom-button-neon px-14 py-5 text-1.063rem rounded-lg bg-cover helvetica-medium-font text-#DBFD67 backdrop-blur-md">
        REGISTER NOW
     </button>
     <div className="reflection"></div>

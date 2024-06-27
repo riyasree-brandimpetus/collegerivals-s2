@@ -21,7 +21,7 @@ const NavbarSeason2 = () => {
             <Image color="white" src={navLogo} alt="navlogo" />
           </div>
         </Link>
-        <div className="w-63.5% items-center justify-between lg:flex hidden ">
+        <div className="w-[60%] items-center justify-between lg:flex hidden ">
           <div className="flex gap-2.125rem">
             <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
@@ -29,7 +29,7 @@ const NavbarSeason2 = () => {
             >
               ESPORTS
             </Link>
-            <Link
+            {/* <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
               href="/"
             >
@@ -40,7 +40,7 @@ const NavbarSeason2 = () => {
               href="/"
             >
               PRESS
-            </Link>
+            </Link> */}
             <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
               href="/"
@@ -97,7 +97,7 @@ const NavbarSeason2 = () => {
                   >
                     ESPORTS
                   </Link>
-                  <Link
+                  {/* <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
                     href="/#truck-locator"
                   >
@@ -108,7 +108,7 @@ const NavbarSeason2 = () => {
                     href="/"
                   >
                     PRESS
-                  </Link>
+                  </Link> */}
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
                     href="/"

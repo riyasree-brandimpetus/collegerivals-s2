@@ -57,7 +57,7 @@ const GamingSlider = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.3,
           slidesToScroll: 1,
           variableWidth: false,
         },
@@ -73,7 +73,7 @@ const GamingSlider = () => {
    
       <div className="w-full  flex justify-center bg-#E7327C rounded-xl">
       
-        <div className=" max-w-[1440px] w-full h-full rounded-xl md:p-12 p-2 max-md:pb-6 flex justify-center ">
+        <div className=" max-w-[1440px] w-full h-full rounded-xl md:p-12 md:p-2 max-md:pb-6 flex justify-center ">
           <div className=" w-full justify-center items-center">
             <div className="flex flex-row gap-4 text-3xl w-full font-semibold md:pt-24 pl-6 pr-6 place-items-center justify-center md:mb-28 mb-10">
               <div className="md:p-20 p-8 relative flex justify-center">
@@ -116,7 +116,7 @@ const GamingSlider = () => {
               </div>
             </div>
 
-            <div className="product-slider pr-4">
+            <div className="product-slider ">
               <Slider ref={sliderRef} {...slidesettings}>
                 {gaming.map((slides, index) => (
                   <div key={index} className=" pl-2 md:p-6 relative">

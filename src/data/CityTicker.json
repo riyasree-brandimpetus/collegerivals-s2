@@ -1,51 +1,119 @@
 [
     {
       "id": 1,
-      "name":"BENGALURU",
-      "Imgsrc": "/assets/city1.png"
+      "name":"PUNE",
+      "Imgsrc": "/pune.png"
      
     },
     {
         "id": 2,
-        "name":"PUNE",
-        "Imgsrc": "/assets/city2.png"
+        "name":"JAIPUR",
+        "Imgsrc": "/jaipur.png"
     },
     {
         "id": 3,
-        "name":"HYDERABAD",
-        "Imgsrc": "/assets/city3.png"
+        "name":"INDORE",
+        "Imgsrc": "/indore.png"
     },
     {
         "id": 4,
-      "name":"KOLKATA",
-      "Imgsrc": "/assets/city4.png"
+      "name":"BHOPAL",
+      "Imgsrc": "/bhopal.png"
       },
       {
         "id": 5,
-      "name":"NEW DELHI",
-      "Imgsrc": "/assets/city5.png"
+      "name":"AHMEDABAD",
+      "Imgsrc": "/ahemdabad.png"
       },
      
       {
         "id": 7,
-        "name":"JAIPUR",
-        "Imgsrc": "/assets/city6.png"
+        "name":"CHANDIGARH",
+        "Imgsrc": "/chandigarh.png"
       },
       {
         "id": 8,
-        "name":"JAIPUR",
-        "Imgsrc": "/assets/city6.png"
+        "name":"DEHRADUN",
+        "Imgsrc": "/dehradun.png"
       },
       {
         "id": 9,
-        "name":"BENGALURU",
-        "Imgsrc": "/assets/city1.png"
+        "name":"NEW DELHI",
+        "Imgsrc": "/delhi.png"
        
       },
       {
         "id": 10,
-      "name":"NEW DELHI",
-      "Imgsrc": "/assets/city5.png"
+      "name":"LUCKNOW",
+      "Imgsrc": "/lucknow.png"
+      },
+      {
+        "id": 11,
+      "name":"PATNA",
+      "Imgsrc": "/patna.png"
+      },
+      {
+        "id": 12,
+      "name":"GUHATI",
+      "Imgsrc": "/guhati.png"
+      },
+      {
+        "id": 13,
+      "name":"KOLKATA",
+      "Imgsrc": "/kolkata.png"
+      },
+      {
+        "id": 14,
+      "name":"BHUBANESHWAR",
+      "Imgsrc": "/BHUBANESHWAR.png"
+      },
+      {
+        "id": 15,
+      "name":"VIZAG",
+      "Imgsrc": "/vizag.png"
+      },
+      {
+        "id": 16,
+      "name":"HYDERABAD",
+      "Imgsrc": "/hydrabad.png"
+      },
+      {
+        "id": 18,
+      "name":"BENGALURU",
+      "Imgsrc": "/bengaluru.png"
+      },
+      {
+        "id": 19,
+      "name":"CHENNAI",
+      "Imgsrc": "/chennai.png"
+      },
+      {
+        "id": 20,
+      "name":"KOCHI",
+      "Imgsrc": "/kochi.png"
+      },
+      {
+        "id": 21,
+      "name":"KOCHI",
+      "Imgsrc": "/kochi.png"
+      },
+      {
+        "id": 22,
+      "name":"MANGALORE",
+      "Imgsrc": "/manglore.png"
+      },
+      {
+        "id": 23,
+      "name":"GOA",
+      "Imgsrc": "/goa.png"
+      },
+      {
+        "id": 24,
+      "name":"MUMBAI",
+      "Imgsrc": "/mumbai.png"
       }
+
+
+
   ]
   
