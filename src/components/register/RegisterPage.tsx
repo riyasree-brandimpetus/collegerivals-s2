@@ -216,7 +216,7 @@ export default function RegisterPage() {
                 1
               </div>
               <p className="text-white  pt-3 helvetica-font font-bold md:text-base text-xs">
-                Enter Credentials
+          Select Mode
               </p>
             </div>
             <Image
@@ -243,7 +243,7 @@ export default function RegisterPage() {
                 2
               </div>
               <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs">
-                Verification
+              Choose Games
               </p>
             </div>
             <Image
@@ -270,7 +270,7 @@ export default function RegisterPage() {
                 3
               </div>
               <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs ">
-                Create Profile
+              Select Slot
               </p>
             </div>
           </div>

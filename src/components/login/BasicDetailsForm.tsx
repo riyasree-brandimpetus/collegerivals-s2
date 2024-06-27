@@ -225,7 +225,7 @@ export default function BasicDetailsForm() {
               width={{ base: '100%', lg: '109%' }}
             /> */}
 
-<div className='text-white helvetica-light-font font-normal'>Already a member? <Link className='text-#DBFD67 underline helvetica-font' href="/">Login</Link></div>
+<div className='text-white helvetica-light-font font-normal'>Not a member? <Link className='text-#DBFD67 underline helvetica-font' href="/sign-up">Register</Link></div>
              <Button
               id="basic-details-form-submit-btn"
               type="submit"
