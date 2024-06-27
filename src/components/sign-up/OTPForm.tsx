@@ -32,11 +32,11 @@ export default function OTPForm() {
         userId: state._id,
       });
       if (response.status === 200) {
+        localStorage.setItem('userId', state._id);
         dispatch({
           type: 'UPDATE',
           payload: { ...state, isWhatsAppVerified: true, isLoggedIn:true },
         });
-        localStorage.setItem('userId', state._id);
         toast({
           title: `Successfully Verified OTP`,
           status: 'success',

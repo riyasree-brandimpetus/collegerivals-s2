@@ -99,7 +99,6 @@ const ProfileDashboard = () => {
   const [gameData, setGameData] = useState<any>([]);
   const [gameImageUrls, setGameImageUrls] = useState<any>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
-
   const [registrationUrl, setRegistrationUrl] = useState<string>(
     '/esports-registration'
   );
@@ -109,6 +108,7 @@ const ProfileDashboard = () => {
   const toast = useToast();
 
   useEffect(() => {
+    const storedUserId: any = localStorage.getItem('userId');
     const fetchGameDetails = async () => {
       try {
         const response = await api.get('/games/');
@@ -129,7 +129,7 @@ const ProfileDashboard = () => {
       const fetchUserDetails = async () => {
         try {
           const response = await api.post('/users/details', {
-            userId: state._id
+            userId: state._id || storedUserId,
           });
           const data = response.data;
           console.log(data);
