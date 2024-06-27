@@ -264,7 +264,7 @@ export default function SelectDate() {
                     height="4.063rem"
                     borderRadius="0.75rem"
                     color="white"
-                    placeholder="Select City"
+                    placeholder="Select Date"
                     focusBorderColor="#DBFD67"
                   >
                     {dates.map(dates => (
@@ -301,7 +301,7 @@ export default function SelectDate() {
                     height="4.063rem"
                     borderRadius="0.75rem"
                     color="white"
-                    placeholder="Select City"
+                    placeholder="Select time slot"
                     focusBorderColor="#DBFD67"
                   >
                     {times.map(times => (

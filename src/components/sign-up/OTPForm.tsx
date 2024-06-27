@@ -36,11 +36,13 @@ export default function OTPForm() {
           type: 'UPDATE',
           payload: { ...state, isWhatsAppVerified: true, isLoggedIn:true },
         });
+        localStorage.setItem('userId', state._id);
         toast({
           title: `Successfully Verified OTP`,
           status: 'success',
           isClosable: true,
         });
+
       }
     } catch (error: any) {
       const message = error?.response?.data?.error;

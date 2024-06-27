@@ -45,14 +45,21 @@ export default function LoginForm() {
     }
   }, [state.isWhatsAppVerified]);
 
+  // useEffect(() => {
+  //   if (state.isLoggedIn) {
+  //     router.push("/my-profile");
+  //     console.log("OTP is verified");
+  //     // setActiveStep(2);
+  //   }
+  // }, [state.isLoggedIn]);
   useEffect(() => {
-    if (state.isLoggedIn) {
-      router.push("/my-profile");
-      console.log("OTP is verified");
-      // setActiveStep(2);
+    // Retrieve the data from localStorage
+    const storedUserId: any = localStorage.getItem('userId');
+    if (storedUserId) {
+      console.log('ID is found', storedUserId);
+      router.push('/my-profile');
     }
-  }, [state.isLoggedIn]);
-
+  }, []);
   return (
     <>
       {/* <Flex minHeight="100vh" minWidth="100vw" className="bg-[#050607]">

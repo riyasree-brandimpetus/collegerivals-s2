@@ -6,6 +6,7 @@ import {
 } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import api from '@/utils/axios/instance';
+import Link from 'next/link';
 // format for joined date
 const formatJoinedDate = (createdAt: string): string => {
   const date = new Date(createdAt);
@@ -82,36 +83,31 @@ const formatTime = (time: string): string => {
   const [hours, minutes = '00'] = hour.split(':');
   return `${hours}:${minutes} ${period}`;
 };
+  // calculate age
+  function calculateAge(dobString: string): number {
+    const dob = new Date(dobString);
+    const now = new Date();
+    const ageDifMs = now.getTime() - dob.getTime();
+    const ageDate = new Date(ageDifMs);
 
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }
 const ProfileDashboard = () => {
-  const { state } = useContext(UserContext);
-  const [progress, setprogress] = useState<number>(45);
+  const { state, dispatch } = useContext(UserContext);
+  const [progress, setprogress] = useState<number>(30);
   const [gameData, setGameData] = useState<any>([]);
   const [gameImgUrls, setGameImgUrls] = useState<any>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
 
-  // const [User, setUser] = useState<UserProfile | null>(null);
+  const [registrationUrl, setRegistrationUrl] = useState<string>(
+    '/esports-registration'
+  );
   const [age, setAge] = useState<number | null>(null);
   const [joinedDate, setJoinedDate] = useState<string>('');
   const [selectedDateTime, setSelectedDateTime] = useState<string>('');
   const toast = useToast();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const newage = calculateAge(state.dob);
-      setAge(newage);
-
-      const formattedDate = formatJoinedDate(state.createdAt);
-      setJoinedDate(formattedDate);
-
-      if (state.selectedDate && state.selectedTimeSlot) {
-        const formattedSelectedDateTime = formatSelectedDateTime(
-          state.selectedDate,
-          state.selectedTimeSlot
-        );
-        setSelectedDateTime(formattedSelectedDateTime);
-      }
-    };
     const fetchGameDetails = async () => {
       try {
         const response = await api.get('/games/');
@@ -129,9 +125,62 @@ const ProfileDashboard = () => {
         console.error('Error fetching Data:', error);
       }
     };
-    fetchGameDetails();
-    fetchData();
+      const fetchUserDetails = async () => {
+        try {
+          const response = await api.post('/users/details', {
+            userId: state._id
+          });
+          const data = response.data;
+          console.log(data);
+          // const data = response?.data;
+          // setGameData(data);
+           dispatch({
+             type: 'UPDATE',
+             payload: { ...state,...data, isLoggedIn:true },
+           });
+          fetchGameDetails();
+          setShowLoader(false);
+        } catch (error: any) {
+          const message = error?.response?.data?.error;
+          toast({
+            title: `Error fetching Data`,
+            status: 'error',
+            isClosable: true,
+            description: message,
+          });
+          console.error('Error fetching Data:', error);
+        }
+      };
+      fetchUserDetails()
   }, []);
+
+
+  useEffect(() => {
+      const fetchData = async () => {
+        const newage = calculateAge(state.dob);
+        setAge(newage);
+
+        const formattedDate = formatJoinedDate(state.createdAt);
+        setJoinedDate(formattedDate);
+
+        if (state.selectedDate && state.selectedTimeSlot) {
+          const formattedSelectedDateTime = formatSelectedDateTime(
+            state.selectedDate,
+            state.selectedTimeSlot
+          );
+          setSelectedDateTime(formattedSelectedDateTime);
+        }
+      };
+      fetchData()
+      if(state.isOnlineModeSelected!==''){
+        setprogress(50)
+        setRegistrationUrl('/add-academic-details');
+      }
+      if(state.collegeName){
+        setprogress(100);
+      }
+  }, [state])
+  
 
   useEffect(() => {
     if (state.gameDetails.length > 0 && gameData.length > 0) {
@@ -150,15 +199,7 @@ const ProfileDashboard = () => {
   }, [gameData]);
 
   console.log(gameImgUrls);
-  // calculate age
-  function calculateAge(dobString: string): number {
-    const dob = new Date(dobString);
-    const now = new Date();
-    const ageDifMs = now.getTime() - dob.getTime();
-    const ageDate = new Date(ageDifMs);
 
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }
 
   console.log('userData', state);
   console.log('gameData', gameData);
@@ -210,11 +251,12 @@ const ProfileDashboard = () => {
                     Mode
                   </p>
                   <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                    {state.gameDetails.length > 0
-                      ? state.isOnlineModeSelected
-                        ? 'Online'
-                        : 'Offline'
-                      : '-'}
+                    {state.isOnlineModeSelected !== '' &&
+                      state.isOnlineModeSelected === true &&
+                      'Online'}
+                    {state.isOnlineModeSelected !== '' &&
+                      state.isOnlineModeSelected === false &&
+                      'Offline'}
                   </p>
                 </div>
               </div>
@@ -229,7 +271,8 @@ const ProfileDashboard = () => {
                       Age
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {age !== undefined && age !== null ? '-' : `${age} yrs`}
+                      {/* {age !== undefined && age !== null ? '-' : `${age} yrs`} */}
+                      {state.age!==0 ? `${age} yrs` : '-'}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -341,12 +384,11 @@ const ProfileDashboard = () => {
             </div>
           </div>
         </div>
-
-        <div className="clip-bg rounded-lg lg:hidden flex w-fit  z-10">
-          <button className="custom-button px-9 py-5 text-lg text-[#DBFD67] rounded-lg bg-cover  bg-black ">
-            COMPLETE PROFILE
-          </button>
-        </div>
+        {progress !== 100 && (
+          <div className="clip-bg rounded-lg lg:hidden flex w-fit  z-10">
+            <Link href={registrationUrl}>Complete Profile</Link>
+          </div>
+        )}
       </div>
     </div>
   );

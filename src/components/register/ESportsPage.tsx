@@ -29,6 +29,7 @@ export default function ESportsPage() {
   });
   const router = useRouter();
 
+  
   useEffect(() => {
     if (state.isOnlineModeSelected !== '') {
       console.log('Online/Offline Mode is selected');

@@ -26,6 +26,7 @@ const initialState: UserDetailsType = {
   selectedTimeSlot: '',
   createdAt: '',
   dob: '',
+  gender:''
   // hasBasicDetails: false,
   // step: '1.1',
 }; //1.1 - Basic details,1.2- OTP,2.1-Academic Details, 3.1- Game Selection, 3.2 - Game Details

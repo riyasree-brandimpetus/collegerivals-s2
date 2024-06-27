@@ -25,32 +25,23 @@ export default function MyProfile() {
   const router = useRouter();
   const { state, dispatch } = useContext(UserContext);
 
+
   useEffect(() => {
     // Retrieve the data from localStorage
-    const storedUserDataString:any = localStorage.getItem('user');
-    // Convert the JSON string back to an object
-    const storedUserData:any = JSON.parse(storedUserDataString);
-       dispatch({
-         type: 'UPDATE',
-         payload: { ...storedUserData },
-       });
-    console.log(storedUserData);
-    setShowLoader(!storedUserData?.isLoggedIn);
-    // setUserData(storedUserData)
-  }, [])
+    const storedUserId: any = localStorage.getItem('userId');
+    if (storedUserId) {
+      console.log('ID is found', storedUserId);
+      dispatch({
+        type: 'UPDATE',
+        payload: {...state, _id: storedUserId },
+      });
+      setShowLoader(false)
+    } else{
+      console.log('ID not found', storedUserId);
+      router.push('/login');
+    }
+  }, []);
   
-  // useEffect(() => {
-  //   // console.log(userData);
-  //   if (userData?.isLoggedIn) {
-  //     console.log(userData?.isLoggedIn);
-  //     setShowLoader(!userData?.isLoggedIn);
-  //   } else {
-  //     router.push('/login');
-  //   }
-  // }, [userData]);
- 
-  
-  // return  
   
   return (
     <>

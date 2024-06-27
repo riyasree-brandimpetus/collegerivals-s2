@@ -27,28 +27,27 @@ export default function AcademicDetailsPage() {
     count: steps.length,
   });
   const router = useRouter();
-  
-useEffect(() => {
-    // Retrieve the data from localStorage
-    const storedUserDataString:any = localStorage.getItem('user');
-    // Convert the JSON string back to an object
-    const storedUserData:any = JSON.parse(storedUserDataString);
-       dispatch({
-         type: 'UPDATE',
-         payload: { ...storedUserData },
-       });
-    console.log(storedUserData);
-  }, [])
+
   useEffect(() => {
-    if (
-      (state.gender && state.degreeStudyField&&state.collegeName &&state.city)
-    ) {
-      console.log('academic details are submitted');
-      // setActiveStep(3);
-      router.push('/my-profile');
-    }
-  }, [state.gender ,state.degreeStudyField,
-    state.collegeName,state.city]);
+    // if (state._id && state.isLoggedIn) {
+    //   setShowLoader(false);
+    // } else {
+      // Retrieve the data from localStorage
+      const storedUserId: any = localStorage.getItem('userId');
+      if (storedUserId) {
+        console.log('ID is found', storedUserId);
+        dispatch({
+          type: 'UPDATE',
+          payload: { ...state, _id: storedUserId },
+        });
+        // setShowLoader(false);
+      } else {
+        console.log('ID not found', storedUserId);
+        router.push('/login');
+      }
+    // }
+  }, []);
+
 
   return (
     <>

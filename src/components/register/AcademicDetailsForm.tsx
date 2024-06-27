@@ -26,6 +26,7 @@ import CollegeSearchForm from '../CollegeSearchForm';
 import RadioGroup from './RadioGroup';
 import DegreeRadio from './DegreeRadio';
 import { RegistrationCities } from '@/constants/cities';
+import { useRouter } from 'next/navigation';
 
 const degreeOptions = [
   'Arts',
@@ -57,6 +58,7 @@ export default function AcademicDetailsForm() {
   };
   const toast = useToast();
   const { state, dispatch } = useContext(UserContext);
+  const router = useRouter();
 
   /**
    * Handles File Upload
@@ -132,6 +134,7 @@ export default function AcademicDetailsForm() {
             city: values.city
           },
         });
+        router.push('/my-profile');
       }
     } catch (error: any) {
       const message = error?.response?.data?.error;
