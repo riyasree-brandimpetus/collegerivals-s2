@@ -15,7 +15,7 @@ const NavbarSeason2 = () => {
 
   return (
     <div className="w-full lg:px-2.938rem lg:pt-2.125rem fixed z-50 flex justify-center items-center">
-      <div className="w-full flex items-center justify-between px-1.25rem py-0.938rem lg:bg-#1A1A1A66 lg:backdrop-blur-md rounded-lg max-w-[1440px]">
+      <div className="w-full flex items-center justify-between px-1.25rem py-3 lg:bg-#1A1A1A66 lg:backdrop-blur-md rounded-lg max-w-[1440px]">
         <Link href="/">
           <div>
             <Image color="white" src={navLogo} alt="navlogo" />

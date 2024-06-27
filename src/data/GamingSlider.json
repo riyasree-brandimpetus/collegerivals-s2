@@ -1,41 +1,22 @@
 [
     {
       "id": 1,
-      "name":"VALORANT",
-      "Device":"PC",
-      "Imgsrc": "/assets/card1.png"
+      "name":"BGMI",
+      "Device":"MOBILE",
+      "Imgsrc": "/bgmi.png"
      
     },
     {
         "id": 2,
         "name":"VALORANT",
         "Device":"PC",
-        "Imgsrc": "/assets/card1.png"
+        "Imgsrc": "/valorant.png"
     },
     {
         "id": 3,
-        "name":"VALORANT",
-        "Device":"PC",
-        "Imgsrc": "/assets/card1.png"
-    },
-    {
-        "id": 4,
-      "name":"VALORANT",
-      "Device":"PC",
-      "Imgsrc": "/assets/card2.png"
-      },
-      {
-        "id": 5,
-      "name":"VALORANT",
-      "Device":"PC",
-      "Imgsrc": "/assets/card2.png"
-      },
-      {
-        "id": 6,
-        "name":"VALORANT",
-        "Device":"PC",
-        "Imgsrc": "/assets/card2.png"
-      }
-    
+        "name":"FIFA",
+        "Device":"CONSOLE",
+        "Imgsrc": "/fifa.png"
+    }
   ]
   

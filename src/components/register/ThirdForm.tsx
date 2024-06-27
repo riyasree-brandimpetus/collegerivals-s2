@@ -222,7 +222,7 @@ export default function ThirdForm() {
             width={{ base: "17rem", lg: "22rem" }}
             loadingText="Updating Data"
           >
-            Choose & Proceed
+          Proceed
           </Button>
           </div>
         </Flex>
@@ -303,7 +303,7 @@ export default function ThirdForm() {
                     height={{ base: "3rem", lg: "4.063rem" }}
                     width={{ base: "7rem", lg: "22rem" }}
                   >
-                    Submit
+               Proceed
                   </Button>
                   </div>
                 </Flex>
