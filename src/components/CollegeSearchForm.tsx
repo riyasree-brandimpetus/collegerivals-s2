@@ -61,13 +61,13 @@ function CollegeSearchForm(props: any) {
       }
     } catch (error: any) {
       const message = error?.response?.data?.error;
-      toast({
-        title: `Error submitting form`,
-        status: 'error',
-        isClosable: true,
-        description: message,
-      });
-      console.error('Error submitting form:', error);
+      // toast({
+      //   title: `Error submitting form`,
+      //   status: 'error',
+      //   isClosable: true,
+      //   description: message,
+      // });
+      console.error('Error submitting form:', error , message);
     }
   };
 

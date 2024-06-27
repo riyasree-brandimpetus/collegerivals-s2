@@ -1,9 +1,9 @@
 "use client"
 import Image from "next/image";
-import playbtn from "../../../public/hero-movie-btn.svg";
-import stripe1 from "../../../public/assets/strip1.png";
-import stripe2 from "../../../public/assets/strip2.png";
-import stripe3 from "../../../public/assets/strip3.png";
+import playbtn from "/assets/hero-movie-btn.svg";
+import stripe1 from "/assets/strip1.png";
+import stripe2 from "/assets/strip2.png";
+import stripe3 from "/assets/strip3.png";
 const HeroSection = () => {
 
 const openvideo = ()=>{
@@ -16,7 +16,7 @@ const openvideo = ()=>{
      
       <video src="/assets/hero-homepage.mp4" autoPlay={true} controls={false} loop={true} muted={true} className="w-full h-screen object-cover absolute top-0 -z-2"/>
       <div onClick={openvideo} className="px-0.938rem text-xs cursor-pointer text-white rounded-2.063rem py-3 bg-#151515 bg-opacity-40 flex gap-1 backdrop-blur-md helvetica-font font-bold relative ">
-        <Image src={playbtn} alt="playbtn" />
+        <Image src="/hero-movie-btn.svg" width={9} height={13} alt="playbtn" />
         PLAY AFTERMOVIE
       </div>
       <div className="lg:text-11.563rem md:text-9xls md:mt-1.875rem text-3.438rem max-md:mt-5 max-md:mb-1.06rem text-#DBFD67 tracking-tight ppFormula-font italic leading-none">
@@ -38,8 +38,9 @@ const openvideo = ()=>{
             <div className="outer-border rounded-xl md:w-auto w-full">
               <div className="flex flex-row xl:gap-5 gap-3 bg-[#141619] rounded-xl xl:py-7 xl:px-6 md:p-4 p-6 justify-center place-items-center">
                 <Image
+                width={74} height={74}
                   className="xl:h-[72px] md:h-[52px] object-contain md:block hidden"
-                  src={stripe1}
+                  src="/assets/strip1.png"
                   alt="strip1"
                 />
                 <div className="flex flex-row p-1 place-items-baseline gap-2">
@@ -56,7 +57,8 @@ const openvideo = ()=>{
             <div className="outer-border rounded-xl md:w-auto w-full">
               <div className="flex flex-row xl:gap-5 gap-3 bg-[#141619] rounded-xl xl:py-7 xl:px-6 md:p-4 p-6  justify-center place-items-center">
                 <Image
-                  src={stripe2}
+                   width={74} height={74}
+                  src="/assets/strip2.png"
                   alt="strip2"
                   className="xl:h-[72px] md:h-[52px] object-contain md:block hidden"
                 />
@@ -74,7 +76,8 @@ const openvideo = ()=>{
             <div className="outer-border rounded-xl md:w-auto w-full">
               <div className="flex flex-row xl:gap-5 gap-3 bg-[#141619] rounded-xl xl:py-7 xl:px-6 md:p-4 p-6  justify-center place-items-center">
                 <Image
-                  src={stripe3}
+                   width={74} height={74}
+                  src="/assets/strip3.png"
                   alt="strip2"
                   className="xl:h-[72px] md:h-[52px] object-contain md:block hidden"
                 />

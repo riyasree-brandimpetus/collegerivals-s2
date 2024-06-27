@@ -6,52 +6,51 @@ import ThirdForm from '@/components/register/ThirdForm';
 import CompletionStepForm from '@/components/register/completionStepForm';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
-import { useSteps } from '@chakra-ui/react';
+import {
+  useSteps,
+} from '@chakra-ui/react';
 import { useContext, useEffect } from 'react';
-import BasicDetailsForm from './BasicDetailsForm';
-import OTPForm from './OTPForm';
-import Link from 'next/link';
+import SelectMode from './SelectMode';
 import Image from 'next/image';
+import Link from 'next/link';
+import SelectDate from './SelectDate';
 
 const steps = [
-  { description: 'Enter Details' },
-  { description: 'Verification' },
-  { description: 'Create Profile' },
+  { description: 'Select Mode' },
+  { description: 'Choose Games' },
+  { description: 'Select Slot' },
 ];
 
-export default function SignUpForm() {
-  const { state, dispatch } = useContext(UserContext);
+export default function ESportsPage() {
+  const { state } = useContext(UserContext);
   const { activeStep, setActiveStep } = useSteps({
     index: 1,
     count: steps.length,
   });
   const router = useRouter();
 
-
-  useEffect(() => {
-    // Retrieve the data from localStorage
-    const storedUserId: any = localStorage.getItem('userId');
-    if (storedUserId) {
-      console.log('ID is found',storedUserId);
-      router.push('/my-profile');
-    }
-  }, []);
-  
-  
   
   useEffect(() => {
-    if (state._id && !state.isWhatsAppVerified) {
-      console.log('Enter OTP');
+    if (state.isOnlineModeSelected !== '') {
+      console.log('Online/Offline Mode is selected');
       setActiveStep(2);
     }
-  }, [state._id, state.isWhatsAppVerified]);
+  }, [state.isOnlineModeSelected , setActiveStep]);
 
   useEffect(() => {
-    if (state.isLoggedIn) {
+    if ((state.isOnlineModeSelected !== '' )&& state.gameDetails.length > 0) {
+      console.log('Game Details are verified');
       setActiveStep(3);
-      console.log('OTP is verified');
     }
-  }, [state.isLoggedIn]);
+  }, [state.isOnlineModeSelected,state.gameDetails , setActiveStep]);
+
+useEffect(() => {
+  if (state.selectedDate || state.selectedTimeSlot) {
+    console.log('Date, Time Slorts are updated');
+    // setActiveStep(3);
+    router.push('/my-profile')
+  }
+}, [state.selectedDate, state.selectedTimeSlot ,  router]);
 
   return (
     <>
@@ -87,7 +86,7 @@ export default function SignUpForm() {
                 1
               </div>
               <p className="text-white  pt-3 helvetica-font font-bold md:text-base text-xs">
-                Enter Credentials
+              Select Mode
               </p>
             </div>
             <Image
@@ -114,7 +113,7 @@ export default function SignUpForm() {
                 2
               </div>
               <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs">
-                Verification
+              Choose Games
               </p>
             </div>
             <Image
@@ -141,20 +140,18 @@ export default function SignUpForm() {
                 3
               </div>
               <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs ">
-                Create Profile
+              Select Slot
               </p>
             </div>
           </div>
-          <div className="w-full relative">
+          <div className="w-full relative bg-black">
             {activeStep === 1 ? (
-              // <FirstForm />
-              <BasicDetailsForm />
+              <SelectMode />
             ) : activeStep === 2 ? (
-              <OTPForm />
+              <ThirdForm />
             ) : activeStep === 3 ? (
-              <CompletionStepForm />
+              <SelectDate />
             ) : null}
-            <div className="py-16 max-md:py-20"></div>
           </div>
         </div>
       </div>

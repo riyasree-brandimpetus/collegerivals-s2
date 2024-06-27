@@ -32,6 +32,7 @@ export default function OTPForm() {
         userId: state._id,
       });
       if (response.status === 200) {
+        localStorage.setItem('userId', state._id);
         dispatch({
           type: 'UPDATE',
           payload: { ...state, isWhatsAppVerified: true, isLoggedIn:true },
@@ -41,6 +42,7 @@ export default function OTPForm() {
           status: 'success',
           isClosable: true,
         });
+
       }
     } catch (error: any) {
       const message = error?.response?.data?.error;

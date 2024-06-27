@@ -65,59 +65,59 @@ const LivePlatforms = () => {
             href="https://kick.com/collegerivalsin"
             isExternal
           >
-            <Image src="/live-one.png" />
+            <Image alt="live-one" src="/live-one.png" />
           </Link>
           <Link
             className="news-link"
             href="https://loco.gg/streamers/FGRFS22K0M"
             isExternal
           >
-            <Image src="/live-two.svg" />
+            <Image alt="live-2" src="/live-two.svg" />
           </Link>
           <Link
             className="news-link"
             href="https://www.twitch.tv/collegerivalsin"
             isExternal
           >
-            <Image src="/live-three.svg" />
+            <Image alt="live-three" src="/live-three.svg" />
           </Link>
           <Link
             className="news-link"
             href="https://www.youtube.com/@CollegeRivalsIn/featured"
             isExternal
           >
-            <Image src="/live-four.svg" />
+            <Image alt="live-four" src="/live-four.svg" />
           </Link>
           <Link
             className="news-link"
             href="https://www.facebook.com/collegerivalsin/"
             isExternal
           >
-            <Image src="/live-five.png" />
+            <Image alt="live-five" src="/live-five.png" />
           </Link>
           <Link
             className="news-link"
             href="https://l.tv.jio/3e7d952f"
             isExternal
           >
-            <Image src="/live-six.svg" />
+            <Image alt="live-six" src="/live-six.svg" />
           </Link>
           <Link className="news-link" href="https://live.glance.com" isExternal>
-            <Image src="/live-seven.svg" />
+            <Image alt="" src="/live-seven.svg" />
           </Link>
           <Link
             className="news-link"
             href="https://jiogames.page.link/E65jtv8CTb7nuAWKA?rf=10313789424998215"
             isExternal
           >
-            <Image src="/live-eight.svg" />
+            <Image alt="live-eight" src="/live-eight.svg" />
           </Link>
           <Link
             className="news-link"
             href="https://rooter.app.link/ZKy7Nv0J1Cb"
             isExternal
           >
-            <Image src="/live-nine.png" />
+            <Image alt="live-nine" src="/live-nine.png" />
           </Link>
         </Flex>
       </Flex>

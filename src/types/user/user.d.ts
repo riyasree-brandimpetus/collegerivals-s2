@@ -15,11 +15,12 @@ export interface UserDetailsType {
   gameDetails: any;
   isLoggedIn: Boolean;
   profilePhoto: string;
-  isOnlineModeSelected: Boolean;
+  isOnlineModeSelected: Boolean | '';
   selectedDate: string,
   selectedTimeSlot: string,
   createdAt: string,
   dob: string,
+  gender:string
   // step:string
 }
 

@@ -39,7 +39,7 @@ export default function CompletionPage() {
       console.log("Game Details are verified");
       router.push("/register");
     }
-  }, [state.gameDetails]);
+  }, [state.gameDetails , router]);
 
   return (
     <>

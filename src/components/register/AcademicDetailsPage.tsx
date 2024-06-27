@@ -8,50 +8,46 @@ import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
 import { useSteps } from '@chakra-ui/react';
 import { useContext, useEffect } from 'react';
-import BasicDetailsForm from './BasicDetailsForm';
-import OTPForm from './OTPForm';
-import Link from 'next/link';
+import SelectMode from './SelectMode';
 import Image from 'next/image';
+import Link from 'next/link';
+import SelectDate from './SelectDate';
+import AcademicDetailsForm from './AcademicDetailsForm';
 
 const steps = [
-  { description: 'Enter Details' },
-  { description: 'Verification' },
-  { description: 'Create Profile' },
+  { description: 'Select Mode' },
+  { description: 'Choose Games' },
+  { description: 'Select Slot' },
 ];
 
-export default function SignUpForm() {
-  const { state, dispatch } = useContext(UserContext);
+export default function AcademicDetailsPage() {
+  const { state,dispatch } = useContext(UserContext);
   const { activeStep, setActiveStep } = useSteps({
     index: 1,
     count: steps.length,
   });
   const router = useRouter();
 
-
   useEffect(() => {
-    // Retrieve the data from localStorage
-    const storedUserId: any = localStorage.getItem('userId');
-    if (storedUserId) {
-      console.log('ID is found',storedUserId);
-      router.push('/my-profile');
-    }
+    // if (state._id && state.isLoggedIn) {
+    //   setShowLoader(false);
+    // } else {
+      // Retrieve the data from localStorage
+      const storedUserId: any = localStorage.getItem('userId');
+      if (storedUserId) {
+        console.log('ID is found', storedUserId);
+        dispatch({
+          type: 'UPDATE',
+          payload: { ...state, _id: storedUserId },
+        });
+        // setShowLoader(false);
+      } else {
+        console.log('ID not found', storedUserId);
+        router.push('/login');
+      }
+    // }
   }, []);
-  
-  
-  
-  useEffect(() => {
-    if (state._id && !state.isWhatsAppVerified) {
-      console.log('Enter OTP');
-      setActiveStep(2);
-    }
-  }, [state._id, state.isWhatsAppVerified]);
 
-  useEffect(() => {
-    if (state.isLoggedIn) {
-      setActiveStep(3);
-      console.log('OTP is verified');
-    }
-  }, [state.isLoggedIn]);
 
   return (
     <>
@@ -145,16 +141,10 @@ export default function SignUpForm() {
               </p>
             </div>
           </div>
-          <div className="w-full relative">
-            {activeStep === 1 ? (
-              // <FirstForm />
-              <BasicDetailsForm />
-            ) : activeStep === 2 ? (
-              <OTPForm />
-            ) : activeStep === 3 ? (
-              <CompletionStepForm />
-            ) : null}
-            <div className="py-16 max-md:py-20"></div>
+          <div className="w-full relative bg-black">
+          
+              <AcademicDetailsForm />
+           
           </div>
         </div>
       </div>

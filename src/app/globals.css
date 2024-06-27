@@ -588,7 +588,7 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
   padding: 9px;
 }
 .custom-button-pink {
-  background-image: url("../../public/btn2.svg");
+  background-image: url("/btn2.svg");
   background-repeat: no-repeat;
   box-shadow: 15px 6px 0 5px #f46da4;
 }
@@ -597,7 +597,7 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
   -webkit-appearance: none;
   -moz-appearance: none;
   background: transparent;
-  background-image: url("../../public/dropdown-arrow.svg");
+  background-image: url("/dropdown-arrow.svg");
   background-repeat: no-repeat;
   background-position-x: 92%;
   background-position-y: 50%;
@@ -637,7 +637,7 @@ a.active {
 }
 
 .custom-button {
-  background-image: url("../../public/btn1.svg");
+  background-image: url("/btn1.svg");
   background-repeat: no-repeat;
   box-shadow: 11px 6px 0 5px #dbfd67;
 }
@@ -675,13 +675,13 @@ a.active {
   padding: 2px;
 }
 .custom-button-neon {
-  background-image: url("../../public/btn1.svg");
+  background-image: url("/btn1.svg");
   background-repeat: no-repeat;
   box-shadow: 6px 5px 0px 5px #dbfd67;
 }
 
 .profile-bg {
-  background-image: url("../../public/profile-blur-bg.svg");
+  background-image: url("/profile-blur-bg.svg");
   background-repeat: no-repeat;
   inset: 0;
 
@@ -690,7 +690,7 @@ a.active {
 }
 @media only screen and (max-width: 1024px) {
   .profile-bg {
-    background-image: url("../../public/mobile-bg-blur.svg");
+    background-image: url("/mobile-bg-blur.svg");
     background-repeat: no-repeat;
     inset: 0;
     background-position: center;

@@ -26,7 +26,7 @@ let validationSchema: any = {};
 export default function ThirdForm() {
   const [gameData, setGameData] = useState<any>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
-  const [showGameFields, setShowGameFields] = useState<boolean>(true);
+  const [showGameFields, setShowGameFields] = useState<boolean>(false);
   const [selectedGameData, setSelectedGameData] = useState<any>([]);
   const toast = useToast();
   const { value, getCheckboxProps } = useCheckboxGroup();
@@ -51,7 +51,7 @@ export default function ThirdForm() {
       }
     };
     fetchGameDetails();
-  }, []);
+  }, [toast]);
 
   /**
    * Filter the required game details
@@ -200,7 +200,7 @@ export default function ThirdForm() {
                     description: "Select a game to proceed.",
                   })
             }
-            backgroundColor={"#EA337D !important"}
+         
             color={"#fff"}
             _hover={{ opacity: "90%" }}
             _active={{
@@ -211,7 +211,7 @@ export default function ThirdForm() {
             transition="0.4s all ease-out"
             filter="drop-shadow(4px 4px 0px #DBFD67)"
             borderRadius={"0.375rem"}
-            className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase"
+            className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
             display={"flex"}
             justifyContent={"center"}
             alignItems={"center"}
@@ -222,13 +222,12 @@ export default function ThirdForm() {
             width={{ base: "17rem", lg: "22rem" }}
             loadingText="Updating Data"
           >
-            Choose & Proceed
+          Proceed
           </Button>
           </div>
         </Flex>
       ) : (
         <Formik 
-       
           initialValues={gameDetailsInitialValues}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
@@ -279,7 +278,7 @@ export default function ThirdForm() {
                   </Button>
                   <Button
                     type="submit"
-                    backgroundColor={"#EA337D !important"}
+                 
                     color={"#fff"}
                     _hover={{ opacity: "90%" }}
                     _active={{
@@ -290,7 +289,7 @@ export default function ThirdForm() {
                     transition="0.4s all ease-out"
                     filter="drop-shadow(4px 4px 0px #DBFD67)"
                     borderRadius={"0.375rem"}
-                    className="helvetica-font ml-auto lg:ml-auto lg:mr-16 uppercase"
+                    className="helvetica-font ml-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
                     display={"flex"}
                     justifyContent={"center"}
                     alignItems={"center"}
@@ -304,7 +303,7 @@ export default function ThirdForm() {
                     height={{ base: "3rem", lg: "4.063rem" }}
                     width={{ base: "7rem", lg: "22rem" }}
                   >
-                    Submit
+               Proceed
                   </Button>
                   </div>
                 </Flex>

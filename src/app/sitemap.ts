@@ -22,10 +22,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://collegerivals.com/privacy-policy",
       lastModified: new Date(),
     },
-    {
-      url: "https://collegerivals.com/register",
-      lastModified: new Date(),
-    },
+    // {
+    //   url: "https://collegerivals.com/register",
+    //   lastModified: new Date(),
+    // },
     {
       url: "https://collegerivals.com/rules",
       lastModified: new Date(),

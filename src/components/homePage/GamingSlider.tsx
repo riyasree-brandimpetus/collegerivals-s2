@@ -148,32 +148,7 @@ const GamingSlider = () => {
               </Slider>
             </div>
 
-            <div className="hidden md:flex md:flex-row md:gap-4 justify-center">
-              <button
-                onClick={() => goToSlide(activeSlideIndex - 1)}
-                id="desktop-prev"
-              >
-                <Image
-                  alt=""
-                  width={62}
-                  height={44}
-                  src="../../../assets/left-arrow.svg"
-                  className="w-full"
-                />
-              </button>
-              <button
-                onClick={() => goToSlide(activeSlideIndex + 1)}
-                id="desktop-next"
-              >
-                <Image
-                  width={62}
-                  height={44}
-                  alt=""
-                  src="../../../assets/right-arrow.svg"
-                  className="w-full"
-                />
-              </button>
-            </div>
+           
           </div>
         </div>
       </div>

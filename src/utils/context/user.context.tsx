@@ -5,9 +5,9 @@ import { UserDetailsType } from '@/types/user/user';
 
 
 const initialState: UserDetailsType = {
-  name: 'Riyasree ghosh',
-  email: 'riyasree@brandimpetus.com',
-  whatsappNumber: '3423423',
+  name: '',
+  email: '',
+  whatsappNumber: '',
   whatsappCountryCode: '',
   age: 0,
   city: '',
@@ -19,13 +19,15 @@ const initialState: UserDetailsType = {
   isUserVerified: false,
   collegeName: '',
   gameDetails: [],
-  isLoggedIn: true,
-  isOnlineModeSelected: false,
+  isLoggedIn: false,
+  isOnlineModeSelected: '',
   profilePhoto: '',
   selectedDate: '',
   selectedTimeSlot: '',
   createdAt: '',
+  gender:'',
   dob: '',
+
   // hasBasicDetails: false,
   // step: '1.1',
 }; //1.1 - Basic details,1.2- OTP,2.1-Academic Details, 3.1- Game Selection, 3.2 - Game Details

@@ -34,8 +34,9 @@ export default function OTPForm() {
       if (response.status === 200) {
         dispatch({
           type: 'UPDATE',
-          payload: { ...state, isLoggedIn: true },
+          payload: { ...state, isWhatsAppVerified: true, isLoggedIn:true },
         });
+        localStorage.setItem('userId', state._id);
         toast({
           title: `Successfully Verified OTP`,
           status: 'success',
@@ -114,7 +115,7 @@ export default function OTPForm() {
         className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
       >
         ENTER{' '}
-        <Box as="span" className="text-pink">
+        <Box as="span" className="text-#DBFD67">
           OTP
         </Box>
       </Heading>
@@ -123,7 +124,7 @@ export default function OTPForm() {
       </Text>
       <HStack>
         <PinInput
-          focusBorderColor="#FF077C"
+          focusBorderColor="#DBFD67"
           otp
           size="lg"
           onComplete={value => verifyOtp(value)}
@@ -135,7 +136,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[0]"
           />
           <PinInputField
@@ -144,7 +145,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[1]"
           />
           <PinInputField
@@ -153,7 +154,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[2]"
           />
           <PinInputField
@@ -162,7 +163,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[3]"
           />
           <PinInputField
@@ -171,7 +172,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[4]"
           />
           <PinInputField
@@ -180,7 +181,7 @@ export default function OTPForm() {
             borderRadius="17px"
             fontSize="50px"
             lineHeight="75px"
-            color="#FF077C"
+            color="#DBFD67"
             name="otp[5]"
           />
         </PinInput>
@@ -196,7 +197,7 @@ export default function OTPForm() {
           isDisabled={disableResendButton}
           variant="link"
           _hover={{
-            color: '#FF077C',
+            color: '#DBFD67',
           }}
           onClick={() => resendOtp()}
         >

@@ -43,16 +43,22 @@ export default function LoginForm() {
       console.log("Enter OTP");
       setActiveStep(2);
     }
-  }, [state.isWhatsAppVerified]);
+  }, [state.isWhatsAppVerified ,setActiveStep]);
 
   useEffect(() => {
     if (state.isLoggedIn) {
-      router.push("/my-profile");
-      console.log("OTP is verified");
-      // setActiveStep(2);
+    router.push('/my-profile');
+      console.log('OTP is verified');
     }
   }, [state.isLoggedIn]);
-
+  useEffect(() => {
+    // Retrieve the data from localStorage
+    const storedUserId: any = localStorage.getItem('userId');
+    if (storedUserId) {
+      console.log('ID is found', storedUserId);
+      router.push('/my-profile');
+    }
+  }, []);
   return (
     <>
       {/* <Flex minHeight="100vh" minWidth="100vw" className="bg-[#050607]">
@@ -255,7 +261,7 @@ export default function LoginForm() {
                 3
               </div>
               <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs ">
-                Create Profile
+               Login in
               </p>
             </div>
           </div>
