@@ -1,5 +1,7 @@
 'use client';
 
+import Image from "next/image";
+
 export default function BodyAnalytics() {
 
   if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production') {
@@ -20,7 +22,8 @@ export default function BodyAnalytics() {
 
       {/* <!-- Meta Pixel Code (noscript)  --> */}
       <noscript>
-        <img
+        <Image
+        alt=""
           height="1"
           width="1"
           style={{ display: 'none' }}

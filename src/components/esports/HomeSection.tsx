@@ -180,7 +180,7 @@ setSelectedItem(item);
             <div>
             { data && (
             <div className="flex justify-center -space-x-3 mb-4" >{data.Online.monthly_finals_img.map((img,index)=>(
-              <div className="rounded-full p-1 bg-black">
+              <div key={index} className="rounded-full p-1 bg-black">
               <Image
                   width={34}
                   height={34}
@@ -226,7 +226,7 @@ setSelectedItem(item);
             { data && (
             <div className="flex justify-center -space-x-3 mb-4" >
               {data.offline.monthly_qualifiers_img.map((img,index)=>(
-              <div className="rounded-full p-1 bg-black">
+              <div key={index} className="rounded-full p-1 bg-black">
               <Image
                    width={34}
                    height={34}
@@ -266,7 +266,7 @@ setSelectedItem(item);
             { data && (
             <div className="flex justify-center -space-x-3 mb-4" >
               {data.Online.monthly_finals_img.map((img,index)=>(
-              <div className="rounded-full p-1 bg-black">
+              <div key={index} className="rounded-full p-1 bg-black">
               <Image
                    width={46}
                    height={46}
@@ -299,7 +299,7 @@ setSelectedItem(item);
               { data && (
             <div className="flex justify-center -space-x-3 mb-4" >
               {data.offline.monthly_finals_img.map((img,index)=>(
-              <div className="rounded-full p-1 bg-black">
+              <div key={index} className="rounded-full p-1 bg-black">
               <Image
                    width={46}
                    height={46}

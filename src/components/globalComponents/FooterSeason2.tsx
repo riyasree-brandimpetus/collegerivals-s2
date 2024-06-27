@@ -13,11 +13,11 @@ const FooterSeason2 = () => {
             Register
             <span className="outline-text">GAMES BEGIN</span>
           </h2>
-          <div className="clip-bg-pink rounded-lg max-lg:hidden">
+          <Link href='/sign-up' className="clip-bg-pink rounded-lg max-lg:hidden">
             <button className="custom-button-pink px-20 py-5 text-lg text-white rounded-lg bg-cover helvetica-font">
               PRE-REGISTER NOW
             </button>
-          </div>
+          </Link>
         </div>
         <div className="footer-bottom-container pt-3.125rem lg:pt-3.813rem pb-4 lg:pb-1.375rem w-full bg-black flex-col">
           <div className="logo-container flex justify-center items-center gap-10 lg:px-1.5rem pb-3.125rem max-screen-desktop lg:mx-auto ml-1.56rem">
@@ -43,31 +43,31 @@ const FooterSeason2 = () => {
           <div className=" pt-8 flex w-full justify-center items-center px-1.5rem lg:px-5rem max-screen-desktop mx-auto">
             <div className="justify-center max-lg:flex-wrap items-center flex gap-4 lg:gap-8 flex-row">
               <Link
-                href="/about"
+                href="/"
                 className="helvetica-font  text-white hover:text-pink text-12px pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
                 ABOUT
               </Link>
               <Link
-                href="/schedule"
+                href="/"
                 className="helvetica-font  text-white hover:text-pink text-12px  pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
                 SCHEDULE
               </Link>
               <Link
-                href="/rules"
+                href="/"
                 className="helvetica-font  text-white hover:text-pink text-12px  pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
                PRIZES
               </Link>
               <Link
-                href="/rules"
+                href="/"
                 className="helvetica-font  text-white hover:text-pink text-12px  pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
              NEWS & UPDATES
               </Link>
               <Link
-                href="/rules"
+                href="/"
                 className="helvetica-font  text-white hover:text-pink text-12px pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
               MEDIA

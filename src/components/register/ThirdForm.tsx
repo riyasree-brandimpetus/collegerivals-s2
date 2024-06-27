@@ -51,7 +51,7 @@ export default function ThirdForm() {
       }
     };
     fetchGameDetails();
-  }, []);
+  }, [toast]);
 
   /**
    * Filter the required game details

@@ -12,10 +12,13 @@ import {
   Image,
   Link,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const FAQ = () => {
+
+  const [showfaq, setshowFaq] = useState(false)
+
   const bottomDesignSrc = useBreakpointValue({
     base: "./faq-bottom-design-mobile.svg",
     lg: "./faq-bottom-design.svg",
@@ -324,6 +327,8 @@ const FAQ = () => {
                   </>
                 )}
               </AccordionItem>
+             
+              <div className={showfaq ? 'block' : 'hidden'}>
 
               <AccordionItem className="mt-10" borderY="0px">
                 {({ isExpanded }) => (
@@ -1026,6 +1031,19 @@ const FAQ = () => {
                   </>
                 )}
               </AccordionItem>
+              </div>
+              <div className="w-full pt-10">
+              <div className="clip-bg-neon rounded-lg w-fit">
+      <button onClick={() => {
+    setshowFaq(!showfaq);
+  }}
+        className="custom-button-neon px-9 py-3 text-lg helvetica-medium-font font-medium text-#DBFD67 rounded-lg bg-cover"
+      >
+       {showfaq ? 'VIEW LESS' : 'VIEW MORE'}
+      </button>
+    </div>
+
+              </div>
             </Accordion>
           </Flex>
         </Flex>

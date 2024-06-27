@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 interface VerticalSliderProps {
   slides: string[];
 }
@@ -23,7 +24,9 @@ function VerticalSlider({ slides }: VerticalSliderProps) {
       <Slider {...settingsVertical}>
         {slides.map((slide, index) => (
           <div key={index} className="slide-container">
-            <img
+            <Image
+            width={400}
+            height={400}
               src={slide}
               alt={`Slide ${index + 1}`}
               className="slide-image"

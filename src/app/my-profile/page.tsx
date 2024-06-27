@@ -20,7 +20,7 @@ import NavbarSeason2 from '@/components/globalComponents/NavbarSeason2';
 export default function MyProfile() {
   // const { state,dispatch } = useContext(UserContext);
   //   const [isOpen, setIsOpen] = useState(false);
-  const [showLoader, setShowLoader] = useState<boolean>(true);
+  const [showLoader, setShowLoader] = useState<boolean>(false);
   const [userData, setUserData] = useState<any>();
   const router = useRouter();
   const { state, dispatch } = useContext(UserContext);

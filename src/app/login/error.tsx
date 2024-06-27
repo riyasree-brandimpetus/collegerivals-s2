@@ -9,12 +9,13 @@ export default function Error({
   error: Error;
   reset: () => void;
 }) {
+  const [errorMsg, setErrorMsg] = useState<any>();
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error);
     setErrorMsg(errorMsg);
-  }, [error]);
-  const [errorMsg, setErrorMsg] = useState<any>();
+  }, [error , errorMsg]);
+ 
 
   return (
     <div>

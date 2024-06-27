@@ -35,14 +35,14 @@ export default function ESportsPage() {
       console.log('Online/Offline Mode is selected');
       setActiveStep(2);
     }
-  }, [state.isOnlineModeSelected]);
+  }, [state.isOnlineModeSelected , setActiveStep]);
 
   useEffect(() => {
     if ((state.isOnlineModeSelected !== '' )&& state.gameDetails.length > 0) {
       console.log('Game Details are verified');
       setActiveStep(3);
     }
-  }, [state.isOnlineModeSelected,state.gameDetails]);
+  }, [state.isOnlineModeSelected,state.gameDetails , setActiveStep]);
 
 useEffect(() => {
   if (state.selectedDate || state.selectedTimeSlot) {
@@ -50,7 +50,7 @@ useEffect(() => {
     // setActiveStep(3);
     router.push('/my-profile')
   }
-}, [state.selectedDate, state.selectedTimeSlot]);
+}, [state.selectedDate, state.selectedTimeSlot ,  router]);
 
   return (
     <>

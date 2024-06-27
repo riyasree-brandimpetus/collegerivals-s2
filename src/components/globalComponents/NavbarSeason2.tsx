@@ -24,32 +24,32 @@ const NavbarSeason2 = () => {
         <div className="w-63.5% items-center justify-between lg:flex hidden ">
           <div className="flex gap-2.125rem">
             <Link
-              className="text-white opacity-65% text-xs helvetica-medium-font"
+              className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
               href="/esports"
             >
               ESPORTS
             </Link>
             <Link
-              className="text-white opacity-65% text-xs helvetica-medium-font"
-              href="/#truck-locator"
+              className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
+              href="/"
             >
               TRUCK LOCATOR
             </Link>
             <Link
-              className="text-white opacity-65% text-xs helvetica-medium-font"
-              href="/#press"
+              className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
+              href="/"
             >
               PRESS
             </Link>
             <Link
-              className="text-white opacity-65% text-xs helvetica-medium-font"
-              href=""
+              className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
+              href="/"
             >
               ABOUT US
             </Link>
-            <Link
-              className="text-white opacity-65% text-xs helvetica-medium-font"
-              href=""
+            <Link  target="_blank"
+              className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
+              href="https://store.collegerivals.com/"
             >
               STORE
             </Link>
@@ -93,7 +93,7 @@ const NavbarSeason2 = () => {
                 <div className="flex flex-col gap-10 text-center">
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
-                    href="/esports"
+                    href="/"
                   >
                     ESPORTS
                   </Link>
@@ -105,19 +105,19 @@ const NavbarSeason2 = () => {
                   </Link>
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
-                    href="/#press"
+                    href="/"
                   >
                     PRESS
                   </Link>
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
-                    href=""
+                    href="/"
                   >
                     ABOUT US
                   </Link>
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
-                    href=""
+                    href="/"
                   >
                     STORE
                   </Link>

@@ -9,6 +9,7 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import React from "react";
+import FooterSeason2 from "./FooterSeason2";
 
 const Footer = () => {
   return (
@@ -224,6 +225,8 @@ const Footer = () => {
           </Flex>
         </Flex>
       </Flex>
+   
+    
     </div>
   );
 };

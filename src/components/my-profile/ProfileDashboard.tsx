@@ -7,6 +7,7 @@ import {
 import { useContext, useEffect, useState } from 'react';
 import api from '@/utils/axios/instance';
 import Link from 'next/link';
+import Image from 'next/image';
 // format for joined date
 const formatJoinedDate = (createdAt: string): string => {
   const date = new Date(createdAt);
@@ -96,7 +97,7 @@ const ProfileDashboard = () => {
   const { state, dispatch } = useContext(UserContext);
   const [progress, setprogress] = useState<number>(30);
   const [gameData, setGameData] = useState<any>([]);
-  const [gameImgUrls, setGameImgUrls] = useState<any>([]);
+  const [gameImageUrls, setGameImageUrls] = useState<any>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
 
   const [registrationUrl, setRegistrationUrl] = useState<string>(
@@ -193,31 +194,37 @@ const ProfileDashboard = () => {
         const game = gameData.find((g: any) => g.name.toLowerCase() === name);
         return game ? game.imageUrl : null;
       });
-      setGameImgUrls(imageUrls);
+      setGameImageUrls(imageUrls);
       console.log('imageUrls', imageUrls);
     }
-  }, [gameData]);
+  }, [gameData , state.gameDetails]);
 
-  console.log(gameImgUrls);
+  console.log(gameImageUrls);
 
 
   console.log('userData', state);
   console.log('gameData', gameData);
   return (
     <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-visible">
-      <img
+      <Image
         src="/profile-yellow.svg"
         alt=""
+        width={1006}
+        height={424}
         className="absolute right-0 bottom-0 z-0 md:w-1/2 w-1/2"
       />
-      <img
+      <Image
         src="/profile-illustration.svg"
         alt=""
+        width={454}
+        height={460}
         className="absolute top-0 right-0 z-0"
       />
-      <img
+      <Image
         src="/profile-illustration2.svg"
         alt=""
+        width={422}
+        height={428}
         className="absolute bottom-0 left-0  z-0"
       />
       <div className="max-w-[1440px] w-full h-full flex flex-col justify-center place-items-center xl:px-24 md:px-12 px-6 py-32 md:gap-24 gap-8 relative z-0 overflow-visible">
@@ -228,9 +235,11 @@ const ProfileDashboard = () => {
                 <div>
                   <div className=" lg:pr-6">
                     <div className="relative -mt-4 flex justify-center items-center">
-                      <img
-                        src={state.profilePhoto || '/profile-img.svg'}
-                        alt=""
+                      <Image
+                        src={state.profilePhoto || '/profile-Img.svg'}
+                        alt="profile photo"
+                        width={181}
+                        height={181}
                         className="rounded-2xl"
                       />
                       {/* <div className="bg-[#191919] p-4 rounded-full absolute -top-3 -right-3"></div> */}
@@ -336,13 +345,14 @@ const ProfileDashboard = () => {
                           <p>Loading Games...</p>
                           <Spinner size="xs" color="white" />
                         </div>
-                      ) : gameImgUrls.length > 0 ? (
+                      ) : gameImageUrls.length > 0 ? (
                         <>
-                          {gameImgUrls.map((url: string, index: number) => (
-                            <div className="bg-[#DBFD67] p-4 rounded-lg">
-                              <img
+                          {gameImageUrls.map((url: string, index: number) => (
+                            <div   key={index} className="bg-[#DBFD67] p-4 rounded-lg">
+                              <Image
                                 className="h-4"
-                                key={index}
+                              width={46}
+                              height={46}
                                 src={url}
                                 alt={`Game Image ${index}`}
                               />
