@@ -369,7 +369,7 @@ export default function BasicDetailsForm() {
               transition="0.4s all ease-out"
               filter="drop-shadow(4px 4px 0px #d1ff45)"
               borderRadius={'0.375rem'}
-              className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-pink"
+              className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
               display={'flex'}
               justifyContent={'center'}
               alignItems={'center'}
