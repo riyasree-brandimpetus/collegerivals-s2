@@ -136,7 +136,7 @@ export default function SelectProfile() {
                       />
                     </RadioGroup>
                     {values.modeSelected == 'offline' && (
-                      <div className=" absolute -bottom-7 right-[22%]   rounded-md   px-7 py-4 bg-[#191919] text-[#5D5D5E] text-xs">
+                      <div className=" absolute -bottom-7 xl:right-[22%] lg:right-[18%] md:right-[25%] right-[5%]   rounded-md   px-7 py-4 bg-[#191919] text-[#5D5D5E] text-xs">
                         Only available in some cities.
                       </div>
                     )}

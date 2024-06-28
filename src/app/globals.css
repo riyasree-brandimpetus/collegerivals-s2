@@ -426,24 +426,6 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
   );
 }
 
-.clip-bg {
-  border-right: 9px solid #dbfd67;
-
-  border-bottom: 4px solid #dbfd67;
-  clip-path: polygon(
-    0% 0%,
-    calc(100% - 16px) 0px,
-    100% 13px,
-    100% 100%,
-    28px 100%,
-    0 calc(100% - 14px)
-  );
-  padding: 2px;
-}
-.custom-button {
-  box-shadow: 6px 5px 0px 5px #dbfd67;
-}
-
 .city-bg {
   background: rgb(0, 0, 0);
   background: linear-gradient(
@@ -476,7 +458,7 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
     to right,
     rgba(255, 255, 255, 0.24),
     rgba(255, 255, 255, 0.12),
-    rgba(255, 255, 255, 0.07)
+    rgba(255, 255, 255, 0.08)
   );
 }
 
@@ -485,8 +467,6 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
 
   /* padding: 1rem 1.5rem; */
   border-radius: inherit;
-
-  font-weight: 600;
 }
 
 .gamingcard:hover {
@@ -551,7 +531,7 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
   opacity: 0.5;
 
   z-index: 0;
-  animation: reflect-animation 2s infinite;
+  animation: reflect-animation 3s infinite;
 }
 
 @keyframes reflect-animation {
@@ -561,7 +541,7 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
   }
 
   100% {
-    transform: scaleY(-1) translateX(1400%);
+    transform: scaleY(-1) translateX(1100%);
     opacity: 0.5;
   }
 }
@@ -620,26 +600,6 @@ a.active {
   );
 }
 
-.clip-bg {
-  border-right: 6px solid #dbfd67;
-  border-bottom: 4px solid #dbfd67;
-  clip-path: polygon(
-    0 0,
-    calc(100% - 32px) 0,
-    100% 21px,
-    100% 100%,
-    44px 100%,
-    0 calc(100% - 23px)
-  );
-  padding: 8px;
-}
-
-.custom-button {
-  background-image: url("/btn1.svg");
-  background-repeat: no-repeat;
-  box-shadow: 11px 6px 0 5px #dbfd67;
-}
-
 .translucent-bg {
   backdrop-filter: blur(10px);
 }
@@ -657,23 +617,17 @@ a.active {
   );
 }
 
-.clip-bg-neon {
-  border-right: 9px solid #dbfd67;
-
-  border-bottom: 4px solid #dbfd67;
-  clip-path: polygon(
-    0% 0%,
-    calc(100% - 16px) 0px,
-    100% 15px,
-    100% 100%,
-    20px 100%,
-    0 calc(100% - 9px)
-  );
-  padding: 2px;
-}
 .custom-button-neon {
   border: 1px solid #dbfd67;
-  box-shadow: 6px 5px 0px 5px #dbfd67;
+  background: transparent;
+  border-radius: 10px;
+
+  box-shadow: 4px 4px #dbfd67;
+  transition: box-shadow 100ms ease-in-out, transform 10ms ease-in-out;
+}
+.custom-button-neon:hover {
+  box-shadow: 0 0 0 #dbfd67;
+  transform: translateY(5px);
 }
 
 .profile-bg {

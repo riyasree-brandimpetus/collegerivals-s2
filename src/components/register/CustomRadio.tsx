@@ -43,7 +43,7 @@ const CustomRadio = React.forwardRef((props: Props, ref) => {
         cursor="pointer"
       bg="#232424"
         borderRadius="12px"
-        boxShadow="md"
+       
         width="100%"
         className='flex justify-center items-center'
         height={{sm: '169px' , base: '110px'}}

@@ -10,16 +10,18 @@ const CityTicker = () => {
     const Cityslides: CitySlides[] = CityData;
 
   const slidesettings = {
-    slidesToShow: 8,
+
 infinite:true,
     slidesToScroll: 1,
     autoplay: true,
+    slidesToShow: 8,
     autoplaySpeed: 0,
     pauseOnHover:false,
     speed: 1500,
     cssEase: "linear",
     arrows: false,
     draggable: false,
+
     swipe: false,
     responsive: [
       {
@@ -52,23 +54,23 @@ infinite:true,
 
 {
     Cityslides.map((slides,index)=>(
-        <div key={index} className="md:pl-0 pl-4 ">
-        <div className="flex-row items-center">
+        <div key={index} className="md:pl-0 pl-4 w-full">
+        <div className=" flex flex-col w-full items-center justify-center">
+       
           <Image width={109} height={109}
             src={slides.Imgsrc}
             alt=""
-            className="md:mb-6 mb-4"
+            className="md:mb-6 mb-4 "
           />
-          <p className="md:text-xl text-base text-white font-extrabold">
+          <p className="md:text-xl w-full text-base text-center text-white font-extrabold">
             <em>{slides.name}</em>
           </p>
+         
         </div>
       </div>
 
     ))
 }
-
-
           </Slider>
         </div>
       </div>

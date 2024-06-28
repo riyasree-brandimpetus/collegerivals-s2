@@ -23,57 +23,17 @@ const GamingSlider = () => {
 
   const gaming: GamingSlides[] = data;
 
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
 
-  const sliderRef = useRef<Slider | null>(null);
-
-  const handleAfterChange = (currentSlideIndex: any) => {
-    setActiveSlideIndex(currentSlideIndex);
-  };
-
-  const goToSlide = (index: any) => {
-    if (sliderRef.current) {
-      sliderRef.current.slickGoTo(index);
-    }
-  };
-  const slidesettings = {
-    arrows: false,
-    infinite: false,
-    speed: 300,
-    slidesToShow: 3,
-    afterChange: handleAfterChange,
-    slidesToScroll: 1,
-    variableWidth: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: false,
-          variableWidth: false,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1.3,
-          slidesToScroll: 1,
-          variableWidth: false,
-        },
-      },
-    ],
-  };
 
   return (
     <div className="pt-16 md:pt-20 bg-black w-full">
     <div className="bg-black relative   ">
    
-       <Image src="/pink-gaming-slider-bg.svg" alt="pink-bg" className="w-full absolute md:-top-20 -top-9 bg-black " width="1440" height={300} />
+       <Image src="/pink-gaming-slider-bg.svg" alt="pink-bg" className="w-full absolute  md:-top-20 -top-9 bg-black " width="1440" height={300} />
    
       <div className="w-full  flex justify-center bg-#E7327C rounded-xl">
       
-        <div className=" max-w-[1440px] w-full h-full rounded-xl md:p-12 md:p-2 max-md:pb-6 flex justify-center ">
+        <div className=" max-w-[1440px] w-full h-full rounded-xl md:p-12  max-md:pb-6 flex justify-center ">
           <div className=" w-full justify-center items-center">
             <div className="flex flex-row gap-4 text-3xl w-full font-semibold md:pt-24 pl-6 pr-6 place-items-center justify-center md:mb-28 mb-10">
               <div className="md:p-20 p-8 relative flex justify-center">
@@ -116,10 +76,10 @@ const GamingSlider = () => {
               </div>
             </div>
 
-            <div className="product-slider ">
-              <Slider ref={sliderRef} {...slidesettings}>
+            <div className="flex relative z-10 max-md:overflow-scroll ">
+            
                 {gaming.map((slides, index) => (
-                  <div key={index} className=" pl-2 md:p-6 relative">
+                  <div key={index} className=" pl-2 md:p-6 max-md:w-80% relative max-md:shrink-0">
                
                     <Button className=" helvetica-font rounded-full text-xs lg:text-sm font-bold bg-neon absolute md:right-[13%] right-[12%] md:top-[20%] top-[18%]">
                       {slides.Device}
@@ -145,7 +105,7 @@ const GamingSlider = () => {
               
                   </div>
                 ))}
-              </Slider>
+          
             </div>
 
            

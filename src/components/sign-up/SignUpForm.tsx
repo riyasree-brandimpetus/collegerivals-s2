@@ -81,10 +81,10 @@ export default function SignUpForm() {
               <div
                 className="rounded-full lg:w-[43px] lg:h-[43px] w-[29px] h-[29px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
-                  backgroundColor: activeStep == 1 ? '#E7327C' : 'transparent',
+                  backgroundColor: activeStep >=  1 ? '#E7327C' : 'transparent',
                 }}
               >
-                1
+                 {activeStep > 1 ?  <div><Image src="/tick-mark.svg" width={18} height={12} alt=""/></div> :  "1"}
               </div>
               <p className="text-white  pt-3 helvetica-font font-bold md:text-base text-xs">
                 Enter Credentials
@@ -108,10 +108,10 @@ export default function SignUpForm() {
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
-                  backgroundColor: activeStep == 2 ? '#E7327C' : 'transparent',
+                  backgroundColor: activeStep >=  2 ? '#E7327C' : 'transparent',
                 }}
               >
-                2
+                  {activeStep > 2 ?  <div><Image src="/tick-mark.svg" width={18} height={12} alt=""/></div> :  "2"}
               </div>
               <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs">
                 Verification
@@ -135,10 +135,10 @@ export default function SignUpForm() {
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
-                  backgroundColor: activeStep == 3 ? '#E7327C' : 'transparent',
+                  backgroundColor: activeStep >=  3 ? '#E7327C' : 'transparent',
                 }}
               >
-                3
+                 {activeStep > 3 ?  <div><Image src="/tick-mark.svg" width={18} height={12} alt=""/></div> :  "3"}
               </div>
               <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs ">
                 Create Profile

@@ -334,7 +334,7 @@ const FAQ = () => {
               <div className="clip-bg-neon rounded-lg w-fit">
                 <Link href="/faq">
       <button 
-        className="custom-button-neon px-9 py-3 text-lg helvetica-medium-font font-medium text-#DBFD67  rounded-lg bg-cover"
+        className="custom-button-neon m-3 px-9 py-3 text-lg helvetica-medium-font font-medium text-#DBFD67  rounded-lg bg-cover"
       >
   VIEW MORE
       </button>

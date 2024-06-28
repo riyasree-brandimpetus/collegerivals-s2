@@ -212,7 +212,7 @@ const ProfileDashboard = () => {
         alt=""
         width={706}
         height={424}
-        className="absolute right-0 bottom-0 z-0 "
+        className="absolute max-md:w-1/2 right-0 bottom-0 z-0 "
       />
       <Image
         src="/profile-illustration.svg"
@@ -388,9 +388,9 @@ const ProfileDashboard = () => {
                 <p className="text-white">{progress}% Complete</p>
               </div>
               {progress !== 100 && (
-              <div className="clip-bg rounded-lg w-fit lg:block hidden ">
+              <div className="rounded-lg w-fit lg:block hidden ">
                 <Link href={registrationUrl}>
-                <div  className="custom-button xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
+                <div  className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
                   COMPLETE PROFILE
                 </div>
                 </Link>
@@ -400,8 +400,8 @@ const ProfileDashboard = () => {
           </div>
         </div>
         {progress !== 100 && (
-          <div className="clip-bg rounded-lg lg:hidden flex w-fit  z-10">
-            <Link className="custom-button xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal" href={registrationUrl}>Complete Profile</Link>
+          <div className=" rounded-lg lg:hidden flex w-fit  z-10">
+            <Link className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal" href={registrationUrl}>Complete Profile</Link>
           </div>
         )}
       </div>

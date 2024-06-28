@@ -15,7 +15,7 @@ const FooterSeason2 = () => {
           </h2>
           <Link href='/sign-up' className="clip-bg-pink rounded-lg max-lg:hidden">
             <button className="custom-button-pink px-20 py-5 text-lg text-white rounded-lg bg-cover helvetica-font">
-              PRE-REGISTER NOW
+            REGISTER NOW
             </button>
           </Link>
         </div>
@@ -43,24 +43,25 @@ const FooterSeason2 = () => {
           <div className=" pt-8 flex w-full justify-center items-center px-1.5rem lg:px-5rem max-screen-desktop mx-auto">
             <div className="justify-center max-lg:flex-wrap items-center flex gap-4 lg:gap-8 flex-row">
               <Link
-                href="/"
-                className="helvetica-font  text-white hover:text-pink text-12px pt-2rem lg:pt-0 no-underline hover:no-underline"
+                href="/esports"
+                className="helvetica-font  text-white hover:text-#DBFD67 text-12px pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
-                ABOUT
+           ESPORTS
               </Link>
               <Link
-                href="/"
-                className="helvetica-font  text-white hover:text-pink text-12px  pt-2rem lg:pt-0 no-underline hover:no-underline"
+                href="/about"
+                className="helvetica-font  text-white hover:text-#DBFD67 text-12px  pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
-                SCHEDULE
+               ABOUT US
               </Link>
               <Link
-                href="/"
-                className="helvetica-font  text-white hover:text-pink text-12px  pt-2rem lg:pt-0 no-underline hover:no-underline"
+              target="_blank"
+                href="/https://store.collegerivals.com/"
+                className="helvetica-font  text-white hover:text-#DBFD67 text-12px  pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
-               PRIZES
+            STORE
               </Link>
-              <Link
+              {/* <Link
                 href="/"
                 className="helvetica-font  text-white hover:text-pink text-12px  pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
@@ -71,7 +72,7 @@ const FooterSeason2 = () => {
                 className="helvetica-font  text-white hover:text-pink text-12px pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
               MEDIA
-              </Link>
+              </Link> */}
             </div>
           
           </div>
@@ -81,7 +82,7 @@ const FooterSeason2 = () => {
           >
             <div className="social-icons-container flex mb-2.5rem lg:mb-0">
               <Link
-                href="https://bit.ly/3RuxuI2"
+                href="https://twitter.com/collegerivalsin"
                 target="_blank"
                 rel="noopener noreferrer"
                 className=" hover:opacity-70%"
@@ -110,7 +111,7 @@ const FooterSeason2 = () => {
               </Link>
 
               <Link
-                href="https://bit.ly/3rgM7nQ"
+                href="https://www.instagram.com/collegerivalsin/?hl=en"
                 target="_blank"
                 rel="noopener noreferrer"
                   className="ml-1.25rem lg:ml-1.188rem hover:opacity-70%"
@@ -125,7 +126,7 @@ const FooterSeason2 = () => {
               </Link>
              
               <Link
-                href="https://bit.ly/3PCbPMO"
+                href="https://www.facebook.com/collegerivalsin"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ml-1.25rem lg:ml-1.188rem hover:opacity-70%"

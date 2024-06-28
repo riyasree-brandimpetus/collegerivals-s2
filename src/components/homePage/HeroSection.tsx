@@ -4,6 +4,7 @@ import playbtn from "/assets/hero-movie-btn.svg";
 import stripe1 from "/assets/strip1.png";
 import stripe2 from "/assets/strip2.png";
 import stripe3 from "/assets/strip3.png";
+import Link from "next/link";
 const HeroSection = () => {
 
 const openvideo = ()=>{
@@ -25,11 +26,11 @@ const openvideo = ()=>{
       <div className="text-white -mt-4 md:text-4xl text-lg ppFormula-font italic ">
         IS BACK WITH SEASON 2
       </div>
-      <div className="clip-bg-neon rounded-lg mt-1.37rem overflow-hidden relative">
-    <button className="custom-button-neon px-14 py-5 text-1.063rem rounded-lg bg-cover helvetica-medium-font text-#DBFD67 backdrop-blur-md">
+      <div className="relative mt-7 ">
+    <Link href="/sign-up" className=" custom-button-neon px-14 py-5 text-1.063rem rounded-lg bg-cover helvetica-medium-font text-#DBFD67 backdrop-blur-md">
        REGISTER NOW
-    </button>
-    <div className="reflection"></div>
+    </Link>
+ 
 </div>
 
       <div className="w-full flex flex-col items-center city-bg">
