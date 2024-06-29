@@ -73,7 +73,7 @@ export default function AcademicDetailsPage() {
             />
           </Link>
           <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
-            <div className="flex items-center flex-col">
+            <div className="flex items-center w-[300px] flex-col">
               <div
                 className="rounded-full lg:w-[43px] lg:h-[43px] w-[29px] h-[29px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
@@ -83,24 +83,12 @@ export default function AcademicDetailsPage() {
                 1
               </div>
               <p className="text-white  pt-3 helvetica-font font-bold md:text-base text-xs">
-                Enter Credentials
+              Enter details
               </p>
             </div>
-            <Image
-              src="/stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[20%] max-lg:hidden  h-auto -mt-9"
-            />
-            <Image
-              src="/md-stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[15%] lg:hidden h-auto -mx-3  -mt-7"
-            />
-            <div className="flex items-center flex-col">
+           
+            <hr  className='w-full border-[#ffffff3d]'/>
+            <div className="flex items-center w-[300px] flex-col">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
@@ -110,36 +98,11 @@ export default function AcademicDetailsPage() {
                 2
               </div>
               <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs">
-                Verification
+              Complete Profile
               </p>
             </div>
-            <Image
-              src="/stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[20%] max-lg:hidden  h-auto -mt-9"
-            />
-            <Image
-              src="/md-stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[15%] lg:hidden h-auto -mx-3 -mt-7"
-            />
-            <div className="flex items-center flex-col">
-              <div
-                className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
-                style={{
-                  backgroundColor: activeStep == 3 ? '#E7327C' : 'transparent',
-                }}
-              >
-                3
-              </div>
-              <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs ">
-                Create Profile
-              </p>
-            </div>
+            
+           
           </div>
           <div className="w-full relative bg-black">
           

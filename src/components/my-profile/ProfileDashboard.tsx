@@ -198,13 +198,13 @@ const ProfileDashboard = () => {
   console.log('userData', state);
   console.log('gameData', gameData);
   return (
-    <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-visible">
+    <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-hidden">
       <Image
         src="/profile-yellow.svg"
         alt=""
         width={706}
         height={424}
-        className="absolute max-md:w-1/2 right-0 bottom-0 z-0 "
+        className="absolute max-lg:w-1/2 right-0 bottom-0 z-0 "
       />
       <Image
         src="/profile-illustration.svg"
@@ -371,7 +371,7 @@ const ProfileDashboard = () => {
             </div>
 
             <div className="flex lg:flex-row flex-col max-lg:mt-9 gap-10 w-full justify-center lg:place-items-end items-center">
-              <div className="flex flex-col lg:w-3/5 max-lg:w-[40%] max-sm:w-[90%] w-full gap-2">
+              <div className="flex flex-col lg:w-3/5 max-lg:w-[40%] max-sm:w-64 w-full gap-2">
                 <div className="bg-[#333132] w-full h-[17px] rounded-sm">
                   <div
                     className=" bg-[#E7327C] h-full rounded-sm"
