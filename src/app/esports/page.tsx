@@ -13,8 +13,9 @@ const Page = () => {
     <div>
       <NavbarSeason2 />
       <Esports />
-      <EsportsAccordian />
       <Schedule/>
+      <EsportsAccordian />
+    
       <Rules />
       <FAQ />
  <FooterSeason2/>
