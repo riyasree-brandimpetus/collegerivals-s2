@@ -85,14 +85,7 @@ const formatTime = (time: string): string => {
   return `${hours}:${minutes} ${period}`;
 };
   // calculate age
-  function calculateAge(dobString: string): number {
-    const dob = new Date(dobString);
-    const now = new Date();
-    const ageDifMs = now.getTime() - dob.getTime();
-    const ageDate = new Date(ageDifMs);
 
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }
 const ProfileDashboard = () => {
   const { state, dispatch } = useContext(UserContext);
   const [progress, setprogress] = useState<number>(30);
@@ -158,9 +151,8 @@ const ProfileDashboard = () => {
 
   useEffect(() => {
       const fetchData = async () => {
-        const newage = calculateAge(state.dob);
-     console.log(state.dob)
-        setAge(newage);
+  
+   
 
         const formattedDate = formatJoinedDate(state.createdAt);
         setJoinedDate(formattedDate);
@@ -183,7 +175,7 @@ const ProfileDashboard = () => {
       }
   }, [state])
   
-
+ 
   useEffect(() => {
     if (state.gameDetails.length > 0 && gameData.length > 0) {
       const gameNames = state.gameDetails.map((game: any) =>
@@ -206,13 +198,13 @@ const ProfileDashboard = () => {
   console.log('userData', state);
   console.log('gameData', gameData);
   return (
-    <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-visible">
+    <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-hidden">
       <Image
         src="/profile-yellow.svg"
         alt=""
         width={706}
         height={424}
-        className="absolute max-md:w-1/2 right-0 bottom-0 z-0 "
+        className="absolute max-lg:w-1/2 right-0 bottom-0 z-0 "
       />
       <Image
         src="/profile-illustration.svg"
@@ -270,7 +262,7 @@ const ProfileDashboard = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col lg:gap-14  lg:place-items-start items-center ">
+              <div className="flex flex-col lg:gap-14  max-lg:max-w-[300px] max-lg:pl-4 lg:place-items-start items-center ">
                 <h2 className="xl:text-7xl lg:text-6xl   text-3xl font-extrabold text-white xl:-mt-5 lg:mt-0 mt-7   uppercase ppFormula-font">
                   <em>HELLO, {state.name}</em>
                   <span className="text-[#DBFD67]"> !</span>
@@ -282,7 +274,8 @@ const ProfileDashboard = () => {
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
                       {/* {age !== undefined && age !== null ? '-' : `${age} yrs`} */}
-                      {state.age!==0 ? `${age} yrs` : '-'}
+                      {state.age!==0 ? `${state.age} yrs` : '-'} 
+                   
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -378,7 +371,7 @@ const ProfileDashboard = () => {
             </div>
 
             <div className="flex lg:flex-row flex-col max-lg:mt-9 gap-10 w-full justify-center lg:place-items-end items-center">
-              <div className="flex flex-col lg:w-3/5 max-lg:w-[40%] max-sm:w-[90%] w-full gap-2">
+              <div className="flex flex-col lg:w-3/5 max-lg:w-[40%] max-sm:w-64 w-full gap-2">
                 <div className="bg-[#333132] w-full h-[17px] rounded-sm">
                   <div
                     className=" bg-[#E7327C] h-full rounded-sm"

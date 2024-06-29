@@ -20,7 +20,7 @@ import { useRef } from "react";
 const finalists = [
   {
     svg: "",
-    title: "NEW DELHI FINALISTS",
+    title: "AUGUST FINALISTS",
     students: [
       {
         studentName: "Rajesh Kuthrapalli",
@@ -50,7 +50,7 @@ const finalists = [
   },
   {
     svg: "",
-    title: "MUMBAI FINALISTS",
+    title: "SEPTEMBER FINALISTS",
     students: [
       {
         studentName: "Rajesh Kuthrapalli",
@@ -80,7 +80,7 @@ const finalists = [
   },
   {
     svg: "",
-    title: "BANGALORE FINALISTS",
+    title: "OCTOBER FINALISTS",
     students: [
       {
         studentName: "Rajesh Kuthrapalli",
@@ -110,7 +110,7 @@ const finalists = [
   },
   {
     svg: "",
-    title: "HYDERABAD FINALISTS",
+    title: "NOVEMBER FINALISTS",
     students: [
       {
         studentName: "Rajesh Kuthrapalli",
