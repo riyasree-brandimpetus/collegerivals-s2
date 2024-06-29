@@ -346,7 +346,7 @@ export default function SelectDate() {
                 height={{ base: '4.125rem', lg: '4.063rem' }}
                 width={{ base: '17rem', lg: '22rem' }}
                 isLoading={isSubmitting}
-                loadingText="Sending OTP"
+                loadingText="Saving details"
                 isDisabled={isSubmitting}
               >
                Proceed and Save
