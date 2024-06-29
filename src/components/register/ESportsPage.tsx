@@ -76,7 +76,7 @@ useEffect(() => {
             />
           </Link>
           <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
-            <div className="flex items-center flex-col">
+            <div className="flex w-[550px] items-center flex-col">
               <div
                 className="rounded-full lg:w-[43px] lg:h-[43px] w-[29px] h-[29px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
@@ -89,21 +89,8 @@ useEffect(() => {
               Select Mode
               </p>
             </div>
-            <Image
-              src="/stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[20%] max-lg:hidden  h-auto -mt-9"
-            />
-            <Image
-              src="/md-stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[15%] lg:hidden h-auto -mx-3  -mt-7"
-            />
-            <div className="flex items-center flex-col">
+            <hr  className='w-full border-[#ffffff3d]'/>
+            <div className="flex w-[600px] items-center flex-col">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
@@ -116,21 +103,8 @@ useEffect(() => {
               Choose Games
               </p>
             </div>
-            <Image
-              src="/stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[20%] max-lg:hidden  h-auto -mt-9"
-            />
-            <Image
-              src="/md-stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[15%] lg:hidden h-auto -mx-3 -mt-7"
-            />
-            <div className="flex items-center flex-col">
+            <hr  className='w-full border-[#ffffff3d]'/>
+            <div className="flex w-[450px] items-center flex-col">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{

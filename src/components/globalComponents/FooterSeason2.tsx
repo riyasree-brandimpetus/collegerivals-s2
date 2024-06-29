@@ -13,28 +13,34 @@ const FooterSeason2 = () => {
             Register
             <span className="outline-text">GAMES BEGIN</span>
           </h2>
-          <Link href='/sign-up' className="clip-bg-pink rounded-lg max-lg:hidden">
-            <button className="custom-button-pink px-20 py-5 text-lg text-white rounded-lg bg-cover helvetica-font">
+       
+            <Link href='/sign-up' className="custom-button-pink px-20 py-5 text-lg text-white rounded-lg bg-cover max-lg:hidden helvetica-font">
             REGISTER NOW
-            </button>
-          </Link>
+            </Link>
+        
         </div>
         <div className="footer-bottom-container pt-3.125rem lg:pt-3.813rem pb-4 lg:pb-1.375rem w-full bg-black flex-col">
           <div className="logo-container flex justify-center items-center gap-10 lg:px-1.5rem pb-3.125rem max-screen-desktop lg:mx-auto ml-1.56rem">
+            <Link href="https://ampverse.com/" target="_blank">
             <Image
-              src="../footer-logo.svg"
+              src="/ampverse-logo.svg"
               alt="footer-logo"
               width={104}
               height={58}
-              loading="lazy"
+           
             />
+            </Link>
+            <Link href="https://www.dmifinance.in/"
+            target="_blank"
+            >
              <Image
               src="/sponsor-six-new.svg"
               alt="footer-logo"
               width={63}
               height={79}
-              loading="lazy"
+           
             />
+            </Link>
           </div>
           <div className="w-full flex justify-center items-center">
             <p className="text-center helvetica-extralight-font font-light text-lg text-[#787777] w-80% lg:w-50.5%">To participate in College Rivals 2023, you need to be a college student from one of the top 25 colleges in India. Keep an eye out for the registration drive and follow the instructions to sign up and join the thrilling esports competition.</p>
@@ -143,26 +149,20 @@ const FooterSeason2 = () => {
 
             <div className="flex gap-9">
               <Image
-                src="/demo-img.png"
+                src="/18-25.png"
                 alt="footer-logo"
-       
-                loading="lazy"
                 height={108}
                 width={108}
               />
                 <Image
-                src="/demo-img.png"
-                alt="footer-logo"
-             
-                loading="lazy"
+              src="/peace.png"
+                alt="footer-logo" 
                 height={108}
                 width={108}
               />
                 <Image
-                src="/demo-img.png"
+                src="/freetoregister.png"
                 alt="footer-logo"
-            
-                loading="lazy"
                 height={108}
                 width={108}
               />

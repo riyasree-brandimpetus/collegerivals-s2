@@ -552,23 +552,17 @@ HORIZONTAL SLICK SLIDER STYLES THAT ARE TO BE PLACED IN LOCAL CSS FILES WHEN NEE
   -webkit-text-stroke: 1px white;
 }
 
-.clip-bg-pink {
-  border-right: 3px solid #f46da4;
-  border-bottom: 3px solid #f46da4;
-  clip-path: polygon(
-    0 0,
-    calc(100% - 39px) 0,
-    100% 21px,
-    100% 100%,
-    65px 100%,
-    0 calc(100% - 28px)
-  );
-  padding: 9px;
-}
 .custom-button-pink {
-  background-image: url("/btn2.svg");
-  background-repeat: no-repeat;
-  box-shadow: 15px 6px 0 5px #f46da4;
+  border: 1px solid #e7327c;
+  background: #e7327c;
+  border-radius: 14px;
+
+  box-shadow: 8px 8px #f46da4;
+  transition: box-shadow 100ms ease-in-out, transform 40ms ease-in-out;
+}
+.custom-button-pink:hover {
+  box-shadow: 0 0 0 #f46da4;
+  transform: translateY(9px);
 }
 
 .custom-select-arrow {

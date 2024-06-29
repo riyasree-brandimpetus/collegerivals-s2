@@ -21,11 +21,11 @@ export default function Home() {
       <NavbarSeason2 />
       <HeroSection />
       <GamingSlider />
-      <Winner />
       <CityTicker />
       <Highlights />
       <TrackOurtruck/>
       <News />
+      <Winner />
       <FAQ/>
       <FooterSeason2/>
     </>

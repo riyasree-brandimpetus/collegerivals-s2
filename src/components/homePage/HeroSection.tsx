@@ -20,7 +20,7 @@ const openvideo = ()=>{
         <Image src="/hero-movie-btn.svg" width={9} height={13} alt="playbtn" />
         PLAY AFTERMOVIE
       </div>
-      <div className="lg:text-11.563rem md:text-9xls md:mt-1.875rem text-3.438rem max-md:mt-5 max-md:mb-1.06rem text-#DBFD67 tracking-tight ppFormula-font italic leading-none">
+      <div className="lg:text-11.563rem md:text-9xls md:mt-1.875rem text-3.438rem max-md:mt-5  max-lg:mb-1.06rem text-#DBFD67 tracking-tight ppFormula-font italic leading-none">
         COLLEGE RIVALS
       </div>
       <div className="text-white -mt-4 md:text-4xl text-lg ppFormula-font italic ">
