@@ -1,3 +1,4 @@
+"use client"
 import { Flex, Image, Link, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 import { useRef } from "react";

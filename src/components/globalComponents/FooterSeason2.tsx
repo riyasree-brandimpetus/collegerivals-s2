@@ -62,7 +62,7 @@ const FooterSeason2 = () => {
               </Link>
               <Link
               target="_blank"
-                href="/https://store.collegerivals.com/"
+                href="https://store.collegerivals.com/"
                 className="helvetica-font  text-white hover:text-#DBFD67 text-12px  pt-2rem lg:pt-0 no-underline hover:no-underline"
               >
             STORE

@@ -43,7 +43,7 @@ const NavbarSeason2 = () => {
             </Link> */}
             <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
-              href="/"
+              href="/about"
             >
               ABOUT US
             </Link>
@@ -111,7 +111,7 @@ const NavbarSeason2 = () => {
                   </Link> */}
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
-                    href="/"
+                    href="/about"
                   >
                     ABOUT US
                   </Link>
