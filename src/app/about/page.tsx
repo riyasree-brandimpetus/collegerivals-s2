@@ -1,4 +1,4 @@
-import AboutPage from "@/components/aboutUs/AboutPage";
+
 import { Metadata } from 'next';
 
 // Static metadata
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
   return (
-    <AboutPage />
+<div></div>
   );
 };
 
