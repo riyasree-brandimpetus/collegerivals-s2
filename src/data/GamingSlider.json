@@ -3,20 +3,20 @@
       "id": 1,
       "name":"BGMI",
       "Device":"MOBILE",
-      "Imgsrc": "/bgmi.png"
+      "Imgsrc": "/BGMI-2.png"
      
     },
     {
         "id": 2,
         "name":"VALORANT",
         "Device":"PC",
-        "Imgsrc": "/valorant.png"
+        "Imgsrc": "/Valorant-2.png"
     },
     {
         "id": 3,
         "name":"FIFA",
         "Device":"CONSOLE",
-        "Imgsrc": "/fifa.png"
+        "Imgsrc": "/Fifa-2.png"
     }
   ]
   

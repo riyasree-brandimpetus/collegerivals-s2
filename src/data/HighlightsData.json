@@ -1,28 +1,39 @@
 [
     {
       "id": 1,
-      "src": "/assets/highlight1.png"
+      "src": "/H1.JPG"
      
     },
     {
       "id": 2,
-      "src": "/assets/high2.png"
+      "src": "/H2.JPG"
     },
     {
       "id": 3,
-      "src": "/assets/high2.png"
+      "src": "/H3.JPG"
     },
     {
-        "id": 3,
-        "src": "/assets/high2.png"
+        "id": 4,
+        "src": "/H4.JPG"
       },
       {
-        "id": 3,
-        "src": "/assets/high2.png"
+        "id": 5,
+        "src": "/H5.JPG"
       },
       {
-        "id": 3,
-        "src": "/assets/high2.png"
+        "id": 6,
+        "src": "/H6.JPG"
+      },
+      {
+        "id": 7,
+        "src": "/H7.JPG"
+      }, {
+        "id": 8,
+        "src": "/H8.JPG"
+      },
+      {
+        "id": 9,
+        "src": "/H9.JPG"
       }
     
   ]

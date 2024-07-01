@@ -579,10 +579,9 @@ a.active {
   color: #e7327c;
 }
 .custom-background {
-  background-image: url("/form-image.png"),
-    url("/registration-image-step-1.svg");
+  background-image: url("/season2-from-img.png");
   background-position: center;
-  background-size: 60%, cover;
+  background-size: 100%, cover;
   background-repeat: no-repeat;
 }
 .custom-gradient {

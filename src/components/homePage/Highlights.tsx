@@ -76,9 +76,12 @@ const Highlights = () =>{
             <h2 className="md:text-6xl text-2xl mb-2 text-center font-medium text-white italic ppFormula-font tracking-wide ">
                 HIGHLIGHTS
             </h2>
-            <div className=" p-4 md:w-50.5% fle flex-col justify-center">
+            <div className=" p-4 md:w-[60%] fle flex-col justify-center">
        
-                <p className=" w-full text-white text-center md:text-2xl text-lg md:font-normal font-light Montserrat ">Get ready to experience the ultimate college esports clash at <span className="text-[#DBFD67] font-bold ">College Rivals 2024</span>! Join us for intense gaming battles, electrifying live performances, and unforgettable moments of triumph.</p>
+                <p className=" w-full text-white text-center md:text-2xl text-lg md:font-normal font-light Montserrat ">College Rivals Season 1 crossing across 5 Cities and 25 Colleges, saw over 100 million viewers, hundreds of matches played, 92,000+ participants and 28 Finalists across 6 titles.. 
+                    <br></br>
+
+Packed with epic comebacks and record-breaking performances, it set the stage for an even more exciting Season 2.</p>
             </div>
         </div>
 
@@ -92,7 +95,7 @@ const Highlights = () =>{
     highlights.map((slide,index)=>(
         <div key={index} className="p-8">
             <div className="highlight-gradient rounded-xl relative " >
-        <Image width={570} height={380} src={slide.src} alt="highlight" className="mb-4 object-contain rounded-xl relative -z-20" />
+        <Image width={570} height={380} src={slide.src} alt="highlight" className="mb-4 rounded-xl relative -z-20 max-h-96 md:w-[570px] object-cover" />
         </div>
     </div>
     ))

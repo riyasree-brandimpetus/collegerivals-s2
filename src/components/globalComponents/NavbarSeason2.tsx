@@ -93,7 +93,7 @@ const NavbarSeason2 = () => {
                 <div className="flex flex-col gap-10 text-center">
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
-                    href="/"
+                    href="/esports"
                   >
                     ESPORTS
                   </Link>

@@ -48,7 +48,7 @@ useEffect(() => {
   if (state.selectedDate || state.selectedTimeSlot) {
     console.log('Date, Time Slorts are updated');
     // setActiveStep(3);
-    router.push('/my-profile')
+    router.push('/add-academic-details')
   }
 }, [state.selectedDate, state.selectedTimeSlot ,  router]);
 
