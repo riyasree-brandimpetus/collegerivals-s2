@@ -2,13 +2,14 @@
 
 import { Box, Flex, Heading } from "@chakra-ui/react";
 // import { useRouter } from "next/router";
-import Navbar from '@/components/globalComponents/Navbar';
-import Footer from "@/components/globalComponents/Footer";
+
 import Graphics from "@/components/globalComponents/Graphics";
 import { BGMI_RULES, ROAD_TO_VALOR_RULES, COUNTERSTRIKE_RULES, FIFA_RULES, TEKKEN_RULES, VALORANT_RULES } from "@/constants/rules";
 import { string } from "yup";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import FooterSeason2 from "@/components/globalComponents/FooterSeason2";
+import NavbarSeason2 from "@/components/globalComponents/NavbarSeason2";
 
 
 const Page = ({ params }: { params: { slug: string } }) => {
@@ -35,7 +36,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
   return (
     <Box >
-      <Navbar setIsOpen={setIsOpen} isOpen={isOpen} />
+      <NavbarSeason2/>
       <Graphics />
       <h1
         className="ppFormula-font text-slate-800 uppercase leading-normal tracking-wide lg:tracking-wider font-light italic  px-[1rem] lg:px-[2rem] text-[2rem] lg:text-[4rem] text-center mt-[5.375rem] lg:mt-[8.25rem]"
@@ -47,7 +48,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
       </Box>
 
-      <Footer />
+      <FooterSeason2 />
     </Box>
   )
 }

@@ -33,7 +33,7 @@ const CompletionStepForm = () => {
           transform="skew(-12deg)"
           transition="0.4s all ease-out"
           filter="drop-shadow(5px 5px 0px #7B9F00)"
-          href="/my-profile"
+          href="/esports-registration"
         >
           Profile Dashboard
         </Link>

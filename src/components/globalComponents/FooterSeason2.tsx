@@ -10,8 +10,8 @@ const FooterSeason2 = () => {
         items-center flex-col lg:flex-row max-screen-desktop mx-auto"
         >
           <h2 className="ppFormula-font text-white flex gap-2 font-light text-1.75rem uppercase lg:text-7xl italic">
-            Register
-            <span className="outline-text">GAMES BEGIN</span>
+          Join the 
+            <span className="outline-text">rivalry !!</span>
           </h2>
        
             <Link href='/sign-up' className="custom-button-pink px-20 py-5 text-lg text-white rounded-lg bg-cover max-lg:hidden helvetica-font">
@@ -43,7 +43,7 @@ const FooterSeason2 = () => {
             </Link>
           </div>
           <div className="w-full flex justify-center items-center">
-            <p className="text-center helvetica-extralight-font font-light text-lg text-[#787777] w-80% lg:w-50.5%">To participate in College Rivals 2023, you need to be a college student from one of the top 25 colleges in India. Keep an eye out for the registration drive and follow the instructions to sign up and join the thrilling esports competition.</p>
+            <p className="text-center helvetica-extralight-font font-light text-lg text-[#787777] w-80% lg:w-50.5%">College Rivals is the bridge between a College Student's passion for Gaming and their aspiration to be a pro player. Positioned as India's Largest Esports Talent Hunt, it combines music, pop culture, and comedy putting together a unique cross between gaming and Entertainment, in an unprecedented format. An innovative esports initiative developed in collaboration between Ampverse and DMI Finance. It aims to nurture gaming talent at the collegiate level across India through competitive tournaments, mentorship, and community engagement. It goes beyond esports tournaments by incorporating elements of college life, pop culture trends, and influencer engagements</p>
           </div>
 
           <div className=" pt-8 flex w-full justify-center items-center px-1.5rem lg:px-5rem max-screen-desktop mx-auto">
@@ -108,7 +108,7 @@ const FooterSeason2 = () => {
                 className="ml-1.25rem lg:ml-1.188rem hover:opacity-70%"
               >
                 <Image
-                  src="/linkedin-new.svg"
+                  src="/discord.svg"
                   alt="linkedin"
                   height={50}
                   width={50}

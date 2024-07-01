@@ -39,12 +39,14 @@ const GamingSlider = () => {
             <div className="flex flex-row gap-4 text-3xl w-full font-semibold pt-9 md:pt-24 pl-6 pr-6 place-items-center justify-center md:mb-28 mb-10">
               <div className="md:p-20 p-8 relative flex justify-center">
                 <p className="lg:w-3/5 w-full text-white text-center md:text-2xl text-lg md:font-normal font-light helvetica-light-font">
-                  Get ready to experience the ultimate college esports clash at{" "}
-                  <span className="text-[#DBFD67] font-bold helvetica-font">
-                    College Rivals 2024
+               
+             
+                   <span className="text-[#DBFD67] font-bold helvetica-font">
+                   #RivalryReloaded
                   </span>
-                  ! Join us for intense gaming battles, electrifying live
-                  performances, and unforgettable moments of triumph.
+                  <br></br>
+                  Be the Next Esports Star with College Rivals!
+                  Register Now for free. Don't miss your chance to rise to the top – your journey starts here!
                 </p>
                 <Image
                   width={24}
