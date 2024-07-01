@@ -1,7 +1,6 @@
 
 
 
-import AboutPage from "@/components/aboutUs/AboutPage";
 import AboutHero from "@/components/aboutUs/HeroSection";
 import LivePlatforms from "@/components/aboutUs/LivePlatforms";
 import OurSponsor from "@/components/aboutUs/OurSponsor";
