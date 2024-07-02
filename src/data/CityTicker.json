@@ -1,0 +1,115 @@
+[
+    {
+      "id": 1,
+      "name":"PUNE",
+      "Imgsrc": "/pune.png"
+     
+    },
+    {
+        "id": 2,
+        "name":"JAIPUR",
+        "Imgsrc": "/jaipur.png"
+    },
+    {
+        "id": 3,
+        "name":"INDORE",
+        "Imgsrc": "/indore.png"
+    },
+    {
+        "id": 4,
+      "name":"BHOPAL",
+      "Imgsrc": "/bhopal.png"
+      },
+      {
+        "id": 5,
+      "name":"AHMEDABAD",
+      "Imgsrc": "/ahemdabad.png"
+      },
+     
+      {
+        "id": 7,
+        "name":"CHANDIGARH",
+        "Imgsrc": "/chandigarh.png"
+      },
+      {
+        "id": 8,
+        "name":"DEHRADUN",
+        "Imgsrc": "/dehradun.png"
+      },
+      {
+        "id": 9,
+        "name":"NEW DELHI",
+        "Imgsrc": "/delhi.png"
+       
+      },
+      {
+        "id": 10,
+      "name":"LUCKNOW",
+      "Imgsrc": "/lucknow.png"
+      },
+      {
+        "id": 11,
+      "name":"PATNA",
+      "Imgsrc": "/patna.png"
+      },
+      {
+        "id": 12,
+      "name":"GUWAHATI",
+      "Imgsrc": "/guhati.png"
+      },
+      {
+        "id": 13,
+      "name":"KOLKATA",
+      "Imgsrc": "/kolkata.png"
+      },
+      {
+        "id": 14,
+      "name":"BHUBANESHWAR",
+      "Imgsrc": "/BHUBANESHWAR.png"
+      },
+      {
+        "id": 15,
+      "name":"VIZAG",
+      "Imgsrc": "/vizag.png"
+      },
+      {
+        "id": 16,
+      "name":"HYDERABAD",
+      "Imgsrc": "/hydrabad.png"
+      },
+      {
+        "id": 18,
+      "name":"BENGALURU",
+      "Imgsrc": "/bengaluru.png"
+      },
+      {
+        "id": 19,
+      "name":"CHENNAI",
+      "Imgsrc": "/chennai.png"
+      },
+      {
+        "id": 20,
+      "name":"KOCHI",
+      "Imgsrc": "/kochi.png"
+      },
+     
+      {
+        "id": 22,
+      "name":"MANGALORE",
+      "Imgsrc": "/manglore.png"
+      },
+      {
+        "id": 23,
+      "name":"GOA",
+      "Imgsrc": "/goa.png"
+      },
+      {
+        "id": 24,
+      "name":"MUMBAI",
+      "Imgsrc": "/mumbai.png"
+      }
+
+
+
+  ]
+  

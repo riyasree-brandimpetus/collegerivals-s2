@@ -48,7 +48,7 @@ function CollegeSearchForm(props: any) {
    * Fetch College Names
    */
   const getCollegeNames = async () => {
-    const city = state?.cityCenter; //TO DO: if citycenter not found, fetch details from the API
+    const city = state?.city; //TO DO: if citycenter not found, fetch details from the API
     const requestUrl = `/colleges/${city}?q=${selectedCollege}`; //TO DO: Add city variable
     try {
       const response = await api.get(requestUrl);
@@ -61,13 +61,13 @@ function CollegeSearchForm(props: any) {
       }
     } catch (error: any) {
       const message = error?.response?.data?.error;
-      toast({
-        title: `Error submitting form`,
-        status: 'error',
-        isClosable: true,
-        description: message,
-      });
-      console.error('Error submitting form:', error);
+      // toast({
+      //   title: `Error submitting form`,
+      //   status: 'error',
+      //   isClosable: true,
+      //   description: message,
+      // });
+      console.error('Error submitting form:', error , message);
     }
   };
 
@@ -101,7 +101,7 @@ function CollegeSearchForm(props: any) {
         id="collegeName"
         {...field}
         {...props}
-        focusBorderColor="#FF077C"
+        focusBorderColor="#DBFD67"
         onChange={e => setSelectedCollege(e.target.value)}
         height="4.063rem"
       />

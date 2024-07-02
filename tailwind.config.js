@@ -11,6 +11,7 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+          "gradeint-white":"linear-gradient(0deg, rgba(255,255,255,0.1) 22%, rgba(255,255,255,0) 63%)"
       },
       spacing: {
         "4.5rem": "4.5rem",
@@ -19,6 +20,7 @@ module.exports = {
         "29rem": "29rem",
         "38%": "38%",
         "2.5rem": "2.5rem",
+            '87': '5.438rem',
         "10.188rem": "10.188rem",
         "3.75rem": "3.75rem",
         "8.375rem": "8.375rem",
@@ -78,6 +80,7 @@ module.exports = {
         "5.313rem": "5.313rem",
         "30%": "30%",
         "15%": "15",
+        '71': '4.438rem',
         "48%": "48%",
         "1.94rem": "1.94rem",
         "1.37rem": "1.37rem",
@@ -118,6 +121,7 @@ module.exports = {
         "0.75rem": "0.75rem",
         "98%": "98%",
         "49%": "49%",
+        "33%":"33%",
         "3.25rem": "3.25rem",
         "5.375rem": "5.375rem",
         "8.25rem": "8.25rem",
@@ -200,6 +204,9 @@ module.exports = {
         "12px": "12px",
         "2.188rem": "2.188rem",
         "2.563rem": "2.563rem",
+        "11.563rem":"11.563rem",
+        "1.063rem":"1.063rem",
+        "3.438rem":"3.438rem",
       },
       borderRadius: {
         "0.625rem": "0.625rem",
@@ -210,6 +217,7 @@ module.exports = {
         "1.5rem": "1.5rem",
         "0.938rem": "0.938rem",
         "0.746rem": "0.746rem",
+        "2.063rem":"2.063rem",
       },
       colors: {
         neon: "#D1FF45",
@@ -218,6 +226,13 @@ module.exports = {
         "#33333380": "#33333380",
         "#B4B4B4": "#B4B4B4",
         "#F0F0F0": "#F0F0F0",
+        "#E7327C": "#E7327C",
+        "#1A1A1A66":"#1A1A1A66",
+        "#151515":"#151515",
+        "#DBFD67":"#DBFD67",
+        "#141619":"#141619",
+        "#171819":"#171819",
+        "#8D8D8D":"#8D8D8D",
       },
       zIndex: {
         "-1": "-1",
@@ -239,6 +254,7 @@ module.exports = {
       minWidth: {
         "2.75rem": "2.75rem",
       },
+    
     },
   },
   plugins: [],

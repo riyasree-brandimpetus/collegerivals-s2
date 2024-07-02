@@ -162,17 +162,18 @@ export default function BasicDetailsForm() {
       onSubmit={handleSubmit}
     >
       {({ errors, touched, isSubmitting }) => (
-        <Form className="flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 pt-8 md:max-h-[80vh]">
+        <Form className="flex flex-col grow   pt-8 md:max-h-[80vh]">
+          <div className="pl-6 lg:pl-16 pr-6 lg:pr-0 overflow-scroll ">
           <Heading
             pb={{ base: '0.5rem', lg: '0.25rem' }}
-            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
           >
             ENTER YOUR{' '}
-            <Box as="span" className="text-pink">
+            <Box as="span" className="text-#DBFD67">
               DETAILS
             </Box>
           </Heading>
-          <Text pb={{ base: '2.125rem', lg: '1.25rem' }}>
+          <Text color={"white"} pb={{ base: '2.125rem', lg: '1.25rem' }}>
             You are creating an account on{' '}
             <Text as={'span'} fontWeight={'700'}>
               {' '}
@@ -196,20 +197,21 @@ export default function BasicDetailsForm() {
                 direction="column"
                 className="field"
               >
-                <FormLabel htmlFor="name">Full Name</FormLabel>
+                <FormLabel color={"white"} htmlFor="name">Full Name</FormLabel>
                 <Field
                   as={Input}
                   id="name"
                   name="name"
+                  color="white"
                   type="text"
                   placeholder="Eg. Rakesh Oberoi"
                   height="4.063rem"
                   borderRadius="0.75rem"
                   disabled={isSubmitting}
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                 />
                 {errors.name && touched.name && (
-                  <div className="text-pink">{errors.name}</div>
+                  <div className="text-#DBFD67">{errors.name}</div>
                 )}
               </Flex>
 
@@ -219,21 +221,22 @@ export default function BasicDetailsForm() {
                 pt={{ base: '1.25rem', lg: '0rem' }}
                 className="field"
               >
-                <FormLabel htmlFor="email">Email Address</FormLabel>
+                <FormLabel htmlFor="email" color={"white"}>Email Address</FormLabel>
                 <Field
                   as={Input}
                   id="email"
                   name="email"
                   type="text"
+                    color="white"
                   // mt="0.75rem"
                   placeholder="Eg. rakesh@gmail.com"
                   height="4.063rem"
                   borderRadius="0.75rem"
                   disabled={isSubmitting}
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                 />
                 {errors.email && touched.email && (
-                  <div className="text-pink">{errors.email}</div>
+                  <div className="text-#DBFD67">{errors.email}</div>
                 )}
               </Flex>
             </Flex>
@@ -250,20 +253,21 @@ export default function BasicDetailsForm() {
                 direction="column"
                 className="field"
               >
-                <FormLabel htmlFor="name">WhatsApp Number</FormLabel>
+                <FormLabel htmlFor="name" color={"white"}>WhatsApp Number</FormLabel>
                 <Field
                   as={Input}
                   id="whatsappNumber"
                   name="whatsappNumber"
+                    color="white"
                   type="number"
                   // mt="0.75rem"
                   placeholder="Eg. 9887762732"
                   height="4.063rem"
                   borderRadius="0.75rem"
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                 />
                 {errors.whatsappNumber && touched.whatsappNumber && (
-                  <div className="text-pink">{errors.whatsappNumber}</div>
+                  <div className="text-#DBFD67">{errors.whatsappNumber}</div>
                 )}
               </Flex>
 
@@ -274,16 +278,18 @@ export default function BasicDetailsForm() {
                 className="field"
                 pt={{ base: '1.25rem', lg: '0rem' }}
               >
-                <FormLabel>City Center</FormLabel>
+                <FormLabel color={"white"}>City Center</FormLabel>
                 <Field
                   as={Select}
                   id="cityCenter"
                   name="cityCenter"
                   // mt="0.75rem"
+                  
                   height="4.063rem"
                   borderRadius="0.75rem"
+                    color="white"
                   placeholder="Select City"
-                  focusBorderColor="#FF077C"
+                  focusBorderColor="#DBFD67"
                 >
                   <option key="delhi" value="Delhi" disabled>
                     Delhi - Registrations Closed
@@ -304,7 +310,7 @@ export default function BasicDetailsForm() {
                   ))}
                 </Field>
                 {errors.cityCenter && touched.cityCenter && (
-                  <div className="text-pink">{errors.cityCenter}</div>
+                  <div className="text-#DBFD67">{errors.cityCenter}</div>
                 )}
                 <QualifierText />
               </Flex>
@@ -315,9 +321,10 @@ export default function BasicDetailsForm() {
                   id="agreedToTerms"
                   name="agreedToTerms"
                   colorScheme="white"
-                  iconColor="#FF077C"
-                  className="text-sm italic"
+                  iconColor="#DBFD67"
+                  className="text-sm italic text-white"
                   alignItems="baseline"
+                  
                 >
                   I agree to receiving communication, marketing and promotional
                   material from Ampverse DMI Pvt Ltd.
@@ -332,18 +339,23 @@ export default function BasicDetailsForm() {
                   ref={recaptchaRef}
                   onChange={handleCaptchaSubmission}
                 />
+                 
               </Box>
+         
             </Flex>
+            <div className=" py-20 "></div>
           </Box>
-          <Box className="sticky bg-white bottom-0">
-            <Divider
+          </div>
+          <Box className=" bg-black bottom-0">
+          <div className="fixed  pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
+            {/* <Divider
               marginTop="auto"
               borderColor={'black'}
               borderBottomWidth="1px"
               borderBottomStyle="dotted"
               ml={{ base: '0rem', lg: '-5.063rem' }}
               width={{ base: '100%', lg: '109%' }}
-            />
+            /> */}
             <Button
               id="basic-details-form-submit-btn"
               type="submit"
@@ -357,7 +369,7 @@ export default function BasicDetailsForm() {
               transition="0.4s all ease-out"
               filter="drop-shadow(4px 4px 0px #d1ff45)"
               borderRadius={'0.375rem'}
-              className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-pink"
+              className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
               display={'flex'}
               justifyContent={'center'}
               alignItems={'center'}
@@ -367,11 +379,12 @@ export default function BasicDetailsForm() {
               height={{ base: '4.125rem', lg: '4.063rem' }}
               width={{ base: '17rem', lg: '22rem' }}
               isLoading={isSubmitting}
-              loadingText="Sending OTP"
+              loadingText="Submiting Details"
               isDisabled={!isVerified || isSubmitting}
             >
               Proceed to verify
             </Button>
+            </div>
           </Box>
         </Form>
       )}

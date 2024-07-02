@@ -9,6 +9,7 @@ const CompletionStepForm = () => {
       justifyContent={{ base: 'center', lg: 'center' }}
       height="100%"
       textAlign="center"
+      className="pt-8"
     >
       <Image
         alt="check mark"
@@ -17,15 +18,27 @@ const CompletionStepForm = () => {
         mb="1.375rem"
       />
       <Heading
-        className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+        className="text-white ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
         pb={{ lg: '3.625rem', base: '3.125rem' }}
       >
         SIGNUP{' '}
         <Text as="span" className="text-pink">
-          SUCCESSFULL
+          SUCCESSFUL
         </Text>
       </Heading>
-      <Link
+      <div className="my-1.875rem lg:py-0 h-3.325rem lg:h-2.765rem w-15rem lg:w-12rem">
+        <Link
+          className="helvetica-font rounded-xl h-full w-full flex justify-center 
+           items-center text-0.813rem uppercase bg-neon hover: 0.9 button-style hover:no-underline no-underline"
+          transform="skew(-12deg)"
+          transition="0.4s all ease-out"
+          filter="drop-shadow(5px 5px 0px #7B9F00)"
+          href="/esports-registration"
+        >
+          Profile Dashboard
+        </Link>
+      </div>
+      {/* <Link
         href="https://bit.ly/crdiscordweb"
         target="_blank"
         rel="noopener noreferrer"
@@ -53,7 +66,7 @@ const CompletionStepForm = () => {
         >
           Ready to start your journey?
         </Text>
-      </Link>
+      </Link> */}
     </Flex>
   );
 };

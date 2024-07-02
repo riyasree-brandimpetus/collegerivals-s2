@@ -25,6 +25,8 @@ import { UserContext } from '@/utils/context/user.context';
 import CollegeSearchForm from '../CollegeSearchForm';
 import RadioGroup from './RadioGroup';
 import DegreeRadio from './DegreeRadio';
+import { RegistrationCities } from '@/constants/cities';
+import { useRouter } from 'next/navigation';
 
 const degreeOptions = [
   'Arts',
@@ -50,11 +52,13 @@ export default function AcademicDetailsForm() {
     age: 18,
     gender:'',
     degreeStudyField: degreeOptions[0],
-    file: null,
+    // file: null,
+    city:'',
     collegeName: '',
   };
   const toast = useToast();
   const { state, dispatch } = useContext(UserContext);
+  const router = useRouter();
 
   /**
    * Handles File Upload
@@ -94,20 +98,21 @@ export default function AcademicDetailsForm() {
     actions: FormikHelpers<SecondFormValues>
   ) => {
     try {
-      let fileUrl = ''
-      if (values.file!==null){
-      console.log('file present')
-      const fileUploadResponse:any = await handleFileUpload(values.file);
-      fileUrl = JSON.parse(fileUploadResponse).url;
-      }
+      // let fileUrl = ''
+      // if (values.file!==null){
+      // console.log('file present')
+      // const fileUploadResponse:any = await handleFileUpload(values.file);
+      // fileUrl = JSON.parse(fileUploadResponse).url;
+      // }
       const response = await api.post(
         `/users/update/academic-details/${state._id}`,
         {
           age: values.age,
           degreeStudyField: values.degreeStudyField,
-          idUrl: fileUrl,
+          // idUrl: fileUrl,
+          city: values.city,
           collegeName: values.collegeName,
-          gender: values.gender
+          gender: values.gender,
         }
       );
       const data = response.data;
@@ -124,10 +129,12 @@ export default function AcademicDetailsForm() {
             ...state,
             age: values.age,
             degreeStudyField: values.degreeStudyField,
-            idUrl: fileUrl,
+            // idUrl: fileUrl,
             collegeName: values.collegeName,
+            city: values.city
           },
         });
+        router.push('/my-profile');
       }
     } catch (error: any) {
       const message = error?.response?.data?.error;
@@ -148,208 +155,203 @@ export default function AcademicDetailsForm() {
       onSubmit={handleSubmit}
     >
       {({ values, touched, errors, setFieldValue, isSubmitting }) => (
-        <Form className="flex flex-col grow pl-8 lg:pl-16 pr-8 lg:pr-0 pt-8 md:max-h-[80vh]">
-          <Heading
-            // pb={{ base: '2.125rem', lg: '1.25rem' }}
-            pb={{ base: '2.125rem', lg: '1.25rem' }}
-            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
-          >
-            VERIFY YOU'RE A{' '}
-            <Box as="span" className="text-pink">
-              STUDENT
-            </Box>
-          </Heading>
-          <Box overflowY="auto">
-            <Flex
-              width={{ base: '100%', lg: '95%' }}
-              flexDirection={{ base: 'column', lg: 'row' }}
-              justifyContent="space-between"
+        <Form className="flex flex-col grow  pt-8 ">
+          <div className="pl-6 lg:pl-16 pr-6 lg:pr-0">
+            <Heading
+              pb={{ base: '2.125rem', lg: '1.25rem' }}
+              className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
             >
+              VERIFY YOU'RE A{' '}
+              <Box as="span" className="text-#DBFD67">
+                STUDENT
+              </Box>
+            </Heading>
+            <Box overflowY="auto">
               <Flex
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                className="field"
+                width={{ base: '100%', lg: '95%' }}
+                flexDirection={{ base: 'column', lg: 'row' }}
+                justifyContent="space-between"
               >
-                <CollegeSearchForm name="collegeName" />
-                {touched.collegeName && errors.collegeName && (
-                  <div className="text-pink">{errors.collegeName}</div>
-                )}
-              </Flex>
-              <Flex
-                width={{ base: '100%', lg: '24%' }}
-                pt={{ base: '1.25rem', lg: '0rem' }}
-                direction="column"
-                className="field"
-              >
-                <FormLabel htmlFor="Age">Age</FormLabel>
-                <Field
-                  as={Select}
-                  id="age"
-                  name="age"
-                  height="4.063rem"
-                  borderRadius="0.75rem"
-                  focusBorderColor="#FF077C"
+                <Flex
+                  width={{ base: '100%', lg: '50%' }}
+                  direction="column"
+                  className="field"
+                  pt={{ base: '1.25rem', lg: '0rem' }}
                 >
-                  {Array.from({ length: 13 }, (_, index) => index + 18).map(
-                    age => (
-                      <option key={age} value={age}>
-                        {age}
-                      </option>
-                    )
-                  )}
-                </Field>
-              </Flex>
-              <Flex
-                width={{ base: '100%', lg: '24%' }}
-                pt={{ base: '1.25rem', lg: '0rem' }}
-                direction="column"
-                className="field"
-              >
-                <FormLabel htmlFor="gender">Gender</FormLabel>
-                <Field
-                  as={Select}
-                  id="gender"
-                  name="gender"
-                  height="4.063rem"
-                  borderRadius="0.75rem"
-                  focusBorderColor="#FF077C"
-                  placeholder="Select option"
-                >
-                  {genderOptions.map(gender => (
-                    <option key={gender} value={gender}>
-                      {gender}
-                    </option>
-                  ))}
-                </Field>
-                {errors.gender && touched.gender && (
-                  <div className="text-pink">{errors.gender}</div>
-                )}
-              </Flex>
-            </Flex>
-            <Flex
-              width={{ base: '100%', lg: '95%' }}
-              pt="1.25rem"
-              flexDirection={{ base: 'column', lg: 'row' }}
-              justifyContent="space-between"
-            >
-              <Flex
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                className="field"
-              >
-                <FormLabel htmlFor="degree">
-                  Choose your Degree/ Study field
-                </FormLabel>
-                <div style={{ overflowX: 'auto' }}>
-                  <RadioGroup
-                    name="degreeStudyField"
-                    flexWrap={{ base: 'nowrap', lg: 'wrap' }}
-                    className="whitespace-nowrap lg:whitespace-normal"
-                    mb="2.063rem"
-                    minWidth="100%"
-                    display={'flex'}
-                    gap="0.3rem"
+                  <FormLabel
+                    className="helvetica-font font-bold text-lg"
+                    color={'#CFCFCF'}
                   >
-                    {degreeOptions.map(degree => {
-                      return (
-                        <DegreeRadio
-                          key={degree}
-                          degree={degree}
-                          value={degree}
-                          name={degree}
-                        />
-                      );
-                    })}
-                  </RadioGroup>
-                  {touched.degreeStudyField && errors.degreeStudyField && (
-                    <div className="text-pink">{errors.degreeStudyField}</div>
+                    City
+                  </FormLabel>
+                  <Field
+                    as={Select}
+                    id="city"
+                    name="city"
+                    // mt="0.75rem"
+
+                    height="4.063rem"
+                    borderRadius="0.75rem"
+                    color="white"
+                    placeholder="Select City"
+                    focusBorderColor="#DBFD67"
+                  >
+                    {RegistrationCities.map(city => (
+                      <option key={city} value={city}>
+                        {city}
+                      </option>
+                    ))}
+                  </Field>
+                  {errors.city && touched.city && (
+                    <div className="text-#DBFD67">{errors.city}</div>
                   )}
-                </div>
+                </Flex>
+                <Flex
+                  width={{ base: '100%', lg: '48%' }}
+                  direction="column"
+                  color={'white'}
+                  className="field text-white"
+                  pt={{ base: '1.25rem', lg: '0rem' }}
+                >
+                  <CollegeSearchForm color="white" name="collegeName" />
+                  {touched.collegeName && errors.collegeName && (
+                    <div className="text-#DBFD67">{errors.collegeName}</div>
+                  )}
+                </Flex>
               </Flex>
               <Flex
-                width={{ base: '100%', lg: '50%' }}
-                direction="column"
-                className="field"
-                pt={{ base: '1.25rem', lg: '0rem' }}
-                pb={{ base: '1.875rem', lg: '0rem' }}
+                width={{ base: '100%', lg: '95%' }}
+                pt="1.25rem"
+                flexDirection={{ base: 'column', lg: 'row' }}
+                justifyContent="space-between"
               >
-                <FormLabel htmlFor="idFile">Upload College ID</FormLabel>
-                <Box
-                  width="100%"
-                  height="7.063rem"
-                  position="relative"
-                  cursor="pointer"
-                  border="1px dotted"
-                  borderRadius="12px"
-                  borderColor="#B4B4B4"
-                  p={2}
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
+                <Flex
+                  width={{ base: '100%', lg: '48%' }}
+                  direction="column"
+                  className="field"
                 >
-                  <Text>
-                    {values.file && values.file.name
-                      ? values.file.name
-                      : 'Tap to upload'}
-                  </Text>
-                  <Input
-                    type="file"
-                    onChange={(event: any) =>
-                      setFieldValue('file', event.target.files[0])
-                    }
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      opacity: 0,
-                      cursor: 'pointer',
-                    }}
-                  />
-                </Box>
-                {touched.file && errors.file && (
-                  <div className="text-pink">{errors.file}</div>
-                )}
+                  <FormLabel color={'white'} htmlFor="degree">
+                    Choose your Degree/ Study field
+                  </FormLabel>
+                  <div style={{ overflowX: 'auto' }}>
+                    <RadioGroup
+                      name="degreeStudyField"
+                      flexWrap={{ base: 'nowrap', lg: 'wrap' }}
+                      className="whitespace-nowrap lg:whitespace-normal"
+                      mb="2.063rem"
+                      minWidth="100%"
+                      color={'white'}
+                      display={'flex'}
+                      gap="0.3rem"
+                    >
+                      {degreeOptions.map(degree => {
+                        return (
+                          <DegreeRadio
+                            key={degree}
+                            degree={degree}
+                            value={degree}
+                            name={degree}
+                          />
+                        );
+                      })}
+                    </RadioGroup>
+                    {touched.degreeStudyField && errors.degreeStudyField && (
+                      <div className="text-#DBFD67">
+                        {errors.degreeStudyField}
+                      </div>
+                    )}
+                  </div>
+                </Flex>
+                <Flex
+                  width={{ base: '100%', lg: '24%' }}
+                  pt={{ base: '1.25rem', lg: '0rem' }}
+                  direction="column"
+                  className="field"
+                >
+                  <FormLabel color={'white'} htmlFor="Age">
+                    Age
+                  </FormLabel>
+                  <Field
+                    as={Select}
+                    id="age"
+                    name="age"
+                    height="4.063rem"
+                    borderRadius="0.75rem"
+                    focusBorderColor="#DBFD67"
+                    color="#ffffff"
+                  >
+                    {Array.from({ length: 13 }, (_, index) => index + 18).map(
+                      age => (
+                        <option key={age} value={age}>
+                          {age}
+                        </option>
+                      )
+                    )}
+                  </Field>
+                </Flex>
+                <Flex
+                  width={{ base: '100%', lg: '24%' }}
+                  pt={{ base: '1.25rem', lg: '0rem' }}
+                  direction="column"
+                  className="field"
+                >
+                  <FormLabel color={'white'} htmlFor="gender">
+                    Gender
+                  </FormLabel>
+                  <Field
+                    as={Select}
+                    id="gender"
+                    name="gender"
+                    height="4.063rem"
+                    borderRadius="0.75rem"
+                    focusBorderColor="#DBFD67"
+                    placeholder="Select option"
+                    color="#ffffff"
+                  >
+                    {genderOptions.map(gender => (
+                      <option key={gender} value={gender}>
+                        {gender}
+                      </option>
+                    ))}
+                  </Field>
+                  {errors.gender && touched.gender && (
+                    <div className="text-#DBFD67">{errors.gender}</div>
+                  )}
+                </Flex>
               </Flex>
-            </Flex>
-          </Box>
-          <Box className="mt-auto sticky bg-white bottom-0">
-            <Divider
-              marginTop="auto"
-              borderColor={'black'}
-              borderBottomWidth="1px"
-              borderBottomStyle="dotted"
-              ml={{ base: '0rem', lg: '-5.063rem' }}
-              width={{ base: '100%', lg: '109%' }}
-            />
-            <Button
-              id="academic-details-form-submit-btn"
-              type="submit"
-              color={'#fff'}
-              _hover={{ opacity: '90%' }}
-              _active={{
-                filter: 'drop-shadow(2px 2px 0px #d1ff45)',
-                transform: 'skew(-12deg) translate(2px, 2px)',
-              }}
-              transform="skew(-12deg)"
-              transition="0.4s all ease-out"
-              filter="drop-shadow(4px 4px 0px #d1ff45)"
-              borderRadius={'0.375rem'}
-              className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-pink"
-              display={'flex'}
-              justifyContent={'center'}
-              alignItems={'center'}
-              fontSize={'1rem'}
-              mt="1.25rem"
-              mb="1.25rem"
-              height={{ base: '4.125rem', lg: '4.063rem' }}
-              width={{ base: '17rem', lg: '22rem' }}
-              isLoading={isSubmitting}
-              loadingText="Uploading File and Data"
-            >
-              Upload & Proceed
-            </Button>
+              <div className="py-16"></div>
+            </Box>
+          </div>
+          <Box className="mt-auto  bg-black bottom-0">
+            <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
+              <Button
+                id="academic-details-form-submit-btn"
+                type="submit"
+                color={'#fff'}
+                _hover={{ opacity: '90%' }}
+                _active={{
+                  filter: 'drop-shadow(2px 2px 0px #d1ff45)',
+                  transform: 'skew(-12deg) translate(2px, 2px)',
+                }}
+                transform="skew(-12deg)"
+                transition="0.4s all ease-out"
+                filter="drop-shadow(4px 4px 0px #d1ff45)"
+                borderRadius={'0.375rem'}
+                className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
+                display={'flex'}
+                justifyContent={'center'}
+                alignItems={'center'}
+                fontSize={'1rem'}
+                mt="1.25rem"
+                mb="1.25rem"
+                height={{ base: '4.125rem', lg: '4.063rem' }}
+                width={{ base: '17rem', lg: '22rem' }}
+                isLoading={isSubmitting}
+                loadingText="Uploading File and Data"
+              >
+                Upload & Proceed
+              </Button>
+            </div>
           </Box>
         </Form>
       )}

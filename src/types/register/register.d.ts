@@ -14,12 +14,19 @@ export type OTPFormValues = {
   otp: string;
 };
 
+
+export type DateTimeSlotValues = {
+  selectedDate: string;
+  selectedTimeSlot: string;
+};
+
 export interface SecondFormValues {
   age: number;
   degreeStudyField: string;
   gender: string;
-  file: File | null;
+  // file: File | null;
   collegeName: string;
+  city:string
 }
 
 export interface UserAgentDetails {

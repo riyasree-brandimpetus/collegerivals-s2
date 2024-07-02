@@ -1,0 +1,23 @@
+{
+    "name": "Xyaa",
+    "email": "jess123@ gmail.com",
+    "whatsappNumber": "123456789",
+    "whatsappCountryCode": "+91",
+    "isOnlineModeSelected": true,
+    "selectedDate": "2024-06-23T00:00:00.000Z",
+    "selectedTimeSlot": "10 AM to 11 AM",
+    "isWhatsAppVerified": true,
+    "gameDetails": "",
+    "city": "Bengaluru",
+    "isUserVerified": false,
+    "createdAt": "2024-10-22T21:22:45.845Z",
+    "dob": "1999-08-19T00:00:00.000Z",
+    "collegeName": "St.Xaviers College",
+    "degreeStudyField": "B.Tech CSE",
+    "profilePhoto": "/profile-img.jpg",
+    "userAgentDetails": "",
+    "queryParams": {},
+    "agreedToTerms": true,
+    "gender": "Female"
+  }
+  
