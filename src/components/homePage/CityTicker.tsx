@@ -62,7 +62,7 @@ infinite:true,
             alt=""
             className="md:mb-6 mb-4 "
           />
-          <p className="md:text-xl w-full text-base text-center text-white font-extrabold">
+          <p className="md:text-xl w-full text-xs text-center text-white font-extrabold">
             <em>{slides.name}</em>
           </p>
          

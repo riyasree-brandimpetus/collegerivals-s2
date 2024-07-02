@@ -7,6 +7,7 @@ import WeAreLiveAt from "@/components/aboutUs/WeAreLiveAt";
 import WelcomeSlider from "@/components/aboutUs/WelcomeSlider";
 import FooterSeason2 from "@/components/globalComponents/FooterSeason2";
 import NavbarSeason2 from "@/components/globalComponents/NavbarSeason2";
+
 import { Metadata } from 'next';
 
 // Static metadata
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 
 const Page = () => {
   return (
+
     <div>
     <NavbarSeason2/>
   <AboutHero/>
@@ -26,6 +28,7 @@ const Page = () => {
 <WeAreLiveAt/>
   <FooterSeason2/>
   </div>
+
   );
 };
 

@@ -8,7 +8,7 @@ import CityTicker from "@/components/homePage/CityTicker";
 import Highlights from "@/components/homePage/Highlights";
 import News from "@/components/homePage/News";
 import FAQ from "@/components/homePage/faq";
-import Footer from "@/components/globalComponents/Footer";
+
 import TrackOurtruck from "@/components/homePage/TrackOurtruck";
 import FooterSeason2 from "@/components/globalComponents/FooterSeason2";
 

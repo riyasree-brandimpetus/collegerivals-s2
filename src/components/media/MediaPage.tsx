@@ -1,8 +1,7 @@
 "use client";
 
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import Navbar from "@/components/globalComponents/Navbar";
-import Footer from "@/components/globalComponents/Footer";
+
 import Graphics from "@/components/globalComponents/Graphics";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
@@ -26,7 +25,7 @@ const MediaPage = () => {
 
   return (
     <Box>
-      <Navbar setIsOpen={setIsOpen} isOpen={isOpen} />
+     
       <Graphics />
 
       <Heading
@@ -499,7 +498,7 @@ const MediaPage = () => {
 
       <LivePlatforms />
 
-      <Footer />
+   
     </Box>
   );
 };

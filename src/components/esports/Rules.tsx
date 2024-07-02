@@ -4,7 +4,7 @@ import Link from "next/link";
 const Rules =() => {
     return(
 
-        <div id="section2" className="w-full flex flex-col items-center bg-black">
+        <div id="section3" className="w-full flex flex-col items-center bg-black">
         <div className="max-w-[1440px] w-full h-full flex flex-col justify-center slate-400 lg:p-24 p-6 gap-4 ">
 
             <h2 className="md:text-7xl text-2xl md:mb-24 mb-12 text-center font-medium text-white ppFormula-font"><em>RULES</em></h2>

@@ -109,13 +109,13 @@ setSelectedItem(item);
             <p className="md:text-lg text-sm font-extrabold mb-8 ppFormula-font italic text-#8D8D8D">
               <em>MONTHLY QUALIFIERS</em>
             </p>
-            <div className="grid grid-cols-6  gap-0.438rem">
-              <div className="lg:px-8 py-1.375rem bg-[#3B3B3B] text-[#666666] text-sm flex items-center justify-center rounded-lg ppFormula-font italic">
+            <div className="grid  md:grid-cols-6 grid-cols-3  gap-0.438rem">
+            <div className="px-8 py-1.375rem bg-[#282828] text-white  text-sm flex items-center justify-center rounded-lg ppFormula-font italic">
                 <p>AUG</p>
               </div>
-              <div className="lg:px-8 px-3 bg-[#282828] flex flex-col items-center justify-center rounded-lg">
-                <p className="text-[#D1FF45] text-sm ppFormula-font italic ">SEP</p>
-                <div className="text-[#E7327C] bg-[#2D2D2F] rounded-xl mt-1 py-1 px-3 flex flex-row gap-1">
+              <div className="px-8 bg-[#282828] flex flex-col items-center justify-center rounded-lg">
+                <p className="text-white text-sm ppFormula-font italic ">SEP</p>
+                {/* <div className="text-[#E7327C] bg-[#2D2D2F] rounded-xl mt-1 py-1 px-3 flex flex-row gap-1">
                   <Image
                     width={2}
                     height={2}
@@ -123,43 +123,45 @@ setSelectedItem(item);
                     alt=""
                   />
                   <p className="text-xs">LIVE</p>
-                </div>
+                </div> */}
               </div>
-              <div className="lg:px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic ">
+              <div className="px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic ">
                 <p>OCT</p>
               </div>
-              <div className="lg:px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic  ">
+              <div className="px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic  ">
                 <p>NOV</p>
               </div>
-              <div className="lg:px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic  ">
+              <div className="px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic  ">
                 <p>DEC</p>
               </div>
-              <div className="lg:px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font   italic ">
+              <div className="px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font   italic ">
                 <p>JAN</p>
               </div>
             
              
             </div>
-            <div className="grid grid-cols-6 mt-8 gap-1 md:gap-5">
-             <p className="md:text-lg text-xs py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">Top 64</p>
-             <p className="md:text-lg text-xs   py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">Top 64</p>
-             <p className="md:text-lg text-xs   py-1.375rem text-#DBFD67 font-bold helvetica-font uppercase ">Top 64</p>
-             <p className="md:text-lg text-xs   py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">Top 64</p>
-             <p className="md:text-lg text-xs  py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">Top 64</p>
-             <p className="md:text-lg text-xs   py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">Top 64</p>
+            <div className="grid md:grid-cols-6 grid-cols-1 mt-8 gap-1 md:gap-5">
+             <p className="text-lg  md:flex hidden py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">Top 64</p>
+             <p className="text-lg  md:flex hidden   py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">Top 64</p>
+             <p className="text-lg  md:flex hidden   py-1.375rem text-#DBFD67 font-bold helvetica-font uppercase ">Top 64</p>
+             <p className="text-lg  md:flex hidden   py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">Top 64</p>
+             <p className="text-lg  md:flex hidden  py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">Top 64</p>
+             <p className="text-lg flex  py-1 md:py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">Top 64</p>
              
               </div>
            
-            <div>
-              <Image src="/esports-arrows1.svg" width={477} height={97} alt="" />
+            <div className="flex flex-col justify-center items-center">
+              <Image src="/esports-arrows1.svg" width={477} height={97} alt="" className="md:flex hidden" />
+              <Image src="/esports-arrow-mob.svg" width={23} height={82} alt="" className="md:hidden flex" />
+
             </div>
-            <div className="grid grid-cols-6 mt-9 gap-0.438rem">
-              <div className="px-8 py-1.375rem bg-[#3B3B3B] text-[#666666] text-sm flex items-center justify-center rounded-lg ppFormula-font italic">
+            <div className="grid  md:grid-cols-6 grid-cols-3  mt-3 md:mt-9 gap-0.438rem">
+              <div className="px-8 py-1.375rem bg-[#282828] text-white  text-sm flex items-center justify-center rounded-lg ppFormula-font italic">
                 <p>AUG</p>
               </div>
               <div className="px-8 bg-[#282828] flex flex-col items-center justify-center rounded-lg">
-                <p className="text-[#D1FF45] text-sm ppFormula-font italic ">SEP</p>
-                <div className="text-[#E7327C] bg-[#2D2D2F] rounded-xl mt-1 py-1 px-3 flex flex-row gap-1">
+                <p className="text-white text-sm ppFormula-font italic ">SEP</p>
+                {/* <div className="text-[#E7327C] bg-[#2D2D2F] rounded-xl mt-1 py-1 px-3 flex flex-row gap-1">
                   <Image
                     width={2}
                     height={2}
@@ -167,7 +169,7 @@ setSelectedItem(item);
                     alt=""
                   />
                   <p className="text-xs">LIVE</p>
-                </div>
+                </div> */}
               </div>
               <div className="px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic ">
                 <p>OCT</p>
@@ -185,11 +187,11 @@ setSelectedItem(item);
              
             </div>
 
-            <div className="flex flex-col pt-12 px-8 justify-center items-center w-full">
+            <div className="flex flex-col pt-12 justify-center items-center w-full">
            
           
          
-            <div className=" bg-[#DBFD67] md:text-3xl text-xl font-extrabold rounded-lg text-[#333132] md:px-24 px-9 md:py-9 py-6 relative  ppFormula-font italic ">
+            <div className=" bg-[#DBFD67] md:text-3xl max-md:w-full flex items-center justify-center text-xl font-extrabold rounded-lg text-[#333132] md:px-24 px-9 md:py-9 py-6 relative  ppFormula-font italic ">
               <em>MONTHLY FINALS</em>
               <Image
                 width={428}
@@ -202,11 +204,11 @@ setSelectedItem(item);
     
           </div>
           </div>
-          <div className="flex flex-col mt-16 justify-center place-items-center w-full">
+          <div className="flex flex-col mt md:mt-16 justify-center place-items-center w-full">
             <div className="flex justify-center -space-x-3 mb-4">
 
             { data && (
-            <div className="flex justify-center -space-x-3 mb-4" >
+            <div className="flex justify-center -space-x-3 md:mb-4 mb-1" >
               {data.Online.monthly_finals_img.map((img,index)=>(
               <div key={index} className="rounded-full p-1 bg-black">
               <Image
@@ -225,7 +227,7 @@ setSelectedItem(item);
                 </div>
               </div>
             </div>
-            <h3 className="font-extrabold md:text-3xl text-xl mb-6 text-[#DBFD67]">
+            <h3 className="font-extrabold md:text-3xl text-xl mb-2 md:mb-6 text-[#DBFD67]">
             { data && (
             <span >{data.Online.monthly_finals}</span>
           )} PLAYERS FROM
@@ -234,9 +236,63 @@ setSelectedItem(item);
               <em>8 FROM EACH MONTHLY FINALS</em>
             </p>
           </div>
+          <div className="md:hidden flex flex-col">
+
+          <div className="w-full justify-center items-center flex"> <Image src="/esports-illustration1.svg" width={656} height={136} alt="" className="md:flex hidden"/>
+          <Image src="/esports-arrow-mob-2.svg" width={20} height={60} alt="" className="md:hidden flex" />
+           </div>
+
+<div className="flex flex-row flex-wrap justify-center w-full gap-5 text-white">
+  <div className="w-fit bg-[#18191A] md:text-3xl text-xl font-extrabold rounded-2xl text-[#DBFD67] md:px-12 px-6 md:py-6 py-3">
+    <div className="w-full relative px-6 py-2  ppFormula-font italic ">
+      <em>LEAGUE STAGE</em>
+      <Image
+        width={20}
+        height={20}
+        src="/assets/btn-star.svg"
+        alt=""
+        className="absolute top-0 left-0 z-1"
+      />
+      <Image
+        width={20}
+        height={20}
+        src="/assets/btn-star.svg"
+        alt=""
+        className="absolute bottom-0 right-0 z-1"
+      />
+    </div>
+  </div>
+</div>
+<div className="flex w-full items-center justify-center"><Image src='/esports-illustration2.svg' alt="" width={2} height={104} /></div>
+
+<div className="flex flex-col flex-wrap justify-center place-items-center w-full  gap-5 md:px-12 px-6  text-white relative">
+
+    <Image
+    width={327}
+    height={103}
+    src="/btn-bg-mob-2.png"
+    alt=""
+    className="w-full "
+  />
+
+  <div className="absolute flex flex-col justify-center place-items-center">
+    <Image
+      width={142}
+      height={18}
+      src="/assets/logo.svg"
+      alt=""
+      className="md:w-auto w-1/2"
+    />
+    <p className="md:text-5xl text-xl font-extrabold text-[#DBFD67]  ppFormula-font italic ">
+      <em>GRAND FINALE</em>
+    </p>
+  </div>
+</div>
 
           </div>
-<div className="flex flex-col xl:w-1/2 w-full justify-between">
+
+          </div>
+<div className="flex flex-col max-md:mt-20 xl:w-1/2 w-full justify-between">
 <div>
           <div className="flex flex-col md:py-11 md:px-24 p-7 justify-center place-items-center bg-[#131313]  w-full ppFormula-font italic ">
             <h3 className="font-extrabold md:text-6xl text-2xl mb-6">
@@ -272,7 +328,7 @@ setSelectedItem(item);
             </div>
 
             <div className="flex flex-col  px-8 justify-center place-items-center w-full">
-            <div className="flex justify-center pt-12  mb-4">
+            <div className="flex justify-center md:pt-12 pt-7  mb-4">
 
             { data && (
             <div className="flex justify-center -space-x-3 " >
@@ -297,7 +353,7 @@ setSelectedItem(item);
             <p className="text-base md:mb-9 mb-8  ">
               <em>MONTHLY QUALIFIERS</em>
             </p>
-            <div className=" bg-[#DBFD67] md:text-3xl text-xl font-extrabold rounded-lg text-[#333132] md:px-24 px-9 md:py-9 py-6 relative  ppFormula-font italic ">
+            <div className=" bg-[#DBFD67] md:text-3xl text-xl font-extrabold rounded-lg text-[#333132] max-md:mb-8 md:px-24 max-md:w-full flex justify-center items-center md:py-9 py-6 relative  ppFormula-font italic ">
               <em>COLLEGE PLAYOFFS</em>
               <Image
                 width={428}
@@ -335,7 +391,7 @@ setSelectedItem(item);
                 </div>
               </div>
             </div>
-            <h3 className="font-extrabold md:text-3xl text-xl mb-6 text-[#DBFD67]">
+            <h3 className="font-extrabold md:text-3xl text-xl md:mb-6 text-[#DBFD67]">
             { data && (
             <span >{data.offline.college_playoffs}</span>
           )}   PLAYERS FROM
@@ -345,26 +401,43 @@ setSelectedItem(item);
           </div>
         </div>
 
-        <div className="w-full justify-center items-center flex"> <Image src="/esports-illustration1.svg" width={656} height={136} alt="" /> </div>
+        <div className="w-full justify-center items-center flex"> <Image src="/esports-illustration1.svg" width={656} height={136} alt="" className="md:flex hidden"/>
+          <Image src="/esports-arrow-mob-2.svg" width={20} height={60} alt="" className="md:hidden flex" />
+           </div>
 
         <div className="flex flex-row flex-wrap justify-center w-full gap-5 text-white">
           <div className="w-fit bg-[#18191A] md:text-3xl text-xl font-extrabold rounded-2xl text-[#DBFD67] md:px-12 px-6 md:py-6 py-3">
-            <div className="w-full relative px-3 py-6 md:px-12 md:py-6  ppFormula-font italic ">
+            <div className="w-full relative px-6 py-2 md:px-12 md:py-6  ppFormula-font italic ">
               <em>LEAGUE STAGE</em>
               <Image
                 width={46}
                 height={46}
                 src="/assets/btn-star.svg"
                 alt=""
-                className="absolute top-0 left-0 z-1"
+                className="absolute top-0  left-0 z-1 md:flex hidden"
               />
               <Image
                 width={46}
                 height={46}
                 src="/assets/btn-star.svg"
                 alt=""
-                className="absolute bottom-0 right-0 z-1"
+                className="absolute bottom-0 right-0 z-1 md:flex hidden"
               />
+
+<Image
+        width={20}
+        height={20}
+        src="/assets/btn-star.svg"
+        alt=""
+        className="absolute top-0 left-0 z-1 md:hidden flex"
+      />
+      <Image
+        width={20}
+        height={20}
+        src="/assets/btn-star.svg"
+        alt=""
+        className="absolute bottom-0 right-0 z-1 md:hidden flex"
+      />
             </div>
           </div>
         </div>
@@ -376,8 +449,17 @@ setSelectedItem(item);
             height={144}
             src="/assets/btn-bg.png"
             alt=""
-            className="w-full"
+            className="w-full md:flex hidden"
           />
+
+<Image
+    width={327}
+    height={103}
+    src="/btn-bg-mob-2.png"
+    alt=""
+    className="w-full md:hidden flex "
+  />
+
 
           <div className="absolute flex flex-col justify-center place-items-center">
             <Image
@@ -385,7 +467,7 @@ setSelectedItem(item);
               height={18}
               src="/assets/logo.svg"
               alt=""
-              className="md:w-auto w-1/3"
+              className="md:w-auto w-1/2 "
             />
             <p className="md:text-5xl text-xl font-extrabold text-[#DBFD67]  ppFormula-font italic ">
               <em>GRAND FINALE</em>

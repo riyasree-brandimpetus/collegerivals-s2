@@ -78,7 +78,7 @@ const FAQ = () => {
                               as="span"
                               className="helvetica-font flex flex-1 text-left text-base lg:text-3xl font-bold"
                             >
-                              How to register for College Rivals?
+                          How can I participate in College rivals season 2024 (Ideally both ESPORTS & Talent hunt)
                             </Box>
                             {isExpanded ? (
                               <Image
@@ -122,7 +122,7 @@ const FAQ = () => {
                 )}
               </AccordionItem>
 
-              <AccordionItem className="mt-10" borderTopWidth="0px">
+              <AccordionItem className="mt-10" borderY="0px">
                 {({ isExpanded }) => (
                   <>
                     <Flex
@@ -143,8 +143,7 @@ const FAQ = () => {
                               as="span"
                               className="helvetica-font flex-1 text-left text-base lg:text-3xl font-bold"
                             >
-                              My college/city is not on the list, can I
-                              register?
+                             Which all gaming platform & Titles are included this year
                             </Box>
                             {isExpanded ? (
                               <Image
@@ -153,7 +152,7 @@ const FAQ = () => {
                               />
                             ) : (
                               <Image
-                                className="h-auto w-auto mt-[5px]"
+                                className="h-auto w-auto mt-5px"
                                 src="/faq-cross-s2.svg"
                                 alt="faq-plus"
                                 loading="lazy"
@@ -162,12 +161,9 @@ const FAQ = () => {
                           </AccordionButton>
                         </h2>
                         <AccordionPanel className="helvetica-light-font px-0 text-sm lg:text-lg ">
-                          Yes, absolutely. College Rivals is open to
-                          participants from anywhere, regardless of whether your
-                          college or city is listed. You can still register and
-                          participate. Just follow the registration process on
-                          our website, and manually input your college name in
-                          the selction menu.
+                          The event will feature a variety of esports titles,
+                          including BGMI, Road to Valor, Valorant, CSGO, FIFA
+                          23, and Tekken 7.
                         </AccordionPanel>
                       </Box>
                     </Flex>

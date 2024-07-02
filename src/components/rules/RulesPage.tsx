@@ -1,6 +1,5 @@
 "use client";
-import Navbar from "@/components/globalComponents/Navbar";
-import Footer from "@/components/globalComponents/Footer";
+
 import {
   Box,
   Heading,
@@ -16,6 +15,8 @@ import {
 import Graphics from "@/components/globalComponents/Graphics";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import NavbarSeason2 from "../globalComponents/NavbarSeason2";
+import FooterSeason2 from "../globalComponents/FooterSeason2";
 
 const RulesPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,8 +50,8 @@ const RulesPage = () => {
     },
   ];
   return (
-    <Box>
-      <Navbar setIsOpen={setIsOpen} isOpen={isOpen} />
+    <Box bgColor={"black"}>
+    <NavbarSeason2/>
       <Graphics />
       <Heading
         ref={scrollRef}
@@ -64,7 +65,7 @@ const RulesPage = () => {
         viewport={{ once: true }}
         transition="1s linear"
         className="ppFormula-font tracking-tight lg:tracking-normal font-light
-         italic text-2rem lg:text-7xl text-center mt-5.375rem lg:mt-8.25rem leading-normal text-#333"
+         italic text-2rem lg:text-7xl text-center mt-5.375rem lg:mt-8.25rem leading-normal text-white"
         size={"4xl"}
         // mb={{ base: '0.5rem', lg: '1.25rem' }}
         // pb={{ base: '3.125rem', lg: '8.625rem' }}
@@ -257,7 +258,7 @@ const RulesPage = () => {
         </Flex>
       </SimpleGrid>
 
-      <Footer />
+   <FooterSeason2/>
     </Box>
   );
 };

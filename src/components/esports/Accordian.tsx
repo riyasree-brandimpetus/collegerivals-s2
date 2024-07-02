@@ -23,121 +23,104 @@ const finalists = [
     title: "AUGUST FINALISTS",
     students: [
       {
-        studentName: "Rajesh Kuthrapalli",
+        studentName: "TBD",
         studentImg: "",
-        universityName: "Indraprastha University",
+        universityName: "TBD",
         universityImg: "",
       },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
+   
     ],
-  },
-  {
-    svg: "",
-    title: "SEPTEMBER FINALISTS",
-    students: [
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-    ],
-  },
-  {
-    svg: "",
-    title: "OCTOBER FINALISTS",
-    students: [
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-    ],
-  },
-  {
-    svg: "",
-    title: "NOVEMBER FINALISTS",
-    students: [
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-      {
-        studentName: "Rajesh Kuthrapalli",
-        studentImg: "",
-        universityName: "Indraprastha University",
-        universityImg: "",
-      },
-    ],
-  },
+  }
+  // {
+  //   svg: "",
+  //   title: "SEPTEMBER FINALISTS",
+  //   students: [
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //   ],
+  // },
+  // {
+  //   svg: "",
+  //   title: "OCTOBER FINALISTS",
+  //   students: [
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //   ],
+  // },
+  // {
+  //   svg: "",
+  //   title: "NOVEMBER FINALISTS",
+  //   students: [
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //     {
+  //       studentName: "Rajesh Kuthrapalli",
+  //       studentImg: "",
+  //       universityName: "Indraprastha University",
+  //       universityImg: "",
+  //     },
+  //   ],
+  // },
 ];
 
 const Icon2 = ({ fill } = { fill: "" }) => (
@@ -235,7 +218,7 @@ const EsportsAccordian = () => {
   let isOpen: any;
   const scrollRef = useRef(null);
   return (
-    <Box className="w-full bg-black">
+    <Box id="section2" className="w-full bg-black">
     <Box className=" overflow-hidden max-w-[1440px] mx-auto ">
       <Heading
         ref={scrollRef}
@@ -375,7 +358,8 @@ const EsportsAccordian = () => {
                                   width='auto'
                                 />
                               </Flex>
-                              <Text>{studentName}</Text>
+                              <Text fontSize={{ base: "1.125rem", lg: "1.625rem" }} 
+                                fontWeight={"800"}>{studentName}</Text>
                             </Flex>
                             <Flex
                               flex="73"
@@ -387,7 +371,8 @@ const EsportsAccordian = () => {
                                   fill="#FFFFFF"
                                 />
                               </Box>
-                              <Text>{universityName}</Text>
+                              <Text fontSize={{ base: "1.125rem", lg: "1.625rem" }} 
+                                fontWeight={"800"} >{universityName}</Text>
                             </Flex>
                           </Flex>
                         )
