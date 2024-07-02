@@ -23,6 +23,12 @@ const NavbarSeason2 = () => {
         </Link>
         <div className="w-[60%] items-center justify-between lg:flex hidden ">
           <div className="flex gap-2.125rem">
+          <Link
+              className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
+              href="/esports"
+            >
+             HOME
+            </Link>
             <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
               href="/esports"
@@ -91,6 +97,12 @@ const NavbarSeason2 = () => {
                   <Image src={closeIcon} alt="closeIcon" />
                 </div>
                 <div className="flex flex-col gap-10 text-center">
+                <Link
+              className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
+              href="/esports"
+            >
+             HOME
+            </Link>
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
                     href="/esports"
@@ -117,7 +129,7 @@ const NavbarSeason2 = () => {
                   </Link>
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
-                    href="/"
+                    href="https://store.collegerivals.com/"
                   >
                     STORE
                   </Link>

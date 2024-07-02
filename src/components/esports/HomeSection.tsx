@@ -110,12 +110,12 @@ setSelectedItem(item);
               <em>MONTHLY QUALIFIERS</em>
             </p>
             <div className="grid  md:grid-cols-6 grid-cols-3  gap-0.438rem">
-            <div className="px-8 py-1.375rem bg-[#3B3B3B] text-[#666666] text-sm flex items-center justify-center rounded-lg ppFormula-font italic">
+            <div className="px-8 py-1.375rem bg-[#282828] text-white  text-sm flex items-center justify-center rounded-lg ppFormula-font italic">
                 <p>AUG</p>
               </div>
               <div className="px-8 bg-[#282828] flex flex-col items-center justify-center rounded-lg">
-                <p className="text-[#D1FF45] text-sm ppFormula-font italic ">SEP</p>
-                <div className="text-[#E7327C] bg-[#2D2D2F] rounded-xl mt-1 py-1 px-3 flex flex-row gap-1">
+                <p className="text-white text-sm ppFormula-font italic ">SEP</p>
+                {/* <div className="text-[#E7327C] bg-[#2D2D2F] rounded-xl mt-1 py-1 px-3 flex flex-row gap-1">
                   <Image
                     width={2}
                     height={2}
@@ -123,7 +123,7 @@ setSelectedItem(item);
                     alt=""
                   />
                   <p className="text-xs">LIVE</p>
-                </div>
+                </div> */}
               </div>
               <div className="px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic ">
                 <p>OCT</p>
@@ -156,12 +156,12 @@ setSelectedItem(item);
 
             </div>
             <div className="grid  md:grid-cols-6 grid-cols-3  mt-3 md:mt-9 gap-0.438rem">
-              <div className="px-8 py-1.375rem bg-[#3B3B3B] text-[#666666] text-sm flex items-center justify-center rounded-lg ppFormula-font italic">
+              <div className="px-8 py-1.375rem bg-[#282828] text-white  text-sm flex items-center justify-center rounded-lg ppFormula-font italic">
                 <p>AUG</p>
               </div>
               <div className="px-8 bg-[#282828] flex flex-col items-center justify-center rounded-lg">
-                <p className="text-[#D1FF45] text-sm ppFormula-font italic ">SEP</p>
-                <div className="text-[#E7327C] bg-[#2D2D2F] rounded-xl mt-1 py-1 px-3 flex flex-row gap-1">
+                <p className="text-white text-sm ppFormula-font italic ">SEP</p>
+                {/* <div className="text-[#E7327C] bg-[#2D2D2F] rounded-xl mt-1 py-1 px-3 flex flex-row gap-1">
                   <Image
                     width={2}
                     height={2}
@@ -169,7 +169,7 @@ setSelectedItem(item);
                     alt=""
                   />
                   <p className="text-xs">LIVE</p>
-                </div>
+                </div> */}
               </div>
               <div className="px-8 py-1.375rem bg-[#282828] text-white text-sm flex items-center justify-center rounded-lg ppFormula-font italic ">
                 <p>OCT</p>

@@ -1,39 +1,39 @@
 [
     {
       "id": 1,
-      "src": "/H1.JPG"
+      "src": "/H1.jpg"
      
     },
     {
       "id": 2,
-      "src": "/H2.JPG"
+      "src": "/H2.jpg"
     },
     {
       "id": 3,
-      "src": "/H3.JPG"
+      "src": "/H3.jpg"
     },
     {
         "id": 4,
-        "src": "/H4.JPG"
+        "src": "/H4.jpg"
       },
       {
         "id": 5,
-        "src": "/H5.JPG"
+        "src": "/H5.jpg"
       },
       {
         "id": 6,
-        "src": "/H6.JPG"
+        "src": "/H6.jpg"
       },
       {
         "id": 7,
-        "src": "/H7.JPG"
+        "src": "/H7.jpg"
       }, {
         "id": 8,
-        "src": "/H8.JPG"
+        "src": "/H8.jpg"
       },
       {
         "id": 9,
-        "src": "/H9.JPG"
+        "src": "/H9.jpg"
       }
     
   ]
