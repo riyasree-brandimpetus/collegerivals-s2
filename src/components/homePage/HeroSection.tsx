@@ -32,7 +32,7 @@ const openvideo = ()=>{
       <button 
         className="custom-button-neon m-3 px-14 py-5 text-1.063rem helvetica-medium-font font-medium text-#DBFD67  rounded-lg backdrop-blur-md"
       >
-  Register for free!!
+  Register Now For Free
       </button>
       </Link>
  
@@ -70,7 +70,7 @@ const openvideo = ()=>{
                 />
                 <div className="flex flex-row p-1 place-items-baseline gap-2">
                   <p className="xl:text-7xl md:text-5xl text-4xl font-extrabold text-[#E7327C] ppFormula-font">
-                    <em>50</em>
+                    <em>50+</em>
                   </p>
                   <p className="xl:text-2xl text-lg text-white  ml-auto font-bold helvetica-font">
                     <em>COLLEGES</em>

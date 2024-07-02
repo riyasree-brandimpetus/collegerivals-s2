@@ -9,7 +9,7 @@ interface Section {
 
 const sections: Section[] = [
   { id: "section1", label: "FORMAT" },
-  { id: "section2", label: "Schedule" },
+  { id: "section2", label: "Winner" },
   { id: "section3", label: "Rules & faqs" }
 ];
 

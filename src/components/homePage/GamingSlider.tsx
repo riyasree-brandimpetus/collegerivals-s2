@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { Button } from "@chakra-ui/react";
 import { GamingSlides } from "@/types/homepage/home";
 import data from "../../data/GamingSlider.json";
+import Link from "next/link";
 
 const GamingSlider = () => {
 
@@ -83,7 +84,7 @@ const GamingSlider = () => {
             
                 {gaming.map((slides, index) => (
                   <div key={index} className=" pl-2 xl:p-6 max-md:w-80% relative max-md:shrink-0">
-               
+               <Link href="/esports">
                 
                     <div className="w-full flex justify-left p-8">
                       <p  className={`md:text-xl text-base font-bold absolute z-50 bottom-[10%] target-heading ${hoveredId === slides.id ? 'hovered' : ''}`}>
@@ -106,6 +107,7 @@ const GamingSlider = () => {
                       className="object-contain max-md:w-full rounded-2xl relative -z-20"
                     />
                     </div>
+                    </Link>
               
                   </div>
                 ))}
