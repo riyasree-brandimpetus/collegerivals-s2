@@ -35,15 +35,15 @@ const Page = ({ params }: { params: { slug: string } }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Box >
+    <Box bgColor={"black"}>
       <NavbarSeason2/>
       <Graphics />
       <h1
-        className="ppFormula-font text-slate-800 uppercase leading-normal tracking-wide lg:tracking-wider font-light italic  px-[1rem] lg:px-[2rem] text-[2rem] lg:text-[4rem] text-center mt-[5.375rem] lg:mt-[8.25rem]"
+        className="ppFormula-font text-white uppercase leading-normal tracking-wide lg:tracking-wider font-light italic  px-[1rem] lg:px-[2rem] text-[2rem] lg:text-[4rem] text-center mt-[5.375rem] lg:mt-[8.25rem]"
       >
         {rules?.heading}
       </h1>
-      <Box as="pre" className="helvetica-light-font font-normal whitespace-pre-wrap break-words w-full px-[1.5rem] lg:px-[5rem] py-[2rem] lg:py-[4rem] mb-[4rem] lg:mb-[7.25rem] bg-white">
+      <Box as="pre" className="helvetica-light-font font-normal whitespace-pre-wrap break-words w-full px-[1.5rem] lg:px-[5rem] py-[2rem] lg:py-[4rem] mb-[4rem] lg:mb-[7.25rem] bg-black text-white">
         {rules?.data}
 
       </Box>
