@@ -25,7 +25,7 @@ const NavbarSeason2 = () => {
           <div className="flex gap-2.125rem">
           <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
-              href="/esports"
+              href="/"
             >
              HOME
             </Link>
@@ -99,7 +99,7 @@ const NavbarSeason2 = () => {
                 <div className="flex flex-col gap-10 text-center">
                 <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
-              href="/esports"
+              href="/"
             >
              HOME
             </Link>
