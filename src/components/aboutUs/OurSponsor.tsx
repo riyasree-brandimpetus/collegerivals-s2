@@ -11,8 +11,7 @@ const OurSponsor = ()=>{
                 <img src="/sponsor3.svg" alt="" className="md:w-auto w-20"/>
                 <img src="/sponsor4.svg" alt="" className="md:w-auto w-20"/>
                 <img src="/sponsor5.svg" alt="" className="md:w-auto w-20"/>
-                <img src="/sponsor6.svg" alt="" className="md:w-auto w-20"/>
-                <img src="/sponsor7.svg" alt="" className="md:w-auto w-20"/>
+              
             </div>
 
         </div>

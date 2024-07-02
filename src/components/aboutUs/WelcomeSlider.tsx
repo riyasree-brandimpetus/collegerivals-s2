@@ -25,7 +25,7 @@ const WelcomeSlider =()=>{
             className="max-w-[1440px] w-full h-full rounded-xl relative justify-center md:p-87 p-6">
             
 
-            <div className="xl:px-64 md:px-10 px-7 pb-20 relative flex flex-col justify-center place-items-center">
+            <div className="xl:px-48 md:px-10 px-7 pb-20 relative flex flex-col justify-center place-items-center">
                 <img src="./assets/tl.svg" alt="" className="absolute top-0 left-0"/>
                 <img src="./assets/tr.svg" alt="" className="absolute top-0 right-0"/>
                 <img src="./assets/bl.svg" alt="" className="absolute bottom-0 left-0"/>
@@ -33,20 +33,12 @@ const WelcomeSlider =()=>{
                 <img src="/logo-2.svg" alt="" className="md:w-16 w-12 md:mb-14 mb-7"/>
 
                 <div className="slider w-full">
-                    <Slider 
-                        ref={sliderRef}
-                    {...slidesettings }>
+                  
                     <div>
-                        <p className="text-white text-center md:text-2xl text-lg font-light helvetica-extralight-font">Welcome to College Rivals 2023! We’re on a mission to bring college
-                            students together through intense Esports competition. <span className="text-[#DBFD67]">Bringing together the finest gamers</span>
-                            from the top colleges across Mumbai, Delhi, Pune, Hyderabad, and Bangalore.</p>
+                        <p className="text-white text-center md:text-2xl text-lg font-light helvetica-extralight-font">College Rivals is the bridge between a College Student's passion for Gaming and their aspiration to be a pro player. Positioned as India's Largest Esports Talent Hunt, it combines music, pop culture, and comedy putting together a unique cross between gaming and Entertainment, in an unprecedented format. An innovative esports initiative developed in collaboration between Ampverse and DMI Finance. It aims to nurture gaming talent at the collegiate level across India through competitive tournaments, mentorship, and community engagement. It goes beyond esports tournaments by incorporating elements of college life, pop culture trends, and influencer engagements</p>
                     </div>
-                    <div>
-                        <p className="text-white text-center md:text-2xl text-lg font-light helvetica-extralight-font">Welcome to College Rivals 2023! We’re on a mission to bring college
-                            students together through intense Esports competition. Bringing together the finest gamers
-                            from the top colleges across Mumbai, Delhi, Pune, Hyderabad, and Bangalore.</p>
-                    </div>
-                    </Slider>
+                   
+             
                 </div>
             </div>
         </div>
