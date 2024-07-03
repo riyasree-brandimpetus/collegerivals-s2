@@ -30,7 +30,7 @@ const openvideo = ()=>{
 
     <Link href="/sign-up">
       <button 
-        className="custom-button-neon m-3 px-14 py-5 text-1.063rem helvetica-medium-font font-medium text-#DBFD67  rounded-lg backdrop-blur-md"
+        className="custom-button-neon m-3 uppercase px-14 py-5 text-1.063rem helvetica-medium-font font-medium text-#DBFD67  rounded-lg backdrop-blur-md"
       >
   Register Now For Free
       </button>

@@ -153,7 +153,7 @@ const RulesPage = () => {
           justify-between rounded-0.875rem lg:rounded-1.25rem p-0.625rem lg:pt-1.37rem lg:pb-1.56rem lg:px-1.94rem"
           >
             <Text className="helvetica-font font-bold text-sm lg:text-xl w-1/2 lg:w-70%">
-              FIFA 2023{" "}
+              FIFA 2024{" "}
             </Text>
             <a
               className="flex  font-normal helvetica-light-font text-xs 

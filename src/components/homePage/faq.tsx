@@ -10,16 +10,12 @@ import {
   Text,
   useBreakpointValue,
   Image,
-
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 const FAQ = () => {
-
-
-
   const bottomDesignSrc = useBreakpointValue({
     base: "./faq-bottom-design-mobile.svg",
     lg: "./faq-bottom-design.svg",
@@ -30,10 +26,7 @@ const FAQ = () => {
     base: "./faq-design-mobile.svg",
   });
   return (
-    <Flex
-      className="w-full flex-col md:pb-64 pb-14"
-     bg="black"
-    >
+    <Flex className="w-full flex-col md:pb-64 pb-14" bg="black">
       <Flex className="faq-section pt-3.125rem lg:pt-9.625rem px-1.5rem lg:px-5rem flex-col overflow-x-hidden w-full relative">
         <Heading
           className="ppFormula-font w-full text-white italic text-3xl lg:text-7xl pb-1.875rem lg:pb-5.25rem max-screen-desktop mx-auto font-normal"
@@ -78,7 +71,7 @@ const FAQ = () => {
                               as="span"
                               className="helvetica-font flex flex-1 text-left text-base lg:text-3xl font-bold"
                             >
-                          How can I participate in College rivals season 2024 (Ideally both ESPORTS & Talent hunt)
+                              How can I participate in College Rivals Season 2?
                             </Box>
                             {isExpanded ? (
                               <Image
@@ -100,21 +93,22 @@ const FAQ = () => {
                           px={0}
                           className="helvetica-light-font text-sm lg:text-lg"
                         >
-                          To register for College Rivals, please follow these
-                          steps: <br /> 1. Visit the{" "}
+                          To participate, log in to the
                           <Text as={"span"} className="font-semibold">
                             {" "}
                             <Link
-                              href="/register"
+                              href="/login"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
                               College Rivals website
                             </Link>
                           </Text>{" "}
-                          . <br /> 2. Fill out the registration form with your
-                          details. <br /> 3. Complete the registration process
-                          as instructed on the website.
+                          and complete the registration form. Provide all
+                          necessary details, including contact, game details,
+                          and your preference for online/offline qualifiers.
+                          Participate in our qualifiers held on various dates,
+                          selecting slots at your convenience.
                         </AccordionPanel>
                       </Box>
                     </Flex>
@@ -143,7 +137,8 @@ const FAQ = () => {
                               as="span"
                               className="helvetica-font flex-1 text-left text-base lg:text-3xl font-bold"
                             >
-                             Which all gaming platform & Titles are included this year
+                              Which gaming platforms and titles are included
+                              this year?
                             </Box>
                             {isExpanded ? (
                               <Image
@@ -161,9 +156,18 @@ const FAQ = () => {
                           </AccordionButton>
                         </h2>
                         <AccordionPanel className="helvetica-light-font px-0 text-sm lg:text-lg ">
-                          The event will feature a variety of esports titles,
-                          including BGMI, Road to Valor, Valorant, CSGO, FIFA
-                          23, and Tekken 7.
+                          Mobile: BGMI <br /> PC: Valorant <br /> Console: FIFA
+                          24
+                          <br />
+                          Check our{" "}
+                          <Link
+                            href="/esports"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Esports
+                          </Link>{" "}
+                          for detailed rules and schedules for each game.
                         </AccordionPanel>
                       </Box>
                     </Flex>
@@ -192,7 +196,7 @@ const FAQ = () => {
                               as="span"
                               className="helvetica-font flex-1 text-left text-base lg:text-3xl font-bold"
                             >
-                              Can I participate in more than one game mentioned?
+                              Will there be an offline event for College Rivals?
                             </Box>
                             {isExpanded ? (
                               <Image
@@ -210,10 +214,11 @@ const FAQ = () => {
                           </AccordionButton>
                         </h2>
                         <AccordionPanel className="helvetica-light-font px-0 text-sm lg:text-lg">
-                          Yes, you can. You are welcome to participate in
-                          multiple games mentioned in the College Rivals
-                          tournament. Simply select all the games you want to
-                          compete in by following the registration process.
+                          Yes, we will have offline events across various
+                          colleges and cities, culminating in a grand finale in
+                          a metro city (details to be revealed soon), where a
+                          few of the top selected players across the online and
+                          offline qualifiers will compete for the championship.
                         </AccordionPanel>
                       </Box>
                     </Flex>
@@ -324,19 +329,15 @@ const FAQ = () => {
                   </>
                 )}
               </AccordionItem>
-             
-          
-              <div className="w-full pt-10">
-              <div className=" rounded-lg ">
-                <Link href="/faq">
-      <button 
-        className="custom-button-neon m-3 px-9 py-3 text-lg helvetica-medium-font font-medium text-#DBFD67  rounded-lg bg-cover"
-      >
-  VIEW MORE
-      </button>
-      </Link>
-    </div>
 
+              <div className="w-full pt-10">
+                <div className=" rounded-lg ">
+                  <Link href="/faq">
+                    <button className="custom-button-neon m-3 px-9 py-3 text-lg helvetica-medium-font font-medium text-#DBFD67  rounded-lg bg-cover">
+                      VIEW MORE
+                    </button>
+                  </Link>
+                </div>
               </div>
             </Accordion>
           </Flex>
@@ -348,7 +349,6 @@ const FAQ = () => {
           loading="lazy"
         /> */}
       </Flex>
-    
     </Flex>
   );
 };

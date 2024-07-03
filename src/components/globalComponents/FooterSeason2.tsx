@@ -20,12 +20,12 @@ const FooterSeason2 = () => {
         
         </div>
         <div className="footer-bottom-container pt-3.125rem lg:pt-3.813rem pb-4 lg:pb-1.375rem w-full bg-black flex-col">
-          <div className="logo-container flex justify-center items-center gap-10 lg:px-1.5rem pb-3.125rem max-screen-desktop lg:mx-auto ml-1.56rem">
+          <div className="logo-container flex justify-center items-center gap-10 lg:px-1.5rem md:pb-3.125rem pb-8 max-screen-desktop lg:mx-auto ">
             <Link href="https://ampverse.com/" target="_blank">
             <Image
               src="/ampverse-logo.svg"
               alt="footer-logo"
-              width={104}
+              width={80}
               height={58}
            
             />
@@ -36,14 +36,14 @@ const FooterSeason2 = () => {
              <Image
               src="/sponsor-six-new.svg"
               alt="footer-logo"
-              width={63}
+              width={53}
               height={79}
            
             />
             </Link>
           </div>
           <div className="w-full flex justify-center items-center">
-            <p className="text-center helvetica-extralight-font font-light text-lg text-[#787777] w-80% lg:w-[65%]">College Rivals is the bridge between a College Student's passion for Gaming and their aspiration to be a pro player. Positioned as India's Largest Esports Talent Hunt, it combines music, pop culture, and comedy putting together a unique cross between gaming and Entertainment, in an unprecedented format. An innovative esports initiative developed in collaboration between Ampverse and DMI Finance. It aims to nurture gaming talent at the collegiate level across India through competitive tournaments, mentorship, and community engagement. It goes beyond esports tournaments by incorporating elements of college life, pop culture trends, and influencer engagements</p>
+            <p className="text-center helvetica-extralight-font font-light text-base md:text-lg text-[#787777] w-80% lg:w-[65%]">College Rivals is the bridge between a College Student's passion for Gaming and their aspiration to be a pro player. Positioned as India's Largest Esports Talent Hunt, it combines music, pop culture, and comedy putting together a unique cross between gaming and Entertainment, in an unprecedented format. An innovative esports initiative developed in collaboration between Ampverse and DMI Finance. It aims to nurture gaming talent at the collegiate level across India through competitive tournaments, mentorship, and community engagement. It goes beyond esports tournaments by incorporating elements of college life, pop culture trends, and influencer engagements</p>
           </div>
 
           <div className=" pt-8 flex w-full justify-center items-center px-1.5rem lg:px-5rem max-screen-desktop mx-auto">
