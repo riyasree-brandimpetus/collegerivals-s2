@@ -41,6 +41,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }}
       />
       {/* <!-- Meta Pixel Code --> */}
+
+      {/* <!-- Snap Pixel Code --> */}
+
+      <Script
+        id="snapchat-pixel"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: ` (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+{a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+r.src=n;var u=t.getElementsByTagName(s)[0];
+u.parentNode.insertBefore(r,u);})(window,document,
+'https://sc-static.net/scevent.min.js');
+
+snaptr('init', 'cbbebea3-dd51-486b-8a22-9912fed4aac3', {
+'user_email': '__INSERT_USER_EMAIL__'
+});
+
+snaptr('track', 'PAGE_VIEW');
+`,
+        }}
+      />
+
+
+{/* <!-- End Snap Pixel Code -->} */}
     </>
   );
 }
