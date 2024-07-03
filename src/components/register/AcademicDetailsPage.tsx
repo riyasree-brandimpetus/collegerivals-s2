@@ -35,14 +35,14 @@ export default function AcademicDetailsPage() {
       // Retrieve the data from localStorage
       const storedUserId: any = localStorage.getItem('userId');
       if (storedUserId) {
-        console.log('ID is found', storedUserId);
+        // console.log('ID is found', storedUserId);
         dispatch({
           type: 'UPDATE',
           payload: { ...state, _id: storedUserId },
         });
         // setShowLoader(false);
       } else {
-        console.log('ID not found', storedUserId);
+        // console.log('ID not found', storedUserId);
         router.push('/login');
       }
     // }

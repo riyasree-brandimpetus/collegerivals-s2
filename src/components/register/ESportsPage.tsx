@@ -32,21 +32,21 @@ export default function ESportsPage() {
   
   useEffect(() => {
     if (state.isOnlineModeSelected !== '') {
-      console.log('Online/Offline Mode is selected');
+      // console.log('Online/Offline Mode is selected');
       setActiveStep(2);
     }
   }, [state.isOnlineModeSelected , setActiveStep]);
 
   useEffect(() => {
     if ((state.isOnlineModeSelected !== '' )&& state.gameDetails.length > 0) {
-      console.log('Game Details are verified');
+      // console.log('Game Details are verified');
       setActiveStep(3);
     }
   }, [state.isOnlineModeSelected,state.gameDetails , setActiveStep]);
 
 useEffect(() => {
   if (state.selectedDate || state.selectedTimeSlot) {
-    console.log('Date, Time Slorts are updated');
+    // console.log('Date, Time Slorts are updated');
     // setActiveStep(3);
     router.push('/add-academic-details')
   }

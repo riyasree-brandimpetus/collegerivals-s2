@@ -166,9 +166,9 @@ export default function SelectDate() {
     actions: FormikHelpers<DateTimeSlotValues>
   ) => {
     try {
-      console.log('values', values);
+      // console.log('values', values);
       const selectedDate = convertDate(values.selectedDate);
-      console.log('selectedDate', selectedDate);
+      // console.log('selectedDate', selectedDate);
        const response = await api.post(
          `/users/update/esport-details/${state._id}`,
          {

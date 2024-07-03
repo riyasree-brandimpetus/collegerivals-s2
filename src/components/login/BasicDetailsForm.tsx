@@ -53,18 +53,18 @@ export default function BasicDetailsForm() {
     actions: FormikHelpers<LoginFormValues>
   ) => {
     try {
-      console.log('heree');
+      // console.log('heree');
       const response = await api.post('/users/id', {
         ...values
       });
       const data = response.data;
-      console.log(data)
+      // console.log(data)
       if (data) {
         const otpResp = await api.post('/otp/send-login-otp', {
           userId: data,
           mobileNumber: `${values.whatsappNumber}`,
         });
-      console.log(otpResp.data.userDetails);
+      // console.log(otpResp.data.userDetails);
         if (otpResp.data) {
           toast({
             title: `OTP Sent Successfully`,

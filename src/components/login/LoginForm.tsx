@@ -40,7 +40,7 @@ export default function LoginForm() {
   useEffect(() => {
     if (state.isWhatsAppVerified) {
       // router.push('/my-profile');
-      console.log("Enter OTP");
+      // console.log("Enter OTP");
       setActiveStep(2);
     }
   }, [state.isWhatsAppVerified ,setActiveStep]);
@@ -48,14 +48,14 @@ export default function LoginForm() {
   useEffect(() => {
     if (state.isLoggedIn) {
     router.push('/my-profile');
-      console.log('OTP is verified');
+      // console.log('OTP is verified');
     }
   }, [state.isLoggedIn]);
   useEffect(() => {
     // Retrieve the data from localStorage
     const storedUserId: any = localStorage.getItem('userId');
     if (storedUserId) {
-      console.log('ID is found', storedUserId);
+      // console.log('ID is found', storedUserId);
       router.push('/my-profile');
     }
   }, []);
