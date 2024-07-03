@@ -358,13 +358,13 @@ Violations may result in penalties, including disqualification.
 };
 
 export const FIFA_RULES = {
-  heading: "COLLEGE RIVALS - FIFA 23",
+  heading: "COLLEGE RIVALS - FIFA 24",
   data: `
   PS5 - TOURNAMENT RULESET
   
   1. Overview
   
-  College Rivals | FIFA23 (“College Rivals” or “Competition”) is operated by NODWIN GAMING(alternatively “NODWIN GAMING” or “Tournament Organiser'').
+  College Rivals | FIFA24 (“College Rivals” or “Competition”) is operated by NODWIN GAMING(alternatively “NODWIN GAMING” or “Tournament Organiser'').
   
   2. Player Eligibility 
   
@@ -372,7 +372,7 @@ export const FIFA_RULES = {
   Players are required to go to College Rival Website to register for this tournament. 
   For any queries, feel free to contact us on our discord server. 
   
-  Own or have access to FIFA 23 on the PlayStation®5 console. 
+  Own or have access to FIFA 24 on the PlayStation®5 console. 
   Own or have access to a PlayStation®5 console and compatible controller.
   Have a valid account for PlayStation Network (“Account for PSN”) and an associated PSN ID.
   Have a valid subscription to an active PlayStation Plus membership.
@@ -382,7 +382,7 @@ export const FIFA_RULES = {
   
   2.2 Age
   
-  Players must be eligible to play FIFA 23 according to their local age restrictions, at the point of tournament registration. Players who are minors (under 16 years old), must obtain consent from their parents or legal guardians to enter the Competition.
+  Players must be eligible to play FIFA 24 according to their local age restrictions, at the point of tournament registration. Players who are minors (under 16 years old), must obtain consent from their parents or legal guardians to enter the Competition.
   
   
   
@@ -469,7 +469,7 @@ Violations may result in penalties, including disqualification.
   
   5. Game Coverage
   
-  PlayStation reserves exclusive rights to the coverage of Sony Playstation INDIA open | FIFA23 matches. This includes all forms of transmission, including IRC Bots, Shoutcast-streams, and live broadcasts on platforms like Twitch, Youtube and the like. PlayStation can assign the coverage rights of a match or of several matches to a third party or to the actual players themselves. In this case, terms and conditions would have to be arranged with PlayStationmanagement, or NODWIN GAMING as a tournament organiser, before the match. In general, PlayStation or NODWIN GAMING as a tournament organiser will contact any player or team if they wish to broadcast one of their matches. If no contact is made, individual players are allowed to arrange their own broadcasts. 
+  PlayStation reserves exclusive rights to the coverage of Sony Playstation INDIA open | FIFA24 matches. This includes all forms of transmission, including IRC Bots, Shoutcast-streams, and live broadcasts on platforms like Twitch, Youtube and the like. PlayStation can assign the coverage rights of a match or of several matches to a third party or to the actual players themselves. In this case, terms and conditions would have to be arranged with PlayStationmanagement, or NODWIN GAMING as a tournament organiser, before the match. In general, PlayStation or NODWIN GAMING as a tournament organiser will contact any player or team if they wish to broadcast one of their matches. If no contact is made, individual players are allowed to arrange their own broadcasts. 
   
   Appendix A: Code of Conduct
   
