@@ -15,6 +15,8 @@ const WeAreLiveAt = () =>{
                 <Link className="hover:border-[#282828]  border-black border-2 p-4 rounded-lg" href="" target="_blank">   <img src="/live4.svg" alt="" className="md:w-auto w-20"/></Link>
                 <Link className="hover:border-[#282828]  border-black border-2 p-4 rounded-lg" href=" https://kick.com/collegerivalsin" target="_blank">   <img src="/live5.svg" alt="" className="md:w-auto w-20"/></Link>
                 <Link className="hover:border-[#282828]  border-black border-2 p-4 rounded-lg" href=" https://www.facebook.com/collegerivalsin/" target="_blank">   <img src="/live6.svg" alt="" className="md:w-auto w-20"/></Link>
+                <Link className="hover:border-[#282828]  border-black border-2 p-4 rounded-lg" href="  https://rooter.app.link/ZKy7Nv0J1Cb" target="_blank">   <img src="/live7.webp" alt="" className="md:w-48 w-20"/></Link>
+                <Link className="hover:border-[#282828]  border-black border-2 p-4 rounded-lg" href=" https://loco.gg/streamers/FGRFS22K0M" target="_blank">   <img src="/live8.png" alt="" className="md:w-48 w-20"/></Link>
              
                 
             </div>
