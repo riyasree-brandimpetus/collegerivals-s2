@@ -25,7 +25,7 @@ const openvideo = ()=>{
       </div>
       <div className="text-white -mt-4 md:text-4xl text-lg ppFormula-font italic ">
         IS BACK WITH SEASON 2
-        
+
       </div> 
       <div className="relative mt-7 ">
 
@@ -34,6 +34,7 @@ const openvideo = ()=>{
         className="custom-button-neon m-3 uppercase px-14 py-5 bg-opacity-60 bg-black text-1.063rem helvetica-medium-font font-medium text-#DBFD67  rounded-lg backdrop-blur-md"
       >
   Register Now For Free
+  
       </button>
       </Link>
  
