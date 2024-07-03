@@ -25,7 +25,8 @@ const openvideo = ()=>{
       </div>
       <div className="text-white -mt-4 md:text-4xl text-lg ppFormula-font italic ">
         IS BACK WITH SEASON 2
-      </div>
+        
+      </div> 
       <div className="relative mt-7 ">
 
     <Link href="/sign-up">
