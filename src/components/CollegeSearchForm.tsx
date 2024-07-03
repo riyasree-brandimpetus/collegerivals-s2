@@ -67,7 +67,7 @@ function CollegeSearchForm(props: any) {
       //   isClosable: true,
       //   description: message,
       // });
-      console.error('Error submitting form:', error , message);
+      // console.error('Error submitting form:', error , message);
     }
   };
 

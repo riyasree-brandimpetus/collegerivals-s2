@@ -144,7 +144,7 @@ export default function AcademicDetailsForm() {
         isClosable: true,
         description: message,
       });
-      console.error('Error submitting form:', error);
+      // console.error('Error submitting form:', error);
     }
   };
 

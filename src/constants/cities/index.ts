@@ -1,5 +1,26 @@
 export const ContactCities = ["Delhi","Pune","Mumbai","Hyderabad","Bangalore"]
 export const RegistrationCities = [
   'Mumbai',
-  'Pune'
+  'Pune',
+  'Jaipur',
+  'Indore',
+  'Bhopal',
+  'Ahmedabad',
+  'Jalandhar',
+  'Chandigarh',
+  'Dehradun',
+  'Delhi',
+  'Lucknow',
+  'Patna',
+  'Gauhati',
+  'Kolkata',
+  'Bhubaneshwar',
+  'Vizag',
+  'Hyderabad',
+  'Bangalore',
+  'Chennai',
+  'Kochi',
+  'Mangaluru',
+  'Goa',
+  'Other'
 ];

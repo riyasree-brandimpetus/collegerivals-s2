@@ -43,7 +43,7 @@ export const SubmitForm = async <T>(
   } catch (error:any) {
     // handleApiError(error);
     const errorMessage = handleApiError(error);
-    console.log('error message', errorMessage)
+    // console.log('error message', errorMessage)
     throw new Error(errorMessage); // Throw a generic error message if needed
   }
 };

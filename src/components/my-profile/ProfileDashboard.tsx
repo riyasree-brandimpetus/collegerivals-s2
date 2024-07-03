@@ -119,7 +119,7 @@ const ProfileDashboard = () => {
           isClosable: true,
           description: message,
         });
-        console.error('Error fetching Data:', error);
+        // console.error('Error fetching Data:', error);
       }
     };
       const fetchUserDetails = async () => {
@@ -128,7 +128,7 @@ const ProfileDashboard = () => {
             userId: state._id || storedUserId,
           });
           const data = response.data;
-          console.log(data);
+          // console.log(data);
           // const data = response?.data;
           // setGameData(data);
            dispatch({
@@ -145,7 +145,7 @@ const ProfileDashboard = () => {
             isClosable: true,
             description: message,
           });
-          console.error('Error fetching Data:', error);
+          // console.error('Error fetching Data:', error);
         }
       };
       fetchUserDetails()
@@ -184,22 +184,22 @@ const ProfileDashboard = () => {
       const gameNames = state.gameDetails.map((game: any) =>
         game?.name.toLowerCase()
       );
-      console.log('gameNames', gameNames);
+      // console.log('gameNames', gameNames);
       // Find the corresponding image URLs from gameData
       const imageUrls = gameNames.map((name: string) => {
         const game = gameData.find((g: any) => g.name.toLowerCase() === name);
         return game ? game.imageUrl : null;
       });
       setGameImageUrls(imageUrls);
-      console.log('imageUrls', imageUrls);
+      // console.log('imageUrls', imageUrls);
     }
   }, [gameData , state.gameDetails]);
 
-  console.log(gameImageUrls);
+  // console.log(gameImageUrls);
 
 
-  console.log('userData', state);
-  console.log('gameData', gameData);
+  // console.log('userData', state);
+  // console.log('gameData', gameData);
   return (
     <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-hidden">
       <Image

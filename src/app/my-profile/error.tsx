@@ -12,7 +12,7 @@ export default function Error({
   const [errorMsg, setErrorMsg] = useState<any>();
   useEffect(() => {
     // Log the error to an error reporting service
-    console.error(error);
+    // console.error(error);
     setErrorMsg(errorMsg);
   }, [error , errorMsg]);
 

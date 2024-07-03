@@ -17,7 +17,7 @@ import { Data, GameData } from "@/types/Esports/esports";
     const fetchData = async () => {
       const res = await fetch("./Esports.json");
       const json: Data = await res.json();
-      console.log(json)
+      // console.log(json)
       setData(json[selectedOption]);
     };
 

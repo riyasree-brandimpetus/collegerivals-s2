@@ -47,7 +47,7 @@ export default function ThirdForm() {
           isClosable: true,
           description: message,
         });
-        console.error("Error fetching Data:", error);
+        // console.error("Error fetching Data:", error);
       }
     };
     fetchGameDetails();

@@ -32,7 +32,7 @@ export default function SignUpForm() {
     // Retrieve the data from localStorage
     const storedUserId: any = localStorage.getItem('userId');
     if (storedUserId) {
-      console.log('ID is found',storedUserId);
+      // console.log('ID is found',storedUserId);
       router.push('/my-profile');
     }
   }, []);
@@ -41,7 +41,7 @@ export default function SignUpForm() {
   
   useEffect(() => {
     if (state._id && !state.isWhatsAppVerified) {
-      console.log('Enter OTP');
+      // console.log('Enter OTP');
       setActiveStep(2);
     }
   }, [state._id, state.isWhatsAppVerified]);
@@ -49,7 +49,7 @@ export default function SignUpForm() {
   useEffect(() => {
     if (state.isLoggedIn) {
       setActiveStep(3);
-      console.log('OTP is verified');
+      // console.log('OTP is verified');
     }
   }, [state.isLoggedIn]);
 
