@@ -45,8 +45,8 @@ infinite:true,
 
   return (
     <div className="w-full flex flex-col items-center overflow-hidden bg-black">
-      <div className="max-w-[1440px] w-full h-full flex flex-col justify-center slate-400 md:py-24 py-6 gap-4">
-        <h2 className="md:text-6xl text-2xl mb-11 text-center font-medium text-white ppFormula-font">
+      <div className="max-w-[1440px] w-full h-full flex flex-col justify-center slate-400 md:py-24 py-9 max-md:mt-7 gap-4">
+        <h2 className="md:text-6xl text-2xl md:mb-11 mb-4 text-center font-medium text-white ppFormula-font">
           <em>COMING TO A CITY NEAR YOU</em>
         </h2>
         <div>
