@@ -334,7 +334,7 @@ export default function BasicDetailsForm() {
               </Flex>
               <Box className="my-2 lg:my-4">
                 <ReCAPTCHA
-                  sitekey="6LfBSbQnAAAAAIKsL73tstGkEeMBa-u7Ip5Z4Rpg"
+                  sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
                   ref={recaptchaRef}
                   onChange={handleCaptchaSubmission}
                 />

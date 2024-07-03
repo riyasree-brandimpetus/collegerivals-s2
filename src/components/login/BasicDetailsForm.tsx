@@ -207,7 +207,7 @@ export default function BasicDetailsForm() {
 
               <Box className="my-2 lg:my-4 w-full">
                 <ReCAPTCHA
-                  sitekey="6LfBSbQnAAAAAIKsL73tstGkEeMBa-u7Ip5Z4Rpg"
+                  sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
                   ref={recaptchaRef}
                   onChange={handleCaptchaSubmission}
                 />
