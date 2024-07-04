@@ -27,17 +27,7 @@ const News =()=>{
                
                 
 
-                <div className="flex flex-col  news-container ">
-                <Link href="https://animationxpress.com/latest-news/ampverse-and-dmi-finances-esports-series-college-rivals-will-travel-to-five-indian-cities/" target="_blank">
-                <div className="overflow-hidden">
-                    <Image width={400} height={224}  src="/College-Rivals-Gaming-Truck-news.webp" alt="newImg" className="w-full h-56 object-cover"/>
-                    </div>
-                    <div className="flex flex-col xl:gap-3 gap-2 py-5">
-                        <h3 className="xl:text-2xl text-xl helvetica-light-font ">Ampverse and DMI Finance’s esports series ‘College Rivals’ will travel to five Indian cities</h3>
-                        <p className="text-base xl:font-normal helvetica-extralight-font opacity-70 ">This upcoming series will comprise esports tournaments, mentorship from accomplished professional players... </p>
-                    </div>
-                    </Link>
-                </div>
+              
 
                 <div className="flex flex-col  news-container ">
                 <Link href="https://www.indiatodaygaming.com/story/college-rivals-grand-finale-creates-history-for-indian-esports-bgmi-finalist-gets-professional-contract-with-rival-pro-esports-3847" target="_blank">
