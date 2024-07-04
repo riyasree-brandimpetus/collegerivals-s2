@@ -53,26 +53,25 @@ const formatSelectedDateTime = (
   selectedDate: string,
   selectedTimeSlot: string
 ): string => {
-  const date = new Date(selectedDate);
-  const monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-  const day = date.getDate();
-  const month = date.getMonth();
-  const formattedDate = `${day}${getOrdinalSuffix(day)} ${monthNames[month]}`;
+  // const date = new Date(selectedDate);
+  // const monthNames = [
+  //   'Jan',
+  //   'Feb',
+  //   'Mar',
+  //   'Apr',
+  //   'May',
+  //   'Jun',
+  //   'Jul',
+  //   'Aug',
+  //   'Sep',
+  //   'Oct',
+  //   'Nov',
+  //   'Dec',
+  // ];
+
+
   const formattedTimeSlot = formatTimeSlot(selectedTimeSlot);
-  return `${formattedDate}, ${formattedTimeSlot}`;
+  return `${selectedDate}, ${formattedTimeSlot}`;
 };
 const formatTimeSlot = (timeSlot: string): string => {
   const [startTime, endTime] = timeSlot.split(' to ');

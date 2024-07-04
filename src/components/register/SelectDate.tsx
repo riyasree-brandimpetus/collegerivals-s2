@@ -13,19 +13,24 @@ import {
   Checkbox,
   Text,
   Link,
-} from '@chakra-ui/react';
-import { FirstFormSchema, SelectDateTimeSchema } from "@/schemas/register";
-import { RegistrationCities } from '@/constants/cities';
+} from "@chakra-ui/react";
+import {
+  SelectOfflineDateTimeSchema,
+  SelectOnlineDateTimeSchema,
+} from "@/schemas/register";
+
 import api from "@/utils/axios/instance";
-import { DateTimeSlotValues, FirstFormValues, UserAgentDetails } from "@/types/register/register";
+import {
+  DateTimeSlotValues,
+  FirstFormValues,
+  UserAgentDetails,
+} from "@/types/register/register";
 import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "@/utils/context/user.context";
 import { useSearchParams } from "next/navigation";
 import ReCAPTCHA from "react-google-recaptcha";
-import { verifyCaptcha } from '@/utils/captcha/ServerActions';
-import QualifierText from "./QualifierText";
-import UAParser from 'ua-parser-js';
 
+import QualifierText from "./QualifierText";
 
 export default function SelectDate() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -35,25 +40,33 @@ export default function SelectDate() {
   const toast = useToast();
   const { state, dispatch } = useContext(UserContext);
   const searchParams = useSearchParams();
-  const referral = searchParams.get('ref');
+  // const referral = searchParams.get("ref");
 
   const [dates, setDates] = useState<string[]>([]);
+  const [onlinedates, setDatesonline] = useState<string[]>([]);
   const [times, setTimes] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchDates = async () => {
-      const response = await fetch('/SelectedDate.json');
+      const response = await fetch("/SelectedDateOffline.json");
       const data = await response.json();
       setDates(data);
     };
+    const fetchDatesonline = async () => {
+      const response = await fetch("/SelectedDateOnline.json");
+      const data = await response.json();
+
+      setDatesonline(data);
+    };
 
     const TimeSlot = async () => {
-      const response = await fetch('/SelectedTimeSlot.json');
+      const response = await fetch("/SelectedTimeSlot.json");
       const data = await response.json();
       setTimes(data);
     };
     TimeSlot();
     fetchDates();
+    fetchDatesonline();
   }, []);
 
   /**
@@ -107,36 +120,38 @@ export default function SelectDate() {
   //   };
   // }
 
-  function convertDate(inputDate:string) {
+  function convertDate(inputDate: string) {
     // Create a mapping of month names to their corresponding numbers
-    const monthNames:any = {
-      January: '01',
-      February: '02',
-      March: '03',
-      April: '04',
-      May: '05',
-      June: '06',
-      July: '07',
-      August: '08',
-      September: '09',
-      October: '10',
-      November: '11',
-      December: '12',
+    const monthNames: any = {
+      January: "01",
+      February: "02",
+      March: "03",
+      April: "04",
+      May: "05",
+      June: "06",
+      July: "07",
+      August: "08",
+      September: "09",
+      October: "10",
+      November: "11",
+      December: "12",
     };
 
     // Extract the day, month, and year from the input string
-    const dateParts:any = inputDate.match(/(\d+)(st|nd|rd|th)?\s+(\w+)\s+(\d{4})/);
+    const dateParts: any = inputDate.match(
+      /(\d+)(st|nd|rd|th)?\s+(\w+)\s+(\d{4})/
+    );
 
     if (!dateParts) {
-      throw new Error('Invalid date format');
+      throw new Error("Invalid date format");
     }
 
-    const day = dateParts[1].padStart(2, '0'); // Ensure day is two digits
+    const day = dateParts[1].padStart(2, "0"); // Ensure day is two digits
     const month = monthNames[dateParts[3]];
     const year = dateParts[4];
 
     if (!month) {
-      throw new Error('Invalid month name');
+      throw new Error("Invalid month name");
     }
 
     // Construct the date string in the desired format
@@ -152,8 +167,8 @@ export default function SelectDate() {
     // email: '',
     // cityCenter: '',
     // agreedToTerms: false,
-    selectedDate: '',
-    selectedTimeSlot: '',
+    selectedDate: "",
+    selectedTimeSlot: "",
   };
 
   /**
@@ -167,38 +182,38 @@ export default function SelectDate() {
   ) => {
     try {
       // console.log('values', values);
-      const selectedDate = convertDate(values.selectedDate);
+      // const selectedDate = convertDate(values.selectedDate);
       // console.log('selectedDate', selectedDate);
-       const response = await api.post(
-         `/users/update/esport-details/${state._id}`,
-         {
-           'isOnlineModeSelected': state.isOnlineModeSelected,
-           "selectedDate":selectedDate,
-           "selectedTimeSlot":values.selectedTimeSlot
-         }
-       );
-       const data = response.data;
-       if (response) {
-         toast({
-           title: `Details Submitted`,
-           status: 'success',
-           isClosable: true,
-           description: data.message,
-         });
-         dispatch({
-           type: 'UPDATE',
-           payload: {
-             ...state,
-             selectedDate: selectedDate,
-             selectedTimeSlot:values.selectedTimeSlot
-           },
-         });
-       }
+      const response = await api.post(
+        `/users/update/esport-details/${state._id}`,
+        {
+          isOnlineModeSelected: state.isOnlineModeSelected,
+          selectedDate: values.selectedDate,
+          selectedTimeSlot: values.selectedTimeSlot,
+        }
+      );
+      const data = response.data;
+      if (response) {
+        toast({
+          title: `Details Submitted`,
+          status: "success",
+          isClosable: true,
+          description: data.message,
+        });
+        dispatch({
+          type: "UPDATE",
+          payload: {
+            ...state,
+            selectedDate: values.selectedDate,
+            selectedTimeSlot: values.selectedTimeSlot,
+          },
+        });
+      }
     } catch (error: any) {
       const message = error?.response?.data?.error;
       toast({
         title: `Error submitting form`,
-        status: 'error',
+        status: "error",
         isClosable: true,
         description: message,
       });
@@ -208,25 +223,29 @@ export default function SelectDate() {
   return (
     <Formik
       initialValues={dateTimeFormInitialValues}
-      validationSchema={SelectDateTimeSchema}
+      validationSchema={
+        state.isOnlineModeSelected
+          ? SelectOnlineDateTimeSchema
+          : SelectOfflineDateTimeSchema
+      }
       onSubmit={handleSubmit}
     >
       {({ errors, touched, isSubmitting }) => (
         <Form className="flex flex-col grow   pt-8 md:max-h-[80vh]">
           <div className="pl-6 lg:pl-16 pr-6 lg:pr-0 overflow-scroll ">
             <Heading
-              pb={{ base: '0.5rem', lg: '0.25rem' }}
+              pb={{ base: "0.5rem", lg: "0.25rem" }}
               className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
             >
-              SELECT{' '}
+              SELECT{" "}
               <Box as="span" className="text-#DBFD67">
                 DATE
               </Box>
             </Heading>
-            <Text color={'white'} pb={{ base: '2.125rem', lg: '1.25rem' }}>
-              You are creating an account on{' '}
-              <Text as={'span'} fontWeight={'700'}>
-                {' '}
+            <Text color={"white"} pb={{ base: "2.125rem", lg: "1.25rem" }}>
+              You are creating an account on{" "}
+              <Text as={"span"} fontWeight={"700"}>
+                {" "}
                 <Link
                   href="https://ampverse.com"
                   target="_blank"
@@ -238,22 +257,22 @@ export default function SelectDate() {
             </Text>
             <Box overflowY="auto">
               <Flex
-                width={{ base: '100%', lg: '80%' }}
-                direction={{ base: 'column', lg: 'row' }}
-                pt={{ base: '1.25rem', lg: '1.875rem' }}
+                width={{ base: "100%", lg: "80%" }}
+                direction={{ base: "column", lg: "row" }}
+                pt={{ base: "1.25rem", lg: "1.875rem" }}
                 justifyContent="space-between"
                 flexWrap="wrap"
               >
                 <Flex
-                  pb={{ base: '2.625rem', lg: '2.938rem' }}
-                  width={{ base: '100%', lg: '48%' }}
+                  pb={{ base: "2.625rem", lg: "2.938rem" }}
+                  width={{ base: "100%", lg: "48%" }}
                   direction="column"
                   className="field"
-                  pt={{ base: '1.25rem', lg: '0rem' }}
+                  pt={{ base: "1.25rem", lg: "0rem" }}
                 >
                   <FormLabel
                     className="helvetica-font font-bold text-lg"
-                    color={'#CFCFCF'}
+                    color={"#CFCFCF"}
                   >
                     Select date
                   </FormLabel>
@@ -267,11 +286,13 @@ export default function SelectDate() {
                     placeholder="Select Date"
                     focusBorderColor="#DBFD67"
                   >
-                    {dates.map(dates => (
-                      <option key={dates} value={dates}>
-                        {dates}
-                      </option>
-                    ))}
+                    {(state.isOnlineModeSelected ? onlinedates : dates).map(
+                      (date) => (
+                        <option key={date} value={date}>
+                          {date}
+                        </option>
+                      )
+                    )}
                   </Field>
                   {errors.selectedDate && touched.selectedDate && (
                     <div className="text-#DBFD67">{errors.selectedDate}</div>
@@ -279,44 +300,46 @@ export default function SelectDate() {
                   <QualifierText />
                 </Flex>
 
-                <Flex
-                  pb={{ base: '2.625rem', lg: '2.938rem' }}
-                  width={{ base: '100%', lg: '48%' }}
-                  direction="column"
-                  className="field"
-                  pt={{ base: '1.25rem', lg: '0rem' }}
-                >
-                  <FormLabel
-                    className="helvetica-font font-bold text-lg"
-                    color={'#CFCFCF'}
+                {!state.isOnlineModeSelected && (
+                  <Flex
+                    pb={{ base: "2.625rem", lg: "2.938rem" }}
+                    width={{ base: "100%", lg: "48%" }}
+                    direction="column"
+                    className="field"
+                    pt={{ base: "1.25rem", lg: "0rem" }}
                   >
-                    Select time slot
-                  </FormLabel>
-                  <Field
-                    as={Select}
-                    id="selectedTimeSlot"
-                    name="selectedTimeSlot"
-                    // mt="0.75rem"
+                    <FormLabel
+                      className="helvetica-font font-bold text-lg"
+                      color={"#CFCFCF"}
+                    >
+                      Select time slot
+                    </FormLabel>
+                    <Field
+                      as={Select}
+                      id="selectedTimeSlot"
+                      name="selectedTimeSlot"
+                      // mt="0.75rem"
 
-                    height="4.063rem"
-                    borderRadius="0.75rem"
-                    color="white"
-                    placeholder="Select time slot"
-                    focusBorderColor="#DBFD67"
-                  >
-                    {times.map(times => (
-                      <option key={times} value={times}>
-                        {times}
-                      </option>
-                    ))}
-                  </Field>
-                  {errors.selectedTimeSlot && touched.selectedTimeSlot && (
-                    <div className="text-#DBFD67">
-                      {errors.selectedTimeSlot}
-                    </div>
-                  )}
-                  {/* <QualifierText /> */}
-                </Flex>
+                      height="4.063rem"
+                      borderRadius="0.75rem"
+                      color="white"
+                      placeholder="Select time slot"
+                      focusBorderColor="#DBFD67"
+                    >
+                      {times.map((times) => (
+                        <option key={times} value={times}>
+                          {times}
+                        </option>
+                      ))}
+                    </Field>
+                    {errors.selectedTimeSlot && touched.selectedTimeSlot && (
+                      <div className="text-#DBFD67">
+                        {errors.selectedTimeSlot}
+                      </div>
+                    )}
+                    {/* <QualifierText /> */}
+                  </Flex>
+                )}
               </Flex>
               <div className=" py-20 "></div>
             </Box>
@@ -326,30 +349,30 @@ export default function SelectDate() {
               <Button
                 id="basic-details-form-submit-btn"
                 type="submit"
-                color={'#fff'}
-                _hover={{ opacity: '90%' }}
+                color={"#fff"}
+                _hover={{ opacity: "90%" }}
                 _active={{
-                  filter: 'drop-shadow(2px 2px 0px #d1ff45)',
-                  transform: 'skew(-12deg) translate(2px, 2px)',
+                  filter: "drop-shadow(2px 2px 0px #d1ff45)",
+                  transform: "skew(-12deg) translate(2px, 2px)",
                 }}
                 transform="skew(-12deg)"
                 transition="0.4s all ease-out"
                 filter="drop-shadow(4px 4px 0px #d1ff45)"
-                borderRadius={'0.375rem'}
+                borderRadius={"0.375rem"}
                 className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
-                display={'flex'}
-                justifyContent={'center'}
-                alignItems={'center'}
-                fontSize={'1rem'}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                fontSize={"1rem"}
                 mt="1.25rem"
                 mb="1.25rem"
-                height={{ base: '4.125rem', lg: '4.063rem' }}
-                width={{ base: '17rem', lg: '22rem' }}
+                height={{ base: "4.125rem", lg: "4.063rem" }}
+                width={{ base: "17rem", lg: "22rem" }}
                 isLoading={isSubmitting}
                 loadingText="Saving details"
                 isDisabled={isSubmitting}
               >
-               Proceed and Save
+                Proceed and Save
               </Button>
             </div>
           </Box>
