@@ -106,8 +106,6 @@ const ProfileDashboard = () => {
       } catch (error: any) {
         const message = error?.response?.data?.error;
         // if(message){
-        localStorage.removeItem("userId");
-        console.log(message);
         // }
         toast({
           title: `Error fetching Data`,
@@ -135,6 +133,8 @@ const ProfileDashboard = () => {
         setShowLoader(false);
       } catch (error: any) {
         const message = error?.response?.data?.error;
+        localStorage.removeItem("userId");
+        console.log(message);
         toast({
           title: `Error fetching Data`,
           status: "error",
