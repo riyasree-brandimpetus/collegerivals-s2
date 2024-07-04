@@ -153,11 +153,8 @@ const ProfileDashboard = () => {
       setJoinedDate(formattedDate);
 
       if (state.selectedDate && state.selectedTimeSlot) {
-        const formattedSelectedDateTime = formatSelectedDateTime(
-          state.selectedDate,
-          state.selectedTimeSlot
-        );
-        setSelectedDateTime(formattedSelectedDateTime);
+        const formattedTimeSlot = formatTimeSlot(state.selectedTimeSlot);
+        setSelectedDateTime(`${state.selectedDate}, ${formattedTimeSlot}`);
       }
     };
     fetchData();
