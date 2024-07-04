@@ -44,7 +44,7 @@ export default function BasicDetailsForm() {
   const utm_content = searchParams.get('utm_content') || '';
   const utm_term = searchParams.get('utm_term') || '';
   const queryParams = {
-    referral,
+    ref:referral,
     utm_source,
     utm_medium,
     utm_campaign,
