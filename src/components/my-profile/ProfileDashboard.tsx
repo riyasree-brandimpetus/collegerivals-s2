@@ -332,7 +332,7 @@ const ProfileDashboard = () => {
                       Date & Time
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.selectedDate} {selectedTime && `, ${selectedTime}`}
+                      {state.selectedDate || '-'} {selectedTime && `, ${selectedTime}`}
                     </p>
                   </div>
                 </div>
