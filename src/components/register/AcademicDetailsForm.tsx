@@ -347,9 +347,9 @@ export default function AcademicDetailsForm() {
                 height={{ base: '4.125rem', lg: '4.063rem' }}
                 width={{ base: '17rem', lg: '22rem' }}
                 isLoading={isSubmitting}
-                loadingText="Uploading File and Data"
+                loadingText="Saving Data"
               >
-                Upload & Proceed
+                Submit
               </Button>
             </div>
           </Box>
