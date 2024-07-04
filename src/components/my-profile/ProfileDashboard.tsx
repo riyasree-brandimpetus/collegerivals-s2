@@ -46,29 +46,6 @@ const getOrdinalSuffix = (day: number): string => {
 };
 
 // selected data time
-const formatSelectedDateTime = (
-  selectedDate: string,
-  selectedTimeSlot: string
-): string => {
-  // const date = new Date(selectedDate);
-  // const monthNames = [
-  //   'Jan',
-  //   'Feb',
-  //   'Mar',
-  //   'Apr',
-  //   'May',
-  //   'Jun',
-  //   'Jul',
-  //   'Aug',
-  //   'Sep',
-  //   'Oct',
-  //   'Nov',
-  //   'Dec',
-  // ];
-
-  const formattedTimeSlot = formatTimeSlot(selectedTimeSlot);
-  return `${selectedDate}, ${formattedTimeSlot}`;
-};
 const formatTimeSlot = (timeSlot: string): string => {
   const [startTime, endTime] = timeSlot.split(" to ");
   return `${formatTime(startTime)} to ${formatTime(endTime)}`;
@@ -92,7 +69,7 @@ const ProfileDashboard = () => {
   );
   const [age, setAge] = useState<number | null>(null);
   const [joinedDate, setJoinedDate] = useState<string>("");
-  const [selectedDateTime, setSelectedDateTime] = useState<string>("");
+  const [selectedTime, setSelectedTime] = useState<string>("");
   const toast = useToast();
 
   useEffect(() => {
@@ -152,9 +129,9 @@ const ProfileDashboard = () => {
       const formattedDate = formatJoinedDate(state.createdAt);
       setJoinedDate(formattedDate);
 
-      if (state.selectedDate && state.selectedTimeSlot) {
+      if (state.selectedTimeSlot) {
         const formattedTimeSlot = formatTimeSlot(state.selectedTimeSlot);
-        setSelectedDateTime(`${state.selectedDate}, ${formattedTimeSlot}`);
+        setSelectedTime(formattedTimeSlot);
       }
     };
     fetchData();
@@ -355,7 +332,7 @@ const ProfileDashboard = () => {
                       Date & Time
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {selectedDateTime || "-"}
+                      {state.selectedDate} {selectedTime && `, ${selectedTime}`}
                     </p>
                   </div>
                 </div>
