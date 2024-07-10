@@ -1,29 +1,26 @@
-'use client';
-import { UserContext } from '@/utils/context/user.context';
-import {
-  useToast,
-  Spinner,
-} from '@chakra-ui/react';
-import { useContext, useEffect, useState } from 'react';
-import api from '@/utils/axios/instance';
-import Link from 'next/link';
-import Image from 'next/image';
+"use client";
+import { UserContext } from "@/utils/context/user.context";
+import { useToast, Spinner } from "@chakra-ui/react";
+import { useContext, useEffect, useState } from "react";
+import api from "@/utils/axios/instance";
+import Link from "next/link";
+import Image from "next/image";
 // format for joined date
 const formatJoinedDate = (createdAt: string): string => {
   const date = new Date(createdAt);
   const monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
   const day = date.getDate();
   const month = date.getMonth();
@@ -35,150 +32,118 @@ const formatJoinedDate = (createdAt: string): string => {
   return formattedDate;
 };
 const getOrdinalSuffix = (day: number): string => {
-  if (day > 3 && day < 21) return 'th';
+  if (day > 3 && day < 21) return "th";
   switch (day % 10) {
     case 1:
-      return 'st';
+      return "st";
     case 2:
-      return 'nd';
+      return "nd";
     case 3:
-      return 'rd';
+      return "rd";
     default:
-      return 'th';
+      return "th";
   }
 };
 
 // selected data time
-const formatSelectedDateTime = (
-  selectedDate: string,
-  selectedTimeSlot: string
-): string => {
-  // const date = new Date(selectedDate);
-  // const monthNames = [
-  //   'Jan',
-  //   'Feb',
-  //   'Mar',
-  //   'Apr',
-  //   'May',
-  //   'Jun',
-  //   'Jul',
-  //   'Aug',
-  //   'Sep',
-  //   'Oct',
-  //   'Nov',
-  //   'Dec',
-  // ];
-
-
-  const formattedTimeSlot = formatTimeSlot(selectedTimeSlot);
-  return `${selectedDate}, ${formattedTimeSlot}`;
-};
 const formatTimeSlot = (timeSlot: string): string => {
-  const [startTime, endTime] = timeSlot.split(' to ');
+  const [startTime, endTime] = timeSlot.split(" to ");
   return `${formatTime(startTime)} to ${formatTime(endTime)}`;
 };
 
 const formatTime = (time: string): string => {
-  const [hour, period] = time.split(' ');
-  const [hours, minutes = '00'] = hour.split(':');
+  const [hour, period] = time.split(" ");
+  const [hours, minutes = "00"] = hour.split(":");
   return `${hours}:${minutes} ${period}`;
 };
-  // calculate age
+// calculate age
 
 const ProfileDashboard = () => {
   const { state, dispatch } = useContext(UserContext);
-  const [progress, setprogress] = useState<number>(30);
+  const [progress, setprogress] = useState<number>(100);
   const [gameData, setGameData] = useState<any>([]);
   const [gameImageUrls, setGameImageUrls] = useState<any>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
   const [registrationUrl, setRegistrationUrl] = useState<string>(
-    '/esports-registration'
+    "/esports-registration"
   );
   const [age, setAge] = useState<number | null>(null);
-  const [joinedDate, setJoinedDate] = useState<string>('');
-  const [selectedDateTime, setSelectedDateTime] = useState<string>('');
+  const [joinedDate, setJoinedDate] = useState<string>("");
+  const [selectedTime, setSelectedTime] = useState<string>("");
   const toast = useToast();
 
   useEffect(() => {
-    const storedUserId: any = localStorage.getItem('userId');
+    const storedUserId: any = localStorage.getItem("userId");
     const fetchGameDetails = async () => {
       try {
-        const response = await api.get('/games/');
+        const response = await api.get("/games/");
         const data = response?.data;
         setGameData(data);
         setShowLoader(false);
       } catch (error: any) {
         const message = error?.response?.data?.error;
         // if(message){
-          localStorage.removeItem('userId');
-          console.log(message)
         // }
         toast({
           title: `Error fetching Data`,
-          status: 'error',
+          status: "error",
           isClosable: true,
           description: message,
         });
         // console.error('Error fetching Data:', error);
       }
     };
-      const fetchUserDetails = async () => {
-        try {
-          const response = await api.post('/users/details', {
-            userId: state._id || storedUserId,
-          });
-          const data = response.data;
-          // console.log(data);
-          // const data = response?.data;
-          // setGameData(data);
-           dispatch({
-             type: 'UPDATE',
-             payload: { ...state,...data, isLoggedIn:true },
-           });
-          fetchGameDetails();
-          setShowLoader(false);
-        } catch (error: any) {
-          const message = error?.response?.data?.error;
-          toast({
-            title: `Error fetching Data`,
-            status: 'error',
-            isClosable: true,
-            description: message,
-          });
-          // console.error('Error fetching Data:', error);
-        }
-      };
-      fetchUserDetails()
+    const fetchUserDetails = async () => {
+      try {
+        const response = await api.post("/users/details", {
+          userId: state._id || storedUserId,
+        });
+        const data = response.data;
+        // console.log(data);
+        // const data = response?.data;
+        // setGameData(data);
+        dispatch({
+          type: "UPDATE",
+          payload: { ...state, ...data, isLoggedIn: true },
+        });
+        fetchGameDetails();
+        setShowLoader(false);
+      } catch (error: any) {
+        const message = error?.response?.data?.error;
+        localStorage.removeItem("userId");
+        console.log(message);
+        toast({
+          title: `Error fetching Data`,
+          status: "error",
+          isClosable: true,
+          description: message,
+        });
+        // console.error('Error fetching Data:', error);
+      }
+    };
+    fetchUserDetails();
   }, []);
 
-
   useEffect(() => {
-      const fetchData = async () => {
-  
-   
+    const fetchData = async () => {
+      const formattedDate = formatJoinedDate(state.createdAt);
+      setJoinedDate(formattedDate);
 
-        const formattedDate = formatJoinedDate(state.createdAt);
-        setJoinedDate(formattedDate);
+      if (state.selectedTimeSlot) {
+        const formattedTimeSlot = formatTimeSlot(state.selectedTimeSlot);
+        setSelectedTime(formattedTimeSlot);
+      }
+    };
+    fetchData();
+    if (state.isOnlineModeSelected !== "") {
+      setprogress(50);
+      setRegistrationUrl("/add-academic-details");
+    }
+    if (state.collegeName) {
+      setprogress(100);
+    }
+  }, [state]);
 
-        if (state.selectedDate && state.selectedTimeSlot) {
-          const formattedSelectedDateTime = formatSelectedDateTime(
-            state.selectedDate,
-            state.selectedTimeSlot
-          );
-          setSelectedDateTime(formattedSelectedDateTime);
-        }
-      };
-      fetchData()
-      if(state.isOnlineModeSelected!==''){
-        setprogress(50)
-        setRegistrationUrl('/add-academic-details');
-      }
-      if(state.collegeName){
-        setprogress(100);
-      }
-  }, [state])
-  
- 
   useEffect(() => {
     if (state.gameDetails.length > 0 && gameData.length > 0) {
       const gameNames = state.gameDetails.map((game: any) =>
@@ -193,10 +158,9 @@ const ProfileDashboard = () => {
       setGameImageUrls(imageUrls);
       // console.log('imageUrls', imageUrls);
     }
-  }, [gameData , state.gameDetails]);
+  }, [gameData, state.gameDetails]);
 
   // console.log(gameImageUrls);
-
 
   // console.log('userData', state);
   // console.log('gameData', gameData);
@@ -376,7 +340,7 @@ const ProfileDashboard = () => {
                       Date & Time
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {selectedDateTime || "-"}
+                      {state.selectedDate || '-'} {selectedTime && `, ${selectedTime}`}
                     </p>
                   </div>
                 </div>
@@ -393,25 +357,64 @@ const ProfileDashboard = () => {
                 </div>
                 <p className="text-white">{progress}% Complete</p>
               </div>
-              {progress !== 100 && (
-                <div className="rounded-lg w-fit lg:block hidden ">
-                  <Link href={registrationUrl}>
-                    <div className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
-                      COMPLETE PROFILE
-                    </div>
-                  </Link>
-                </div>
-              )}
+              {
+                progress !== 100 ? (
+                  <div className="rounded-lg w-fit lg:block hidden ">
+                    <Link href={registrationUrl}>
+                      <div className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
+                        COMPLETE PROFILE
+                      </div>
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="rounded-lg w-fit lg:block hidden ">
+                    <Link
+                      href="https://bit.ly/RIVALSdiscord"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <div className="flex items-center custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
+                        <Image
+                          className="h-4"
+                          width={46}
+                          height={46}
+                          src="./discord-logo.svg"
+                          alt={`Discord logo`}
+                        />
+                        JOIN DISCORD
+                      </div>
+                    </Link>
+                  </div>
+                )
+              }
             </div>
           </div>
         </div>
-        {progress !== 100 && (
+        {progress !== 100 ? (
           <div className=" rounded-lg lg:hidden flex w-fit  z-10">
             <Link
               className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal"
               href={registrationUrl}
             >
               Complete Profile
+            </Link>
+          </div>
+        ) : (
+          <div className=" rounded-lg lg:hidden flex w-fit  z-10">
+            <Link
+              className="flex items-center custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal"
+              href="https://bit.ly/crdiscordweb"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                className="h-4"
+                width={46}
+                height={46}
+                src="./discord-logo.svg"
+                alt={`Discord logo`}
+              />
+              JOIN DISCORD
             </Link>
           </div>
         )}
