@@ -582,7 +582,7 @@ a.active {
   background-image: url(/registration-bg.png), url(/registration-bg.svg);
   background-repeat: no-repeat, repeat-y;
   background-position: center;
-  background-size: 100%, cover;
+  background-size: 80%, cover;
   background-repeat: no-repeat;
 }
 .custom-gradient {
