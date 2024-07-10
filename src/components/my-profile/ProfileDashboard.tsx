@@ -232,21 +232,21 @@ const ProfileDashboard = () => {
                   <div className=" lg:pr-6">
                     <div className="relative -mt-4 flex justify-center items-center">
                       <Image
-                        src={state.profilePhoto || '/profile-img.svg'}
+                        src={state.profilePhoto || "/profile-img.svg"}
                         alt="profile photo"
                         width={181}
                         height={181}
                         className="rounded-2xl"
                       />
-                    <button className='absolute justify-center items-center flex gap-2  bottom-2 uppercase text-sm md:text-base helvetica-medium-font font-medium text-white  p-4 rounded-md hover:bg-[#212121] bg-[#191919]'>
-    edit profile   <Image
-        src="/profile-edit-icon.svg"
-        alt=""
-        width={15}
-        height={17}
-      
-      />
-                    </button>
+                      {/* <button className="absolute justify-center items-center flex gap-2  bottom-2 uppercase text-sm md:text-base helvetica-medium-font font-medium text-white  p-4 rounded-md hover:bg-[#212121] bg-[#191919]">
+                        edit profile{" "}
+                        <Image
+                          src="/profile-edit-icon.svg"
+                          alt=""
+                          width={15}
+                          height={17}
+                        />
+                      </button> */}
                     </div>
                   </div>
                   <div className="flex flex-col mt-3  items-center lg:place-items-start place-items-center gap-1">
@@ -254,7 +254,7 @@ const ProfileDashboard = () => {
                       {state.name}
                     </p>
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      {joinedDate ? `Joined on ${joinedDate}` : '-'}
+                      {joinedDate ? `Joined on ${joinedDate}` : "-"}
                     </p>
                   </div>
                 </div>
@@ -264,12 +264,12 @@ const ProfileDashboard = () => {
                     Mode
                   </p>
                   <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                    {state.isOnlineModeSelected !== '' &&
+                    {state.isOnlineModeSelected !== "" &&
                       state.isOnlineModeSelected === true &&
-                      'Online'}
-                    {state.isOnlineModeSelected !== '' &&
+                      "Online"}
+                    {state.isOnlineModeSelected !== "" &&
                       state.isOnlineModeSelected === false &&
-                      'Offline'}
+                      "Offline"}
                   </p>
                 </div>
               </div>
@@ -285,8 +285,7 @@ const ProfileDashboard = () => {
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
                       {/* {age !== undefined && age !== null ? '-' : `${age} yrs`} */}
-                      {state.age!==0 ? `${state.age} yrs` : '-'} 
-                   
+                      {state.age !== 0 ? `${state.age} yrs` : "-"}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -294,7 +293,7 @@ const ProfileDashboard = () => {
                       City
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.city || '-'}
+                      {state.city || "-"}
                     </p>
                   </div>
                   <div className="flex flex-col max-lg:col-span-2 flex-wrap ">
@@ -302,7 +301,7 @@ const ProfileDashboard = () => {
                       Email Address
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold w-full">
-                      {state.email || '-'}
+                      {state.email || "-"}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -310,7 +309,7 @@ const ProfileDashboard = () => {
                       College
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.collegeName || '-'}
+                      {state.collegeName || "-"}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -318,7 +317,7 @@ const ProfileDashboard = () => {
                       Degree
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.degreeStudyField || '-'}
+                      {state.degreeStudyField || "-"}
                     </p>
                   </div>
 
@@ -327,7 +326,7 @@ const ProfileDashboard = () => {
                       Phone no.
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.whatsappNumber || '-'}
+                      {state.whatsappNumber || "-"}
                     </p>
                   </div>
                   <div className=" lg:hidden flex flex-col flex-wrap ">
@@ -335,7 +334,7 @@ const ProfileDashboard = () => {
                       Mode
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.isOnlineModeSelected ? 'Online' : 'Offline'}
+                      {state.isOnlineModeSelected ? "Online" : "Offline"}
                     </p>
                   </div>
 
@@ -353,11 +352,14 @@ const ProfileDashboard = () => {
                       ) : gameImageUrls.length > 0 ? (
                         <>
                           {gameImageUrls.map((url: string, index: number) => (
-                            <div   key={index} className="bg-[#DBFD67] p-4 rounded-lg">
+                            <div
+                              key={index}
+                              className="bg-[#DBFD67] p-4 rounded-lg"
+                            >
                               <Image
                                 className="h-4"
-                              width={46}
-                              height={46}
+                                width={46}
+                                height={46}
                                 src={url}
                                 alt={`Game Image ${index}`}
                               />
@@ -374,7 +376,7 @@ const ProfileDashboard = () => {
                       Date & Time
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {selectedDateTime || '-'}
+                      {selectedDateTime || "-"}
                     </p>
                   </div>
                 </div>
@@ -392,20 +394,25 @@ const ProfileDashboard = () => {
                 <p className="text-white">{progress}% Complete</p>
               </div>
               {progress !== 100 && (
-              <div className="rounded-lg w-fit lg:block hidden ">
-                <Link href={registrationUrl}>
-                <div  className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
-                  COMPLETE PROFILE
+                <div className="rounded-lg w-fit lg:block hidden ">
+                  <Link href={registrationUrl}>
+                    <div className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
+                      COMPLETE PROFILE
+                    </div>
+                  </Link>
                 </div>
-                </Link>
-              </div>
-                  )}
+              )}
             </div>
           </div>
         </div>
         {progress !== 100 && (
           <div className=" rounded-lg lg:hidden flex w-fit  z-10">
-            <Link className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal" href={registrationUrl}>Complete Profile</Link>
+            <Link
+              className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal"
+              href={registrationUrl}
+            >
+              Complete Profile
+            </Link>
           </div>
         )}
       </div>
