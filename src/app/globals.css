@@ -586,7 +586,7 @@ a.active {
   background-repeat: no-repeat;
 }
 .custom-gradient {
-  background-color: linear-gradient(
+  background: linear-gradient(
     to right,
     #050607 50%,
     #010101 73.14%,
