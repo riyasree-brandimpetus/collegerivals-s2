@@ -35,7 +35,7 @@ const CompletionStepForm = () => {
           filter="drop-shadow(5px 5px 0px #7B9F00)"
           href="/esports-registration"
         >
-          Profile Dashboard
+          Proceed To Tournament Page
         </Link>
       </div>
       {/* <Link

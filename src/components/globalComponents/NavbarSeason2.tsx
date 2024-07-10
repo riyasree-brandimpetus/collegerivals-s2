@@ -8,7 +8,13 @@ import { useContext, useState } from 'react';
 import Link from 'next/link';
 const NavbarSeason2 = () => {
   const [isNavbarVisible, setIsNavbarVisible] = useState(false);
+  const [dropdown , setdropdown] = useState(false);
   const { state } = useContext(UserContext);
+
+  const toogledropdown =()=>{
+    setdropdown(!dropdown)
+  }
+
   const toggleNavbar = () => {
     setIsNavbarVisible(!isNavbarVisible);
   };
@@ -60,7 +66,7 @@ const NavbarSeason2 = () => {
               STORE
             </Link>
           </div>
-          {!state.isLoggedIn ? (
+          {state.isLoggedIn ? (
             <Link
               href="/sign-up"
               className="bg-#E7327C  px-1.75rem py-1.125rem rounded-md text-white text-xs helvetica-medium-font"
@@ -68,16 +74,28 @@ const NavbarSeason2 = () => {
               REGISTER NOW
             </Link>
           ) : (
-            <div className="  h-fit w-fit gradient-border">
-              <Link
-                href="/my-profile"
-                className="inner bg-[#0F1011] bg-opacity-80 md:px-12 md:py-1.125rem px-12 py-2.5 helvetica-medium-font text-xs  text-#E7327C "
+            <div>
+            <div onClick={toogledropdown} className=" relative gradient-border">
+              <div
+                className="inner bg-[#0F1011] hover:bg-[#0f1000] bg-opacity-80 md:pl-2 md:pr-3 py-2 helvetica-medium-font text-xs  text-#E7327C cursor-pointer"
               >
-                <div className="flex gap-1">
-                  <Image src="/navbar-dot.svg" alt="" width={6} height={6} />
-                  MY PROFILE
+                <div className="flex gap-5">
+                  <Image    src={state.profilePhoto || '/profile-img.svg'} className='rounded-full' alt="" width={32} height={32} />
+                  <Image src="/dropdown-arrow-pink.svg" alt="" width={15} height={7} />
                 </div>
-              </Link>
+              </div>
+            </div>{
+              dropdown && (
+                
+                <div className='absolute flex flex-col    py-0.938rem bg-[#1b1d1f] rounded-lg right-0'>
+                <Link className='text-[#A9AAAA] hover:opacity-80 text-xs uppercase helvetica-medium-font px-4 pb-3 border-b border-[#383C40] pt-2 flex gap-2'  href="/my-profile"> <Image src="/dashboard-icon.svg" alt="" width={11} height={14} /> Dashboard</Link>
+                <Link  className='text-[#A9AAAA] hover:opacity-80 text-xs uppercase helvetica-medium-font px-4 pb-3 border-b border-[#383C40] pt-2 flex gap-2' href="/"> <Image src="/edit-icon.svg" alt="" width={11} height={12} />Edit profile</Link>
+                <Link  className='text-[#A9AAAA] hover:opacity-80 text-xs uppercase helvetica-medium-font px-4 pr-6 pt-2 flex gap-2' href="/"> <Image src="/logout-icon.svg" alt="" width={13} height={14} />LOG OUT</Link>
+  
+              </div>
+              )
+            }
+           
             </div>
           )}
         </div>
@@ -141,22 +159,12 @@ const NavbarSeason2 = () => {
                       REGISTER NOW
                     </Link>
                   ) : (
-                    <div className="  h-fit w-fit gradient-border">
-                      <Link
-                        href="/my-profile"
-                        className="inner bg-[#0F1011] bg-opacity-80 md:px-12 md:py-1.125rem px-12 py-2.5 helvetica-medium-font text-xs  text-#E7327C "
-                      >
-                        <div className="flex gap-1">
-                          <Image
-                            src="/navbar-dot.svg"
-                            alt=""
-                            width={6}
-                            height={6}
-                          />
-                          MY PROFILE
-                        </div>
-                      </Link>
-                    </div>
+                    <div className=' flex flex-col    py-0.938rem bg-[#1b1d1f] rounded-lg right-0'>
+                    <Link className='text-[#A9AAAA] text-xs uppercase helvetica-medium-font px-4 pb-3 border-b border-[#383C40]  flex gap-2'  href="/"> <Image src="/dashboard-icon.svg" alt="" width={11} height={14} /> Dashboard</Link>
+                    <Link  className='text-[#A9AAAA] text-xs uppercase helvetica-medium-font px-4 pb-3 border-b border-[#383C40] pt-2 flex gap-2' href="/"> <Image src="/edit-icon.svg" alt="" width={11} height={12} />edit profile</Link>
+                    <Link  className='text-[#A9AAAA] text-xs uppercase helvetica-medium-font px-4 pr-6 pt-2 flex gap-2' href="/"> <Image src="/logout-icon.svg" alt="" width={13} height={14} />LOG OUT</Link>
+      
+                  </div>
                   )}
                 </div>
               </div>
