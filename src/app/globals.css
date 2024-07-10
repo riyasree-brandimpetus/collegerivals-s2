@@ -579,7 +579,8 @@ a.active {
   color: #e7327c;
 }
 .custom-background {
-  background-image: url("/Registration-Panel.jpg");
+  background-image: url(/registration-bg.png), url(/registration-bg.svg);
+  background-repeat: no-repeat, repeat-y;
   background-position: center;
   background-size: 100%, cover;
   background-repeat: no-repeat;
