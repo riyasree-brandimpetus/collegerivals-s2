@@ -1,4 +1,5 @@
 "use client"
+import LoadingScreen from '@/components/globalComponents/LoadingScreen';
 import ESportsPage from '@/components/register/ESportsPage';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
@@ -40,5 +41,5 @@ export default function Page() {
     // setShowLoader(!storedUserData?.isLoggedIn);
   }, []);
 
-  return <>{showLoader ? 'Loading' : <ESportsPage />}</>;
+  return <>{showLoader ? <LoadingScreen/> : <ESportsPage />}</>;
 }

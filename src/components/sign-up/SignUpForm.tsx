@@ -1,17 +1,15 @@
 'use client';
 
-import FirstForm from '@/components/register/FirstForm';
-import SecondForm from '@/components/register/SecondForm';
-import ThirdForm from '@/components/register/ThirdForm';
 import CompletionStepForm from '@/components/register/completionStepForm';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
 import { useSteps } from '@chakra-ui/react';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import BasicDetailsForm from './BasicDetailsForm';
 import OTPForm from './OTPForm';
 import Link from 'next/link';
 import Image from 'next/image';
+import LoadingScreen from '../globalComponents/LoadingScreen';
 
 const steps = [
   { description: 'Enter Details' },
@@ -26,6 +24,7 @@ export default function SignUpForm() {
     count: steps.length,
   });
   const router = useRouter();
+  const [showLoader, setShowLoader] = useState<boolean>(true);
 
 
   useEffect(() => {
@@ -34,6 +33,8 @@ export default function SignUpForm() {
     if (storedUserId) {
       // console.log('ID is found',storedUserId);
       router.push('/my-profile');
+    } else{
+      setShowLoader(false)
     }
   }, []);
   
@@ -55,6 +56,9 @@ export default function SignUpForm() {
 
   return (
     <>
+      {showLoader ? (
+        <LoadingScreen/>
+      ) : (
       <div className="w-full flex h-screen bg-black">
         <div className=" max-lg:hidden w-45% custom-background pt-10 pl-11">
           <Link href="/">
@@ -157,7 +161,7 @@ export default function SignUpForm() {
             <div className="py-16 max-md:py-20"></div>
           </div>
         </div>
-      </div>
+      </div>)}
     </>
   );
 }
