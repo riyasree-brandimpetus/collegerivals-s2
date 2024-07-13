@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { SelectProfileSchema } from '@/schemas/register';
 import api from '@/utils/axios/instance';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '@/utils/context/user.context';
 import RadioGroup from './RadioGroup';
 import CustomRadio from './CustomRadio';
@@ -27,15 +27,11 @@ interface SelectMode {
 
 
 export default function SelectProfile() {
-  /**
-   * Initialize first form values
-   */
-  const secondFormInitialValues = {
-    modeSelected: '',
-  };
   const toast = useToast();
   const { state, dispatch } = useContext(UserContext);
-
+  const [initialValues,setInitialValues]=useState<SelectMode>({
+     modeSelected: ''
+  })
   /**
    * Handles First Form Submission
    * @param values FirstFormValues
@@ -67,6 +63,7 @@ export default function SelectProfile() {
           payload: {
             ...state,
             isOnlineModeSelected: values.modeSelected == 'online' ? true : false,
+            activeStep:2 // Will be used for Edit Profile
           },
         });
        }
@@ -82,11 +79,28 @@ export default function SelectProfile() {
     }
   };
 
+  /**
+   * For Edit Profile
+   */
+  useEffect(() => {
+    console.log('state',state)
+    console.log('state.isOnlineModeSelected',state.isOnlineModeSelected !=='' ? (state.isOnlineModeSelected ? 'online' : 'offline') :'')
+    if(state.isOnlineModeSelected !==''){
+      console.log('here')
+      setInitialValues({
+        ...initialValues,
+        modeSelected: state.isOnlineModeSelected ? 'online' : 'offline'
+      });
+    }
+  }, [])
+  
+
   return (
     <Formik
-      initialValues={secondFormInitialValues}
+      initialValues={initialValues}
       validationSchema={SelectProfileSchema}
       onSubmit={handleSubmit}
+      enableReinitialize
     >
       {({ values, touched, errors, setFieldValue, isSubmitting }) => (
         <Form className="flex flex-col grow  pt-8 md:max-h-[80vh]">

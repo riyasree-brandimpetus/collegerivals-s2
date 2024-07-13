@@ -189,7 +189,7 @@ export default function SelectDate() {
         {
           isOnlineModeSelected: state.isOnlineModeSelected,
           selectedDate: values.selectedDate,
-          selectedTimeSlot: values.selectedTimeSlot,
+          selectedTimeSlot: state.isOnlineModeSelected ? '' :values.selectedTimeSlot,
         }
       );
       const data = response.data;
@@ -205,7 +205,8 @@ export default function SelectDate() {
           payload: {
             ...state,
             selectedDate: values.selectedDate,
-            selectedTimeSlot: values.selectedTimeSlot,
+            selectedTimeSlot: state.isOnlineModeSelected ? '' :values.selectedTimeSlot,
+            activeStep:4
           },
         });
       }

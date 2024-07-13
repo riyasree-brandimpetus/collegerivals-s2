@@ -131,7 +131,8 @@ export default function AcademicDetailsForm() {
             degreeStudyField: values.degreeStudyField,
             // idUrl: fileUrl,
             collegeName: values.collegeName,
-            city: values.city
+            city: values.city,
+            activeStep:1
           },
         });
         router.push('/my-profile');

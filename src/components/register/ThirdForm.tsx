@@ -125,7 +125,7 @@ export default function ThirdForm() {
         });
         dispatch({
           type: "UPDATE",
-          payload: { ...state, gameDetails: enteredGameValues },
+          payload: { ...state, gameDetails: enteredGameValues, activeStep:3 },
         });
       }
     } catch (error: any) {
@@ -138,6 +138,23 @@ export default function ThirdForm() {
       });
     }
   };
+
+  /**
+   * For Edit Profile 
+   */
+  useEffect(() => {
+    console.log("state", state.gameDetails);
+    if (state?.gameDetails.length > 0) {
+      console.log("here");
+      let gameNames = state.gameDetails.map((games: any) => {
+        console.log("games", games);
+        const name = games.name;
+        console.log("name", name);
+        return name;
+      });
+      // setPreselectedGames([...gameNames])
+    }
+  }, []);
 
   return (
     <>

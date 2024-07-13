@@ -20,7 +20,8 @@ export interface UserDetailsType {
   selectedTimeSlot: string,
   createdAt: string,
   dob: string,
-  gender:string
+  gender:string,
+  activeStep:number
   // step:string
 }
 

@@ -1,9 +1,6 @@
 'use client';
 
-import FirstForm from '@/components/register/FirstForm';
-import SecondForm from '@/components/register/SecondForm';
 import ThirdForm from '@/components/register/ThirdForm';
-import CompletionStepForm from '@/components/register/completionStepForm';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
 import {
@@ -14,13 +11,15 @@ import SelectMode from './SelectMode';
 import Image from 'next/image';
 import Link from 'next/link';
 import SelectDate from './SelectDate';
-import api from '@/utils/axios/instance';
+import api from "@/utils/axios/instance";
 import LoadingScreen from '../globalComponents/LoadingScreen';
+import AcademicDetailsForm from './AcademicDetailsForm';
 
 const steps = [
   { description: 'Select Mode' },
   { description: 'Choose Games' },
   { description: 'Select Slot' },
+  { description: 'Academic Details' },
 ];
 
 export default function ESportsPage() {
@@ -32,32 +31,15 @@ export default function ESportsPage() {
   const router = useRouter();
   const [showLoader, setShowLoader] = useState<boolean>(true);
 
-  useEffect(() => {
-    if (state.isOnlineModeSelected !== "") {
-      // console.log('Online/Offline Mode is selected');
-      setActiveStep(2);
-    }
-  }, [state.isOnlineModeSelected, setActiveStep]);
+  console.log('state',state)
+
+useEffect(() => {
+  setActiveStep(state.activeStep);
+}, [state.activeStep, setActiveStep]);
+
 
   useEffect(() => {
-    if (state.isOnlineModeSelected !== "" && state.gameDetails.length > 0) {
-      // console.log('Game Details are verified');
-      setActiveStep(3);
-    }
-  }, [state.isOnlineModeSelected, state.gameDetails, setActiveStep]);
-
-  useEffect(() => {
-    if (state.selectedDate || state.selectedTimeSlot) {
-      // console.log('Date, Time Slorts are updated');
-      // setActiveStep(3);
-      router.push("/add-academic-details");
-    }
-  }, [state.selectedDate, state.selectedTimeSlot, router]);
-
-  useEffect(() => {
-    // Retrieve the data from localStorage
-    const storedUserId: any = localStorage.getItem('userId');
-    console.log(state)
+    const storedUserId: any = localStorage.getItem("userId");
     if (storedUserId) {
       const fetchUserDetails = async () => {
         try {
@@ -69,10 +51,10 @@ export default function ESportsPage() {
             type: "UPDATE",
             payload: { ...state, ...data, isLoggedIn: true },
           });
-          if(data.selectedDate){
-          router.push("/add-academic-details");
-          } else{
+          if(data.collegeName){
             setShowLoader(false);
+          } else {
+            router.push('/esports-registration')
           }
         } catch (error: any) {
           const message = error?.response?.data?.error;
@@ -81,16 +63,15 @@ export default function ESportsPage() {
         }
       };
       fetchUserDetails();
-      // console.log('ID is found', storedUserId);
     } else {
-      // console.log('ID not found');
-      router.push('/login');
+      router.push("/login");
     }
-}, []);
+  }, []);
+  
 
   return (
     <>
-     {showLoader ? (
+       {showLoader ? (
         <LoadingScreen/>
       ) : (
       <div className="w-full flex h-screen bg-black">
@@ -115,7 +96,7 @@ export default function ESportsPage() {
             />
           </Link>
           <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
-            <div className="flex w-[550px] items-center flex-col">
+            <div className="flex w-[25%] items-center flex-col px-[2rem]">
               <div
                 className="rounded-full lg:w-[43px] lg:h-[43px] w-[29px] h-[29px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
@@ -125,11 +106,11 @@ export default function ESportsPage() {
                   {activeStep > 1 ?  <div><Image src="/tick-mark.svg" width={18} height={12} alt=""/></div> :  "1"}
               </div>
               <p className="text-white  pt-3 helvetica-font font-bold md:text-base text-xs">
-              Select Mode
+             Mode
               </p>
             </div>
             <hr  className='w-full border-[#ffffff3d]'/>
-            <div className="flex w-[600px] items-center flex-col">
+            <div className="flex w-[25%] items-center flex-col px-[2rem]">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
@@ -139,11 +120,11 @@ export default function ESportsPage() {
                     {activeStep > 2 ?  <div><Image src="/tick-mark.svg" width={18} height={12} alt=""/></div> :  "2"}
               </div>
               <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs">
-              Choose Games
+              Games
               </p>
             </div>
             <hr  className='w-full border-[#ffffff3d]'/>
-            <div className="flex w-[450px] items-center flex-col">
+            <div className="flex w-[25%] items-center flex-col px-[2rem]">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
                 style={{
@@ -153,7 +134,21 @@ export default function ESportsPage() {
                    {activeStep > 3 ?  <div><Image src="/tick-mark.svg" width={18} height={12} alt=""/></div> :  "3"}
               </div>
               <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs ">
-              Select Slot
+              Slot
+              </p>
+            </div>
+            <hr  className='w-full border-[#ffffff3d]'/>
+            <div className="flex w-[25%] items-center flex-col px-[2rem]">
+              <div
+                className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
+                style={{
+                  backgroundColor: activeStep >= 4 ? '#E7327C' : 'transparent',
+                }}
+              >
+                   {activeStep > 4 ?  <div><Image src="/tick-mark.svg" width={18} height={12} alt=""/></div> :  "4"}
+              </div>
+              <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs ">
+              Details
               </p>
             </div>
           </div>
@@ -164,7 +159,9 @@ export default function ESportsPage() {
               <ThirdForm />
             ) : activeStep === 3 ? (
               <SelectDate />
-            ) : null}
+            ) : activeStep === 4 ? (
+              <AcademicDetailsForm />
+            ):null}
           </div>
         </div>
       </div>
