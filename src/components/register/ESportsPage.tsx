@@ -45,7 +45,7 @@ export default function ESportsPage() {
   }, [state.isOnlineModeSelected,state.gameDetails , setActiveStep]);
 
 useEffect(() => {
-  if (state.selectedDate || state.selectedTimeSlot) {
+  if (state.selectedDate || state.selectedTimeSlot || state.selectedCity) {
     // console.log('Date, Time Slorts are updated');
     // setActiveStep(3);
     router.push('/add-academic-details')

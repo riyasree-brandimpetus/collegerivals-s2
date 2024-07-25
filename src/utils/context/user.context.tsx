@@ -24,6 +24,7 @@ const initialState: UserDetailsType = {
   profilePhoto: '',
   selectedDate: '',
   selectedTimeSlot: '',
+  selectedCity:'',
   createdAt: '',
   gender:'',
   dob: '',

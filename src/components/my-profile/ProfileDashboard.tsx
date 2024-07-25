@@ -60,7 +60,7 @@ const formatTime = (time: string): string => {
 
 const ProfileDashboard = () => {
   const { state, dispatch } = useContext(UserContext);
-  const [progress, setprogress] = useState<number>(100);
+  const [progress, setprogress] = useState<number>(50);
   const [gameData, setGameData] = useState<any>([]);
   const [gameImageUrls, setGameImageUrls] = useState<any>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
@@ -134,12 +134,14 @@ const ProfileDashboard = () => {
         setSelectedTime(formattedTimeSlot);
       }
     };
+
+    
     fetchData();
-    if (state.isOnlineModeSelected !== "") {
+    if (state.isOnlineModeSelected !== "" && state.selectedCity || state.selectedDate  ) { // todo- need to check if either selected date or selected city have value in it.
       setprogress(50);
       setRegistrationUrl("/add-academic-details");
     }
-    if (state.collegeName) {
+    if (state.selectedDate && state.collegeName && state.gameDetails) {
       setprogress(100);
     }
   }, [state]);
@@ -337,10 +339,20 @@ const ProfileDashboard = () => {
                   </div>
                   <div className=" flex flex-col flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Date & Time
+                      Date
+              
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.selectedDate || '-'} {selectedTime && `, ${selectedTime}`}
+                      {state.selectedDate || '-'} 
+                    </p>
+                  </div>
+                  <div className=" flex flex-col flex-wrap ">
+                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+                    Registered City
+              
+                    </p>
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+                      {state.selectedCity || '-'} 
                     </p>
                   </div>
                 </div>

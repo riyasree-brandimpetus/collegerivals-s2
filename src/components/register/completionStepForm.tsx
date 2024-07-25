@@ -3,6 +3,7 @@ import React from "react";
 
 const CompletionStepForm = () => {
   return (
+    <div className="overflow-hidden w-full">
     <Flex
       flexDirection="column"
       alignItems="center"
@@ -26,7 +27,7 @@ const CompletionStepForm = () => {
           SUCCESSFUL
         </Text>
       </Heading>
-      <div className="my-1.875rem lg:py-0 h-3.325rem lg:h-2.765rem w-15rem lg:w-12rem">
+      {/* <div className="my-1.875rem lg:py-0 h-3.325rem lg:h-2.765rem w-15rem lg:w-12rem">
         <Link
           className="helvetica-font rounded-xl h-full w-full flex justify-center 
            items-center text-0.813rem uppercase bg-neon hover: 0.9 button-style hover:no-underline no-underline"
@@ -37,7 +38,20 @@ const CompletionStepForm = () => {
         >
           Proceed To Tournament Page
         </Link>
-      </div>
+      </div> */}
+
+      <div className="relative mt-7 ">
+
+<Link href="/esports-registration">
+  <button 
+    className="custom-button-neon m-3 uppercase px-8 md:px-10 py-5 bg-opacity-60 bg-black text-sm md:text-1.063rem helvetica-medium-font font-medium text-#DBFD67  rounded-lg backdrop-blur-md"
+  >
+Proceed To Tournament Page
+
+  </button>
+  </Link>
+
+</div>
       {/* <Link
         href="https://bit.ly/crdiscordweb"
         target="_blank"
@@ -68,6 +82,7 @@ const CompletionStepForm = () => {
         </Text>
       </Link> */}
     </Flex>
+    </div>
   );
 };
 

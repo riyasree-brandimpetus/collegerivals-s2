@@ -1,8 +1,9 @@
-[
-    "15th August 2024",
-    "15th September 2024",
-    "15rd October 2024",
-    "15th November 2024",
-    "15th December 2024",
-    "15th January 2025"
-]
+{
+    "August": ["18 August 2024", "19 August 2024", "20 August 2024"],
+    "September": ["17 September 2024", "18 September 2024", "19 September 2024"],
+    "October": ["13 October 2024", "14 October 2024", "15 October 2024"],
+    "November": ["16 November 2024", "17 November 2024", "18 November 2024"],
+    "December": ["15 December 2024", "16 December 2024", "17 December 2024"],
+    "February": ["3 February 2024", "4 February 2024", "5 February 2024"]
+  }
+  
