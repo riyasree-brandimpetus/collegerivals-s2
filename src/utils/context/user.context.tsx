@@ -23,7 +23,6 @@ const initialState: UserDetailsType = {
   isOnlineModeSelected: '',
   profilePhoto: '',
   selectedDate: '',
-  selectedTimeSlot: '',
   selectedCity:'',
   createdAt: '',
   gender:'',

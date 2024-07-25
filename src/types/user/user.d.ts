@@ -18,7 +18,6 @@ export interface UserDetailsType {
   isOnlineModeSelected: Boolean | '';
   selectedDate: string,
   selectedCity:string,
-  selectedTimeSlot: string,
   createdAt: string,
   dob: string,
   gender:string

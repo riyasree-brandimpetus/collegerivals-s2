@@ -128,11 +128,6 @@ const ProfileDashboard = () => {
     const fetchData = async () => {
       const formattedDate = formatJoinedDate(state.createdAt);
       setJoinedDate(formattedDate);
-
-      if (state.selectedTimeSlot) {
-        const formattedTimeSlot = formatTimeSlot(state.selectedTimeSlot);
-        setSelectedTime(formattedTimeSlot);
-      }
     };
 
     
@@ -162,10 +157,6 @@ const ProfileDashboard = () => {
     }
   }, [gameData, state.gameDetails]);
 
-  // console.log(gameImageUrls);
-
-  // console.log('userData', state);
-  // console.log('gameData', gameData);
   return (
     <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-hidden">
       <Image
