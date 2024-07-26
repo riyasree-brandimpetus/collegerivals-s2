@@ -17,7 +17,8 @@ export type OTPFormValues = {
 
 export type DateTimeSlotValues = {
   selectedDate: string;
-  selectedTimeSlot: string;
+ selectedMonth: string;
+  selectedCity:string;
 };
 
 export interface SecondFormValues {
