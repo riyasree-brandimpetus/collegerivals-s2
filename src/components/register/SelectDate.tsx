@@ -210,7 +210,7 @@ export default function SelectDate() {
                             height="4.063rem"
                             borderRadius="0.75rem"
                             color="white"
-                            placeholder="Select Date"
+                            placeholder="Select Month"
                             focusBorderColor="#DBFD67"
                             onChange={(e: ChangeEvent<HTMLSelectElement>) => {
                               setFieldValue("selectedMonth", e.target.value);
@@ -279,7 +279,7 @@ export default function SelectDate() {
               <Box className=" bg-black bottom-0">
                 <div className="fixed  pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
                   <Button
-                    id="basic-details-form-submit-btn"
+                    id="selected-date-city-submit-btn"
                     type="submit"
                     color={"#fff"}
                     _hover={{ opacity: "90%" }}
@@ -380,7 +380,7 @@ export default function SelectDate() {
                                 height="4.063rem"
                                 borderRadius="0.75rem"
                                 color="white"
-                                placeholder="Select time slot"
+                                placeholder="Select City"
                                 focusBorderColor="#DBFD67"
                                 onChange={(
                                   e: ChangeEvent<HTMLSelectElement>

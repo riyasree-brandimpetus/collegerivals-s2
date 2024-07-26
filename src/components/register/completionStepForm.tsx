@@ -42,7 +42,7 @@ const CompletionStepForm = () => {
 
       <div className="relative mt-7 ">
 
-<Link href="/esports-registration">
+<Link id="proceed-to-tournament-btn" href="/esports-registration">
   <button 
     className="custom-button-neon m-3 uppercase px-8 md:px-10 py-5 bg-opacity-60 bg-black text-sm md:text-1.063rem helvetica-medium-font font-medium text-#DBFD67  rounded-lg backdrop-blur-md"
   >

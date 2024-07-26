@@ -367,7 +367,7 @@ export default function BasicDetailsForm() {
         */}
         <div className='text-white helvetica-light-font font-normal'>Already a member? <Link href='/login'  className='text-#DBFD67 underline helvetica-font'>Login</Link></div>
             <Button
-              id="basic-details-form-submit-btn"
+              id="signup-form-submit-btn"
               type="submit"
               color={'#fff'}
               _hover={{ opacity: '90%' }}

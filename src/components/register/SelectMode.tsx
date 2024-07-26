@@ -166,7 +166,7 @@ export default function SelectProfile() {
           <Box className="mt-auto sticky bg-white bottom-0">
             <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full flex-row  flex items-center justify-between lg:right-0 bottom-0 ">
               <Button
-                id="academic-details-form-submit-btn"
+                id="select-mode-submit-btn"
                 type="submit"
                 color={'#fff'}
                 _hover={{ opacity: '90%' }}

@@ -397,7 +397,7 @@ const ProfileDashboard = () => {
         </div>
         {progress !== 100 ? (
           <div className=" rounded-lg lg:hidden flex w-fit  z-10">
-            <Link
+            <Link id="complete-profile-btn"
               className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal"
               href={registrationUrl}
             >
