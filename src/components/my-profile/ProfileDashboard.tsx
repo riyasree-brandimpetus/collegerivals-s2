@@ -138,7 +138,7 @@ const ProfileDashboard = () => {
       setprogress(50);
       setRegistrationUrl("/add-academic-details");
     }
-    if (state.selectedDate && state.collegeName && state.gameDetails) {
+    if ((state.selectedCity || state.selectedDate) && state.collegeName && state.gameDetails) {
       setprogress(100);
     }
   }, [state]);
