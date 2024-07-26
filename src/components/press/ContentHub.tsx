@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const Contenthub = ()=>{
+const ContentHub = ()=>{
 
     return(
         <div className="w-full flex flex-col place-items-center justify-center bg-black">
@@ -34,4 +34,4 @@ const Contenthub = ()=>{
     )
 }
 
-export default Contenthub
+export default ContentHub

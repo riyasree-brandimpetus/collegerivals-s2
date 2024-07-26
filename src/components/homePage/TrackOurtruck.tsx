@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-const LottieAnimation = dynamic(() => import('../truck-locator/lottie-animation'), { ssr: false });
+const LottieAnimation = dynamic(() => import('../truck-locator/LottieAnimation'), { ssr: false });
 
 const TrackOurtruck = () =>{
 

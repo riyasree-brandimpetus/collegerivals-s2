@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-const Galleryhub = () =>{
+const GalleryPress = () =>{
 
     return(
 
@@ -103,4 +103,4 @@ const Galleryhub = () =>{
     )
 }
 
-export default Galleryhub
+export default GalleryPress
