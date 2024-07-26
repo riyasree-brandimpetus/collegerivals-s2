@@ -52,7 +52,7 @@ useEffect(() => {
     // setActiveStep(3);
     router.push('/add-academic-details')
   }
-}, [state.selectedDate ,  router]);
+}, [state.selectedDate ,  router , state.selectedCity]);
 
   useEffect(() => {
     // Retrieve the data from localStorage
