@@ -77,9 +77,9 @@ const NavbarSeason2 = () => {
             >
               ABOUT US
             </Link>
-            <Link  target="_blank"
+            <Link 
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
-              href="https://store.collegerivals.com/"
+              href="/store"
             >
               STORE
             </Link>
@@ -164,7 +164,7 @@ const NavbarSeason2 = () => {
                   </Link>
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
-                    href="https://store.collegerivals.com/"
+                    href="/store"
                   >
                     STORE
                   </Link>
