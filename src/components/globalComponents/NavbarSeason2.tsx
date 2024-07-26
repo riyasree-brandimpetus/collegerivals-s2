@@ -45,8 +45,8 @@ const NavbarSeason2 = () => {
             <Image color="white" src={navLogo} alt="navlogo" />
           </div>
         </Link>
-        <div className="w-[65%] items-center justify-between lg:flex hidden ">
-          <div className="flex gap-2.125rem">
+        <div className=" items-center justify-between lg:flex hidden ">
+          <div className="flex gap-7">
           <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
               href="/"
@@ -84,15 +84,17 @@ const NavbarSeason2 = () => {
               STORE
             </Link>
           </div>
-          {!state.isLoggedIn ? (
+        
+        </div>
+        {!state.isLoggedIn ? (
             <Link
               href="/sign-up"
-              className="bg-#E7327C  px-1.75rem py-1.125rem rounded-md text-white text-xs helvetica-medium-font"
+              className="bg-#E7327C lg:flex hidden px-1.75rem py-1.125rem rounded-md text-white text-xs helvetica-medium-font"
             >
               REGISTER NOW
             </Link>
           ) : (
-            <div>
+            <div className='lg:flex hidden'>
             <div onClick={toogledropdown} className=" relative gradient-border">
               <div
                 className="inner bg-[#0F1011] hover:bg-[#0f1000] bg-opacity-80 md:pl-2 md:pr-3 py-2 helvetica-medium-font text-xs  text-#E7327C cursor-pointer"
@@ -114,7 +116,6 @@ const NavbarSeason2 = () => {
            
             </div>
           )}
-        </div>
         <div className="lg:hidden flex mobilenav ">
           <div onClick={toggleNavbar}>
             <Image src={menuBurger} alt="menu" />

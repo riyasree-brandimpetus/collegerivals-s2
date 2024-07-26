@@ -5,7 +5,7 @@ const Galleryhub = () =>{
     return(
 
         <div className="w-full flex flex-col place-items-center justify-center bg-black">
-        <div className="max-w-[1440px] w-full h-full flex flex-col justify-center place-items-center xl:p-24 px-6 pt-12 ">
+        <div className="max-w-[1440px] w-full h-full flex flex-col justify-center place-items-center xl:p-24 px-6 pb-12 pt-12 ">
 
             <h2 className="md:text-7xl text-2xl md:mb-11 mb-5 text-[#DBFD67] font-extrabold"><em>GALLERY</em></h2>
 
