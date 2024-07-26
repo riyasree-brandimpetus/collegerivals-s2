@@ -7,7 +7,7 @@ import CityData from "../../data/CityTicker.json"
 import Image from "next/image";
 const CityTicker = () => {
 
-    const Cityslides: CitySlides[] = CityData;
+    const Cityslides:any = CityData;
 
   const slidesettings = {
 
@@ -53,7 +53,7 @@ infinite:true,
           <Slider className="city-ticker" {...slidesettings}>
 
 {
-    Cityslides.map((slides,index)=>(
+    Cityslides.map((slides:any,index:any)=>(
         <div key={index} className="md:pl-0 pl-4 w-full">
         <div className=" flex flex-col w-full items-center justify-center">
        
