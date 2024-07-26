@@ -8,7 +8,7 @@ const page = ()=>{
     return(
         <div>
 <NavbarSeason2/>
-        <Trackhero/>
+     <Trackhero/>
         <Schedule/>
         <Truckgallery/>
         <FooterSeason2/>

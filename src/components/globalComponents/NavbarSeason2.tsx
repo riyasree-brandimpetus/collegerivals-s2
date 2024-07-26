@@ -45,7 +45,7 @@ const NavbarSeason2 = () => {
             <Image color="white" src={navLogo} alt="navlogo" />
           </div>
         </Link>
-        <div className="w-[60%] items-center justify-between lg:flex hidden ">
+        <div className="w-[65%] items-center justify-between lg:flex hidden ">
           <div className="flex gap-2.125rem">
           <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
@@ -59,18 +59,18 @@ const NavbarSeason2 = () => {
             >
               ESPORTS
             </Link>
-            {/* <Link
+            <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
-              href="/"
+              href="/truck-locator"
             >
               TRUCK LOCATOR
             </Link>
             <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
-              href="/"
+              href="/press"
             >
               PRESS
-            </Link> */}
+            </Link>
             <Link
               className="text-white opacity-65% text-xs helvetica-medium-font hover:text-#DBFD67"
               href="/about"
@@ -143,18 +143,18 @@ const NavbarSeason2 = () => {
                   >
                     ESPORTS
                   </Link>
-                  {/* <Link
+                  <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
-                    href="/#truck-locator"
+                    href="/truck-locator"
                   >
                     TRUCK LOCATOR
                   </Link>
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
-                    href="/"
+                    href="/press"
                   >
                     PRESS
-                  </Link> */}
+                  </Link>
                   <Link
                     className="text-white opacity-65% text-xs helvetica-medium-font"
                     href="/about"
