@@ -20,7 +20,7 @@ const Contenthub = ()=>{
 
                 <div className="flex flex-col justify-center place-items-center gap-11">
                 <Link  href="https://www.youtube.com/watch?v=_rZbggv13po" target="_blank">
-                <video width={530} height={322} src="/Content2.mp4" className="rounded-lg"   loop autoPlay muted></video>
+                <video width={530} height={322} src="/content2.mp4" className="rounded-lg"   loop autoPlay muted></video>
                     <p className="text-white md:text-2xl mt-6 text-lg">The #EpicRivalry that was College Rivals Grand Finale</p>
                     </Link>
                 </div>
