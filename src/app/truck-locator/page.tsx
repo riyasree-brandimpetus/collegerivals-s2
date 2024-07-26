@@ -1,7 +1,7 @@
 import Schedule from "@/components/esports/Schedule"
 import FooterSeason2 from "@/components/globalComponents/FooterSeason2"
 import NavbarSeason2 from "@/components/globalComponents/NavbarSeason2"
-import Truckgallery from "@/components/truck-locator/gallery-truck"
+import Galleryhub from "@/components/press/galleryhub"
 import Trackhero from "@/components/truck-locator/hero-tuck"
 
 const page = ()=>{
@@ -10,7 +10,7 @@ const page = ()=>{
 <NavbarSeason2/>
      <Trackhero/>
         <Schedule/>
-        <Truckgallery/>
+        <Galleryhub/>
         <FooterSeason2/>
         </div>
      

@@ -104,17 +104,8 @@ const Newshub =()=>{
                     </Link>
                 </div>
             </div>
-            <div className="flex w-full justify-between flex-col md:flex-row items-center py-16">
-                <h2 className="ppFormula-font italic text-white text-4xl  md:text-6xl">GET IN TOUCH WITH US!</h2>
-                <div className=" rounded-lg ">
-                  <Link href="/contact">
-                    <button className="custom-button-neon m-3 px-9 py-3 text-lg helvetica-medium-font font-medium text-#DBFD67  rounded-lg bg-cover">
-                    CONTACT US
-                    </button>
-                  </Link>
-                </div>
-
-            </div>
+     
+          
         </div>
     </div>
 
