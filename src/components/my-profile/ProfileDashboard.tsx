@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import api from "@/utils/axios/instance";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 // format for joined date
 const formatJoinedDate = (createdAt: string): string => {
   const date = new Date(createdAt);
@@ -71,7 +72,7 @@ const ProfileDashboard = () => {
   const [joinedDate, setJoinedDate] = useState<string>("");
   const [selectedTime, setSelectedTime] = useState<string>("");
   const toast = useToast();
-
+  const router = useRouter();
   useEffect(() => {
     const storedUserId: any = localStorage.getItem("userId");
     const fetchGameDetails = async () => {
@@ -118,6 +119,7 @@ const ProfileDashboard = () => {
           isClosable: true,
           description: message,
         });
+        router.push('/sign-up');
         // console.error('Error fetching Data:', error);
       }
     };
@@ -128,18 +130,15 @@ const ProfileDashboard = () => {
     const fetchData = async () => {
       const formattedDate = formatJoinedDate(state.createdAt);
       setJoinedDate(formattedDate);
-
-      if (state.selectedTimeSlot) {
-        const formattedTimeSlot = formatTimeSlot(state.selectedTimeSlot);
-        setSelectedTime(formattedTimeSlot);
-      }
     };
+
+    
     fetchData();
-    if (state.isOnlineModeSelected !== "") {
+    if (state.isOnlineModeSelected !== "" && state.selectedCity || state.selectedDate  ) { // todo- need to check if either selected date or selected city have value in it.
       setprogress(50);
       setRegistrationUrl("/add-academic-details");
     }
-    if (state.collegeName) {
+    if ((state.selectedCity || state.selectedDate) && state.collegeName && state.gameDetails) {
       setprogress(100);
     }
   }, [state]);
@@ -333,10 +332,20 @@ const ProfileDashboard = () => {
                   </div>
                   <div className=" flex flex-col flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Date & Time
+                      Date
+              
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.selectedDate || '-'} {selectedTime && `, ${selectedTime}`}
+                      {state.selectedDate || '-'} 
+                    </p>
+                  </div>
+                  <div className=" flex flex-col flex-wrap ">
+                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+                    Registered City
+              
+                    </p>
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+                      {state.selectedCity || '-'} 
                     </p>
                   </div>
                 </div>
@@ -388,7 +397,7 @@ const ProfileDashboard = () => {
         </div>
         {progress !== 100 ? (
           <div className=" rounded-lg lg:hidden flex w-fit  z-10">
-            <Link
+            <Link id="complete-profile-btn"
               className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal"
               href={registrationUrl}
             >
