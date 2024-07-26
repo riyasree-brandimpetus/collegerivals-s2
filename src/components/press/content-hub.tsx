@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 const Contenthub = ()=>{
 
@@ -11,13 +12,17 @@ const Contenthub = ()=>{
             <div className="grid md:grid-cols-2 grid-cols-1 gap-12">
 
                 <div className="flex flex-col justify-center place-items-center gap-11">
-                    <Image width={562} height={362} src="/assets/content1.png" alt="" className="rounded-3xl"/>
-                    <p className="text-white md:text-2xl text-lg">Masters Shanghai merch collection</p>
+                    <Link href="https://www.youtube.com/watch?v=z9q54X4eXVY" target="_blank">
+                  <video src="/Contenthub3.mov"  className="rounded-lg" loop autoPlay muted></video>
+                    <p className="text-white md:text-2xl mt-6 text-lg">College Rivals Season 2 | Official Launch Video</p>
+                    </Link>
                 </div>
 
                 <div className="flex flex-col justify-center place-items-center gap-11">
-                    <Image width={562} height={362} src="/assets/content1.png" alt="" className="rounded-3xl"/>
-                    <p className="text-white md:text-2xl text-lg">Masters Shanghai merch collection</p>
+                <Link href="https://www.youtube.com/watch?v=_rZbggv13po" target="_blank">
+                <video src="/Contenthub2.mp4" className="rounded-lg"   loop autoPlay muted></video>
+                    <p className="text-white md:text-2xl mt-6 text-lg">The #EpicRivalry that was College Rivals Grand Finale</p>
+                    </Link>
                 </div>
 
             </div>
