@@ -106,7 +106,7 @@ const NavbarSeason2 = () => {
               dropdown && (
                 <div className='absolute flex flex-col py-0.938rem bg-[#1b1d1f] rounded-lg right-0'>
                 <Link className='text-[#A9AAAA] hover:opacity-80 text-xs uppercase helvetica-medium-font px-4 pb-3 border-b border-[#383C40] pt-2 flex gap-2'  href="/my-profile"> <Image src="/dashboard-icon.svg" alt="" width={11} height={14} /> Dashboard</Link>
-                {/* <Link  className='text-[#A9AAAA] hover:opacity-80 text-xs uppercase helvetica-medium-font px-4 pb-3 border-b border-[#383C40] pt-2 flex gap-2' href="/"> <Image src="/edit-icon.svg" alt="" width={11} height={12} />Edit profile</Link> */}
+                <Link  className='text-[#A9AAAA] hover:opacity-80 text-xs uppercase helvetica-medium-font px-4 pb-3 border-b border-[#383C40] pt-2 flex gap-2' href="/edit-profile"> <Image src="/edit-icon.svg" alt="" width={11} height={12} />Edit profile</Link>
                 <div onClick={handleLogout} className='text-[#A9AAAA] hover:opacity-80 text-xs uppercase helvetica-medium-font px-4 pr-6 pt-2 flex gap-2 cursor-pointer'> <Image src="/logout-icon.svg" alt="" width={13} height={14} />LOG OUT</div>
               </div>
               )
@@ -177,7 +177,7 @@ const NavbarSeason2 = () => {
                   ) : (
                     <div className=' flex flex-col    py-0.938rem bg-[#1b1d1f] rounded-lg right-0'>
                     <Link className='text-[#A9AAAA] text-xs uppercase helvetica-medium-font px-4 pb-3 border-b border-[#383C40]  flex gap-2'  href="/my-profile"> <Image src="/dashboard-icon.svg" alt="" width={11} height={14} /> Dashboard</Link>
-                    {/* <Link  className='text-[#A9AAAA] text-xs uppercase helvetica-medium-font px-4 pb-3 border-b border-[#383C40] pt-2 flex gap-2' href="/"> <Image src="/edit-icon.svg" alt="" width={11} height={12} />edit profile</Link> */}
+                    <Link  className='text-[#A9AAAA] text-xs uppercase helvetica-medium-font px-4 pb-3 border-b border-[#383C40] pt-2 flex gap-2' href="/edit-profile"> <Image src="/edit-icon.svg" alt="" width={11} height={12} />edit profile</Link>
                     <div onClick={handleLogout} className='text-[#A9AAAA] text-xs uppercase helvetica-medium-font px-4 pr-6 pt-2 flex gap-2 cursor-pointer'> <Image src="/logout-icon.svg" alt="" width={13} height={14} />LOG OUT</div>
                   </div>
                   )}

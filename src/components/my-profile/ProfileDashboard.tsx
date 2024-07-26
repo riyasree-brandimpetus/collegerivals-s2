@@ -60,7 +60,7 @@ const formatTime = (time: string): string => {
 
 const ProfileDashboard = () => {
   const { state, dispatch } = useContext(UserContext);
-  const [progress, setprogress] = useState<number>(50);
+  const [progress, setprogress] = useState<number>(30);
   const [gameData, setGameData] = useState<any>([]);
   const [gameImageUrls, setGameImageUrls] = useState<any>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
@@ -187,7 +187,7 @@ const ProfileDashboard = () => {
               <div className="flex h-full justify-between flex-col  md:place-items-start  items-center">
                 <div>
                   <div className=" lg:pr-6">
-                    <div className="relative -mt-4 flex justify-center items-center">
+                    <Link className="relative -mt-4 flex justify-center items-center" href="/edit-profile">
                       <Image
                         src={state.profilePhoto || "/profile-img.svg"}
                         alt="profile photo"
@@ -195,7 +195,7 @@ const ProfileDashboard = () => {
                         height={181}
                         className="rounded-2xl"
                       />
-                      {/* <button className="absolute justify-center items-center flex gap-2  bottom-2 uppercase text-sm md:text-base helvetica-medium-font font-medium text-white  p-4 rounded-md hover:bg-[#212121] bg-[#191919]">
+                      <div  className="whitespace-nowrap absolute justify-center items-center flex gap-2  bottom-2 uppercase text-sm md:text-base helvetica-medium-font font-medium text-white  p-4 rounded-md hover:bg-[#212121] bg-[#191919]">
                         edit profile{" "}
                         <Image
                           src="/profile-edit-icon.svg"
@@ -203,8 +203,8 @@ const ProfileDashboard = () => {
                           width={15}
                           height={17}
                         />
-                      </button> */}
-                    </div>
+                      </div>
+                    </Link>
                   </div>
                   <div className="flex flex-col mt-3  items-center lg:place-items-start place-items-center gap-1">
                     <p className="text-[#CFCFCF] md:text-xl text-lg helvetica-font font-bold">
@@ -230,7 +230,7 @@ const ProfileDashboard = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col lg:gap-14  max-lg:max-w-[300px] max-lg:pl-4 lg:place-items-start items-center ">
+              <div className="flex flex-col lg:gap-14  max-lg:max-w-[300px] max-lg:pl-4 lg:place-items-start items-center w-[75%]">
                 <h2 className="xl:text-7xl lg:text-6xl   text-3xl font-extrabold text-white xl:-mt-5 lg:mt-0 mt-7   uppercase ppFormula-font">
                   <em>HELLO, {state.name}</em>
                   <span className="text-[#DBFD67]"> !</span>

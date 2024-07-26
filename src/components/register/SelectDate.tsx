@@ -158,10 +158,7 @@ export default function SelectDate() {
         `/users/update/esport-details/${state._id}`,
         {
           isOnlineModeSelected: state.isOnlineModeSelected,
-          selectedDate: values.selectedDate,
-  
-          
-     
+          selectedDate: values.selectedDate
         }
       );
       const data = response.data;
@@ -178,7 +175,7 @@ export default function SelectDate() {
             ...state,
             selectedDate: values.selectedDate,
             selectedCity: values.selectedCity,
-         
+            activeStep:4
           },
         });
       }

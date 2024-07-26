@@ -7,12 +7,14 @@ import CompletionStepForm from '@/components/register/completionStepForm';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
 import { useSteps } from '@chakra-ui/react';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import SelectMode from './SelectMode';
 import Image from 'next/image';
 import Link from 'next/link';
 import SelectDate from './SelectDate';
 import AcademicDetailsForm from './AcademicDetailsForm';
+import LoadingScreen from '../globalComponents/LoadingScreen';
+import api from '@/utils/axios/instance';
 
 const steps = [
   { description: 'Select Mode' },
@@ -27,30 +29,48 @@ export default function AcademicDetailsPage() {
     count: steps.length,
   });
   const router = useRouter();
+  const [showLoader, setShowLoader] = useState<boolean>(true);
 
   useEffect(() => {
-    // if (state._id && state.isLoggedIn) {
-    //   setShowLoader(false);
-    // } else {
       // Retrieve the data from localStorage
       const storedUserId: any = localStorage.getItem('userId');
+      console.log(state)
       if (storedUserId) {
+        const fetchUserDetails = async () => {
+          try {
+            const response = await api.post("/users/details", {
+              userId: state._id || storedUserId,
+            });
+            const data = response.data;
+            dispatch({
+              type: "UPDATE",
+              payload: { ...state, ...data, isLoggedIn: true },
+            });
+            if(data.collegeName){
+            router.push("/my-profile");
+            } else{
+            setShowLoader(false);
+            }
+          } catch (error: any) {
+            const message = error?.response?.data?.error;
+            router.push("/my-profile");
+            console.error('Error fetching Data:', message);
+          }
+        };
+        fetchUserDetails();
         // console.log('ID is found', storedUserId);
-        dispatch({
-          type: 'UPDATE',
-          payload: { ...state, _id: storedUserId },
-        });
-        // setShowLoader(false);
       } else {
-        // console.log('ID not found', storedUserId);
+        // console.log('ID not found');
         router.push('/login');
       }
-    // }
   }, []);
 
 
   return (
     <>
+     {showLoader ? (
+        <LoadingScreen/>
+      ) : (
       <div className="w-full flex h-screen bg-black">
         <div className=" max-lg:hidden w-45% custom-background pt-10 pl-11">
           <Link href="/">
@@ -111,6 +131,7 @@ export default function AcademicDetailsPage() {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 }
