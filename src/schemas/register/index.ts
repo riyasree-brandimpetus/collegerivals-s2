@@ -49,13 +49,14 @@ export const SelectModeSchema = Yup.object().shape({
 
 
 export const SelectOfflineDateTimeSchema = Yup.object().shape({
-  selectedDate: Yup.string().required('Select a date'),
-  selectedTimeSlot: Yup.string().required('Select a time slot')
+  selectedCity: Yup.string().required('Select a City'),
+
 });
 
 
 export const SelectOnlineDateTimeSchema = Yup.object().shape({
   selectedDate: Yup.string().required('Select a date'),
+  selectedMonth: Yup.string().required('Select Month'),
 });
 
 export const ThirdFormSchema = Yup.object().shape({

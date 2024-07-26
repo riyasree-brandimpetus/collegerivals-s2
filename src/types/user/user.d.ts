@@ -17,7 +17,7 @@ export interface UserDetailsType {
   profilePhoto: string;
   isOnlineModeSelected: Boolean | '';
   selectedDate: string,
-  selectedTimeSlot: string,
+  selectedCity:string,
   createdAt: string,
   dob: string,
   gender:string,

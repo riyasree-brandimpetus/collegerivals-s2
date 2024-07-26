@@ -46,13 +46,13 @@ export default function ESportsPage() {
     }
   }, [state.isOnlineModeSelected, state.gameDetails, setActiveStep]);
 
-  useEffect(() => {
-    if (state.selectedDate || state.selectedTimeSlot) {
-      // console.log('Date, Time Slorts are updated');
-      // setActiveStep(3);
-      router.push("/add-academic-details");
-    }
-  }, [state.selectedDate, state.selectedTimeSlot, router]);
+useEffect(() => {
+  if (state.selectedDate || state.selectedCity) {
+    // console.log('Date, Time Slorts are updated');
+    // setActiveStep(3);
+    router.push('/add-academic-details')
+  }
+}, [state.selectedDate ,  router , state.selectedCity]);
 
   useEffect(() => {
     // Retrieve the data from localStorage

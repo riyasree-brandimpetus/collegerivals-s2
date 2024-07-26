@@ -206,7 +206,7 @@ export default function ThirdForm() {
          
           <Button
             type="submit"
-           
+           id="select-games-btn"
             onClick={() =>
               value.length > 0
                 ? filterGameData()
@@ -295,7 +295,7 @@ export default function ThirdForm() {
                   </Button>
                   <Button
                     type="submit"
-                 
+                 id="selected-games-ids-submit-btn"
                     color={"#fff"}
                     _hover={{ opacity: "90%" }}
                     _active={{
