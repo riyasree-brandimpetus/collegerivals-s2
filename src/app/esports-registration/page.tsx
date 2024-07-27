@@ -1,4 +1,5 @@
 "use client"
+import LoadingScreen from '@/components/globalComponents/LoadingScreen';
 import ESportsPage from '@/components/register/ESportsPage';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
@@ -17,14 +18,14 @@ export default function Page() {
       // Retrieve the data from localStorage
       const storedUserId: any = localStorage.getItem('userId');
       if (storedUserId) {
-        console.log('ID is found', storedUserId);
+        // console.log('ID is found', storedUserId);
         dispatch({
           type: 'UPDATE',
           payload: { ...state, _id: storedUserId },
         });
         setShowLoader(false);
       } else {
-        console.log('ID not found', storedUserId);
+        // console.log('ID not found', storedUserId);
         router.push('/login');
       }
     }
@@ -40,5 +41,5 @@ export default function Page() {
     // setShowLoader(!storedUserData?.isLoggedIn);
   }, []);
 
-  return <>{showLoader ? 'Loading' : <ESportsPage />}</>;
+  return <>{showLoader ? <LoadingScreen/> : <ESportsPage />}</>;
 }

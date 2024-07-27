@@ -173,7 +173,7 @@ The decision of the tournament organizer will be final in all circumstances.**
 export const VALORANT_RULES = {
   heading: "VALORANT RULEBOOK",
   data: `
-  This rulebook is applicable for the participation of the players in the “College Rivals Valorant” (hereinafter referred to as “Tournament”). The Tournament is being organized by NODWIN Gaming Pvt. Ltd. (hereinafter referred to as the “Organizers”). All eligible participants playing in this Tournament as per the rulebook are hereinafter referred to as the Players.
+  This rulebook is applicable for the participation of the players in the “College Rivals Valorant” (hereinafter referred to as “Tournament”). The Tournament is being organized by AA Gaming Pvt. Ltd. (hereinafter referred to as the “Organizers”). All eligible participants playing in this Tournament as per the rulebook are hereinafter referred to as the Players.
 FORMAT: 1v1 Single Elimination
 
 Game Mode:
@@ -255,7 +255,7 @@ Violations may result in penalties, including disqualification.
   2.10 Using Non-Registered user IDs
   Teams can not use non-registered user IDs, ineligible user IDs are considered not registered. Using a player who is not registered is considered a violation and will fall under the smurfing rule. Failure to follow this rule will result in a match overturn. Consecutive breaches of the rule may result in disqualification of the entire team.
   2.10 Global Chat
-  Teams can use global chat while dead or alive during a live match for constructive purposes (i.e. communicating to NODWIN Gaming officials or other teams concerning an issue). Misuse of the global chat is not allowed. Team chat is allowed at any time for any reason. There is only one warning for the team that is misusing the team chat or global chat, after that admins have full rights to disqualify that team from the tournament.
+  Teams can use global chat while dead or alive during a live match for constructive purposes (i.e. communicating to AA Gaming officials or other teams concerning an issue). Misuse of the global chat is not allowed. Team chat is allowed at any time for any reason. There is only one warning for the team that is misusing the team chat or global chat, after that admins have full rights to disqualify that team from the tournament.
   2.11  Player Connections
   Player connections are solely the responsibility of the Player or the Player’s team or representative.
   Once a match has gone live, should a team drop to three users in the server they have three minutes from the moment the player leaves the server to get a fourth player back. If the fourth player has not entered the match within the three minutes, the team shall forfeit the match. Any teams dropping to two or one users during the match period has a total of one round to get the minimum number of users back in (see rule no. 2.12 Match Pausing). Any problems arising due to connection issues are the sole responsibility of such Player facing the connection issue
@@ -332,7 +332,7 @@ Violations may result in penalties, including disqualification.
   3.6. Negative Statements
    Players may not make, issue, authorize or publish any statement that is prejudicial or detrimental to the best interests of the tournament, Tournament Organizer, or its affiliates, sponsors, or VALORANT.
   3.7. Confidentiality
-  Without consent of the Tournament Organizer, a Player  may not disclose any confidential or proprietary information provided or made available by the Tournament Organizer to the Player in relation to the tournament. Players shall be obligated to keep the confidential or proprietary information provided by the Tournament Organizer. The “confidential or proprietary information” of the tournament and the Tournament Organizer includes all information and materials disclosed (whether in oral, written, or other tangible or intangible form) or otherwise made available by Tournament Organizer to a Player concerning or related to VALORANT, the tournament which the Player knows or should know, given the facts and circumstances surrounding the disclosure of the information, is confidential information of  NODWIN Gaming Or the Tournament Organizer. Confidential information includes, without limitation, development plans and release dates for updates to VALORANT, the configuration of the stage used at LAN Events and other similar information that is withheld from fans in order to preserve the “reveal” at an Online Event or a LAN Event.
+  Without consent of the Tournament Organizer, a Player  may not disclose any confidential or proprietary information provided or made available by the Tournament Organizer to the Player in relation to the tournament. Players shall be obligated to keep the confidential or proprietary information provided by the Tournament Organizer. The “confidential or proprietary information” of the tournament and the Tournament Organizer includes all information and materials disclosed (whether in oral, written, or other tangible or intangible form) or otherwise made available by Tournament Organizer to a Player concerning or related to VALORANT, the tournament which the Player knows or should know, given the facts and circumstances surrounding the disclosure of the information, is confidential information of  AA Gaming Or the Tournament Organizer. Confidential information includes, without limitation, development plans and release dates for updates to VALORANT, the configuration of the stage used at LAN Events and other similar information that is withheld from fans in order to preserve the “reveal” at an Online Event or a LAN Event.
   3.8. Illegal Activity
   Players are required to comply with all applicable laws at all times. A Player may not engage in any activity which is in violation with laws, regulations or public security administration rules.
   3.9. Immoral Activity
@@ -358,13 +358,13 @@ Violations may result in penalties, including disqualification.
 };
 
 export const FIFA_RULES = {
-  heading: "COLLEGE RIVALS - FIFA 23",
+  heading: "COLLEGE RIVALS - FIFA 24",
   data: `
   PS5 - TOURNAMENT RULESET
   
   1. Overview
   
-  College Rivals | FIFA23 (“College Rivals” or “Competition”) is operated by NODWIN GAMING(alternatively “NODWIN GAMING” or “Tournament Organiser'').
+  College Rivals | FIFA24 (“College Rivals” or “Competition”) is operated by AA GAMING(alternatively “AA GAMING” or “Tournament Organiser'').
   
   2. Player Eligibility 
   
@@ -372,7 +372,7 @@ export const FIFA_RULES = {
   Players are required to go to College Rival Website to register for this tournament. 
   For any queries, feel free to contact us on our discord server. 
   
-  Own or have access to FIFA 23 on the PlayStation®5 console. 
+  Own or have access to FIFA 24 on the PlayStation®5 console. 
   Own or have access to a PlayStation®5 console and compatible controller.
   Have a valid account for PlayStation Network (“Account for PSN”) and an associated PSN ID.
   Have a valid subscription to an active PlayStation Plus membership.
@@ -382,7 +382,7 @@ export const FIFA_RULES = {
   
   2.2 Age
   
-  Players must be eligible to play FIFA 23 according to their local age restrictions, at the point of tournament registration. Players who are minors (under 16 years old), must obtain consent from their parents or legal guardians to enter the Competition.
+  Players must be eligible to play FIFA 24 according to their local age restrictions, at the point of tournament registration. Players who are minors (under 16 years old), must obtain consent from their parents or legal guardians to enter the Competition.
   
   
   
@@ -469,7 +469,7 @@ Violations may result in penalties, including disqualification.
   
   5. Game Coverage
   
-  PlayStation reserves exclusive rights to the coverage of Sony Playstation INDIA open | FIFA23 matches. This includes all forms of transmission, including IRC Bots, Shoutcast-streams, and live broadcasts on platforms like Twitch, Youtube and the like. PlayStation can assign the coverage rights of a match or of several matches to a third party or to the actual players themselves. In this case, terms and conditions would have to be arranged with PlayStationmanagement, or NODWIN GAMING as a tournament organiser, before the match. In general, PlayStation or NODWIN GAMING as a tournament organiser will contact any player or team if they wish to broadcast one of their matches. If no contact is made, individual players are allowed to arrange their own broadcasts. 
+  PlayStation reserves exclusive rights to the coverage of Sony Playstation INDIA open | FIFA24 matches. This includes all forms of transmission, including IRC Bots, Shoutcast-streams, and live broadcasts on platforms like Twitch, Youtube and the like. PlayStation can assign the coverage rights of a match or of several matches to a third party or to the actual players themselves. In this case, terms and conditions would have to be arranged with PlayStationmanagement, or AA GAMING as a tournament organiser, before the match. In general, PlayStation or AA GAMING as a tournament organiser will contact any player or team if they wish to broadcast one of their matches. If no contact is made, individual players are allowed to arrange their own broadcasts. 
   
   Appendix A: Code of Conduct
   
@@ -671,7 +671,7 @@ Violations may result in penalties, including disqualification.
 export const BGMI_RULES = {
   heading: "BGMI RULEBOOK",
   data: `
-This rulebook is applicable for the participation of the players in the “College Rivals BGMI” (hereinafter referred to as “Tournament”). The Tournament is being organized by NODWIN Gaming Pvt. Ltd. (hereinafter referred to as the “Organizers”). All eligible participants playing in this Tournament as per the rulebook are hereinafter referred to as the Players.
+This rulebook is applicable for the participation of the players in the “College Rivals BGMI” (hereinafter referred to as “Tournament”). The Tournament is being organized by AA Gaming Pvt. Ltd. (hereinafter referred to as the “Organizers”). All eligible participants playing in this Tournament as per the rulebook are hereinafter referred to as the Players.
 1. Tournament Format
 BGMI Tournament Rules
 

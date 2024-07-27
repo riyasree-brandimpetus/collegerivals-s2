@@ -25,14 +25,16 @@ const openvideo = ()=>{
       </div>
       <div className="text-white -mt-4 md:text-4xl text-lg ppFormula-font italic ">
         IS BACK WITH SEASON 2
-      </div>
+
+      </div> 
       <div className="relative mt-7 ">
 
     <Link href="/sign-up">
       <button 
-        className="custom-button-neon m-3 px-14 py-5 text-1.063rem helvetica-medium-font font-medium text-#DBFD67  rounded-lg backdrop-blur-md"
+        className="custom-button-neon m-3 uppercase px-8 md:px-14 py-5 bg-opacity-60 bg-black text-1.063rem helvetica-medium-font font-medium text-#DBFD67  rounded-lg backdrop-blur-md"
       >
   Register Now For Free
+  
       </button>
       </Link>
  
@@ -40,8 +42,8 @@ const openvideo = ()=>{
 
       <div className="w-full flex flex-col items-center city-bg">
         <div className="max-w-[1440px] w-full h-full flex flex-col justify-center slate-400 xl:px-20 xl:py-24 md:p-12 px-6 gap-4 max-md:mt-36 ">
-          <div className="flex flex-row flex-wrap justify-between w-full xl:gap-5 md:gap-0 gap-5">
-            <div className="outer-border rounded-xl md:w-auto w-full">
+          <div className="flex flex-row flex-wrap justify-between w-full xl:gap-5 lg:gap-0 gap-5">
+            <div className="outer-border rounded-xl lg:w-auto w-full">
               <div className="flex flex-row xl:gap-5 gap-3 bg-[#141619] rounded-xl xl:py-7 xl:px-6 md:p-4 p-6 justify-center place-items-center">
                 <Image
                 width={74} height={74}
@@ -60,7 +62,7 @@ const openvideo = ()=>{
               </div>
             </div>
 
-            <div className="outer-border rounded-xl md:w-auto w-full">
+            <div className="outer-border rounded-xl lg:w-auto w-full">
               <div className="flex flex-row xl:gap-5 gap-3 bg-[#141619] rounded-xl xl:py-7 xl:px-6 md:p-4 p-6  justify-center place-items-center">
                 <Image
                    width={74} height={74}
@@ -79,7 +81,7 @@ const openvideo = ()=>{
               </div>
             </div>
 
-            <div className="outer-border rounded-xl md:w-auto w-full">
+            <div className="outer-border rounded-xl lg:w-auto w-full">
               <div className="flex flex-row xl:gap-5 gap-3 bg-[#141619] rounded-xl xl:py-7 xl:px-6 md:p-4 p-6  justify-center place-items-center">
                 <Image
                    width={74} height={74}

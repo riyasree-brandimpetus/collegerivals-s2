@@ -48,11 +48,18 @@ export const SelectModeSchema = Yup.object().shape({
 });
 
 
-export const SelectDateTimeSchema = Yup.object().shape({
+export const SelectOfflineDateTimeSchema = Yup.object().shape({
+  selectedCity: Yup.string().required('Select a City'),
+
+});
+
+
+export const SelectOnlineDateTimeSchema = Yup.object().shape({
   selectedDate: Yup.string().required('Select a date'),
-  selectedTimeSlot: Yup.string().required('Select a time slot')
+  selectedMonth: Yup.string().required('Select Month'),
 });
 
 export const ThirdFormSchema = Yup.object().shape({
   gameDetails: Yup.array().min(1).required('Game Details is required'),
 });
+

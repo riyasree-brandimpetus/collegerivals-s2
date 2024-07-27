@@ -131,7 +131,8 @@ export default function AcademicDetailsForm() {
             degreeStudyField: values.degreeStudyField,
             // idUrl: fileUrl,
             collegeName: values.collegeName,
-            city: values.city
+            city: values.city,
+            activeStep:1
           },
         });
         router.push('/my-profile');
@@ -144,7 +145,7 @@ export default function AcademicDetailsForm() {
         isClosable: true,
         description: message,
       });
-      console.error('Error submitting form:', error);
+      // console.error('Error submitting form:', error);
     }
   };
 
@@ -347,9 +348,9 @@ export default function AcademicDetailsForm() {
                 height={{ base: '4.125rem', lg: '4.063rem' }}
                 width={{ base: '17rem', lg: '22rem' }}
                 isLoading={isSubmitting}
-                loadingText="Uploading File and Data"
+                loadingText="Saving Data"
               >
-                Upload & Proceed
+                Submit
               </Button>
             </div>
           </Box>

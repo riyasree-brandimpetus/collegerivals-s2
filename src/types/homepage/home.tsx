@@ -11,9 +11,7 @@ export interface Highlight {
   }
 
   export interface CitySlides{
-    id:number;
-    name:string;
-    Imgsrc: string;
+    [key: string]: string;
   }
 
  

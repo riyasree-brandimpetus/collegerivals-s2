@@ -53,18 +53,18 @@ export default function BasicDetailsForm() {
     actions: FormikHelpers<LoginFormValues>
   ) => {
     try {
-      console.log('heree');
+      // console.log('heree');
       const response = await api.post('/users/id', {
         ...values
       });
       const data = response.data;
-      console.log(data)
+      // console.log(data)
       if (data) {
         const otpResp = await api.post('/otp/send-login-otp', {
           userId: data,
           mobileNumber: `${values.whatsappNumber}`,
         });
-      console.log(otpResp.data.userDetails);
+      // console.log(otpResp.data.userDetails);
         if (otpResp.data) {
           toast({
             title: `OTP Sent Successfully`,
@@ -207,7 +207,7 @@ export default function BasicDetailsForm() {
 
               <Box className="my-2 lg:my-4 w-full">
                 <ReCAPTCHA
-                  sitekey="6LfBSbQnAAAAAIKsL73tstGkEeMBa-u7Ip5Z4Rpg"
+                  sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
                   ref={recaptchaRef}
                   onChange={handleCaptchaSubmission}
                 />
@@ -227,7 +227,7 @@ export default function BasicDetailsForm() {
 
 <div className='text-white helvetica-light-font font-normal'>Not a member? <Link className='text-#DBFD67 underline helvetica-font' href="/sign-up">Register</Link></div>
              <Button
-              id="basic-details-form-submit-btn"
+              id="login-form-submit-btn"
               type="submit"
               color={'#fff'}
               _hover={{ opacity: '90%' }}

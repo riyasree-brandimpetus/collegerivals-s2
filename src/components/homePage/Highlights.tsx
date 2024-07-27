@@ -95,7 +95,7 @@ Packed with epic comebacks and record-breaking performances, it set the stage fo
     highlights.map((slide,index)=>(
         <div key={index} className="p-8">
             <div className="highlight-gradient rounded-xl relative " >
-        <Image width={570} height={380} src={slide.src} alt="highlight" className="mb-4 rounded-xl relative -z-20 max-h-96 md:w-[570px] object-cover" />
+        <Image width={570} height={380} src={slide.src} alt="highlight" className="mb-4 rounded-xl relative -z-20 md:max-h-[250px] max-h-[140px] md:w-[570px] object-cover" />
         </div>
     </div>
     ))

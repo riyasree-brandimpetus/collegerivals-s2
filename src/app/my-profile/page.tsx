@@ -10,13 +10,13 @@ import ProfileDashboard from '@/components/my-profile/ProfileDashboard';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
 import NavbarSeason2 from '@/components/globalComponents/NavbarSeason2';
+import LoadingScreen from '@/components/globalComponents/LoadingScreen';
 
 
 export default function MyProfile() {
   // const { state,dispatch } = useContext(UserContext);
   //   const [isOpen, setIsOpen] = useState(false);
-  const [showLoader, setShowLoader] = useState<boolean>(false);
-  const [userData, setUserData] = useState<any>();
+  const [showLoader, setShowLoader] = useState<boolean>(true);
   const router = useRouter();
   const { state, dispatch } = useContext(UserContext);
 
@@ -25,14 +25,17 @@ export default function MyProfile() {
     // Retrieve the data from localStorage
     const storedUserId: any = localStorage.getItem('userId');
     if (storedUserId) {
-      console.log('ID is found', storedUserId);
+      // console.log('ID is found', storedUserId);
       dispatch({
         type: 'UPDATE',
         payload: {...state, _id: storedUserId },
       });
       setShowLoader(false)
     } else{
-      console.log('ID not found', storedUserId);
+      // console.log('ID not found', storedUserId);
+      dispatch({
+        type: 'DELETE'
+      });
       router.push('/login');
     }
   }, []);
@@ -41,7 +44,7 @@ export default function MyProfile() {
   return (
     <>
       {showLoader ? (
-        'Loading'
+        <LoadingScreen/>
       ) : (
         <div>
           <NavbarSeason2 /> <ProfileDashboard />

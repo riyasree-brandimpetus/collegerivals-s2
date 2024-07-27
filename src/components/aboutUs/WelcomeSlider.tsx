@@ -35,7 +35,7 @@ const WelcomeSlider =()=>{
                 <div className="slider w-full">
                   
                     <div>
-                        <p className="text-white text-center md:text-2xl text-lg font-light helvetica-extralight-font">College Rivals is the bridge between a College Student's passion for Gaming and their aspiration to be a pro player. Positioned as India's Largest Esports Talent Hunt, it combines music, pop culture, and comedy putting together a unique cross between gaming and Entertainment, in an unprecedented format. An innovative esports initiative developed in collaboration between Ampverse and DMI Finance. It aims to nurture gaming talent at the collegiate level across India through competitive tournaments, mentorship, and community engagement. It goes beyond esports tournaments by incorporating elements of college life, pop culture trends, and influencer engagements</p>
+                        <p className="text-white text-center md:text-2xl text-lg font-light helvetica-extralight-font">College Rivals is the bridge between a College Student's passion for Gaming and their aspiration to be a pro player. Positioned as India's Largest Esports Talent Hunt, it combines music, pop culture, and comedy putting together a unique cross between gaming and Entertainment, in an unprecedented format. An innovative esports initiative developed in collaboration between Ampverse and DMI. It aims to nurture gaming talent at the collegiate level across India through competitive tournaments, mentorship, and community engagement. It goes beyond esports tournaments by incorporating elements of college life, pop culture trends, and influencer engagements</p>
                     </div>
                    
              

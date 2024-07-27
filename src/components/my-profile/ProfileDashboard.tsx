@@ -1,29 +1,27 @@
-'use client';
-import { UserContext } from '@/utils/context/user.context';
-import {
-  useToast,
-  Spinner,
-} from '@chakra-ui/react';
-import { useContext, useEffect, useState } from 'react';
-import api from '@/utils/axios/instance';
-import Link from 'next/link';
-import Image from 'next/image';
+"use client";
+import { UserContext } from "@/utils/context/user.context";
+import { useToast, Spinner } from "@chakra-ui/react";
+import { useContext, useEffect, useState } from "react";
+import api from "@/utils/axios/instance";
+import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 // format for joined date
 const formatJoinedDate = (createdAt: string): string => {
   const date = new Date(createdAt);
   const monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
   const day = date.getDate();
   const month = date.getMonth();
@@ -35,56 +33,31 @@ const formatJoinedDate = (createdAt: string): string => {
   return formattedDate;
 };
 const getOrdinalSuffix = (day: number): string => {
-  if (day > 3 && day < 21) return 'th';
+  if (day > 3 && day < 21) return "th";
   switch (day % 10) {
     case 1:
-      return 'st';
+      return "st";
     case 2:
-      return 'nd';
+      return "nd";
     case 3:
-      return 'rd';
+      return "rd";
     default:
-      return 'th';
+      return "th";
   }
 };
 
 // selected data time
-const formatSelectedDateTime = (
-  selectedDate: string,
-  selectedTimeSlot: string
-): string => {
-  const date = new Date(selectedDate);
-  const monthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-  const day = date.getDate();
-  const month = date.getMonth();
-  const formattedDate = `${day}${getOrdinalSuffix(day)} ${monthNames[month]}`;
-  const formattedTimeSlot = formatTimeSlot(selectedTimeSlot);
-  return `${formattedDate}, ${formattedTimeSlot}`;
-};
 const formatTimeSlot = (timeSlot: string): string => {
-  const [startTime, endTime] = timeSlot.split(' to ');
+  const [startTime, endTime] = timeSlot.split(" to ");
   return `${formatTime(startTime)} to ${formatTime(endTime)}`;
 };
 
 const formatTime = (time: string): string => {
-  const [hour, period] = time.split(' ');
-  const [hours, minutes = '00'] = hour.split(':');
+  const [hour, period] = time.split(" ");
+  const [hours, minutes = "00"] = hour.split(":");
   return `${hours}:${minutes} ${period}`;
 };
-  // calculate age
+// calculate age
 
 const ProfileDashboard = () => {
   const { state, dispatch } = useContext(UserContext);
@@ -93,110 +66,99 @@ const ProfileDashboard = () => {
   const [gameImageUrls, setGameImageUrls] = useState<any>([]);
   const [showLoader, setShowLoader] = useState<boolean>(true);
   const [registrationUrl, setRegistrationUrl] = useState<string>(
-    '/esports-registration'
+    "/esports-registration"
   );
   const [age, setAge] = useState<number | null>(null);
-  const [joinedDate, setJoinedDate] = useState<string>('');
-  const [selectedDateTime, setSelectedDateTime] = useState<string>('');
+  const [joinedDate, setJoinedDate] = useState<string>("");
+  const [selectedTime, setSelectedTime] = useState<string>("");
   const toast = useToast();
-
+  const router = useRouter();
   useEffect(() => {
-    const storedUserId: any = localStorage.getItem('userId');
+    const storedUserId: any = localStorage.getItem("userId");
     const fetchGameDetails = async () => {
       try {
-        const response = await api.get('/games/');
+        const response = await api.get("/games/");
         const data = response?.data;
         setGameData(data);
         setShowLoader(false);
       } catch (error: any) {
         const message = error?.response?.data?.error;
+        // if(message){
+        // }
         toast({
           title: `Error fetching Data`,
-          status: 'error',
+          status: "error",
           isClosable: true,
           description: message,
         });
-        console.error('Error fetching Data:', error);
+        // console.error('Error fetching Data:', error);
       }
     };
-      const fetchUserDetails = async () => {
-        try {
-          const response = await api.post('/users/details', {
-            userId: state._id || storedUserId,
-          });
-          const data = response.data;
-          console.log(data);
-          // const data = response?.data;
-          // setGameData(data);
-           dispatch({
-             type: 'UPDATE',
-             payload: { ...state,...data, isLoggedIn:true },
-           });
-          fetchGameDetails();
-          setShowLoader(false);
-        } catch (error: any) {
-          const message = error?.response?.data?.error;
-          toast({
-            title: `Error fetching Data`,
-            status: 'error',
-            isClosable: true,
-            description: message,
-          });
-          console.error('Error fetching Data:', error);
-        }
-      };
-      fetchUserDetails()
+    const fetchUserDetails = async () => {
+      try {
+        const response = await api.post("/users/details", {
+          userId: state._id || storedUserId,
+        });
+        const data = response.data;
+        // console.log(data);
+        // const data = response?.data;
+        // setGameData(data);
+        dispatch({
+          type: "UPDATE",
+          payload: { ...state, ...data, isLoggedIn: true },
+        });
+        fetchGameDetails();
+        setShowLoader(false);
+      } catch (error: any) {
+        const message = error?.response?.data?.error;
+        localStorage.removeItem("userId");
+        console.log(message);
+        toast({
+          title: `Error fetching Data`,
+          status: "error",
+          isClosable: true,
+          description: message,
+        });
+        router.push('/sign-up');
+        // console.error('Error fetching Data:', error);
+      }
+    };
+    fetchUserDetails();
   }, []);
 
-
   useEffect(() => {
-      const fetchData = async () => {
-  
-   
+    const fetchData = async () => {
+      const formattedDate = formatJoinedDate(state.createdAt);
+      setJoinedDate(formattedDate);
+    };
 
-        const formattedDate = formatJoinedDate(state.createdAt);
-        setJoinedDate(formattedDate);
+    
+    fetchData();
+    if (state.isOnlineModeSelected !== "" && state.selectedCity || state.selectedDate  ) { // todo- need to check if either selected date or selected city have value in it.
+      setprogress(50);
+      setRegistrationUrl("/add-academic-details");
+    }
+    if ((state.selectedCity || state.selectedDate) && state.collegeName && state.gameDetails) {
+      setprogress(100);
+    }
+  }, [state]);
 
-        if (state.selectedDate && state.selectedTimeSlot) {
-          const formattedSelectedDateTime = formatSelectedDateTime(
-            state.selectedDate,
-            state.selectedTimeSlot
-          );
-          setSelectedDateTime(formattedSelectedDateTime);
-        }
-      };
-      fetchData()
-      if(state.isOnlineModeSelected!==''){
-        setprogress(50)
-        setRegistrationUrl('/add-academic-details');
-      }
-      if(state.collegeName){
-        setprogress(100);
-      }
-  }, [state])
-  
- 
   useEffect(() => {
     if (state.gameDetails.length > 0 && gameData.length > 0) {
       const gameNames = state.gameDetails.map((game: any) =>
         game?.name.toLowerCase()
       );
-      console.log('gameNames', gameNames);
+      // console.log('gameNames', gameNames);
       // Find the corresponding image URLs from gameData
       const imageUrls = gameNames.map((name: string) => {
         const game = gameData.find((g: any) => g.name.toLowerCase() === name);
         return game ? game.imageUrl : null;
       });
       setGameImageUrls(imageUrls);
-      console.log('imageUrls', imageUrls);
+      // console.log('imageUrls', imageUrls);
     }
-  }, [gameData , state.gameDetails]);
+  }, [gameData, state.gameDetails]);
 
-  console.log(gameImageUrls);
-
-
-  console.log('userData', state);
-  console.log('gameData', gameData);
   return (
     <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-hidden">
       <Image
@@ -227,23 +189,31 @@ const ProfileDashboard = () => {
               <div className="flex h-full justify-between flex-col  md:place-items-start  items-center">
                 <div>
                   <div className=" lg:pr-6">
-                    <div className="relative -mt-4 flex justify-center items-center">
+                    <Link className="relative -mt-4 flex justify-center items-center" href="/edit-profile">
                       <Image
-                        src={state.profilePhoto || '/profile-img.svg'}
+                        src={state.profilePhoto || "/profile-img.svg"}
                         alt="profile photo"
                         width={181}
                         height={181}
                         className="rounded-2xl"
                       />
-                      {/* <div className="bg-[#191919] p-4 rounded-full absolute -top-3 -right-3"></div> */}
-                    </div>
+                      <div  className="whitespace-nowrap absolute justify-center items-center flex gap-2  bottom-2 uppercase text-sm md:text-base helvetica-medium-font font-medium text-white  p-4 rounded-md hover:bg-[#212121] bg-[#191919]">
+                        edit profile{" "}
+                        <Image
+                          src="/profile-edit-icon.svg"
+                          alt=""
+                          width={15}
+                          height={17}
+                        />
+                      </div>
+                    </Link>
                   </div>
                   <div className="flex flex-col mt-3  items-center lg:place-items-start place-items-center gap-1">
                     <p className="text-[#CFCFCF] md:text-xl text-lg helvetica-font font-bold">
                       {state.name}
                     </p>
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      {joinedDate ? `Joined on ${joinedDate}` : '-'}
+                      {joinedDate ? `Joined on ${joinedDate}` : "-"}
                     </p>
                   </div>
                 </div>
@@ -253,16 +223,16 @@ const ProfileDashboard = () => {
                     Mode
                   </p>
                   <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                    {state.isOnlineModeSelected !== '' &&
+                    {state.isOnlineModeSelected !== "" &&
                       state.isOnlineModeSelected === true &&
-                      'Online'}
-                    {state.isOnlineModeSelected !== '' &&
+                      "Online"}
+                    {state.isOnlineModeSelected !== "" &&
                       state.isOnlineModeSelected === false &&
-                      'Offline'}
+                      "Offline"}
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col lg:gap-14  max-lg:max-w-[300px] max-lg:pl-4 lg:place-items-start items-center ">
+              <div className="flex flex-col lg:gap-14  max-lg:max-w-[300px] max-lg:pl-4 lg:place-items-start items-center w-[75%]">
                 <h2 className="xl:text-7xl lg:text-6xl   text-3xl font-extrabold text-white xl:-mt-5 lg:mt-0 mt-7   uppercase ppFormula-font">
                   <em>HELLO, {state.name}</em>
                   <span className="text-[#DBFD67]"> !</span>
@@ -274,8 +244,7 @@ const ProfileDashboard = () => {
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
                       {/* {age !== undefined && age !== null ? '-' : `${age} yrs`} */}
-                      {state.age!==0 ? `${state.age} yrs` : '-'} 
-                   
+                      {state.age !== 0 ? `${state.age} yrs` : "-"}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -283,7 +252,7 @@ const ProfileDashboard = () => {
                       City
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.city || '-'}
+                      {state.city || "-"}
                     </p>
                   </div>
                   <div className="flex flex-col max-lg:col-span-2 flex-wrap ">
@@ -291,7 +260,7 @@ const ProfileDashboard = () => {
                       Email Address
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold w-full">
-                      {state.email || '-'}
+                      {state.email || "-"}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -299,7 +268,7 @@ const ProfileDashboard = () => {
                       College
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.collegeName || '-'}
+                      {state.collegeName || "-"}
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
@@ -307,7 +276,7 @@ const ProfileDashboard = () => {
                       Degree
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.degreeStudyField || '-'}
+                      {state.degreeStudyField || "-"}
                     </p>
                   </div>
 
@@ -316,7 +285,7 @@ const ProfileDashboard = () => {
                       Phone no.
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.whatsappNumber || '-'}
+                      {state.whatsappNumber || "-"}
                     </p>
                   </div>
                   <div className=" lg:hidden flex flex-col flex-wrap ">
@@ -324,7 +293,7 @@ const ProfileDashboard = () => {
                       Mode
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.isOnlineModeSelected ? 'Online' : 'Offline'}
+                      {state.isOnlineModeSelected ? "Online" : "Offline"}
                     </p>
                   </div>
 
@@ -342,11 +311,14 @@ const ProfileDashboard = () => {
                       ) : gameImageUrls.length > 0 ? (
                         <>
                           {gameImageUrls.map((url: string, index: number) => (
-                            <div   key={index} className="bg-[#DBFD67] p-4 rounded-lg">
+                            <div
+                              key={index}
+                              className="bg-[#DBFD67] p-4 rounded-lg"
+                            >
                               <Image
                                 className="h-4"
-                              width={46}
-                              height={46}
+                                width={46}
+                                height={46}
                                 src={url}
                                 alt={`Game Image ${index}`}
                               />
@@ -360,10 +332,20 @@ const ProfileDashboard = () => {
                   </div>
                   <div className=" flex flex-col flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Date & Time
+                      Date
+              
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {selectedDateTime || '-'}
+                      {state.selectedDate || '-'} 
+                    </p>
+                  </div>
+                  <div className=" flex flex-col flex-wrap ">
+                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+                    Registered City
+              
+                    </p>
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+                      {state.selectedCity || '-'} 
                     </p>
                   </div>
                 </div>
@@ -380,21 +362,65 @@ const ProfileDashboard = () => {
                 </div>
                 <p className="text-white">{progress}% Complete</p>
               </div>
-              {progress !== 100 && (
-              <div className="rounded-lg w-fit lg:block hidden ">
-                <Link href={registrationUrl}>
-                <div  className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
-                  COMPLETE PROFILE
-                </div>
-                </Link>
-              </div>
-                  )}
+              {
+                progress !== 100 ? (
+                  <div className="rounded-lg w-fit lg:block hidden ">
+                    <Link href={registrationUrl}>
+                      <div className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
+                        COMPLETE PROFILE
+                      </div>
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="rounded-lg w-fit lg:block hidden ">
+                    <Link
+                      href="https://bit.ly/RIVALSdiscord"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <div className="flex items-center custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover  bg-black helvetica-light-font font-normal">
+                        <Image
+                          className="h-4"
+                          width={46}
+                          height={46}
+                          src="./discord-logo.svg"
+                          alt={`Discord logo`}
+                        />
+                        JOIN DISCORD
+                      </div>
+                    </Link>
+                  </div>
+                )
+              }
             </div>
           </div>
         </div>
-        {progress !== 100 && (
+        {progress !== 100 ? (
           <div className=" rounded-lg lg:hidden flex w-fit  z-10">
-            <Link className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal" href={registrationUrl}>Complete Profile</Link>
+            <Link id="complete-profile-btn"
+              className="custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal"
+              href={registrationUrl}
+            >
+              Complete Profile
+            </Link>
+          </div>
+        ) : (
+          <div className=" rounded-lg lg:hidden flex w-fit  z-10">
+            <Link
+              className="flex items-center custom-button-neon xl:px-9 px-4 py-5 xl:text-lg text-[#DBFD67] text-base  rounded-lg bg-cover bg-black helvetica-light-font font-normal"
+              href="https://bit.ly/crdiscordweb"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <Image
+                className="h-4"
+                width={46}
+                height={46}
+                src="./discord-logo.svg"
+                alt={`Discord logo`}
+              />
+              JOIN DISCORD
+            </Link>
           </div>
         )}
       </div>

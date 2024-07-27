@@ -9,11 +9,13 @@ import { useRouter } from 'next/navigation';
 import {
   useSteps,
 } from '@chakra-ui/react';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import SelectMode from './SelectMode';
 import Image from 'next/image';
 import Link from 'next/link';
 import SelectDate from './SelectDate';
+import api from '@/utils/axios/instance';
+import LoadingScreen from '../globalComponents/LoadingScreen';
 
 const steps = [
   { description: 'Select Mode' },
@@ -22,38 +24,75 @@ const steps = [
 ];
 
 export default function ESportsPage() {
-  const { state } = useContext(UserContext);
+  const { state,dispatch } = useContext(UserContext);
   const { activeStep, setActiveStep } = useSteps({
     index: 1,
     count: steps.length,
   });
   const router = useRouter();
+  const [showLoader, setShowLoader] = useState<boolean>(true);
 
-  
   useEffect(() => {
-    if (state.isOnlineModeSelected !== '') {
-      console.log('Online/Offline Mode is selected');
+    if (state.isOnlineModeSelected !== "") {
+      // console.log('Online/Offline Mode is selected');
       setActiveStep(2);
     }
-  }, [state.isOnlineModeSelected , setActiveStep]);
+  }, [state.isOnlineModeSelected, setActiveStep]);
 
   useEffect(() => {
-    if ((state.isOnlineModeSelected !== '' )&& state.gameDetails.length > 0) {
-      console.log('Game Details are verified');
+    if (state.isOnlineModeSelected !== "" && state.gameDetails.length > 0) {
+      // console.log('Game Details are verified');
       setActiveStep(3);
     }
-  }, [state.isOnlineModeSelected,state.gameDetails , setActiveStep]);
+  }, [state.isOnlineModeSelected, state.gameDetails, setActiveStep]);
 
 useEffect(() => {
-  if (state.selectedDate || state.selectedTimeSlot) {
-    console.log('Date, Time Slorts are updated');
+  if (state.selectedDate || state.selectedCity) {
+    // console.log('Date, Time Slorts are updated');
     // setActiveStep(3);
     router.push('/add-academic-details')
   }
-}, [state.selectedDate, state.selectedTimeSlot ,  router]);
+}, [state.selectedDate ,  router , state.selectedCity]);
+
+  useEffect(() => {
+    // Retrieve the data from localStorage
+    const storedUserId: any = localStorage.getItem('userId');
+    console.log(state)
+    if (storedUserId) {
+      const fetchUserDetails = async () => {
+        try {
+          const response = await api.post("/users/details", {
+            userId: state._id || storedUserId,
+          });
+          const data = response.data;
+          dispatch({
+            type: "UPDATE",
+            payload: { ...state, ...data, isLoggedIn: true },
+          });
+          if(data.selectedDate){
+          router.push("/add-academic-details");
+          } else{
+            setShowLoader(false);
+          }
+        } catch (error: any) {
+          const message = error?.response?.data?.error;
+          router.push("/my-profile");
+          console.error('Error fetching Data:', message);
+        }
+      };
+      fetchUserDetails();
+      // console.log('ID is found', storedUserId);
+    } else {
+      // console.log('ID not found');
+      router.push('/login');
+    }
+}, []);
 
   return (
     <>
+     {showLoader ? (
+        <LoadingScreen/>
+      ) : (
       <div className="w-full flex h-screen bg-black">
         <div className=" max-lg:hidden w-45% custom-background pt-10 pl-11">
           <Link href="/">
@@ -129,6 +168,7 @@ useEffect(() => {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 }

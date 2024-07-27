@@ -579,13 +579,14 @@ a.active {
   color: #e7327c;
 }
 .custom-background {
-  background-image: url("/Registration-Panel.jpg");
+  background-image: url(/registration-bg.png), url(/registration-bg.svg);
+  background-repeat: no-repeat, repeat-y;
   background-position: center;
-  background-size: 100%, cover;
+  background-size: 80%, cover;
   background-repeat: no-repeat;
 }
 .custom-gradient {
-  background-color: linear-gradient(
+  background: linear-gradient(
     to right,
     #050607 50%,
     #010101 73.14%,
@@ -595,7 +596,7 @@ a.active {
 
 .custom-button-neon {
   border: 1px solid #dbfd67;
-  background: transparent;
+
   border-radius: 10px;
 
   box-shadow: 4px 4px #dbfd67;

@@ -7,7 +7,7 @@ import CityData from "../../data/CityTicker.json"
 import Image from "next/image";
 const CityTicker = () => {
 
-    const Cityslides: CitySlides[] = CityData;
+    const Cityslides:any = CityData;
 
   const slidesettings = {
 
@@ -45,15 +45,15 @@ infinite:true,
 
   return (
     <div className="w-full flex flex-col items-center overflow-hidden bg-black">
-      <div className="max-w-[1440px] w-full h-full flex flex-col justify-center slate-400 md:py-24 py-6 gap-4">
-        <h2 className="md:text-6xl text-2xl mb-11 text-center font-medium text-white ppFormula-font">
+      <div className="max-w-[1440px] w-full h-full flex flex-col justify-center slate-400 md:py-24 py-9 max-md:mt-7 gap-4">
+        <h2 className="md:text-6xl text-2xl md:mb-11 mb-4 text-center font-medium text-white ppFormula-font">
           <em>COMING TO A CITY NEAR YOU</em>
         </h2>
         <div>
           <Slider className="city-ticker" {...slidesettings}>
 
 {
-    Cityslides.map((slides,index)=>(
+    Cityslides.map((slides:any,index:any)=>(
         <div key={index} className="md:pl-0 pl-4 w-full">
         <div className=" flex flex-col w-full items-center justify-center">
        
@@ -62,7 +62,7 @@ infinite:true,
             alt=""
             className="md:mb-6 mb-4 "
           />
-          <p className="md:text-xl w-full text-xs text-center text-white font-extrabold">
+          <p className="lg:text-xl w-full text-xs text-center text-white font-extrabold">
             <em>{slides.name}</em>
           </p>
          

@@ -299,7 +299,7 @@ const EsportsAccordian = () => {
                       alignItems={"center"}
                     >
                       <Box>
-                        <Icon1 />
+                      <Image src="/month-icon.svg"/>
                       </Box>
                       <Heading
                         fontSize={{ base: "1.125rem", lg: "1.625rem" }}
@@ -350,18 +350,18 @@ const EsportsAccordian = () => {
                                 height="26px"
                                 overflow="hidden"
                               >
-                                <Image
+                                {/* <Image
                                   src={"./Images/media/student-img.png"}
                                   alt="student face"
                                   objectFit="cover"
                                   height='auto'
                                   width='auto'
-                                />
+                                /> */}
                               </Flex>
                               <Text fontSize={{ base: "1.125rem", lg: "1.625rem" }} 
                                 fontWeight={"800"}>{studentName}</Text>
                             </Flex>
-                            <Flex
+                            {/* <Flex
                               flex="73"
                               alignItems="center"
                               gap={{ base: "0.3rem", lg: "1rem" }}
@@ -373,7 +373,7 @@ const EsportsAccordian = () => {
                               </Box>
                               <Text fontSize={{ base: "1.125rem", lg: "1.625rem" }} 
                                 fontWeight={"800"} >{universityName}</Text>
-                            </Flex>
+                            </Flex> */}
                           </Flex>
                         )
                       )}

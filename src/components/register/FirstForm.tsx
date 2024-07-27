@@ -10,7 +10,7 @@ export default function FirstForm() {
 
   useEffect(() => {
     if (state.name && state.whatsappNumber && state.city && state.email) {
-      console.log("Baisc details are entered");
+      // console.log("Baisc details are entered");
       setShowOTPForm(true);
     }
   }, [state]);

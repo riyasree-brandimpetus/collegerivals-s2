@@ -13,7 +13,7 @@ import NavbarSeason2 from "@/components/globalComponents/NavbarSeason2";
 
 
 const Page = ({ params }: { params: { slug: string } }) => {
-  console.log(params)
+  // console.log(params)
   const router = useRouter();
   const { slug } = params
   let rules

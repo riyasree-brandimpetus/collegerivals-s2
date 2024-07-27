@@ -27,17 +27,7 @@ const News =()=>{
                
                 
 
-                <div className="flex flex-col  news-container ">
-                <Link href="https://animationxpress.com/latest-news/ampverse-and-dmi-finances-esports-series-college-rivals-will-travel-to-five-indian-cities/" target="_blank">
-                <div className="overflow-hidden">
-                    <Image width={400} height={224}  src="/College-Rivals-Gaming-Truck-news.webp" alt="newImg" className="w-full h-56 object-cover"/>
-                    </div>
-                    <div className="flex flex-col xl:gap-3 gap-2 py-5">
-                        <h3 className="xl:text-2xl text-xl helvetica-light-font ">Ampverse and DMI Finance’s esports series ‘College Rivals’ will travel to five Indian cities</h3>
-                        <p className="text-base xl:font-normal helvetica-extralight-font opacity-70 ">This upcoming series will comprise esports tournaments, mentorship from accomplished professional players... </p>
-                    </div>
-                    </Link>
-                </div>
+              
 
                 <div className="flex flex-col  news-container ">
                 <Link href="https://www.indiatodaygaming.com/story/college-rivals-grand-finale-creates-history-for-indian-esports-bgmi-finalist-gets-professional-contract-with-rival-pro-esports-3847" target="_blank">
@@ -47,17 +37,6 @@ const News =()=>{
                     <div className="flex flex-col xl:gap-3 gap-2 py-5">
                         <h3 className="xl:text-2xl text-xl helvetica-extralight-font  ">College Rivals Grand Finale Creates History for Indian Esports; BGMI Finalist Gets Professional Contract with Rival Pro Esports</h3>
                         <p className="text-base xl:font-normal  opacity-70 ">India’s largest Esports talent hunt witnessed a total prize pool of INR 50 lakhs as...</p>
-                    </div>
-                    </Link>
-                </div>
-                <div className="flex flex-col  news-container ">
-                <Link href="https://www.insidesport.in/esports/esports-ampverse-and-dmi-team-up-to-bring-college-rivals-an-esports-collegiate-ip/" target="_blank">
-                <div className="overflow-hidden">
-                    <Image width={400} height={224}  src="/Inside-Esports-news.webp" alt="newsImg" className="w-full h-56 object-cover"/>
-                    </div>
-                    <div className="flex flex-col xl:gap-3 gap-2 py-5">
-                        <h3 className="xl:text-2xl text-xl helvetica-extralight-font  ">Ampverse and DMI team up to bring ‘College Rivals’ an esports collegiate IP</h3>
-                        <p className="text-base xl:font-normal  opacity-70 ">An announcement highlights the arrival of Ampverse DMI to the Indian Esports space and launch of their new IP College Rivals for students...</p>
                     </div>
                     </Link>
                 </div>
@@ -80,6 +59,28 @@ const News =()=>{
                     <div className="flex flex-col xl:gap-3 gap-2 py-5">
                         <h3 className="xl:text-2xl text-xl helvetica-extralight-font  ">College Rivals Grand Finale: BGMI finalist gets professional contract with Rival Pro E-sports</h3>
                         <p className="text-base xl:font-normal  opacity-70 ">College Rivals, India's largest E-sports talent hunt, culminated in a remarkable fashion by not only crowning champions...</p>
+                    </div>
+                    </Link>
+                </div>
+                <div className="flex flex-col  news-container ">
+                <Link href="https://www.insidesport.in/bgmi/college-rivals-season-2-kicks-off-registration-opens-july-4/" target="_blank">
+                <div className="overflow-hidden">
+                    <Image width={400} height={224}  src="/news-college-rivalss2.jpg" alt="newsImg" className="w-full h-56 object-cover"/>
+                    </div>
+                    <div className="flex flex-col xl:gap-3 gap-2 py-5">
+                        <h3 className="xl:text-2xl text-xl helvetica-extralight-font  ">College Rivals Season 2 kicks off, registration opens July 4</h3>
+                        <p className="text-base xl:font-normal  opacity-70 ">Ampverse DMI launched the highly anticipated second season of its innovative gaming talent hunt, “College Rivals.”...</p>
+                    </div>
+                    </Link>
+                </div>
+                <div className="flex flex-col  news-container ">
+                <Link href="https://www.insidesport.in/bgmi/college-rivals-season-2-kicks-off-registration-opens-july-4/" target="_blank">
+                <div className="overflow-hidden">
+                    <Image width={400} height={224}  src="/news-amp-dmi.png" alt="newsImg" className="w-full h-56 object-cover"/>
+                    </div>
+                    <div className="flex flex-col xl:gap-3 gap-2 py-5">
+                        <h3 className="xl:text-2xl text-xl helvetica-extralight-font  ">Ampverse DMI sets ambitious roadmap for the Indian gaming sector</h3>
+                        <p className="text-base xl:font-normal  opacity-70 ">Ampverse DMI, a joint venture between Ampverse Group,(“Ampverse”) an eminent gaming and entertainment ecosystem...</p>
                     </div>
                     </Link>
                 </div>

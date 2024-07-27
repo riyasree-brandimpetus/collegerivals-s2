@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react';
 import { SelectProfileSchema } from '@/schemas/register';
 import api from '@/utils/axios/instance';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { UserContext } from '@/utils/context/user.context';
 import RadioGroup from './RadioGroup';
 import CustomRadio from './CustomRadio';
@@ -27,15 +27,11 @@ interface SelectMode {
 
 
 export default function SelectProfile() {
-  /**
-   * Initialize first form values
-   */
-  const secondFormInitialValues = {
-    modeSelected: '',
-  };
   const toast = useToast();
   const { state, dispatch } = useContext(UserContext);
-
+  const [initialValues,setInitialValues]=useState<SelectMode>({
+     modeSelected: ''
+  })
   /**
    * Handles First Form Submission
    * @param values FirstFormValues
@@ -67,6 +63,7 @@ export default function SelectProfile() {
           payload: {
             ...state,
             isOnlineModeSelected: values.modeSelected == 'online' ? true : false,
+            activeStep:2 // Will be used for Edit Profile
           },
         });
        }
@@ -78,15 +75,32 @@ export default function SelectProfile() {
         isClosable: true,
         description: message,
       });
-      console.error('Error submitting form:', error);
+      // console.error('Error submitting form:', error);
     }
   };
 
+  /**
+   * For Edit Profile
+   */
+  useEffect(() => {
+    console.log('state',state)
+    console.log('state.isOnlineModeSelected',state.isOnlineModeSelected !=='' ? (state.isOnlineModeSelected ? 'online' : 'offline') :'')
+    if(state.isOnlineModeSelected !==''){
+      console.log('here')
+      setInitialValues({
+        ...initialValues,
+        modeSelected: state.isOnlineModeSelected ? 'online' : 'offline'
+      });
+    }
+  }, [])
+  
+
   return (
     <Formik
-      initialValues={secondFormInitialValues}
+      initialValues={initialValues}
       validationSchema={SelectProfileSchema}
       onSubmit={handleSubmit}
+      enableReinitialize
     >
       {({ values, touched, errors, setFieldValue, isSubmitting }) => (
         <Form className="flex flex-col grow  pt-8 md:max-h-[80vh]">
@@ -152,7 +166,7 @@ export default function SelectProfile() {
           <Box className="mt-auto sticky bg-white bottom-0">
             <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full flex-row  flex items-center justify-between lg:right-0 bottom-0 ">
               <Button
-                id="academic-details-form-submit-btn"
+                id="select-mode-submit-btn"
                 type="submit"
                 color={'#fff'}
                 _hover={{ opacity: '90%' }}
@@ -174,7 +188,7 @@ export default function SelectProfile() {
                 height={{ base: '4.125rem', lg: '4.063rem' }}
                 width={{ base: '17rem', lg: '22rem' }}
                 isLoading={isSubmitting}
-                loadingText="Uploading File and Data"
+                loadingText="Submiting"
               >
                 Proceed
               </Button>

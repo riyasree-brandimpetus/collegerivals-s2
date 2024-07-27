@@ -114,7 +114,7 @@ const RivalsFlex = () => {
           </Box>
           <Flex className="pubg-text-container flex-col pl-6 w-[70%] sm:w-[85%] lg:w-[70%]">
             <Text className="helvetica-font text-sm lg:text-xl w-full pb-5">
-              College Rivals: Ampverse and DMI Finance Announce New Collegiate
+              College Rivals: Ampverse and DMI Announce New Collegiate
               Esports IP, All You Need to Know
             </Text>
             <a

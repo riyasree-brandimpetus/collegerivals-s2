@@ -37,8 +37,20 @@ export default function BasicDetailsForm() {
   const toast = useToast();
   const { dispatch } = useContext(UserContext);
   const searchParams = useSearchParams();
-  const referral = searchParams.get('ref');
-
+  const referral = searchParams.get('ref') || '';
+  const utm_source = searchParams.get('utm_source') || '';
+  const utm_medium = searchParams.get('utm_medium') || '';
+  const utm_campaign = searchParams.get('utm_campaign') || '';
+  const utm_content = searchParams.get('utm_content') || '';
+  const utm_term = searchParams.get('utm_term') || '';
+  const queryParams = {
+    ref:referral,
+    utm_source,
+    utm_medium,
+    utm_campaign,
+    utm_content,
+    utm_term
+  }
   /**
    * To Fetch User Agent Details
    */
@@ -123,7 +135,7 @@ export default function BasicDetailsForm() {
       const response = await api.post('/users/sign-up', {
         ...values,
         whatsappCountryCode: '+91',
-        queryParams: referral || '',
+        queryParams: queryParams,
         userAgentDetails: userAgentDetailsArray,
       });
       const data = response.data;
@@ -334,7 +346,7 @@ export default function BasicDetailsForm() {
               </Flex>
               <Box className="my-2 lg:my-4">
                 <ReCAPTCHA
-                  sitekey="6LfBSbQnAAAAAIKsL73tstGkEeMBa-u7Ip5Z4Rpg"
+                  sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
                   ref={recaptchaRef}
                   onChange={handleCaptchaSubmission}
                 />
@@ -355,7 +367,7 @@ export default function BasicDetailsForm() {
         */}
         <div className='text-white helvetica-light-font font-normal'>Already a member? <Link href='/login'  className='text-#DBFD67 underline helvetica-font'>Login</Link></div>
             <Button
-              id="basic-details-form-submit-btn"
+              id="signup-form-submit-btn"
               type="submit"
               color={'#fff'}
               _hover={{ opacity: '90%' }}

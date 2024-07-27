@@ -57,7 +57,7 @@ const FAQ = () => {
         <Flex className="questions-container flex-col w-full pt-1.438rem text-white max-screen-desktop mx-auto">
           <Flex className="faq-element w-full">
             <Accordion allowMultiple className="w-full">
-              <AccordionItem borderTopWidth="0px">
+            <AccordionItem borderTopWidth="0px">
                 {({ isExpanded }) => (
                   <>
                     <Flex
@@ -78,7 +78,7 @@ const FAQ = () => {
                               as="span"
                               className="helvetica-font flex flex-1 text-left text-base lg:text-3xl font-bold"
                             >
-                              How to register for College Rivals?
+                              How can I participate in College Rivals Season 2?
                             </Box>
                             {isExpanded ? (
                               <Image
@@ -100,21 +100,22 @@ const FAQ = () => {
                           px={0}
                           className="helvetica-light-font text-sm lg:text-lg"
                         >
-                          To register for College Rivals, please follow these
-                          steps: <br /> 1. Visit the{" "}
+                          To participate, log in to the
                           <Text as={"span"} className="font-semibold">
                             {" "}
                             <Link
-                              href="/register"
+                              href="/login"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
                               College Rivals website
                             </Link>
                           </Text>{" "}
-                          . <br /> 2. Fill out the registration form with your
-                          details. <br /> 3. Complete the registration process
-                          as instructed on the website.
+                          and complete the registration form. Provide all
+                          necessary details, including contact, game details,
+                          and your preference for online/offline qualifiers.
+                          Participate in our qualifiers held on various dates,
+                          selecting slots at your convenience.
                         </AccordionPanel>
                       </Box>
                     </Flex>
@@ -122,7 +123,7 @@ const FAQ = () => {
                 )}
               </AccordionItem>
 
-              <AccordionItem className="mt-10" borderTopWidth="0px">
+              <AccordionItem className="mt-10" borderY="0px">
                 {({ isExpanded }) => (
                   <>
                     <Flex
@@ -143,8 +144,8 @@ const FAQ = () => {
                               as="span"
                               className="helvetica-font flex-1 text-left text-base lg:text-3xl font-bold"
                             >
-                              My college/city is not on the list, can I
-                              register?
+                              Which gaming platforms and titles are included
+                              this year?
                             </Box>
                             {isExpanded ? (
                               <Image
@@ -153,7 +154,7 @@ const FAQ = () => {
                               />
                             ) : (
                               <Image
-                                className="h-auto w-auto mt-[5px]"
+                                className="h-auto w-auto mt-5px"
                                 src="/faq-cross-s2.svg"
                                 alt="faq-plus"
                                 loading="lazy"
@@ -162,12 +163,18 @@ const FAQ = () => {
                           </AccordionButton>
                         </h2>
                         <AccordionPanel className="helvetica-light-font px-0 text-sm lg:text-lg ">
-                          Yes, absolutely. College Rivals is open to
-                          participants from anywhere, regardless of whether your
-                          college or city is listed. You can still register and
-                          participate. Just follow the registration process on
-                          our website, and manually input your college name in
-                          the selction menu.
+                          Mobile: BGMI <br /> PC: Valorant <br /> Console: FIFA
+                          24
+                          <br />
+                          Check our{" "}
+                          <Link
+                            href="/esports"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Esports
+                          </Link>{" "}
+                          for detailed rules and schedules for each game.
                         </AccordionPanel>
                       </Box>
                     </Flex>
@@ -196,7 +203,7 @@ const FAQ = () => {
                               as="span"
                               className="helvetica-font flex-1 text-left text-base lg:text-3xl font-bold"
                             >
-                              Can I participate in more than one game mentioned?
+                              Will there be an offline event for College Rivals?
                             </Box>
                             {isExpanded ? (
                               <Image
@@ -214,10 +221,11 @@ const FAQ = () => {
                           </AccordionButton>
                         </h2>
                         <AccordionPanel className="helvetica-light-font px-0 text-sm lg:text-lg">
-                          Yes, you can. You are welcome to participate in
-                          multiple games mentioned in the College Rivals
-                          tournament. Simply select all the games you want to
-                          compete in by following the registration process.
+                          Yes, we will have offline events across various
+                          colleges and cities, culminating in a grand finale in
+                          a metro city (details to be revealed soon), where a
+                          few of the top selected players across the online and
+                          offline qualifiers will compete for the championship.
                         </AccordionPanel>
                       </Box>
                     </Flex>
