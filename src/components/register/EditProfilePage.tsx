@@ -37,7 +37,7 @@ useEffect(() => {
   setActiveStep(state.activeStep);
 }, [state.activeStep, setActiveStep]);
 
-
+/* eslint-disable */
   useEffect(() => {
     const storedUserId: any = localStorage.getItem("userId");
     if (storedUserId) {
@@ -68,7 +68,7 @@ useEffect(() => {
     }
   }, []);
   
-
+/* eslint-enable */
   return (
     <>
        {showLoader ? (

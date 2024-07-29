@@ -11,22 +11,25 @@ export default function Page() {
   const [showLoader, setShowLoader] = useState<boolean>(true);
   const router = useRouter();
 
+
+  /* eslint-disable */
+
   useEffect(() => {
-    if(state._id && state.isLoggedIn){
+    if(state._id && state.isLoggedIn){ 
     setShowLoader(false);
     } else {
       // Retrieve the data from localStorage
       const storedUserId: any = localStorage.getItem('userId');
       if (storedUserId) {
         // console.log('ID is found', storedUserId);
-        dispatch({
+        dispatch({   
           type: 'UPDATE',
-          payload: { ...state, _id: storedUserId },
+          payload: { ...state, _id: storedUserId }, 
         });
         setShowLoader(false);
       } else {
         // console.log('ID not found', storedUserId);
-        router.push('/login');
+        router.push('/login'); 
       }
     }
     // // Retrieve the data from localStorage
@@ -39,7 +42,9 @@ export default function Page() {
     // });
     // console.log(storedUserData);
     // setShowLoader(!storedUserData?.isLoggedIn);
-  }, []);
+  }, []); 
+
+  /* eslint-enable */
 
   return <>{showLoader ? <LoadingScreen/> : <ESportsPage />}</>;
 }

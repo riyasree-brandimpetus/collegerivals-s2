@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useRef } from "react";
+import Image from "next/image";
 const WelcomeSlider =()=>{
 
     const sliderRef = useRef<Slider | null>(null);
@@ -26,11 +27,11 @@ const WelcomeSlider =()=>{
             
 
             <div className="xl:px-48 md:px-10 px-7 pb-20 relative flex flex-col justify-center place-items-center">
-                <img src="./assets/tl.svg" alt="" className="absolute top-0 left-0"/>
-                <img src="./assets/tr.svg" alt="" className="absolute top-0 right-0"/>
-                <img src="./assets/bl.svg" alt="" className="absolute bottom-0 left-0"/>
-                <img src="./assets/br.svg" alt="" className="absolute bottom-0 right-0"/>
-                <img src="/logo-2.svg" alt="" className="md:w-16 w-12 md:mb-14 mb-7"/>
+                <Image width={29} height={27} src="./assets/tl.svg" alt="" className="absolute top-0 left-0"/>
+                <Image width={29} height={27} src="./assets/tr.svg" alt="" className="absolute top-0 right-0"/>
+                <Image width={29} height={27} src="./assets/bl.svg" alt="" className="absolute bottom-0 left-0"/>
+                <Image width={29} height={27} src="./assets/br.svg" alt="" className="absolute bottom-0 right-0"/>
+                <Image width={29} height={27} src="/logo-2.svg" alt="" className="md:w-16 w-12 md:mb-14 mb-7"/>
 
                 <div className="slider w-full">
                   

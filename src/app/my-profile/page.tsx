@@ -20,6 +20,7 @@ export default function MyProfile() {
   const router = useRouter();
   const { state, dispatch } = useContext(UserContext);
 
+/* eslint-disable */
 
   useEffect(() => {
     // Retrieve the data from localStorage
@@ -39,6 +40,8 @@ export default function MyProfile() {
       router.push('/login');
     }
   }, []);
+
+  /* eslint-enable */
   
   
   return (

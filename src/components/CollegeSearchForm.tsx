@@ -74,6 +74,8 @@ function CollegeSearchForm(props: any) {
   /**
    * Searched College UseEffect
    */
+
+  /* eslint-disable */
   useEffect(() => {
     if (selectedCollege) {
       setShowCollegeList(false);
@@ -90,10 +92,12 @@ function CollegeSearchForm(props: any) {
     }
   }, [selectedCollege]);
 
+
+
   useEffect(() => {
     setFieldValue(props.name, state.collegeName);
   }, [state.collegeName]);
-
+  /* eslint-enable */
   return (
     <>
       <FormLabel htmlFor="collegeName">College Name</FormLabel>

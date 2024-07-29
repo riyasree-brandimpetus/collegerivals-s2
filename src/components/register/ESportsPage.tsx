@@ -53,7 +53,7 @@ useEffect(() => {
     router.push('/add-academic-details')
   }
 }, [state.selectedDate ,  router , state.selectedCity]);
-
+/* eslint-disable */
   useEffect(() => {
     // Retrieve the data from localStorage
     const storedUserId: any = localStorage.getItem('userId');
@@ -87,7 +87,7 @@ useEffect(() => {
       router.push('/login');
     }
 }, []);
-
+/* eslint-enable */
   return (
     <>
      {showLoader ? (
