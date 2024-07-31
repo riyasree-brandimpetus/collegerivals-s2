@@ -284,7 +284,7 @@ export default function ThirdForm() {
                   width={{ base: "100%", lg: "92%" }}
                   justifyContent={{ base: "center", lg: "start" }}
                 >
-                  <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full flex-row  flex items-center justify-between lg:right-0 bottom-0 ">
+                  <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full flex-row flex-wrap  flex items-center justify-between lg:right-0 bottom-0 ">
                   <Button
                     colorScheme="whiteAlpha"
                     _hover={{ opacity: "90%" }}
@@ -311,7 +311,7 @@ export default function ThirdForm() {
                     display={"flex"}
                     justifyContent={"center"}
                     alignItems={"center"}
-                    fontSize={"1rem"}
+                    fontSize={{ base: "0.8rem", lg: "1rem" }}
                     mt="1.25rem"
                     mb="1.25rem"
                     mr="1.25rem"
@@ -319,7 +319,7 @@ export default function ThirdForm() {
                     isLoading={isSubmitting}
                     loadingText="Submitting"
                     height={{ base: "3rem", lg: "4.063rem" }}
-                    width={{ base: "7rem", lg: "22rem" }}
+                    width={{ base: "10rem", lg: "22rem" }}
                   >
                Proceed
                   </Button>

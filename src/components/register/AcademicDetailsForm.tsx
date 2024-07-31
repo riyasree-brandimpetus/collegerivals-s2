@@ -320,7 +320,7 @@ export default function AcademicDetailsForm() {
                   )}
                 </Flex>
               </Flex>
-              <div className="py-16"></div>
+              <div className="py-24"></div>
             </Box>
           </div>
           <Box className="mt-auto  bg-black bottom-0">
@@ -352,6 +352,7 @@ export default function AcademicDetailsForm() {
               >
                 Submit
               </Button>
+          
             </div>
           </Box>
         </Form>

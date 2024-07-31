@@ -189,13 +189,13 @@ export default function SelectDate() {
                     flexWrap="wrap"
                   >
                     {state.isOnlineModeSelected && (
-                      <div className="w-full flex gap-8">
+                      <div className="w-full flex-col md:justify-start justify-center items-center md:flex-row flex md:gap-8">
                         <Flex
-                          pb={{ base: "2.625rem", lg: "2.938rem" }}
+                          pb={{ base: "1rem", lg: "2.938rem" }}
                           width={{ base: "100%", lg: "48%" }}
                           direction="column"
                           className="field"
-                          pt={{ base: "1.25rem", lg: "0rem" }}
+                          pt={{ base: ".5rem", lg: "0rem" }}
                         >
                           <FormLabel
                             className="helvetica-font font-bold text-lg"
