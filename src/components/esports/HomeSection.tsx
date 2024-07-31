@@ -59,9 +59,9 @@ setSelectedItem(item);
          <EsportsNavbar/>
       <div className="max-w-[1440px] w-full h-full mt-12 flex flex-col justify-center items-center slate-400 lg:p-24 p-6 gap-4 ">
      
-        <div>
-          <div>
-          <div className="relative inline-block" ref={dropdownRef}>
+      <div>
+  <div>
+    <div className="relative inline-block" ref={dropdownRef}>
       <button
         className="w-64 mb-14 text-left p-4 border border-#DBFD67 bg-black text-white rounded-lg helvetica-medium-font uppercase text-lg custom-select-arrow"
         onClick={toggleDropdown}
@@ -69,34 +69,33 @@ setSelectedItem(item);
         {selectedItem}
       </button>
       {isOpen && (
-        <div className="absolute top-16 w-full text-lg bg-black shadow-lg mt-1 helvetica-medium-font  rounded-md z-10">
+        <div className="absolute top-16 w-full text-lg bg-black shadow-lg mt-1 helvetica-medium-font rounded-md z-10">
           <a
-            href="#"
-            className="block px-4 py-4 text-white "
+            href="#BGMI"
+            className={`block px-4 hover:bg-[#131313] py-4 text-white ${selectedItem === 'BGMI' ? 'bg-selected' : ''}`}
             onClick={() => selectItem('BGMI')}
           >
-         BGMI
+            BGMI
           </a>
           <a
-            href="#"
-            className="block px-4 py-4 bg-[#131313] text-white "
+            href="#VALORANT"
+            className={`block px-4 py-4 hover:bg-[#131313] text-white ${selectedItem === 'Valorant' ? 'bg-selected' : ''}`}
             onClick={() => selectItem('Valorant')}
           >
-           VALORANT
+            VALORANT
           </a>
           <a
-            href="#"
-            className="block px-4 py-4 text-white "
+            href="#FIFA"
+            className={`block px-4 py-4 hover:bg-[#131313] text-white ${selectedItem === 'FIFA' ? 'bg-selected' : ''}`}
             onClick={() => selectItem('FIFA')}
           >
-          FIFA
+            FIFA
           </a>
         </div>
       )}
     </div>
-
-          </div>
-        </div>
+  </div>
+</div>
      
       
   

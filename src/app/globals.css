@@ -632,3 +632,11 @@ a.active {
     rgba(255, 255, 255, 0) 69%
   );
 }
+
+/* .line-break {
+  line-break: anywhere;
+} */
+
+.bg-selected {
+  background-color: #131313; /* Replace with your desired color */
+}
