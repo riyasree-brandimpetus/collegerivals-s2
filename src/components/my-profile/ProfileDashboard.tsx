@@ -161,7 +161,7 @@ const ProfileDashboard = () => {
   }, [gameData, state.gameDetails]);
 
   return (
-    <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-hidden">
+    <div className="w-full flex flex-col items-center lg:h-screen   bg-black overflow-hidden">
       <Image
         src="/profile-yellow.svg"
         alt=""
@@ -183,9 +183,9 @@ const ProfileDashboard = () => {
         height={228}
         className="absolute bottom-0 left-0  z-0"
       />
-      <div className="max-w-[1440px] w-full h-full flex flex-col justify-center place-items-center xl:px-24 md:px-12 px-6 py-32 md:gap-24 gap-8 relative z-0 overflow-visible">
+      <div className="max-w-[1440px] lg:pt-48  w-full h-full flex flex-col  justify-center place-items-center xl:px-24 md:px-12 px-6 py-28 md:gap-24 gap-8 relative z-0 overflow-visible">
         <div className="xl:p-10  flex flex-col gap-14 w-full z-10 relative ">
-          <div className="flex profile-bg lg:pb-20 custom-clip flex-col justify-center items-center md:gap-14  z-50 relative lg:px-20">
+          <div className="flex profile-bg  lg:pb-20 custom-clip flex-col justify-center items-center md:gap-14  z-50 relative lg:px-20">
             <div className="flex lg:flex-row flex-col lg:gap-10 gap-0 w-full justify-center place-items-center">
               <div className="flex h-full justify-between flex-col  md:place-items-start  items-center">
                 <div>
@@ -233,7 +233,7 @@ const ProfileDashboard = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col lg:gap-14  max-lg:max-w-[300px] max-lg:pl-4 lg:place-items-start items-center w-[75%]">
+              <div className="flex flex-col lg:gap-14  max-lg:max-w-[420px] max-lg:pl-4 max-md:pl-0 lg:place-items-start items-center w-[85%] sm:w-[75%]">
                 <h2 className="xl:text-7xl lg:text-6xl   text-3xl font-extrabold text-white xl:-mt-5 lg:mt-0 mt-7   uppercase ppFormula-font">
                   <em>HELLO, {state.name}</em>
                   <span className="text-[#DBFD67]"> !</span>
@@ -265,10 +265,10 @@ const ProfileDashboard = () => {
                     </p>
                   </div>
                   <div className="flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+                    <p className="text-[#5D5D5E] text-base helvetica-light-font line font-normal">
                       College
                     </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold line-break">
                       {state.collegeName || "-"}
                     </p>
                   </div>
@@ -314,7 +314,7 @@ const ProfileDashboard = () => {
                           {gameImageUrls.map((url: string, index: number) => (
                             <div
                               key={index}
-                              className="bg-[#DBFD67] p-4 rounded-lg"
+                              className="bg-[#DBFD67] md:p-4 p-2 rounded-lg"
                             >
                               <Image
                                 className="h-4"
