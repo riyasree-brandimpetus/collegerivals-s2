@@ -101,7 +101,7 @@ const NavbarSeason2 = () => {
                 className="inner bg-[#0F1011] hover:bg-[#0f1000] bg-opacity-80 md:pl-2 md:pr-3 py-2 helvetica-medium-font text-xs  text-#E7327C cursor-pointer"
               >
                 <div className="flex gap-5">
-                  <Image    src={state.profilePhoto || '/profile-img.svg'} className='rounded-full' alt="" width={32} height={32} />
+                  <Image src={state.profilePhotoUrl || '/profile-img.svg'} className='rounded-full h-8 w-8 object-cover' alt="" width={32} height={32} />
                   <Image src="/dropdown-arrow-pink.svg" alt="" width={15} height={7} />
                 </div>
               </div>
