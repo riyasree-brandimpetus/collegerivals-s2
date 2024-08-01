@@ -127,6 +127,7 @@ export default function AcademicDetailsForm() {
           type: 'UPDATE',
           payload: {
             ...state,
+            ...data,
             age: values.age,
             degreeStudyField: values.degreeStudyField,
             // idUrl: fileUrl,
