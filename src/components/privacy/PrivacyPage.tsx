@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Flex, Heading, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading } from '@chakra-ui/react';
 
 import Graphics from '@/components/globalComponents/Graphics';
 import {

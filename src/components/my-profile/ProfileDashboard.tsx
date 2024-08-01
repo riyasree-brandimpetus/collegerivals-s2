@@ -94,7 +94,7 @@ const ProfileDashboard = () => {
         // console.error('Error fetching Data:', error);
       }
     };
-    /* eslint-disable */
+  
     const fetchUserDetails = async () => {
       try {
         const response = await api.post("/users/details", {
@@ -125,8 +125,9 @@ const ProfileDashboard = () => {
       }
     };
     fetchUserDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  /* eslint-enable */
+ 
   useEffect(() => {
     const fetchData = async () => {
       const formattedDate = formatJoinedDate(state.createdAt);

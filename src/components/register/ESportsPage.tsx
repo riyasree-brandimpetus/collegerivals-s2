@@ -1,9 +1,5 @@
 'use client';
-
-import FirstForm from '@/components/register/FirstForm';
-import SecondForm from '@/components/register/SecondForm';
 import ThirdForm from '@/components/register/ThirdForm';
-import CompletionStepForm from '@/components/register/completionStepForm';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
 import {
@@ -53,7 +49,7 @@ useEffect(() => {
     router.push('/add-academic-details')
   }
 }, [state.selectedDate ,  router , state.selectedCity]);
-/* eslint-disable */
+
   useEffect(() => {
     // Retrieve the data from localStorage
     const storedUserId: any = localStorage.getItem('userId');
@@ -86,8 +82,9 @@ useEffect(() => {
       // console.log('ID not found');
       router.push('/login');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
-/* eslint-enable */
+
   return (
     <>
      {showLoader ? (

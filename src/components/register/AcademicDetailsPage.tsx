@@ -1,17 +1,10 @@
 'use client';
-
-import FirstForm from '@/components/register/FirstForm';
-import SecondForm from '@/components/register/SecondForm';
-import ThirdForm from '@/components/register/ThirdForm';
-import CompletionStepForm from '@/components/register/completionStepForm';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
 import { useSteps } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
-import SelectMode from './SelectMode';
 import Image from 'next/image';
 import Link from 'next/link';
-import SelectDate from './SelectDate';
 import AcademicDetailsForm from './AcademicDetailsForm';
 import LoadingScreen from '../globalComponents/LoadingScreen';
 import api from '@/utils/axios/instance';
@@ -30,7 +23,7 @@ export default function AcademicDetailsPage() {
   });
   const router = useRouter();
   const [showLoader, setShowLoader] = useState<boolean>(true);
-/* eslint-disable */
+
   useEffect(() => {
       // Retrieve the data from localStorage
       const storedUserId: any = localStorage.getItem('userId');
@@ -63,8 +56,9 @@ export default function AcademicDetailsPage() {
         // console.log('ID not found');
         router.push('/login');
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-/* eslint-enable */
+
 
   return (
     <>

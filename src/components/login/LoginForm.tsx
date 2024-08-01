@@ -1,22 +1,9 @@
 "use client";
-
-import FirstForm from "@/components/register/FirstForm";
-import SecondForm from "@/components/register/SecondForm";
 import ThirdForm from "@/components/register/ThirdForm";
-import CompletionStepForm from "@/components/register/completionStepForm";
 import { UserContext } from "@/utils/context/user.context";
 import { useRouter } from "next/navigation";
 import {
-  Box,
-  Flex,
-  useSteps,
-  Stepper,
-  StepIcon,
-  Text,
-  Divider,
-  StepSeparator,
-  StepDescription,
-  Step,
+  useSteps
 } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
 import BasicDetailsForm from "./BasicDetailsForm";
@@ -46,12 +33,13 @@ export default function LoginForm() {
       setActiveStep(2);
     }
   }, [state.isWhatsAppVerified ,setActiveStep]);
-/* eslint-disable */
+
   useEffect(() => {
     if (state.isLoggedIn) {
     router.push('/my-profile');
       console.log('User is Logged in');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.isLoggedIn]);
 
 
@@ -65,8 +53,9 @@ export default function LoginForm() {
     } else{
       setShowLoader(false)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-    /* eslint-enable */
+ 
 
   return (
     <>
