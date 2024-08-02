@@ -117,6 +117,7 @@ export default function AcademicDetailsForm() {
       );
       const data = response.data;
       if (data) {
+        console.log('data',data)
         toast({
           title: `Details Submitted`,
           status: 'success',
@@ -132,6 +133,8 @@ export default function AcademicDetailsForm() {
             // idUrl: fileUrl,
             collegeName: values.collegeName,
             city: values.city,
+            profilePhotoUrl:data.profilePhotoUrl,
+            gender:values.gender,
             activeStep:1
           },
         });
