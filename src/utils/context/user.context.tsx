@@ -21,13 +21,14 @@ const initialState: UserDetailsType = {
   gameDetails: [],
   isLoggedIn: false,
   isOnlineModeSelected: '',
-  profilePhoto: '',
+  profilePhotoUrl: '',
   selectedDate: '',
   selectedCity:'',
   createdAt: '',
   gender:'',
   dob: '',
-  activeStep:1
+  activeStep:1,
+  gameData:[]
   // hasBasicDetails: false,
   // step: '1.1',
 }; //1.1 - Basic details,1.2- OTP,2.1-Academic Details, 3.1- Game Selection, 3.2 - Game Details

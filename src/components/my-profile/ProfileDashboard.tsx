@@ -6,6 +6,7 @@ import api from "@/utils/axios/instance";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import LoadingScreen from "../globalComponents/LoadingScreen";
 // format for joined date
 const formatJoinedDate = (createdAt: string): string => {
   const date = new Date(createdAt);
@@ -46,85 +47,62 @@ const getOrdinalSuffix = (day: number): string => {
   }
 };
 
-// selected data time
-const formatTimeSlot = (timeSlot: string): string => {
-  const [startTime, endTime] = timeSlot.split(" to ");
-  return `${formatTime(startTime)} to ${formatTime(endTime)}`;
-};
-
-const formatTime = (time: string): string => {
-  const [hour, period] = time.split(" ");
-  const [hours, minutes = "00"] = hour.split(":");
-  return `${hours}:${minutes} ${period}`;
-};
-// calculate age
-
 const ProfileDashboard = () => {
   const { state, dispatch } = useContext(UserContext);
   const [progress, setprogress] = useState<number>(30);
   const [gameData, setGameData] = useState<any>([]);
   const [gameImageUrls, setGameImageUrls] = useState<any>([]);
+  const [showGamesLoader, setGamesShowLoader] = useState<boolean>(true);
   const [showLoader, setShowLoader] = useState<boolean>(true);
   const [registrationUrl, setRegistrationUrl] = useState<string>(
     "/esports-registration"
   );
-  const [age, setAge] = useState<number | null>(null);
   const [joinedDate, setJoinedDate] = useState<string>("");
-  const [selectedTime, setSelectedTime] = useState<string>("");
   const toast = useToast();
   const router = useRouter();
   useEffect(() => {
-    const storedUserId: any = localStorage.getItem("userId");
-    const fetchGameDetails = async () => {
-      try {
-        const response = await api.get("/games/");
-        const data = response?.data;
-        setGameData(data);
-        setShowLoader(false);
-      } catch (error: any) {
-        const message = error?.response?.data?.error;
-        // if(message){
-        // }
-        toast({
-          title: `Error fetching Data`,
-          status: "error",
-          isClosable: true,
-          description: message,
-        });
-        // console.error('Error fetching Data:', error);
-      }
-    };
-    /* eslint-disable */
-    const fetchUserDetails = async () => {
-      try {
-        const response = await api.post("/users/details", {
-          userId: state._id || storedUserId,
-        });
-        const data = response.data;
-        // console.log(data);
-        // const data = response?.data;
-        // setGameData(data);
-        dispatch({
-          type: "UPDATE",
-          payload: { ...state, ...data, isLoggedIn: true },
-        });
-        fetchGameDetails();
-        setShowLoader(false);
-      } catch (error: any) {
-        const message = error?.response?.data?.error;
-        localStorage.removeItem("userId");
-        console.log(message);
-        toast({
-          title: `Error fetching Data`,
-          status: "error",
-          isClosable: true,
-          description: message,
-        });
-        router.push('/sign-up');
-        // console.error('Error fetching Data:', error);
-      }
-    };
-    fetchUserDetails();
+    console.log('state._id',state._id)
+    if(state.whatsappNumber==''){
+      const storedUserId: any = localStorage.getItem("userId");
+      /* eslint-disable */
+      const fetchUserDetails = async () => {
+        try {
+      console.log('here')
+          const response = await api.post("/users/details", {
+            userId: state._id || storedUserId,
+          });
+          const data = response.data;
+          // console.log(data);
+          // const data = response?.data;
+          // setGameData(data);
+          dispatch({
+            type: "UPDATE",
+            payload: { ...state, ...data, isLoggedIn: true },
+          });
+          // fetchGameDetails();
+          setShowLoader(false);
+        } catch (error: any) {
+          const message = error?.response?.data?.error;
+          localStorage.removeItem("userId");
+          console.log(message);
+          toast({
+            title: `Error fetching Data`,
+            status: "error",
+            isClosable: true,
+            description: message,
+          });
+          router.push('/sign-up');
+          // console.error('Error fetching Data:', error);
+        }
+      };
+      fetchUserDetails();
+      console.log('here')
+
+    } else{
+      console.log('here')
+      setShowLoader(false)
+    }
+   
   }, []);
   /* eslint-enable */
   useEffect(() => {
@@ -142,7 +120,31 @@ const ProfileDashboard = () => {
     if ((state.selectedCity || state.selectedDate) && state.collegeName && state.gameDetails) {
       setprogress(100);
     }
+    if(!state.gameData.length){
+      fetchGameDetails()
+    }
   }, [state]);
+
+
+  const fetchGameDetails = async () => {
+    try {
+      const response = await api.get("/games/");
+      const data = response?.data;
+      setGameData(data);
+      setGamesShowLoader(false);
+    } catch (error: any) {
+      const message = error?.response?.data?.error;
+      // if(message){
+      // }
+      toast({
+        title: `Error fetching Data`,
+        status: "error",
+        isClosable: true,
+        description: message,
+      });
+      // console.error('Error fetching Data:', error);
+    }
+  };
 
   useEffect(() => {
     if (state.gameDetails.length > 0 && gameData.length > 0) {
@@ -161,6 +163,8 @@ const ProfileDashboard = () => {
   }, [gameData, state.gameDetails]);
 
   return (
+    <>
+    {showLoader ? <LoadingScreen/>:
     <div className="w-full flex flex-col items-center pt-20 lg:h-screen h-full bg-black overflow-hidden">
       <Image
         src="/profile-yellow.svg"
@@ -192,7 +196,7 @@ const ProfileDashboard = () => {
                   <div className=" lg:pr-6">
                     <Link className="relative -mt-4 flex justify-center items-center" href="/edit-profile">
                       <Image
-                        src={state.profilePhoto || "/profile-img.svg"}
+                        src={state.profilePhotoUrl || "/profile-img.svg"}
                         alt="profile photo"
                         width={181}
                         height={181}
@@ -304,7 +308,7 @@ const ProfileDashboard = () => {
                     </p>
 
                     <div className="flex mt-2 flex-row gap-1.5">
-                      {showLoader ? (
+                      {showGamesLoader ? (
                         <div className="flex">
                           <p>Loading Games...</p>
                           <Spinner size="xs" color="white" />
@@ -425,7 +429,8 @@ const ProfileDashboard = () => {
           </div>
         )}
       </div>
-    </div>
+    </div>}
+    </>
   );
 };
 
