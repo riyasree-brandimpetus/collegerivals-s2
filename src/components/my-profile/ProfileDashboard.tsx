@@ -165,7 +165,7 @@ const ProfileDashboard = () => {
   return (
     <>
     {showLoader ? <LoadingScreen/>:
-    <div className="w-full flex flex-col items-center h-screen  bg-black overflow-hidden">
+    <div className=" flex flex-col items-center lg:h-screen w-full  bg-black overflow-hidden">
       <Image
         src="/profile-yellow.svg"
         alt=""
@@ -200,7 +200,7 @@ const ProfileDashboard = () => {
                         alt="profile photo"
                         width={181}
                         height={181}
-                        className="rounded-2xl"
+                        className="rounded-2xl max-h-48 object-cover"
                       />
                       <div  className="whitespace-nowrap absolute justify-center items-center flex gap-2  bottom-2 uppercase text-sm md:text-base helvetica-medium-font font-medium text-white  p-4 rounded-md hover:bg-[#212121] bg-[#191919]">
                         edit profile{" "}
