@@ -200,7 +200,7 @@ const ProfileDashboard = () => {
                         alt="profile photo"
                         width={181}
                         height={181}
-                        className="rounded-2xl max-h-48 object-cover"
+                        className="rounded-2xl  "
                       />
                       <div  className="whitespace-nowrap absolute justify-center items-center flex gap-2  bottom-2 uppercase text-sm md:text-base helvetica-medium-font font-medium text-white  p-4 rounded-md hover:bg-[#212121] bg-[#191919]">
                         edit profile{" "}
@@ -214,9 +214,9 @@ const ProfileDashboard = () => {
                     </Link>
                   </div>
                   <div className="flex flex-col mt-3  items-center lg:place-items-start place-items-center gap-1">
-                    <p className="text-[#CFCFCF] md:text-xl text-lg helvetica-font font-bold">
+                    {/* <p className="text-[#CFCFCF] md:text-xl text-lg helvetica-font font-bold">
                       {state.name}
-                    </p>
+                    </p> */}
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
                       {joinedDate ? `Joined on ${joinedDate}` : "-"}
                     </p>
@@ -268,7 +268,7 @@ const ProfileDashboard = () => {
                       {state.email || "-"}
                     </p>
                   </div>
-                  <div className="flex flex-col flex-wrap ">
+                  <div className="flex flex-col max-lg:col-span-2  flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font line font-normal">
                       College
                     </p>
