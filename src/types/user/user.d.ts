@@ -14,14 +14,15 @@ export interface UserDetailsType {
   collegeName: string;
   gameDetails: any;
   isLoggedIn: Boolean;
-  profilePhoto: string;
+  profilePhotoUrl: string;
   isOnlineModeSelected: Boolean | '';
   selectedDate: string,
   selectedCity:string,
   createdAt: string,
   dob: string,
   gender:string,
-  activeStep:number
+  activeStep:number,
+  gameData:any
   // step:string
 }
 
