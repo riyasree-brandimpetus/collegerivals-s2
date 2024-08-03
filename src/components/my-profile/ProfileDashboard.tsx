@@ -242,123 +242,113 @@ const ProfileDashboard = () => {
                   <em>HELLO, {state.name}</em>
                   <span className="text-[#DBFD67]"> !</span>
                 </h2>
-                <div className="grid w-full items-center lg:mt-10 mt-5 md:grid-cols-3 grid-cols-2 lg:gap-5 gap-4">
-                  <div className="flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Age
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {/* {age !== undefined && age !== null ? '-' : `${age} yrs`} */}
-                      {state.age !== 0 ? `${state.age} yrs` : "-"}
-                    </p>
-                  </div>
-                  <div className="flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      City
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.city || "-"}
-                    </p>
-                  </div>
-                  <div className="flex flex-col max-md:col-span-2 flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Email Address
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold w-full">
-                      {state.email || "-"}
-                    </p>
-                  </div>
+        <div className="flex flex-wrap w-full items-center lg:mt-10 mt-5 lg:gap-5 gap-4">
+  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+      Age
+    </p>
+    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+      {state.age !== 0 ? `${state.age} yrs` : "-"}
+    </p>
+  </div>
+  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+      City
+    </p>
+    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+      {state.city || "-"}
+    </p>
+  </div>
+  <div className="flex flex-col flex-wrap w-full md:w-[30%] lg:w-[40%]">
+    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+      Email Address
+    </p>
+    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold w-full">
+      {state.email || "-"}
+    </p>
+  </div>
+  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+      Phone no.
+    </p>
+    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+      {state.whatsappNumber || "-"}
+    </p>
+  </div>
+  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+      Degree
+    </p>
+    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+      {state.degreeStudyField || "-"}
+    </p>
+  </div>
+  <div className="flex flex-col flex-wrap w-full md:w-[30%] lg:w-[40%]">
+    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+      College
+    </p>
+    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+      {state.collegeName || "-"}
+    </p>
+  </div>
+  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%] lg:hidden">
+    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+      Mode
+    </p>
+    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+      {state.isOnlineModeSelected ? "Online" : "Offline"}
+    </p>
+  </div>
+  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+      Registered City
+    </p>
+    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+      {state.selectedCity || "-"}
+    </p>
+  </div>
+  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+      Date
+    </p>
+    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+      {state.selectedDate || "-"}
+    </p>
+  </div>
+  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[40%]">
+    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+      Selected Games
+    </p>
+    <div className="flex mt-2 flex-row gap-1.5">
+      {showGamesLoader ? (
+        <div className="flex">
+          <p>Loading Games...</p>
+          <Spinner size="xs" color="white" />
+        </div>
+      ) : gameImageUrls.length > 0 ? (
+        <>
+          {gameImageUrls.map((url: string, index: number) => (
+            <div
+              key={index}
+              className="bg-[#DBFD67] md:p-4 p-2 rounded-lg"
+            >
+              <Image
+                className="h-4"
+                width={46}
+                height={46}
+                src={url}
+                alt={`Game Image ${index}`}
+              />
+            </div>
+          ))}
+        </>
+      ) : (
+        <p>-</p>
+      )}
+    </div>
+  </div>
+</div>
 
-                  <div className="flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Phone no.
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.whatsappNumber || "-"}
-                    </p>
-                  </div>
-                
-                  <div className="flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Degree
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.degreeStudyField || "-"}
-                    </p>
-                  </div>
-                  <div className="flex flex-col max-md:col-span-2  flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font line font-normal">
-                      College
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold line-break">
-                      {state.collegeName || "-"}
-                    </p>
-                  </div>
-
-                
-                  <div className=" lg:hidden flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Mode
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.isOnlineModeSelected ? "Online" : "Offline"}
-                    </p>
-                  </div>
-                  <div className=" flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                    Registered City
-              
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.selectedCity || '-'} 
-                    </p>
-                  </div>
-                  <div className=" flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Date
-              
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.selectedDate || '-'} 
-                    </p>
-                  </div>
-
-
-                  <div className=" flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Selected Games
-                    </p>
-
-                    <div className="flex mt-2 flex-row gap-1.5">
-                      {showGamesLoader ? (
-                        <div className="flex">
-                          <p>Loading Games...</p>
-                          <Spinner size="xs" color="white" />
-                        </div>
-                      ) : gameImageUrls.length > 0 ? (
-                        <>
-                          {gameImageUrls.map((url: string, index: number) => (
-                            <div
-                              key={index}
-                              className="bg-[#DBFD67] md:p-4 p-2 rounded-lg"
-                            >
-                              <Image
-                                className="h-4"
-                                width={46}
-                                height={46}
-                                src={url}
-                                alt={`Game Image ${index}`}
-                              />
-                            </div>
-                          ))}
-                        </>
-                      ) : (
-                        <p>-</p>
-                      )}
-                    </div>
-                  </div>
-                
-                </div>
               </div>
             </div>
 
