@@ -187,14 +187,14 @@ const ProfileDashboard = () => {
         height={228}
         className="absolute bottom-0 left-0  z-0"
       />
-      <div className="max-w-[1440px] lg:pt-48  w-full h-full flex flex-col  justify-center place-items-center xl:px-24 md:px-12 px-6 py-28 md:gap-24 gap-8 relative z-0 overflow-visible">
-        <div className="xl:p-10  flex flex-col gap-14 w-full z-10 relative ">
-          <div className="flex profile-bg  lg:pb-20 custom-clip flex-col justify-center items-center md:gap-14  z-50 relative lg:px-20">
+      <div className="max-w-[1440px] lg:pt-48 py-20  pt-40 w-full h-full flex flex-col  justify-center place-items-center xl:px-24 md:px-12 px-6  lg:gap-24 gap-8 relative z-0 overflow-visible">
+        <div className="xl:p-10  flex flex-col gap-14  w-full z-10 relative ">
+          <div className="flex border pb-10 lg:pb-16 border-[#ffffff33] backdrop-blur-md bg-[#05060787] rounded-lg   flex-col justify-center items-center md:gap-14  z-50 relative lg:px-20">
             <div className="flex lg:flex-row flex-col lg:gap-10 gap-0 w-full justify-center place-items-center">
               <div className="flex h-full justify-between flex-col  md:place-items-start  items-center">
                 <div>
                   <div className=" lg:pr-6">
-                    <Link className="relative -mt-4 flex justify-center items-center" href="/edit-profile">
+                    <Link className="relative -mt-16  flex justify-center items-center" href="/edit-profile">
                       <Image
                         src={state.profilePhotoUrl || "/profile-img.svg"}
                         alt="profile photo"
@@ -237,12 +237,12 @@ const ProfileDashboard = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col lg:gap-14  max-lg:max-w-[420px] max-lg:pl-4 max-md:pl-0 lg:place-items-start items-center w-[85%] sm:w-[75%]">
-                <h2 className="xl:text-7xl lg:text-6xl   text-3xl font-extrabold text-white xl:-mt-5 lg:mt-0 mt-7   uppercase ppFormula-font">
+              <div className="flex flex-col max-md:max-w-[420px] max-lg:pl-4 max-md:pl-0 lg:place-items-start justify-center items-center w-[85%] sm:w-[75%]">
+                <h2 className="xl:text-7xl lg:text-6xl lg:-mt-8 max-lg:mt-3 text-3xl font-extrabold text-white   uppercase ppFormula-font">
                   <em>HELLO, {state.name}</em>
                   <span className="text-[#DBFD67]"> !</span>
                 </h2>
-                <div className="grid items-center max-lg:mt-5 lg:grid-cols-3 grid-cols-2 lg:gap-5 gap-4">
+                <div className="grid w-full items-center lg:mt-10 mt-5 md:grid-cols-3 grid-cols-2 lg:gap-5 gap-4">
                   <div className="flex flex-col flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
                       Age
@@ -260,28 +260,12 @@ const ProfileDashboard = () => {
                       {state.city || "-"}
                     </p>
                   </div>
-                  <div className="flex flex-col max-lg:col-span-2 flex-wrap ">
+                  <div className="flex flex-col max-md:col-span-2 flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
                       Email Address
                     </p>
                     <p className="text-[#CFCFCF] text-xl helvetica-font font-bold w-full">
                       {state.email || "-"}
-                    </p>
-                  </div>
-                  <div className="flex flex-col max-lg:col-span-2  flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font line font-normal">
-                      College
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold line-break">
-                      {state.collegeName || "-"}
-                    </p>
-                  </div>
-                  <div className="flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Degree
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.degreeStudyField || "-"}
                     </p>
                   </div>
 
@@ -293,6 +277,25 @@ const ProfileDashboard = () => {
                       {state.whatsappNumber || "-"}
                     </p>
                   </div>
+                
+                  <div className="flex flex-col flex-wrap ">
+                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+                      Degree
+                    </p>
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+                      {state.degreeStudyField || "-"}
+                    </p>
+                  </div>
+                  <div className="flex flex-col max-md:col-span-2  flex-wrap ">
+                    <p className="text-[#5D5D5E] text-base helvetica-light-font line font-normal">
+                      College
+                    </p>
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold line-break">
+                      {state.collegeName || "-"}
+                    </p>
+                  </div>
+
+                
                   <div className=" lg:hidden flex flex-col flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
                       Mode
@@ -301,6 +304,25 @@ const ProfileDashboard = () => {
                       {state.isOnlineModeSelected ? "Online" : "Offline"}
                     </p>
                   </div>
+                  <div className=" flex flex-col flex-wrap ">
+                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+                    Registered City
+              
+                    </p>
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+                      {state.selectedCity || '-'} 
+                    </p>
+                  </div>
+                  <div className=" flex flex-col flex-wrap ">
+                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+                      Date
+              
+                    </p>
+                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+                      {state.selectedDate || '-'} 
+                    </p>
+                  </div>
+
 
                   <div className=" flex flex-col flex-wrap ">
                     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
@@ -335,30 +357,13 @@ const ProfileDashboard = () => {
                       )}
                     </div>
                   </div>
-                  <div className=" flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                      Date
-              
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.selectedDate || '-'} 
-                    </p>
-                  </div>
-                  <div className=" flex flex-col flex-wrap ">
-                    <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                    Registered City
-              
-                    </p>
-                    <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                      {state.selectedCity || '-'} 
-                    </p>
-                  </div>
+                
                 </div>
               </div>
             </div>
 
             <div className="flex lg:flex-row flex-col max-lg:mt-9 gap-10 w-full justify-center lg:place-items-end items-center">
-              <div className="flex flex-col lg:w-3/5 max-lg:w-[40%] max-sm:w-64 w-full gap-2">
+              <div className="flex flex-col lg:w-3/5 max-lg:w-[80%]  w-full gap-2">
                 <div className="bg-[#333132] w-full h-[17px] rounded-sm">
                   <div
                     className=" bg-[#E7327C] h-full rounded-sm"
