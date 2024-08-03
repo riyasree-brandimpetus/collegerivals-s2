@@ -243,7 +243,7 @@ const ProfileDashboard = () => {
                   <span className="text-[#DBFD67]"> !</span>
                 </h2>
         <div className="flex flex-wrap w-full items-center lg:mt-10 mt-5 lg:gap-5 gap-4">
-  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+  <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-3/12">
     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
       Age
     </p>
@@ -251,7 +251,7 @@ const ProfileDashboard = () => {
       {state.age !== 0 ? `${state.age} yrs` : "-"}
     </p>
   </div>
-  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+  <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-3/12">
     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
       City
     </p>
@@ -259,7 +259,7 @@ const ProfileDashboard = () => {
       {state.city || "-"}
     </p>
   </div>
-  <div className="flex flex-col flex-wrap w-full md:w-[30%] lg:w-[40%]">
+  <div className="flex flex-col flex-wrap w-full md:w-30% lg:w-[40%]">
     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
       Email Address
     </p>
@@ -267,7 +267,7 @@ const ProfileDashboard = () => {
       {state.email || "-"}
     </p>
   </div>
-  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+  <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-3/12">
     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
       Phone no.
     </p>
@@ -275,7 +275,7 @@ const ProfileDashboard = () => {
       {state.whatsappNumber || "-"}
     </p>
   </div>
-  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+  <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-3/12">
     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
       Degree
     </p>
@@ -283,7 +283,7 @@ const ProfileDashboard = () => {
       {state.degreeStudyField || "-"}
     </p>
   </div>
-  <div className="flex flex-col flex-wrap w-full md:w-[30%] lg:w-[40%]">
+  <div className="flex flex-col flex-wrap w-full md:w-30% lg:w-[40%]">
     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
       College
     </p>
@@ -291,7 +291,7 @@ const ProfileDashboard = () => {
       {state.collegeName || "-"}
     </p>
   </div>
-  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%] lg:hidden">
+  <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-3/12 lg:hidden">
     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
       Mode
     </p>
@@ -299,7 +299,7 @@ const ProfileDashboard = () => {
       {state.isOnlineModeSelected ? "Online" : "Offline"}
     </p>
   </div>
-  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+  <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-3/12">
     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
       Registered City
     </p>
@@ -307,7 +307,7 @@ const ProfileDashboard = () => {
       {state.selectedCity || "-"}
     </p>
   </div>
-  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[25%]">
+  <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-3/12">
     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
       Date
     </p>
@@ -315,7 +315,7 @@ const ProfileDashboard = () => {
       {state.selectedDate || "-"}
     </p>
   </div>
-  <div className="flex flex-col flex-wrap w-[45%] md:w-[30%] lg:w-[40%]">
+  <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-[40%]">
     <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
       Selected Games
     </p>
