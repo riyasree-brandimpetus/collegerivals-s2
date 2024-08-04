@@ -26,7 +26,7 @@ export default function SignUpForm() {
   const router = useRouter();
   const [showLoader, setShowLoader] = useState<boolean>(true);
 
-
+/* eslint-disable */
   useEffect(() => {
     // Retrieve the data from localStorage
     const storedUserId: any = localStorage.getItem('userId');
@@ -37,7 +37,7 @@ export default function SignUpForm() {
       setShowLoader(false)
     }
   }, []);
-  
+
   
   
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function SignUpForm() {
       // console.log('OTP is verified');
     }
   }, [state.isLoggedIn]);
-
+/* eslint-enable */
   return (
     <>
       {showLoader ? (

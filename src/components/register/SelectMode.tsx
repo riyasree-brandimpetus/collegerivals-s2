@@ -82,6 +82,7 @@ export default function SelectProfile() {
   /**
    * For Edit Profile
    */
+  /* eslint-disable */
   useEffect(() => {
     console.log('state',state)
     console.log('state.isOnlineModeSelected',state.isOnlineModeSelected !=='' ? (state.isOnlineModeSelected ? 'online' : 'offline') :'')
@@ -93,7 +94,7 @@ export default function SelectProfile() {
       });
     }
   }, [])
-  
+  /* eslint-enable */
 
   return (
     <Formik

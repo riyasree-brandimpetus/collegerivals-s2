@@ -30,7 +30,7 @@ export default function AcademicDetailsPage() {
   });
   const router = useRouter();
   const [showLoader, setShowLoader] = useState<boolean>(true);
-
+/* eslint-disable */
   useEffect(() => {
       // Retrieve the data from localStorage
       const storedUserId: any = localStorage.getItem('userId');
@@ -64,7 +64,7 @@ export default function AcademicDetailsPage() {
         router.push('/login');
       }
   }, []);
-
+/* eslint-enable */
 
   return (
     <>

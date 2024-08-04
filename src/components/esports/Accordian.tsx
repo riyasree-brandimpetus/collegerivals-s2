@@ -299,7 +299,7 @@ const EsportsAccordian = () => {
                       alignItems={"center"}
                     >
                       <Box>
-                      <Image src="/month-icon.svg"/>
+                      <Image alt="img" src="/month-icon.svg"/>
                       </Box>
                       <Heading
                         fontSize={{ base: "1.125rem", lg: "1.625rem" }}

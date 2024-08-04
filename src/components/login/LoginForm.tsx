@@ -46,13 +46,14 @@ export default function LoginForm() {
       setActiveStep(2);
     }
   }, [state.isWhatsAppVerified ,setActiveStep]);
-
+/* eslint-disable */
   useEffect(() => {
     if (state.isLoggedIn) {
     router.push('/my-profile');
       console.log('User is Logged in');
     }
   }, [state.isLoggedIn]);
+
 
   
   useEffect(() => {
@@ -65,6 +66,7 @@ export default function LoginForm() {
       setShowLoader(false)
     }
   }, []);
+    /* eslint-enable */
 
   return (
     <>

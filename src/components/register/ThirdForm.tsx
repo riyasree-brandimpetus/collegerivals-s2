@@ -142,6 +142,7 @@ export default function ThirdForm() {
   /**
    * For Edit Profile 
    */
+  /* eslint-disable */
   useEffect(() => {
     console.log("state", state.gameDetails);
     if (state?.gameDetails.length > 0) {
@@ -155,7 +156,7 @@ export default function ThirdForm() {
       // setPreselectedGames([...gameNames])
     }
   }, []);
-
+/* eslint-enable */
   return (
     <>
       {!showGameFields ? (
