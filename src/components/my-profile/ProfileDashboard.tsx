@@ -308,22 +308,30 @@ const ProfileDashboard = () => {
                           {state.isOnlineModeSelected ? "Online" : "Offline"}
                         </p>
                       </div>
-                      <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-1/5">
-                        <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                          Registered City
-                        </p>
-                        <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                          {state.selectedCity || "-"}
-                        </p>
-                      </div>
-                      <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-1/5">
-                        <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
-                          Date
-                        </p>
-                        <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
-                          {state.selectedDate || "-"}
-                        </p>
-                      </div>
+                      {state.isOnlineModeSelected ? (
+                        <>
+                          <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-1/5">
+                            <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+                              Date
+                            </p>
+                            <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+                              {state.selectedDate || "-"}
+                            </p>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-1/5">
+                            <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
+                              Registered City
+                            </p>
+                            <p className="text-[#CFCFCF] text-xl helvetica-font font-bold">
+                              {state.selectedCity || "-"}
+                            </p>
+                          </div>
+                        </>
+                      )}
+
                       <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-2/4">
                         <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
                           Selected Games
