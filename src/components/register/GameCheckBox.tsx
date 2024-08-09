@@ -1,12 +1,15 @@
+"use client"
 import { Flex, chakra, useCheckbox, Image } from '@chakra-ui/react';
-import React from 'react'
+import React, { useState } from 'react'
 
 function GameCheckBox(props: any) {
     const { state, getCheckboxProps, getInputProps, getLabelProps, htmlProps } =
       useCheckbox(props);
-
+      const [isHovered, setIsHovered] = useState(false);
   return (
     <chakra.label
+    onMouseEnter={() => setIsHovered(true)}
+    onMouseLeave={() => setIsHovered(false)}
       display="flex"
       flexDirection="row"
       alignItems="center"
@@ -32,6 +35,7 @@ function GameCheckBox(props: any) {
     >
       <input {...getInputProps()} hidden className="hide-checkbox" />
       <Flex
+  
         alignItems="center"
         justifyContent="center"
         {...getCheckboxProps()}
@@ -39,7 +43,12 @@ function GameCheckBox(props: any) {
       >
       </Flex>
       <Image   
-       filter={state.isChecked ? 'invert(0%)' : 'invert(100%)'}  src={props.game.imageUrl} alt={props.game.value} />
+       filter={state.isChecked ? 'invert(0%)' : 'invert(100%)'}  src={props.game.imageUrl} alt={props.game.value}
+     
+       style={{
+         filter: isHovered ? 'invert(0%)' : state.isChecked ? 'invert(0%)' : 'invert(100%)',
+       }}
+       />
     </chakra.label>
   );
 }

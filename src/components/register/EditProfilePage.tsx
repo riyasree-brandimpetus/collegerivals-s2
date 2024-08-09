@@ -85,7 +85,7 @@ useEffect(() => {
             />
           </Link>
         </div>
-        <div className="w-[55%] max-lg:w-full ">
+        <div className="w-[55%] max-lg:w-full overflow-auto ">
           <Link className="lg:hidden" href="/">
             <Image
               className="pl-6 pt-6"
@@ -109,7 +109,7 @@ useEffect(() => {
              Mode
               </p>
             </div>
-            <hr  className='w-full border-[#ffffff3d]'/>
+          <hr  className='w-full h-auto -mx-7 -mt-9 border-[#ffffff3d]'/>
             <div className="flex w-[25%] items-center flex-col px-[2rem]">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -123,7 +123,7 @@ useEffect(() => {
               Games
               </p>
             </div>
-            <hr  className='w-full border-[#ffffff3d]'/>
+          <hr  className='w-full h-auto -mx-7 -mt-9 border-[#ffffff3d]'/>
             <div className="flex w-[25%] items-center flex-col px-[2rem]">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -137,7 +137,7 @@ useEffect(() => {
               Slot
               </p>
             </div>
-            <hr  className='w-full border-[#ffffff3d]'/>
+          <hr  className='w-full h-auto -mx-7 -mt-9 border-[#ffffff3d]'/>
             <div className="flex w-[25%] items-center flex-col px-[2rem]">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"

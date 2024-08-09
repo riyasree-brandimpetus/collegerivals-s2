@@ -104,7 +104,7 @@ useEffect(() => {
             />
           </Link>
         </div>
-        <div className="w-[55%] max-lg:w-full ">
+        <div className="w-[55%] max-lg:w-full overflow-auto">
           <Link className="lg:hidden" href="/">
             <Image
               className="pl-6 pt-6"
@@ -114,7 +114,7 @@ useEffect(() => {
               height={23}
             />
           </Link>
-          <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
+          <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-between px-4 items-center  ">
             <div className="flex w-[550px] items-center flex-col">
               <div
                 className="rounded-full lg:w-[43px] lg:h-[43px] w-[29px] h-[29px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -128,7 +128,7 @@ useEffect(() => {
               Select Mode
               </p>
             </div>
-            <hr  className='w-full border-[#ffffff3d]'/>
+            <hr  className='w-full h-auto -mx-10 -mt-7 border-[#ffffff3d]'/>
             <div className="flex w-[600px] items-center flex-col">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -142,7 +142,7 @@ useEffect(() => {
               Choose Games
               </p>
             </div>
-            <hr  className='w-full border-[#ffffff3d]'/>
+            <hr  className='w-full h-auto  -mx-10 -mt-7 border-[#ffffff3d]'/>
             <div className="flex w-[450px] items-center flex-col">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
