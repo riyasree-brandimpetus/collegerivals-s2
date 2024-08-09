@@ -164,10 +164,10 @@ export default function SelectDate() {
                 >
                   SELECT{" "}
                   <Box as="span" className="text-#DBFD67">
-                    DATE
+                    { monthselectedstate ?  "DATE": "MONTH" }
                   </Box>
                 </Heading>
-                <Text color={"white"} pb={{ base: "2.125rem", lg: "1.25rem" }}>
+                {/* <Text color={"white"} pb={{ base: "2.125rem", lg: "1.25rem" }}>
                   You are creating an account on{" "}
                   <Text as={"span"} fontWeight={"700"}>
                     {" "}
@@ -179,23 +179,23 @@ export default function SelectDate() {
                       Ampverse
                     </Link>
                   </Text>
-                </Text>
+                </Text> */}
                 <Box overflowY="auto">
                   <Flex
                     width={{ base: "100%", lg: "80%" }}
                     direction={{ base: "column", lg: "row" }}
-                    pt={{ base: "1.25rem", lg: "1.875rem" }}
+                    pt={{ base: "1.25rem", lg: "1rem" }}
                     justifyContent="space-between"
                     flexWrap="wrap"
                   >
                     {state.isOnlineModeSelected && (
-                      <div className="w-full flex gap-8">
+                      <div className="w-full items-start flex-col md:justify-start justify-center  md:flex-row flex md:gap-8">
                         <Flex
-                          pb={{ base: "2.625rem", lg: "2.938rem" }}
+                          pb={{ base: "1rem", lg: "2.938rem" }}
                           width={{ base: "100%", lg: "48%" }}
                           direction="column"
                           className="field"
-                          pt={{ base: "1.25rem", lg: "0rem" }}
+                          pt={{ base: ".5rem", lg: "0rem" }}
                         >
                           <FormLabel
                             className="helvetica-font font-bold text-lg"
@@ -331,10 +331,10 @@ export default function SelectDate() {
                   >
                     SELECT{" "}
                     <Box as="span" className="text-#DBFD67">
-                      DATE
+                     CITY
                     </Box>
                   </Heading>
-                  <Text
+                  {/* <Text
                     color={"white"}
                     pb={{ base: "2.125rem", lg: "1.25rem" }}
                   >
@@ -349,12 +349,12 @@ export default function SelectDate() {
                         Ampverse
                       </Link>
                     </Text>
-                  </Text>
+                  </Text> */}
                   <Box overflowY="auto">
                     <Flex
                       width={{ base: "100%", lg: "80%" }}
                       direction={{ base: "column", lg: "row" }}
-                      pt={{ base: "1.25rem", lg: "1.875rem" }}
+                      pt={{ base: "1.25rem", lg: "1rem" }}
                       justifyContent="space-between"
                       flexWrap="wrap"
                     >

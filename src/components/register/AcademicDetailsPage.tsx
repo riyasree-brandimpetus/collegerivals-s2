@@ -71,7 +71,7 @@ export default function AcademicDetailsPage() {
      {showLoader ? (
         <LoadingScreen/>
       ) : (
-      <div className="w-full flex h-screen bg-black">
+      <div className="w-full flex h-screen bg-black ">
         <div className=" max-lg:hidden w-45% custom-background pt-10 pl-11">
           <Link href="/">
             <Image
@@ -82,7 +82,7 @@ export default function AcademicDetailsPage() {
             />
           </Link>
         </div>
-        <div className="w-[55%] max-lg:w-full ">
+        <div className="w-[55%] max-lg:w-full overflow-auto ">
           <Link className="lg:hidden" href="/">
             <Image
               className="pl-6 pt-6"

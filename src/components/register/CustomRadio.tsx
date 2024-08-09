@@ -36,7 +36,7 @@ const CustomRadio = React.forwardRef((props: Props, ref) => {
     });
 
   return (
-    <chakra.label className='w-40%' {...htmlProps} cursor="pointer">
+    <chakra.label className='md:w-[40%] w-[50%]' {...htmlProps} cursor="pointer">
       <input {...getInputProps({}, ref)} hidden />
       <Box
         {...getRadioProps()}
@@ -59,7 +59,7 @@ const CustomRadio = React.forwardRef((props: Props, ref) => {
         py="8px"
       >
         {/* <Text {...getLabelProps()}>{degree}</Text> */}
-        <Image {...getLabelProps()} src={props.imageUrl} alt={props.value} />
+        <Image width={{ base: '50px', lg: '65px' }} {...getLabelProps()} src={props.imageUrl} alt={props.value} />
         
       </Box>
      
