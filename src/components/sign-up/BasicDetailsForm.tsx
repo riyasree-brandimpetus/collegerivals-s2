@@ -1,5 +1,5 @@
-'use client';
-import {  Field, Form, Formik, FormikHelpers } from 'formik';
+"use client";
+import { Field, Form, Formik, FormikHelpers } from "formik";
 import {
   Input,
   Button,
@@ -10,22 +10,21 @@ import {
   useToast,
   Checkbox,
   Text,
-  
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 // import { FirstFormSchema } from '@/schemas/register';
-import { RegistrationCities } from '@/constants/cities';
-import api from '@/utils/axios/instance';
+import { RegistrationCities } from "@/constants/cities";
+import api from "@/utils/axios/instance";
 // import { UserAgentDetails } from '@/types/register/register';
-import { useContext, useEffect, useRef, useState } from 'react';
-import { UserContext } from '@/utils/context/user.context';
-import { useSearchParams } from 'next/navigation';
-import ReCAPTCHA from 'react-google-recaptcha';
-import { verifyCaptcha } from '@/utils/captcha/ServerActions';
+import { useContext, useEffect, useRef, useState } from "react";
+import { UserContext } from "@/utils/context/user.context";
+import { useSearchParams } from "next/navigation";
+import ReCAPTCHA from "react-google-recaptcha";
+import { verifyCaptcha } from "@/utils/captcha/ServerActions";
 // import QualifierText from './QualifierText';
-import UAParser from 'ua-parser-js';
-import { SignUpFormValues, UserAgentDetails } from '@/types/sign-up/sign-up';
-import { SignUpFormSchema } from '@/schemas/sign-up';
-import Link from 'next/link';
+import UAParser from "ua-parser-js";
+import { SignUpFormValues, UserAgentDetails } from "@/types/sign-up/sign-up";
+import { SignUpFormSchema } from "@/schemas/sign-up";
+import Link from "next/link";
 
 export default function BasicDetailsForm() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -35,20 +34,20 @@ export default function BasicDetailsForm() {
   const toast = useToast();
   const { dispatch } = useContext(UserContext);
   const searchParams = useSearchParams();
-  const referral = searchParams.get('ref') || '';
-  const utm_source = searchParams.get('utm_source') || '';
-  const utm_medium = searchParams.get('utm_medium') || '';
-  const utm_campaign = searchParams.get('utm_campaign') || '';
-  const utm_content = searchParams.get('utm_content') || '';
-  const utm_term = searchParams.get('utm_term') || '';
+  const referral = searchParams.get("ref") || "";
+  const utm_source = searchParams.get("utm_source") || "";
+  const utm_medium = searchParams.get("utm_medium") || "";
+  const utm_campaign = searchParams.get("utm_campaign") || "";
+  const utm_content = searchParams.get("utm_content") || "";
+  const utm_term = searchParams.get("utm_term") || "";
   const queryParams = {
-    ref:referral,
+    ref: referral,
     utm_source,
     utm_medium,
     utm_campaign,
     utm_content,
-    utm_term
-  }
+    utm_term,
+  };
   /**
    * To Fetch User Agent Details
    */
@@ -75,28 +74,28 @@ export default function BasicDetailsForm() {
     const ua = parser.getUA();
     // Check if the device type is explicitly "desktop" or if it's null/empty (indicating desktop)
     const deviceType =
-      device.type === 'desktop' || !device.type ? 'desktop' : device.type;
+      device.type === "desktop" || !device.type ? "desktop" : device.type;
 
     return {
       browser: {
-        name: browser.name || 'Unknown',
-        version: browser.version || 'Unknown',
-        major: browser.major || 'Unknown',
+        name: browser.name || "Unknown",
+        version: browser.version || "Unknown",
+        major: browser.major || "Unknown",
       },
       os: {
-        name: os.name || 'Unknown',
-        version: os.version || 'Unknown',
+        name: os.name || "Unknown",
+        version: os.version || "Unknown",
       },
       device: {
-        vendor: device.vendor || 'Unknown',
-        model: device.model || 'Unknown',
-        type: deviceType || 'Unknown',
+        vendor: device.vendor || "Unknown",
+        model: device.model || "Unknown",
+        type: deviceType || "Unknown",
       },
       engine: {
-        name: engine.name || 'Unknown',
-        version: engine.version || 'Unknown',
+        name: engine.name || "Unknown",
+        version: engine.version || "Unknown",
       },
-      ua: ua || 'Unknown',
+      ua: ua || "Unknown",
     };
   }
 
@@ -114,9 +113,9 @@ export default function BasicDetailsForm() {
    * Initialize first form values
    */
   const firstFormInitialValues: SignUpFormValues = {
-    name: '',
-    whatsappNumber: '',
-    email: '',
+    name: "",
+    whatsappNumber: "",
+    email: "",
     agreedToTerms: false,
   };
 
@@ -130,27 +129,27 @@ export default function BasicDetailsForm() {
     actions: FormikHelpers<SignUpFormValues>
   ) => {
     try {
-      const response = await api.post('/users/sign-up', {
+      const response = await api.post("/users/sign-up", {
         ...values,
-        whatsappCountryCode: '+91',
+        whatsappCountryCode: "+91",
         queryParams: queryParams,
         userAgentDetails: userAgentDetailsArray,
       });
       const data = response.data;
       if (data) {
-        const otpResp = await api.post('/otp/send-login-otp', {
+        const otpResp = await api.post("/otp/send-login-otp", {
           userId: data._id,
           mobileNumber: data.whatsappNumber,
         });
         if (otpResp.data) {
           toast({
             title: `OTP Sent Successfully`,
-            description: 'OTP sent to your email and whatsapp.',
-            status: 'success',
+            description: "OTP sent to your email and whatsapp.",
+            status: "success",
             isClosable: true,
           });
           dispatch({
-            type: 'UPDATE',
+            type: "UPDATE",
             payload: { ...data, isWhatsAppVerified: false },
           });
         }
@@ -159,7 +158,7 @@ export default function BasicDetailsForm() {
       const message = error?.response?.data?.error;
       toast({
         title: `Error submitting form`,
-        status: 'error',
+        status: "error",
         isClosable: true,
         description: message,
       });
@@ -174,115 +173,123 @@ export default function BasicDetailsForm() {
     >
       {({ errors, touched, isSubmitting }) => (
         <Form className="flex flex-col ">
-          <div className='flex  h-[65vh] overflow-scroll flex-col pl-6 lg:pl-16 pr-6 lg:pr-0 pt-8'>
-          <Heading
-            pb={{ base: '0.5rem', lg: '0.25rem' }}
-            className="ppFormula-font flex gap-3 text-white italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
-          >
-            ENTER YOUR
-            <Box as="span" className="text-[#DBFD67]">
-              DETAILS
-            </Box>
-          </Heading>
-          <Text color="white" pb={{ base: '2.125rem', lg: '1.25rem' }}>
-            You are creating an account on{' '}
-            <Text as={'span'} fontWeight={'700'}>
-              {' '}
-              <Link
-                href="https://ampverse.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ampverse
-              </Link>
+          <div className="flex  h-[65vh] overflow-scroll flex-col pl-6 lg:pl-16 pr-6 lg:pr-0 pt-8">
+            <Heading
+              pb={{ base: "0.5rem", lg: "0.25rem" }}
+              className="ppFormula-font flex gap-3 text-white italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
+            >
+              ENTER YOUR
+              <Box as="span" className="text-[#DBFD67]">
+                DETAILS
+              </Box>
+            </Heading>
+            <Text color="white" pb={{ base: "2.125rem", lg: "1.25rem" }}>
+              You are creating an account on{" "}
+              <Text as={"span"} fontWeight={"700"}>
+                {" "}
+                <Link
+                  href="https://ampverse.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ampverse
+                </Link>
+              </Text>
             </Text>
-          </Text>
-          <Box overflowY="scroll">
-            <Flex
-              width={{ base: '100%', lg: '80%' }}
-              direction={{ base: 'column', lg: 'row' }}
-              justifyContent="space-between"
-            >
+            <Box overflowY="scroll">
               <Flex
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                className="field"
+                width={{ base: "100%", lg: "80%" }}
+                direction={{ base: "column", lg: "row" }}
+                justifyContent="space-between"
               >
-                <FormLabel htmlFor="name" color="white">Full Name</FormLabel>
-                <Field
-                  as={Input}
-                  id="name"
-                  name="name"
-                  type="text"
-                  placeholder="Eg. Rakesh Oberoi"
-                  height="4.063rem"
-                  borderRadius="0.75rem"
-                  color="white"
-                  disabled={isSubmitting}
-                  focusBorderColor="#DBFD67"
-                />
-                {errors.name && touched.name && (
-                  <div className="text-[#DBFD67]">{errors.name}</div>
-                )}
+                <Flex
+                  width={{ base: "100%", lg: "48%" }}
+                  direction="column"
+                  className="field"
+                >
+                  <FormLabel htmlFor="name" color="white">
+                    Full Name
+                  </FormLabel>
+                  <Field
+                    as={Input}
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Eg. Rakesh Oberoi"
+                    height="4.063rem"
+                    borderRadius="0.75rem"
+                    color="white"
+                    disabled={isSubmitting}
+                    focusBorderColor="#DBFD67"
+                  />
+                  {errors.name && touched.name && (
+                    <div className="text-[#DBFD67]">{errors.name}</div>
+                  )}
+                </Flex>
+
+                <Flex
+                  width={{ base: "100%", lg: "48%" }}
+                  direction="column"
+                  pt={{ base: "1.25rem", lg: "0rem" }}
+                  className="field"
+                >
+                  <FormLabel htmlFor="email" color="white">
+                    Email Address
+                  </FormLabel>
+                  <Field
+                    as={Input}
+                    id="email"
+                    name="email"
+                    type="text"
+                    // mt="0.75rem"
+                    placeholder="Eg. rakesh@gmail.com"
+                    height="4.063rem"
+                    color="white"
+                    borderRadius="0.75rem"
+                    disabled={isSubmitting}
+                    focusBorderColor="#DBFD67"
+                  />
+                  {errors.email && touched.email && (
+                    <div className="text-[#DBFD67]">{errors.email}</div>
+                  )}
+                </Flex>
               </Flex>
 
               <Flex
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                pt={{ base: '1.25rem', lg: '0rem' }}
-                className="field"
+                width={{ base: "100%", lg: "80%" }}
+                direction={{ base: "column", lg: "row" }}
+                pt={{ base: "1.25rem", lg: "1.875rem" }}
+                justifyContent="space-between"
+                flexWrap="wrap"
               >
-                <FormLabel htmlFor="email" color="white">Email Address</FormLabel>
-                <Field
-                  as={Input}
-                  id="email"
-                  name="email"
-                  type="text"
-                  // mt="0.75rem"
-                  placeholder="Eg. rakesh@gmail.com"
-                  height="4.063rem"
-                  color="white"
-                  borderRadius="0.75rem"
-                  disabled={isSubmitting}
-                  focusBorderColor="#DBFD67"
-                />
-                {errors.email && touched.email && (
-                  <div className="text-[#DBFD67]">{errors.email}</div>
-                )}
-              </Flex>
-            </Flex>
+                <Flex
+                  width={{ base: "100%", lg: "48%" }}
+                  direction="column"
+                  className="field"
+                >
+                  <FormLabel htmlFor="name" color="white">
+                    WhatsApp Number
+                  </FormLabel>
+                  <Field
+                    as={Input}
+                    id="whatsappNumber"
+                    name="whatsappNumber"
+                    type="number"
+                    // mt="0.75rem"
+                    placeholder="Eg. 9887762732"
+                    height="4.063rem"
+                    color="white"
+                    borderRadius="0.75rem"
+                    focusBorderColor="#DBFD67"
+                  />
+                  {errors.whatsappNumber && touched.whatsappNumber && (
+                    <div className="text-[#DBFD67]">
+                      {errors.whatsappNumber}
+                    </div>
+                  )}
+                </Flex>
 
-            <Flex
-              width={{ base: '100%', lg: '80%' }}
-              direction={{ base: 'column', lg: 'row' }}
-              pt={{ base: '1.25rem', lg: '1.875rem' }}
-              justifyContent="space-between"
-              flexWrap="wrap"
-            >
-              <Flex
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                className="field"
-              >
-                <FormLabel htmlFor="name" color="white">WhatsApp Number</FormLabel>
-                <Field
-                  as={Input}
-                  id="whatsappNumber"
-                  name="whatsappNumber"
-                  type="number"
-                  // mt="0.75rem"
-                  placeholder="Eg. 9887762732"
-                  height="4.063rem"
-                  color="white"
-                  borderRadius="0.75rem"
-                  focusBorderColor="#DBFD67"
-                />
-                {errors.whatsappNumber && touched.whatsappNumber && (
-                  <div className="text-[#DBFD67]">{errors.whatsappNumber}</div>
-                )}
-              </Flex>
-
-              {/* <Flex
+                {/* <Flex
                 pb={{ base: '2.625rem', lg: '2.938rem' }}
                 width={{ base: '100%', lg: '48%' }}
                 direction="column"
@@ -324,36 +331,36 @@ export default function BasicDetailsForm() {
                 <QualifierText />
               </Flex> */}
 
-              <Flex direction="column" className="pt-6 pb-1">
-                <Field
-                  as={Checkbox}
-                  id="agreedToTerms"
-                  name="agreedToTerms"
-                  colorScheme="white"
-                  iconColor="#DBFD67"
-                  className="text-sm italic"
-                  alignItems="baseline"
-                  color="white"
-                >
-                  I agree to receiving communication, marketing and promotional
-                  material from Ampverse DMI Pvt Ltd.
-                </Field >
-                {errors.agreedToTerms && touched.agreedToTerms && (
-                  <div className="errorDiv">{errors.agreedToTerms}</div>
-                )}
+                <Flex direction="column" className="pt-6 pb-1">
+                  <Field
+                    as={Checkbox}
+                    id="agreedToTerms"
+                    name="agreedToTerms"
+                    colorScheme="white"
+                    iconColor="#DBFD67"
+                    className="text-sm italic"
+                    alignItems="baseline"
+                    color="white"
+                  >
+                    I agree to receiving communication, marketing and
+                    promotional material from Ampverse DMI Pvt Ltd.
+                  </Field>
+                  {errors.agreedToTerms && touched.agreedToTerms && (
+                    <div className="errorDiv">{errors.agreedToTerms}</div>
+                  )}
+                </Flex>
+                <Box className="my-2 lg:my-4">
+                  <ReCAPTCHA
+                    sitekey="6LfBSbQnAAAAAIKsL73tstGkEeMBa-u7Ip5Z4Rpg"
+                    ref={recaptchaRef}
+                    onChange={handleCaptchaSubmission}
+                  />
+                </Box>
               </Flex>
-              <Box className="my-2 lg:my-4">
-                <ReCAPTCHA
-                  sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
-                  ref={recaptchaRef}
-                  onChange={handleCaptchaSubmission}
-                />
-              </Box>
-            </Flex>
-          </Box>
+            </Box>
           </div>
           <Box className="fixed bg-black z-50 pt-6 lg:pl-16 border-t border-[fffffef] lg:w-[55%] w-full   lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
-               {/* 
+            {/* 
            <Divider
               marginTop="auto"
               borderColor={'black'}
@@ -363,48 +370,49 @@ export default function BasicDetailsForm() {
               width={{ base: '100%', lg: '109%' }}
             />
         */}
-        <div className='text-white helvetica-light-font font-normal'>Already a member? <Link href='/login'  className='text-#DBFD67 underline helvetica-font'>Login</Link></div>
+            <div className="text-white helvetica-light-font font-normal">
+              Already a member?{" "}
+              <Link
+                href="/login"
+                className="text-#DBFD67 underline helvetica-font"
+              >
+                Login
+              </Link>
+            </div>
             <Button
               id="signup-form-submit-btn"
               type="submit"
-              color={'#fff'}
-              _hover={{ opacity: '90%' }}
+              color={"#fff"}
+              _hover={{ opacity: "90%" }}
               _active={{
-                filter: 'drop-shadow(2px 2px 0px #d1ff45)',
-                transform: 'skew(-12deg) translate(2px, 2px)',
+                filter: "drop-shadow(2px 2px 0px #d1ff45)",
+                transform: "skew(-12deg) translate(2px, 2px)",
               }}
               transform="skew(-12deg)"
               transition="0.4s all ease-out"
               filter="drop-shadow(4px 4px 0px #d1ff45)"
-              borderRadius={'0.375rem'}
+              borderRadius={"0.375rem"}
               className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
-              display={'flex'}
-              justifyContent={'center'}
-              alignItems={'center'}
-              fontSize={'1rem'}
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              fontSize={"1rem"}
               mt="1.25rem"
               mb="1.25rem"
-              height={{ base: '4.125rem', lg: '4.063rem' }}
-              width={{ base: '17rem', lg: '22rem' }}
+              height={{ base: "4.125rem", lg: "4.063rem" }}
+              width={{ base: "17rem", lg: "22rem" }}
               isLoading={isSubmitting}
               loadingText="Sending OTP"
               isDisabled={!isVerified || isSubmitting}
             >
               Proceed to verify
-            </Button> 
-         
-
-
-
+            </Button>
           </Box>
         </Form>
       )}
     </Formik>
   );
 }
-
-
-
 
 // /api/users/sign-up
 // /otp/send-login-otp

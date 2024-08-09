@@ -335,7 +335,7 @@ const ProfileDashboard = () => {
                         </>
                       )}
 
-                      <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-2/4">
+                      <div className="flex flex-col flex-wrap w-full md:w-30% lg:w-2/4">
                         <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
                           Selected Games
                         </p>
@@ -351,10 +351,10 @@ const ProfileDashboard = () => {
                                 (url: string, index: number) => (
                                   <div
                                     key={index}
-                                    className="bg-[#DBFD67] md:p-4 p-2 rounded-lg"
+                                    className="bg-[#DBFD67] md:py-2 md:px-3 p-2 rounded-lg"
                                   >
                                     <Image
-                                      className="h-4"
+                                      className=" h-7"
                                       width={46}
                                       height={46}
                                       src={url}
