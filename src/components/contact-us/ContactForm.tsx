@@ -363,7 +363,7 @@ function ContactForm() {
                 ) : null}
                 <Box className="mt-1 lg:mt-3">
                   <ReCAPTCHA
-                    sitekey="6LfBSbQnAAAAAIKsL73tstGkEeMBa-u7Ip5Z4Rpg"
+                    sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
                     ref={recaptchaRef}
                     onChange={handleCaptchaSubmission}
                   />
