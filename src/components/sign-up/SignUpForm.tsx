@@ -62,7 +62,7 @@ export default function SignUpForm() {
       {showLoader ? (
         <LoadingScreen/>
       ) : (
-      <div className="w-full flex h-screen bg-black">
+      <div className="w-full flex h-screen bg-black overflow-auto">
         <div className=" max-lg:hidden w-45% custom-background pt-10 pl-11">
           <Link href="/">
             <Image
@@ -83,7 +83,7 @@ export default function SignUpForm() {
               height={23}
             />
           </Link>
-          <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
+          <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-between px-4 items-center  ">
             <div className="flex items-center flex-col">
               <div
                 className="rounded-full lg:w-[43px] lg:h-[43px] w-[29px] h-[29px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -97,20 +97,7 @@ export default function SignUpForm() {
                 Enter Credentials
               </p>
             </div>
-            <Image
-              src="/stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[20%] max-lg:hidden  h-auto -mt-9"
-            />
-            <Image
-              src="/md-stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[15%] lg:hidden h-auto -mx-3  -mt-7"
-            />
+            <hr  className='w-[20%] md:w-[32%] h-auto -ml-6 -mr-3  -mt-7 border-[#ffffff3d]'/>
             <div className="flex items-center flex-col">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -124,20 +111,7 @@ export default function SignUpForm() {
                 Verification
               </p>
             </div>
-            <Image
-              src="/stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[20%] max-lg:hidden  h-auto -mt-9"
-            />
-            <Image
-              src="/md-stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[15%] lg:hidden h-auto -mx-3 -mt-7"
-            />
+            <hr  className='w-[20%]  md:w-[32%] h-auto -ml-3 -mr-7 -mt-7 border-[#ffffff3d]'/>
             <div className="flex items-center flex-col">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -161,7 +135,7 @@ export default function SignUpForm() {
             ) : activeStep === 3 ? (
               <CompletionStepForm />
             ) : null}
-            <div className="py-16 max-md:py-20"></div>
+            <div className="py-20 max-md:py-20"></div>
           </div>
         </div>
       </div>)}

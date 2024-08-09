@@ -83,7 +83,7 @@ export default function LoginForm() {
               height={23}
             />
           </Link>
-          <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-center items-center  ">
+          <div className="py-2rem  flex md:pl-8 md:pr-14 bg-gradeint-white justify-between px-4 items-center  ">
             <div className="flex items-center flex-col">
               <div
                 className="rounded-full lg:w-[43px] lg:h-[43px] w-[29px] h-[29px] flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -99,24 +99,12 @@ export default function LoginForm() {
                   "1"
                 )}
               </div>
-              <p className="text-white  pt-3 helvetica-font font-bold md:text-base text-xs">
+              <p className="text-white  pt-3 helvetica-font font-bold xl:text-base text-xs">
                 Enter Credentials
               </p>
             </div>
-            <Image
-              src="/stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[23%] max-lg:hidden  h-auto -mt-9"
-            />
-            <Image
-              src="/md-stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[15%] lg:hidden h-auto -mx-3  -mt-7"
-            />
+       
+             <hr  className='w-[23%] md:w-[32%] h-auto -ml-6 -mr-3  -mt-7 border-[#ffffff3d]'/>
             <div className="flex items-center flex-col">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -132,24 +120,11 @@ export default function LoginForm() {
                   "2"
                 )}
               </div>
-              <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs">
+              <p className="text-white pt-3 helvetica-font font-bold xl:text-base text-xs">
                 Verification
               </p>
             </div>
-            <Image
-              src="/stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[23%] max-lg:hidden  h-auto -mt-9"
-            />
-            <Image
-              src="/md-stepper-seprator.svg"
-              alt=""
-              width="0"
-              height="0"
-              className="w-[15%] lg:hidden h-auto -mx-3 -mt-7"
-            />
+               <hr  className='w-[23%]  md:w-[32%] h-auto -ml-3  -mt-7 border-[#ffffff3d]'/>
             <div className="flex items-center flex-col">
               <div
                 className="rounded-full  lg:w-[43px] lg:h-[43px] w-[29px] h-[29px]  flex items-center text-white justify-center border border-[#ffffff1e] helvetica-font font-bold lg:text-xl text-xs"
@@ -165,7 +140,7 @@ export default function LoginForm() {
                   "3"
                 )}
               </div>
-              <p className="text-white pt-3 helvetica-font font-bold md:text-base text-xs ">
+              <p className="text-white pt-3 helvetica-font font-bold xl:text-base text-xs ">
                 Log in
               </p>
             </div>

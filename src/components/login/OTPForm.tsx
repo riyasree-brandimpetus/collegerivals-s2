@@ -131,55 +131,55 @@ export default function OTPForm() {
           placeholder="_" //TO DO: Update the Placeholder
         >
           <PinInputField
-            height="100px"
-            width="100px"
-            borderRadius="17px"
-            fontSize="50px"
+            height={{ base: '50px', lg: '100px' }}
+            width={{ base: '50px', lg: '100px' }}
+            borderRadius={{ base: '12px', lg: '17px' }}
+            fontSize={{ base: '25px', lg: '50px' }}
             lineHeight="75px"
             color="#DBFD67"
             name="otp[0]"
           />
           <PinInputField
-            height="100px"
-            width="100px"
-            borderRadius="17px"
-            fontSize="50px"
+            height={{ base: '50px', lg: '100px' }}
+            width={{ base: '50px', lg: '100px' }}
+            borderRadius={{ base: '12px', lg: '17px' }}
+            fontSize={{ base: '25px', lg: '50px' }}
             lineHeight="75px"
             color="#DBFD67"
             name="otp[1]"
           />
           <PinInputField
-            height="100px"
-            width="100px"
-            borderRadius="17px"
-            fontSize="50px"
+            height={{ base: '50px', lg: '100px' }}
+            width={{ base: '50px', lg: '100px' }}
+            borderRadius={{ base: '12px', lg: '17px' }}
+            fontSize={{ base: '25px', lg: '50px' }}
             lineHeight="75px"
             color="#DBFD67"
             name="otp[2]"
           />
           <PinInputField
-            height="100px"
-            width="100px"
-            borderRadius="17px"
-            fontSize="50px"
+            height={{ base: '50px', lg: '100px' }}
+            width={{ base: '50px', lg: '100px' }}
+            borderRadius={{ base: '12px', lg: '17px' }}
+            fontSize={{ base: '25px', lg: '50px' }}
             lineHeight="75px"
             color="#DBFD67"
             name="otp[3]"
           />
           <PinInputField
-            height="100px"
-            width="100px"
-            borderRadius="17px"
-            fontSize="50px"
+            height={{ base: '50px', lg: '100px' }}
+            width={{ base: '50px', lg: '100px' }}
+            borderRadius={{ base: '12px', lg: '17px' }}
+            fontSize={{ base: '25px', lg: '50px' }}
             lineHeight="75px"
             color="#DBFD67"
             name="otp[4]"
           />
           <PinInputField
-            height="100px"
-            width="100px"
-            borderRadius="17px"
-            fontSize="50px"
+            height={{ base: '50px', lg: '100px' }}
+            width={{ base: '50px', lg: '100px' }}
+            borderRadius={{ base: '12px', lg: '17px' }}
+            fontSize={{ base: '25px', lg: '50px' }}
             lineHeight="75px"
             color="#DBFD67"
             name="otp[5]"
