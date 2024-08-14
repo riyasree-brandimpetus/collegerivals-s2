@@ -79,6 +79,7 @@ const FooterSeason2 = () => {
               >
                 STORE
               </Link>
+
               {/* <Link
                 href="/"
                 className="helvetica-font  text-white hover:text-pink text-12px  pt-2rem lg:pt-0 no-underline hover:no-underline"
@@ -183,6 +184,28 @@ const FooterSeason2 = () => {
               >
                 hello@collegerivals.com
               </Link>
+            </div>
+          </div>
+          <div className="w-full border-t border-white/20 pt-7 pb-6 md:pb-16 flex items-center justify-center">
+            <div className="flex w-full flex-wrap justify-between max-w-[1440px] px-6 md:px-20">
+              <p className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm">
+                Copyright 2024 College Rivals
+              </p>
+
+              <div className="flex gap-2 md:gap-16">
+                <a
+                  className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                  href="/terms-of-service"
+                >
+                  Terms of Service
+                </a>
+                <a
+                  className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                  href="/privacy-policy"
+                >
+                  Privacy Policy
+                </a>
+              </div>
             </div>
           </div>
         </div>
