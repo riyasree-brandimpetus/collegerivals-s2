@@ -26,7 +26,7 @@ export default function SignUpForm() {
   const router = useRouter();
   const [showLoader, setShowLoader] = useState<boolean>(true);
 
-/* eslint-disable */
+
   useEffect(() => {
     // Retrieve the data from localStorage
     const storedUserId: any = localStorage.getItem('userId');
@@ -36,6 +36,7 @@ export default function SignUpForm() {
     } else{
       setShowLoader(false)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   
@@ -45,6 +46,7 @@ export default function SignUpForm() {
       // console.log('Enter OTP');
       setActiveStep(2);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state._id, state.isWhatsAppVerified]);
 
   useEffect(() => {
@@ -52,8 +54,9 @@ export default function SignUpForm() {
       setActiveStep(3);
       // console.log('OTP is verified');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.isLoggedIn]);
-/* eslint-enable */
+
   return (
     <>
       {showLoader ? (

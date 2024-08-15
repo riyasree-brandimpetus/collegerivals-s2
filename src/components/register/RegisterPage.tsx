@@ -1,24 +1,10 @@
 "use client";
-
-import FirstForm from "@/components/register/FirstForm";
 import SecondForm from "@/components/register/SecondForm";
-import ThirdForm from "@/components/register/ThirdForm";
-import CompletionStepForm from "@/components/register/completionStepForm";
 import { UserContext } from "@/utils/context/user.context";
 import { useRouter } from "next/navigation";
 import {
-  Box,
-  Flex,
-  useSteps,
 
-  Stepper,
-
-  StepIcon,
-  Text,
-  Divider,
-  StepSeparator,
-  StepDescription,
-  Step,
+  useSteps
 } from "@chakra-ui/react";
 import { useContext, useEffect } from "react";
 import SelectMode from "./SelectMode";

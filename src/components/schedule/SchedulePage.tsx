@@ -2,8 +2,6 @@
 
 import { Box } from '@chakra-ui/react';
 import Hero from '@/components/schedule/hero';
-import Accordian from '@/components/schedule/accordian';
-
 import Graphics from '@/components/globalComponents/Graphics';
 import { useState } from 'react';
 

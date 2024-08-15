@@ -2,7 +2,7 @@
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Highlight } from "@/types/homepage/home";
 import data from "../../data/HighlightsData.json"
 import season from "../../assets/2023season.png";

@@ -3,10 +3,6 @@
 import {
   Box,
   Heading,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
   Flex,
   Text,
   Image,

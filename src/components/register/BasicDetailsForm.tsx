@@ -1,5 +1,5 @@
 "use client";
-import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
+import { Field, Form, Formik, FormikHelpers } from "formik";
 import {
   Input,
   Button,
@@ -7,25 +7,23 @@ import {
   Flex,
   Select,
   Box,
-  Divider,
   FormLabel,
   useToast,
   Checkbox,
   Text,
   Link,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 import { FirstFormSchema } from "@/schemas/register";
-import { RegistrationCities } from '@/constants/cities';
+import { RegistrationCities } from "@/constants/cities";
 import api from "@/utils/axios/instance";
 import { FirstFormValues, UserAgentDetails } from "@/types/register/register";
 import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "@/utils/context/user.context";
 import { useSearchParams } from "next/navigation";
 import ReCAPTCHA from "react-google-recaptcha";
-import { verifyCaptcha } from '@/utils/captcha/ServerActions';
+import { verifyCaptcha } from "@/utils/captcha/ServerActions";
 import QualifierText from "./QualifierText";
-import UAParser from 'ua-parser-js';
-
+import UAParser from "ua-parser-js";
 
 export default function BasicDetailsForm() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -35,7 +33,7 @@ export default function BasicDetailsForm() {
   const toast = useToast();
   const { dispatch } = useContext(UserContext);
   const searchParams = useSearchParams();
-  const referral = searchParams.get('ref');
+  const referral = searchParams.get("ref");
 
   /**
    * To Fetch User Agent Details
@@ -63,28 +61,28 @@ export default function BasicDetailsForm() {
     const ua = parser.getUA();
     // Check if the device type is explicitly "desktop" or if it's null/empty (indicating desktop)
     const deviceType =
-      device.type === 'desktop' || !device.type ? 'desktop' : device.type;
+      device.type === "desktop" || !device.type ? "desktop" : device.type;
 
     return {
       browser: {
-        name: browser.name || 'Unknown',
-        version: browser.version || 'Unknown',
-        major: browser.major || 'Unknown',
+        name: browser.name || "Unknown",
+        version: browser.version || "Unknown",
+        major: browser.major || "Unknown",
       },
       os: {
-        name: os.name || 'Unknown',
-        version: os.version || 'Unknown',
+        name: os.name || "Unknown",
+        version: os.version || "Unknown",
       },
       device: {
-        vendor: device.vendor || 'Unknown',
-        model: device.model || 'Unknown',
-        type: deviceType || 'Unknown',
+        vendor: device.vendor || "Unknown",
+        model: device.model || "Unknown",
+        type: deviceType || "Unknown",
       },
       engine: {
-        name: engine.name || 'Unknown',
-        version: engine.version || 'Unknown',
+        name: engine.name || "Unknown",
+        version: engine.version || "Unknown",
       },
-      ua: ua || 'Unknown',
+      ua: ua || "Unknown",
     };
   }
 
@@ -102,10 +100,10 @@ export default function BasicDetailsForm() {
    * Initialize first form values
    */
   const firstFormInitialValues: FirstFormValues = {
-    name: '',
-    whatsappNumber: '',
-    email: '',
-    cityCenter: '',
+    name: "",
+    whatsappNumber: "",
+    email: "",
+    cityCenter: "",
     agreedToTerms: false,
   };
 
@@ -119,27 +117,27 @@ export default function BasicDetailsForm() {
     actions: FormikHelpers<FirstFormValues>
   ) => {
     try {
-      const response = await api.post('/users/register', {
+      const response = await api.post("/users/register", {
         ...values,
-        whatsappCountryCode: '+91',
-        queryParams: referral || '',
+        whatsappCountryCode: "+91",
+        queryParams: referral || "",
         userAgentDetails: userAgentDetailsArray,
       });
       const data = response.data;
       if (data) {
-        const otpResp = await api.post('/otp/send-otp', {
+        const otpResp = await api.post("/otp/send-otp", {
           userId: data._id,
           mobileNumber: data.whatsappNumber,
         });
         if (otpResp.data) {
           toast({
             title: `OTP Sent Successfully`,
-            description: 'OTP sent to your email and whatsapp.',
-            status: 'success',
+            description: "OTP sent to your email and whatsapp.",
+            status: "success",
             isClosable: true,
           });
           dispatch({
-            type: 'UPDATE',
+            type: "UPDATE",
             payload: { ...data, isWhatsAppVerified: false },
           });
         }
@@ -148,7 +146,7 @@ export default function BasicDetailsForm() {
       const message = error?.response?.data?.error;
       toast({
         title: `Error submitting form`,
-        status: 'error',
+        status: "error",
         isClosable: true,
         description: message,
       });
@@ -164,191 +162,194 @@ export default function BasicDetailsForm() {
       {({ errors, touched, isSubmitting }) => (
         <Form className="flex flex-col grow   pt-8 md:max-h-[80vh]">
           <div className="pl-6 lg:pl-16 pr-6 lg:pr-0 overflow-scroll ">
-          <Heading
-            pb={{ base: '0.5rem', lg: '0.25rem' }}
-            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
-          >
-            ENTER YOUR{' '}
-            <Box as="span" className="text-#DBFD67">
-              DETAILS
-            </Box>
-          </Heading>
-          <Text color={"white"} pb={{ base: '2.125rem', lg: '1.25rem' }}>
-            You are creating an account on{' '}
-            <Text as={'span'} fontWeight={'700'}>
-              {' '}
-              <Link
-                href="https://ampverse.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ampverse
-              </Link>
-            </Text>
-          </Text>
-          <Box overflowY="auto">
-            <Flex
-              width={{ base: '100%', lg: '80%' }}
-              direction={{ base: 'column', lg: 'row' }}
-              justifyContent="space-between"
+            <Heading
+              pb={{ base: "0.5rem", lg: "0.25rem" }}
+              className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
             >
-              <Flex
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                className="field"
-              >
-                <FormLabel color={"white"} htmlFor="name">Full Name</FormLabel>
-                <Field
-                  as={Input}
-                  id="name"
-                  name="name"
-                  color="white"
-                  type="text"
-                  placeholder="Eg. Rakesh Oberoi"
-                  height="4.063rem"
-                  borderRadius="0.75rem"
-                  disabled={isSubmitting}
-                  focusBorderColor="#DBFD67"
-                />
-                {errors.name && touched.name && (
-                  <div className="text-#DBFD67">{errors.name}</div>
-                )}
-              </Flex>
-
-              <Flex
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                pt={{ base: '1.25rem', lg: '0rem' }}
-                className="field"
-              >
-                <FormLabel htmlFor="email" color={"white"}>Email Address</FormLabel>
-                <Field
-                  as={Input}
-                  id="email"
-                  name="email"
-                  type="text"
-                    color="white"
-                  // mt="0.75rem"
-                  placeholder="Eg. rakesh@gmail.com"
-                  height="4.063rem"
-                  borderRadius="0.75rem"
-                  disabled={isSubmitting}
-                  focusBorderColor="#DBFD67"
-                />
-                {errors.email && touched.email && (
-                  <div className="text-#DBFD67">{errors.email}</div>
-                )}
-              </Flex>
-            </Flex>
-
-            <Flex
-              width={{ base: '100%', lg: '80%' }}
-              direction={{ base: 'column', lg: 'row' }}
-              pt={{ base: '1.25rem', lg: '1.875rem' }}
-              justifyContent="space-between"
-              flexWrap="wrap"
-            >
-              <Flex
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                className="field"
-              >
-                <FormLabel htmlFor="name" color={"white"}>WhatsApp Number</FormLabel>
-                <Field
-                  as={Input}
-                  id="whatsappNumber"
-                  name="whatsappNumber"
-                    color="white"
-                  type="number"
-                  // mt="0.75rem"
-                  placeholder="Eg. 9887762732"
-                  height="4.063rem"
-                  borderRadius="0.75rem"
-                  focusBorderColor="#DBFD67"
-                />
-                {errors.whatsappNumber && touched.whatsappNumber && (
-                  <div className="text-#DBFD67">{errors.whatsappNumber}</div>
-                )}
-              </Flex>
-
-              <Flex
-                pb={{ base: '2.625rem', lg: '2.938rem' }}
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                className="field"
-                pt={{ base: '1.25rem', lg: '0rem' }}
-              >
-                <FormLabel color={"white"}>City Center</FormLabel>
-                <Field
-                  as={Select}
-                  id="cityCenter"
-                  name="cityCenter"
-                  // mt="0.75rem"
-                  
-                  height="4.063rem"
-                  borderRadius="0.75rem"
-                    color="white"
-                  placeholder="Select City"
-                  focusBorderColor="#DBFD67"
-                >
-                  <option key="delhi" value="Delhi" disabled>
-                    Delhi - Registrations Closed
-                  </option>
-                  <option key="hyderabad" value="Hyderabad" disabled>
-                    Hyderabad - Registrations Closed
-                  </option>
-                  <option key="hyderabad" value="Bangalore" disabled>
-                    Bangalore - Registrations Closed
-                  </option>
-                  <option key="pune" value="Pune" disabled>
-                    Pune - Registrations Closed
-                  </option>
-                  {RegistrationCities.map(city => (
-                    <option key={city} value={city}>
-                      {city}
-                    </option>
-                  ))}
-                </Field>
-                {errors.cityCenter && touched.cityCenter && (
-                  <div className="text-#DBFD67">{errors.cityCenter}</div>
-                )}
-                <QualifierText />
-              </Flex>
-
-              <Flex direction="column" className="pb-4">
-                <Field
-                  as={Checkbox}
-                  id="agreedToTerms"
-                  name="agreedToTerms"
-                  colorScheme="white"
-                  iconColor="#DBFD67"
-                  className="text-sm italic text-white"
-                  alignItems="baseline"
-                  
-                >
-                  I agree to receiving communication, marketing and promotional
-                  material from Ampverse DMI Pvt Ltd.
-                </Field>
-                {errors.agreedToTerms && touched.agreedToTerms && (
-                  <div className="errorDiv">{errors.agreedToTerms}</div>
-                )}
-              </Flex>
-              <Box className="my-2 lg:my-4">
-                <ReCAPTCHA
-                  sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
-                  ref={recaptchaRef}
-                  onChange={handleCaptchaSubmission}
-                />
-                 
+              ENTER YOUR{" "}
+              <Box as="span" className="text-#DBFD67">
+                DETAILS
               </Box>
-         
-            </Flex>
-            <div className=" py-20 "></div>
-          </Box>
+            </Heading>
+            <Text color={"white"} pb={{ base: "2.125rem", lg: "1.25rem" }}>
+              You are creating an account on{" "}
+              <Text as={"span"} fontWeight={"700"}>
+                {" "}
+                <Link
+                  href="https://ampverse.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ampverse
+                </Link>
+              </Text>
+            </Text>
+            <Box overflowY="auto">
+              <Flex
+                width={{ base: "100%", lg: "80%" }}
+                direction={{ base: "column", lg: "row" }}
+                justifyContent="space-between"
+              >
+                <Flex
+                  width={{ base: "100%", lg: "48%" }}
+                  direction="column"
+                  className="field"
+                >
+                  <FormLabel color={"white"} htmlFor="name">
+                    Full Name
+                  </FormLabel>
+                  <Field
+                    as={Input}
+                    id="name"
+                    name="name"
+                    color="white"
+                    type="text"
+                    placeholder="Eg. Rakesh Oberoi"
+                    height="4.063rem"
+                    borderRadius="0.75rem"
+                    disabled={isSubmitting}
+                    focusBorderColor="#DBFD67"
+                  />
+                  {errors.name && touched.name && (
+                    <div className="text-#DBFD67">{errors.name}</div>
+                  )}
+                </Flex>
+
+                <Flex
+                  width={{ base: "100%", lg: "48%" }}
+                  direction="column"
+                  pt={{ base: "1.25rem", lg: "0rem" }}
+                  className="field"
+                >
+                  <FormLabel htmlFor="email" color={"white"}>
+                    Email Address
+                  </FormLabel>
+                  <Field
+                    as={Input}
+                    id="email"
+                    name="email"
+                    type="text"
+                    color="white"
+                    // mt="0.75rem"
+                    placeholder="Eg. rakesh@gmail.com"
+                    height="4.063rem"
+                    borderRadius="0.75rem"
+                    disabled={isSubmitting}
+                    focusBorderColor="#DBFD67"
+                  />
+                  {errors.email && touched.email && (
+                    <div className="text-#DBFD67">{errors.email}</div>
+                  )}
+                </Flex>
+              </Flex>
+
+              <Flex
+                width={{ base: "100%", lg: "80%" }}
+                direction={{ base: "column", lg: "row" }}
+                pt={{ base: "1.25rem", lg: "1.875rem" }}
+                justifyContent="space-between"
+                flexWrap="wrap"
+              >
+                <Flex
+                  width={{ base: "100%", lg: "48%" }}
+                  direction="column"
+                  className="field"
+                >
+                  <FormLabel htmlFor="name" color={"white"}>
+                    WhatsApp Number
+                  </FormLabel>
+                  <Field
+                    as={Input}
+                    id="whatsappNumber"
+                    name="whatsappNumber"
+                    color="white"
+                    type="number"
+                    // mt="0.75rem"
+                    placeholder="Eg. 9887762732"
+                    height="4.063rem"
+                    borderRadius="0.75rem"
+                    focusBorderColor="#DBFD67"
+                  />
+                  {errors.whatsappNumber && touched.whatsappNumber && (
+                    <div className="text-#DBFD67">{errors.whatsappNumber}</div>
+                  )}
+                </Flex>
+
+                <Flex
+                  pb={{ base: "2.625rem", lg: "2.938rem" }}
+                  width={{ base: "100%", lg: "48%" }}
+                  direction="column"
+                  className="field"
+                  pt={{ base: "1.25rem", lg: "0rem" }}
+                >
+                  <FormLabel color={"white"}>City Center</FormLabel>
+                  <Field
+                    as={Select}
+                    id="cityCenter"
+                    name="cityCenter"
+                    // mt="0.75rem"
+
+                    height="4.063rem"
+                    borderRadius="0.75rem"
+                    color="white"
+                    placeholder="Select City"
+                    focusBorderColor="#DBFD67"
+                  >
+                    <option key="delhi" value="Delhi" disabled>
+                      Delhi - Registrations Closed
+                    </option>
+                    <option key="hyderabad" value="Hyderabad" disabled>
+                      Hyderabad - Registrations Closed
+                    </option>
+                    <option key="hyderabad" value="Bangalore" disabled>
+                      Bangalore - Registrations Closed
+                    </option>
+                    <option key="pune" value="Pune" disabled>
+                      Pune - Registrations Closed
+                    </option>
+                    {RegistrationCities.map((city) => (
+                      <option key={city} value={city}>
+                        {city}
+                      </option>
+                    ))}
+                  </Field>
+                  {errors.cityCenter && touched.cityCenter && (
+                    <div className="text-#DBFD67">{errors.cityCenter}</div>
+                  )}
+                  <QualifierText />
+                </Flex>
+
+                <Flex direction="column" className="pb-4">
+                  <Field
+                    as={Checkbox}
+                    id="agreedToTerms"
+                    name="agreedToTerms"
+                    colorScheme="white"
+                    iconColor="#DBFD67"
+                    className="text-sm italic text-white"
+                    alignItems="baseline"
+                  >
+                    I agree to receiving communication, marketing and
+                    promotional material from Ampverse DMI Pvt Ltd.
+                  </Field>
+                  {errors.agreedToTerms && touched.agreedToTerms && (
+                    <div className="errorDiv">{errors.agreedToTerms}</div>
+                  )}
+                </Flex>
+                <Box className="my-2 lg:my-4">
+                  <ReCAPTCHA
+                    sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
+                    ref={recaptchaRef}
+                    onChange={handleCaptchaSubmission}
+                  />
+                </Box>
+              </Flex>
+              <div className=" py-20 "></div>
+            </Box>
           </div>
           <Box className=" bg-black bottom-0">
-          <div className="fixed  pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
-            {/* <Divider
+            <div className="fixed  pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
+              {/* <Divider
               marginTop="auto"
               borderColor={'black'}
               borderBottomWidth="1px"
@@ -356,34 +357,34 @@ export default function BasicDetailsForm() {
               ml={{ base: '0rem', lg: '-5.063rem' }}
               width={{ base: '100%', lg: '109%' }}
             /> */}
-            <Button
-              id="basic-details-form-submit-btn"
-              type="submit"
-              color={'#fff'}
-              _hover={{ opacity: '90%' }}
-              _active={{
-                filter: 'drop-shadow(2px 2px 0px #d1ff45)',
-                transform: 'skew(-12deg) translate(2px, 2px)',
-              }}
-              transform="skew(-12deg)"
-              transition="0.4s all ease-out"
-              filter="drop-shadow(4px 4px 0px #d1ff45)"
-              borderRadius={'0.375rem'}
-              className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
-              display={'flex'}
-              justifyContent={'center'}
-              alignItems={'center'}
-              fontSize={'1rem'}
-              mt="1.25rem"
-              mb="1.25rem"
-              height={{ base: '4.125rem', lg: '4.063rem' }}
-              width={{ base: '17rem', lg: '22rem' }}
-              isLoading={isSubmitting}
-              loadingText="Submiting Details"
-              isDisabled={!isVerified || isSubmitting}
-            >
-              Proceed to verify
-            </Button>
+              <Button
+                id="basic-details-form-submit-btn"
+                type="submit"
+                color={"#fff"}
+                _hover={{ opacity: "90%" }}
+                _active={{
+                  filter: "drop-shadow(2px 2px 0px #d1ff45)",
+                  transform: "skew(-12deg) translate(2px, 2px)",
+                }}
+                transform="skew(-12deg)"
+                transition="0.4s all ease-out"
+                filter="drop-shadow(4px 4px 0px #d1ff45)"
+                borderRadius={"0.375rem"}
+                className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                fontSize={"1rem"}
+                mt="1.25rem"
+                mb="1.25rem"
+                height={{ base: "4.125rem", lg: "4.063rem" }}
+                width={{ base: "17rem", lg: "22rem" }}
+                isLoading={isSubmitting}
+                loadingText="Submiting Details"
+                isDisabled={!isVerified || isSubmitting}
+              >
+                Proceed to verify
+              </Button>
             </div>
           </Box>
         </Form>
