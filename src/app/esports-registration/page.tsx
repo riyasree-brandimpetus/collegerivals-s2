@@ -12,7 +12,7 @@ export default function Page() {
   const router = useRouter();
 
 
-  /* eslint-disable */
+
 
   useEffect(() => {
     if(state._id && state.isLoggedIn){ 
@@ -42,9 +42,10 @@ export default function Page() {
     // });
     // console.log(storedUserData);
     // setShowLoader(!storedUserData?.isLoggedIn);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); 
 
-  /* eslint-enable */
+
 
   return <>{showLoader ? <LoadingScreen/> : <ESportsPage />}</>;
 }

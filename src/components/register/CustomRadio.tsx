@@ -5,7 +5,6 @@ import {
   useRadio,
   ImageProps,
   chakra,
-  Text,
   useRadioGroupContext,
   Image
 } from '@chakra-ui/react';

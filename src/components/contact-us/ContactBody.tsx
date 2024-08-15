@@ -4,16 +4,8 @@ import {
   Heading,
   Image,
   Text,
-  Link,
-  Input,
-  Select,
-  Box,
-  FormLabel,
-  Button,
+  Link
 } from "@chakra-ui/react";
-import { useState, useRef } from "react";
-import { Formik, Field, Form } from "formik";
-import * as Yup from "yup";
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
 

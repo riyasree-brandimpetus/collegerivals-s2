@@ -1,9 +1,5 @@
 "use client"
 import Image from "next/image";
-import playbtn from "/assets/hero-movie-btn.svg";
-import stripe1 from "/assets/strip1.png";
-import stripe2 from "/assets/strip2.png";
-import stripe3 from "/assets/strip3.png";
 import Link from "next/link";
 const HeroSection = () => {
 

@@ -64,7 +64,7 @@ const ProfileDashboard = () => {
     console.log("state._id", state._id);
     if (state.whatsappNumber == "") {
       const storedUserId: any = localStorage.getItem("userId");
-      /* eslint-disable */
+
       const fetchUserDetails = async () => {
         try {
           console.log("here");
@@ -101,8 +101,9 @@ const ProfileDashboard = () => {
       console.log("here");
       setShowLoader(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  /* eslint-enable */
+
   useEffect(() => {
     const fetchData = async () => {
       const formattedDate = formatJoinedDate(state.createdAt);
@@ -128,6 +129,7 @@ const ProfileDashboard = () => {
     if (!state.gameData.length) {
       fetchGameDetails();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
 
   const fetchGameDetails = async () => {
@@ -164,6 +166,7 @@ const ProfileDashboard = () => {
       setGameImageUrls(imageUrls);
       // console.log('imageUrls', imageUrls);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameData, state.gameDetails]);
 
   return (
@@ -332,7 +335,7 @@ const ProfileDashboard = () => {
                         </>
                       )}
 
-                      <div className="flex flex-col flex-wrap w-45% md:w-30% lg:w-2/4">
+                      <div className="flex flex-col flex-wrap w-full md:w-30% lg:w-2/4">
                         <p className="text-[#5D5D5E] text-base helvetica-light-font font-normal">
                           Selected Games
                         </p>
@@ -348,10 +351,10 @@ const ProfileDashboard = () => {
                                 (url: string, index: number) => (
                                   <div
                                     key={index}
-                                    className="bg-[#DBFD67] md:p-4 p-2 rounded-lg"
+                                    className="bg-[#DBFD67] md:py-2 md:px-3 p-2 rounded-lg"
                                   >
                                     <Image
-                                      className="h-4"
+                                      className=" h-7"
                                       width={46}
                                       height={46}
                                       src={url}
