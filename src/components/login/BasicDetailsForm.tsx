@@ -1,31 +1,30 @@
-'use client';
-import { Field, Form, Formik, FormikHelpers } from 'formik';
+"use client";
+import { Field, Form, Formik, FormikHelpers } from "formik";
 import {
   Input,
   Button,
   Heading,
   Flex,
   Box,
-  Divider,
   FormLabel,
   useToast,
-  Text
-} from '@chakra-ui/react';
-import api from '@/utils/axios/instance';
-import { useContext, useRef, useState } from 'react';
-import { UserContext } from '@/utils/context/user.context';
-import ReCAPTCHA from 'react-google-recaptcha';
-import { verifyCaptcha } from '@/utils/captcha/ServerActions';
-import { LoginFormValues } from '@/types/login/login';
-import { LoginFormSchema } from '@/schemas/login';
-import Link from 'next/link';
+  Text,
+} from "@chakra-ui/react";
+import api from "@/utils/axios/instance";
+import { useContext, useRef, useState } from "react";
+import { UserContext } from "@/utils/context/user.context";
+import ReCAPTCHA from "react-google-recaptcha";
+import { verifyCaptcha } from "@/utils/captcha/ServerActions";
+import { LoginFormValues } from "@/types/login/login";
+import { LoginFormSchema } from "@/schemas/login";
+import Link from "next/link";
 
 export default function BasicDetailsForm() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [isVerified, setIsverified] = useState<boolean>(false);
   const toast = useToast();
   const { dispatch } = useContext(UserContext);
-  
+
   /**
    * Handle Captcha Submission
    * @param token
@@ -40,7 +39,7 @@ export default function BasicDetailsForm() {
    * Initialize first form values
    */
   const firstFormInitialValues: LoginFormValues = {
-    whatsappNumber: ''
+    whatsappNumber: "",
   };
 
   /**
@@ -54,26 +53,26 @@ export default function BasicDetailsForm() {
   ) => {
     try {
       // console.log('heree');
-      const response = await api.post('/users/id', {
-        ...values
+      const response = await api.post("/users/id", {
+        ...values,
       });
       const data = response.data;
       // console.log(data)
       if (data) {
-        const otpResp = await api.post('/otp/send-login-otp', {
+        const otpResp = await api.post("/otp/send-login-otp", {
           userId: data,
           mobileNumber: `${values.whatsappNumber}`,
         });
-      // console.log(otpResp.data.userDetails);
+        // console.log(otpResp.data.userDetails);
         if (otpResp.data) {
           toast({
             title: `OTP Sent Successfully`,
-            description: 'OTP sent to your email and whatsapp.',
-            status: 'success',
+            description: "OTP sent to your email and whatsapp.",
+            status: "success",
             isClosable: true,
           });
           dispatch({
-            type: 'UPDATE',
+            type: "UPDATE",
             payload: { ...otpResp.data.userDetails },
           });
         }
@@ -82,7 +81,7 @@ export default function BasicDetailsForm() {
       const message = error?.response?.data?.error;
       toast({
         title: `Error submitting form`,
-        status: 'error',
+        status: "error",
         isClosable: true,
         description: message,
       });
@@ -97,20 +96,20 @@ export default function BasicDetailsForm() {
     >
       {({ errors, touched, isSubmitting }) => (
         <Form className="text-white flex flex-col grow  lg:pt-20 pt-8 md:max-h-[80vh]">
-          <div className='pl-6 lg:pl-16 pr-6 lg:pr-0'>
-          <Heading
-            pb={{ base: '0.5rem', lg: '0.25rem' }}
-            className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem]  tracking-wide lg:tracking-wider"
-          >
-            ENTER YOUR{' '}
-            <Box as="span" className="text-[#DBFD67]">
-              DETAILS
-            </Box>
-          </Heading>
-          <Text className="helvetica-light-font font-normal">
-            You are logging into your account on Ampverse
-          </Text>
-          {/* <Text pb={{ base: '2.125rem', lg: '1.25rem' }}>
+          <div className="pl-6 lg:pl-16 pr-6 lg:pr-0">
+            <Heading
+              pb={{ base: "0.5rem", lg: "0.25rem" }}
+              className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem]  tracking-wide lg:tracking-wider"
+            >
+              ENTER YOUR{" "}
+              <Box as="span" className="text-[#DBFD67]">
+                DETAILS
+              </Box>
+            </Heading>
+            <Text className="helvetica-light-font font-normal">
+              You are logging into your account on Ampverse
+            </Text>
+            {/* <Text pb={{ base: '2.125rem', lg: '1.25rem' }}>
             You are creating an account on{' '}
             <Text as={'span'} fontWeight={'700'}>
               {' '}
@@ -123,8 +122,8 @@ export default function BasicDetailsForm() {
               </Link>
             </Text>
           </Text> */}
-          <Box overflowY="auto">
-            {/* <Flex
+            <Box overflowY="auto">
+              {/* <Flex
               width={{ base: '100%', lg: '80%' }}
               direction={{ base: 'column', lg: 'row' }}
               justifyContent="space-between"
@@ -176,44 +175,44 @@ export default function BasicDetailsForm() {
               </Flex>
             </Flex> */}
 
-            <Flex
-              width={{ base: '100%', lg: '80%' }}
-              direction={{ base: 'column', lg: 'row' }}
-              pt={{ base: '1.25rem', lg: '1.875rem' }}
-              justifyContent="space-between"
-              flexWrap="wrap"
-            >
               <Flex
-                width={{ base: '100%', lg: '48%' }}
-                direction="column"
-                className="field"
+                width={{ base: "100%", lg: "80%" }}
+                direction={{ base: "column", lg: "row" }}
+                pt={{ base: "1.25rem", lg: "1.875rem" }}
+                justifyContent="space-between"
+                flexWrap="wrap"
               >
-                <FormLabel htmlFor="name">WhatsApp Number</FormLabel>
-                <Field
-                  as={Input}
-                  id="whatsappNumber"
-                  name="whatsappNumber"
-                  type="number"
-                  // mt="0.75rem"
-                  placeholder="Eg. 9887762732"
-                  height="4.063rem"
-                  borderRadius="0.75rem"
-                  focusBorderColor="#DBFD67"
-                />
-                {errors.whatsappNumber && touched.whatsappNumber && (
-                  <div className="text-pink">{errors.whatsappNumber}</div>
-                )}
-              </Flex>
+                <Flex
+                  width={{ base: "100%", lg: "48%" }}
+                  direction="column"
+                  className="field"
+                >
+                  <FormLabel htmlFor="name">WhatsApp Number</FormLabel>
+                  <Field
+                    as={Input}
+                    id="whatsappNumber"
+                    name="whatsappNumber"
+                    type="number"
+                    // mt="0.75rem"
+                    placeholder="Eg. 9887762732"
+                    height="4.063rem"
+                    borderRadius="0.75rem"
+                    focusBorderColor="#DBFD67"
+                  />
+                  {errors.whatsappNumber && touched.whatsappNumber && (
+                    <div className="text-pink">{errors.whatsappNumber}</div>
+                  )}
+                </Flex>
 
-              <Box className="my-2 lg:my-4 w-full">
-                <ReCAPTCHA
-                  sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
-                  ref={recaptchaRef}
-                  onChange={handleCaptchaSubmission}
-                />
-              </Box>
-            </Flex>
-          </Box>
+                <Box className="my-2 lg:my-4 w-full">
+                  <ReCAPTCHA
+                    sitekey="6LeBtbYnAAAAABuibRliB7M7XcHJ2_-DIWTdS0Ig"
+                    ref={recaptchaRef}
+                    onChange={handleCaptchaSubmission}
+                  />
+                </Box>
+              </Flex>
+            </Box>
           </div>
           <Box className="fixed pt-6 z-50 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
             {/* <Divider
@@ -225,36 +224,43 @@ export default function BasicDetailsForm() {
               width={{ base: '100%', lg: '109%' }}
             /> */}
 
-<div className='text-white helvetica-light-font font-normal'>Not a member? <Link className='text-#DBFD67 underline helvetica-font' href="/sign-up">Register</Link></div>
-             <Button
+            <div className="text-white helvetica-light-font font-normal">
+              Not a member?{" "}
+              <Link
+                className="text-#DBFD67 underline helvetica-font"
+                href="/sign-up"
+              >
+                Register
+              </Link>
+            </div>
+            <Button
               id="login-form-submit-btn"
               type="submit"
-              color={'#fff'}
-              _hover={{ opacity: '90%' }}
+              color={"#fff"}
+              _hover={{ opacity: "90%" }}
               _active={{
-                filter: 'drop-shadow(2px 2px 0px #d1ff45)',
-                transform: 'skew(-12deg) translate(2px, 2px)',
+                filter: "drop-shadow(2px 2px 0px #d1ff45)",
+                transform: "skew(-12deg) translate(2px, 2px)",
               }}
               transform="skew(-12deg)"
               transition="0.4s all ease-out"
               filter="drop-shadow(4px 4px 0px #d1ff45)"
-              borderRadius={'0.375rem'}
+              borderRadius={"0.375rem"}
               className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
-              display={'flex'}
-              justifyContent={'center'}
-              alignItems={'center'}
-              fontSize={'1rem'}
+              display={"flex"}
+              justifyContent={"center"}
+              alignItems={"center"}
+              fontSize={"1rem"}
               mt="1.25rem"
               mb="2.5rem"
-              height={{ base: '4.125rem', lg: '4.063rem' }}
-              width={{ base: '17rem', lg: '22rem' }}
+              height={{ base: "4.125rem", lg: "4.063rem" }}
+              width={{ base: "17rem", lg: "22rem" }}
               isLoading={isSubmitting}
               loadingText="Sending OTP"
               isDisabled={!isVerified || isSubmitting}
             >
               Proceed to verify
-            </Button> 
-          
+            </Button>
           </Box>
         </Form>
       )}

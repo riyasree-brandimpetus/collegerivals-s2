@@ -1,13 +1,24 @@
-import React, { useRef, useState } from 'react'
-import { Formik, Field, Form, FormikHelpers } from 'formik';
-import { ContactFormSchema } from '@/schemas/contact';
-import { ContactFormValues } from '@/types/contact/contact';
-import { motion } from 'framer-motion';
-import { ContactCities } from '@/constants/cities';
-import { Flex, Heading, Text, Image, FormLabel, Input, Button, Select, useToast, Box } from '@chakra-ui/react';
-import api from '@/utils/axios/instance';
-import ReCAPTCHA from 'react-google-recaptcha';
-import { verifyCaptcha } from '@/utils/captcha/ServerActions';
+import React, { useRef, useState } from "react";
+import { Formik, Field, Form, FormikHelpers } from "formik";
+import { ContactFormSchema } from "@/schemas/contact";
+import { ContactFormValues } from "@/types/contact/contact";
+import { motion } from "framer-motion";
+import { ContactCities } from "@/constants/cities";
+import {
+  Flex,
+  Heading,
+  Text,
+  Image,
+  FormLabel,
+  Input,
+  Button,
+  Select,
+  useToast,
+  Box,
+} from "@chakra-ui/react";
+import api from "@/utils/axios/instance";
+import ReCAPTCHA from "react-google-recaptcha";
+import { verifyCaptcha } from "@/utils/captcha/ServerActions";
 
 function ContactForm() {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -20,13 +31,13 @@ function ContactForm() {
       .catch(() => setIsverified(false));
   }
   const contactInitialValues: ContactFormValues = {
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    emailAddress: '',
-    cityCenter: '',
-    collegeName: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    emailAddress: "",
+    cityCenter: "",
+    collegeName: "",
+    message: "",
   };
   /**
    * Handles First Form Submission
@@ -38,20 +49,20 @@ function ContactForm() {
     actions: FormikHelpers<ContactFormValues>
   ) => {
     try {
-      const response = await api.post('/contact', {
+      const response = await api.post("/contact", {
         ...values,
       });
       const data = response.data;
       toast({
         title: `Submitted Form`,
-        status: 'success',
+        status: "success",
         isClosable: true,
       });
     } catch (error: any) {
       const message = error?.response?.data?.error;
       toast({
         title: `Error submitting form`,
-        status: 'error',
+        status: "error",
         isClosable: true,
         description: message,
       });
@@ -82,7 +93,7 @@ function ContactForm() {
           className="ppFormula-font font-light italic text-1.75rem lg:text-6xl
            text-black mb-1.88rem lg:mb-4.38rem tracking-wide lg:tracking-widest"
         >
-          GET IN{' '}
+          GET IN{" "}
           <Text as="span" className="text-pink">
             TOUCH
           </Text>
@@ -97,7 +108,7 @@ function ContactForm() {
             <Form className="contactUsForm">
               <Flex
                 className="flex-col lg:flex-row px-3.5 lg:px-0 justify-between"
-                width={{ base: '100%', md: '80%', lg: '55%' }}
+                width={{ base: "100%", md: "80%", lg: "55%" }}
                 // as={motion.div}
                 // variants={{
                 //   hidden: { opacity: 0, y: 55 },
@@ -161,7 +172,7 @@ function ContactForm() {
               </Flex>
 
               <Flex
-                width={{ base: '100%', md: '80%', lg: '55%' }}
+                width={{ base: "100%", md: "80%", lg: "55%" }}
                 className="flex-col lg:flex-row px-0.88rem lg:px-0 pt-5 lg:pt-1.875rem justify-between"
               >
                 <Flex
@@ -228,7 +239,7 @@ function ContactForm() {
               </Flex>
 
               <Flex
-                width={{ base: '100%', md: '80%', lg: '55%' }}
+                width={{ base: "100%", md: "80%", lg: "55%" }}
                 className="flex-col lg:flex-row px-0.88rem lg:px-0 pt-5 lg:pt-1.875rem justify-between"
               >
                 <Flex
@@ -258,7 +269,7 @@ function ContactForm() {
                     focusBorderColor="#FF077C"
                     className="justify-between h-4.063rem rounded-md"
                   >
-                    {ContactCities.map(city => (
+                    {ContactCities.map((city) => (
                       <option key={city} value={city}>
                         {city}
                       </option>
@@ -322,7 +333,7 @@ function ContactForm() {
               </Flex>
               <Flex
                 className="flex-col px-[0.88rem] lg:px-0 pt-5 lg:pt-[1.875rem]"
-                width={{ base: '100%', md: '80%', lg: '55%' }}
+                width={{ base: "100%", md: "80%", lg: "55%" }}
                 // as={motion.div}
                 // variants={{
                 //   hidden: { opacity: 0, y: 55 },
@@ -363,7 +374,7 @@ function ContactForm() {
                     type="submit"
                     className="helvetica-font rounded-md mt-10 lg:mt-3.125rem h-3.125rem lg:h-4.063rem
                     w-[17rem] lg:w-[22rem] italic flex justify-center items-center text-white button-style"
-                    backgroundColor={'#FF077C !important'}
+                    backgroundColor={"#FF077C !important"}
                     transform="skew(-12deg)"
                     transition="0.4s all ease-out"
                     filter="drop-shadow(8px 8px 2px #d1ff45)"
@@ -383,7 +394,7 @@ function ContactForm() {
         className="absolute bottom-[11%] left-0 "
         src="left-contact-design.svg"
         alt="left-contact-design"
-        display={{ lg: 'block', base: 'none' }}
+        display={{ lg: "block", base: "none" }}
         zIndex="0"
       />
 
@@ -391,11 +402,11 @@ function ContactForm() {
         className="absolute top-[30%] right-0"
         src="right-contact-design.svg"
         alt="right-contact-design"
-        display={{ lg: 'block', base: 'none' }}
+        display={{ lg: "block", base: "none" }}
         zIndex="0"
       />
     </Flex>
   );
 }
 
-export default ContactForm
+export default ContactForm;

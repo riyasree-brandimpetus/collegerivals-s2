@@ -37,7 +37,7 @@ useEffect(() => {
   setActiveStep(state.activeStep);
 }, [state.activeStep, setActiveStep]);
 
-/* eslint-disable */
+
   useEffect(() => {
     const storedUserId: any = localStorage.getItem("userId");
     if (storedUserId) {
@@ -66,9 +66,10 @@ useEffect(() => {
     } else {
       router.push("/login");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
-/* eslint-enable */
+
   return (
     <>
        {showLoader ? (

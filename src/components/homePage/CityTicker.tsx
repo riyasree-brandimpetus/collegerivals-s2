@@ -2,7 +2,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { CitySlides } from "@/types/homepage/home";
 import CityData from "../../data/CityTicker.json"
 import Image from "next/image";
 const CityTicker = () => {

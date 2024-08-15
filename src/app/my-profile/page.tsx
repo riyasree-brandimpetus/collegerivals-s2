@@ -1,11 +1,5 @@
 'use client';
-
-import Faq from '@/components/homePage/faq';
-import Graphics from '@/components/globalComponents/Graphics';
-import { Flex } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
-import BasicDetailsForm from '@/components/sign-up/BasicDetailsForm';
-import SignUpForm from '@/components/sign-up/SignUpForm';
 import ProfileDashboard from '@/components/my-profile/ProfileDashboard';
 import { UserContext } from '@/utils/context/user.context';
 import { useRouter } from 'next/navigation';
@@ -20,7 +14,7 @@ export default function MyProfile() {
   const router = useRouter();
   const { state, dispatch } = useContext(UserContext);
 
-/* eslint-disable */
+
 
   useEffect(() => {
     // Retrieve the data from localStorage
@@ -39,9 +33,10 @@ export default function MyProfile() {
       });
       router.push('/login');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  /* eslint-enable */
+ 
   
   
   return (

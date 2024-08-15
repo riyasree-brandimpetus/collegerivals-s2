@@ -1,4 +1,4 @@
-import { Box, Flex, Image, useBreakpointValue } from "@chakra-ui/react";
+import { Flex, Image, useBreakpointValue } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React, { useRef } from "react";
 

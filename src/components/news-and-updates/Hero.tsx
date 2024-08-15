@@ -1,7 +1,6 @@
 "use client";
 import {
   Box,
-  Button,
   Card,
   CardBody,
   CardHeader,
@@ -9,9 +8,6 @@ import {
   SimpleGrid,
   Text,
   Image,
-  transition,
-  Flex,
-  Link,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
