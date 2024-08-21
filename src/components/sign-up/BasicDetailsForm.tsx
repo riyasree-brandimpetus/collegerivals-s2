@@ -342,7 +342,7 @@ export default function BasicDetailsForm() {
                     alignItems="baseline"
                     color="white"
                   >
-                    I agree to our{" "}
+                    I agree to the{" "}
                     <a className="underline" href="/terms-of-service">
                       Terms of Service
                     </a>{" "}
