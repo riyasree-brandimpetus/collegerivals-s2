@@ -11,16 +11,16 @@ const OurSponsor = () => {
         <div className="flex flex-col justify-center items-center w-full md:gap-20 gap-7 mb-8 text-white z-10">
           <div className="justify-center items-center w-full md:gap-44 gap-7 flex">
             <Image
-              width={160}
-              height={37}
-              src="/sponsor1.svg"
+              width={122}
+              height={45}
+              src="/Apache.webp"
               alt=""
               className="md:w-auto w-20"
             />
             <Image
-              width={138}
-              height={49}
-              src="/sponsor2.svg"
+              width={100}
+              height={48}
+              src="/Kreo.webp"
               alt=""
               className="md:w-auto w-20"
             />
@@ -48,19 +48,18 @@ const OurSponsor = () => {
               className="md:w-auto w-20"
             />
           </div>
-
           <div className="justify-center items-center w-full md:gap-44 gap-7 flex">
             <Image
-              width={122}
-              height={45}
-              src="/Apache.webp"
+              width={160}
+              height={37}
+              src="/sponsor1.svg"
               alt=""
               className="md:w-auto w-20"
             />
             <Image
-              width={100}
-              height={48}
-              src="/Kreo.webp"
+              width={138}
+              height={49}
+              src="/sponsor2.svg"
               alt=""
               className="md:w-auto w-20"
             />
