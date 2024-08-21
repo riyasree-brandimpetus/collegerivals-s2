@@ -89,7 +89,6 @@ export default function SelectProfile() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
- 
 
   return (
     <Formik
@@ -160,34 +159,51 @@ export default function SelectProfile() {
           </div>
           <div className="py-16"></div>
           <Box className="mt-auto sticky bg-white bottom-0">
-            <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full flex-row  flex items-center justify-between lg:right-0 bottom-0 ">
-              <Button
-                id="select-mode-submit-btn"
-                type="submit"
-                color={"#fff"}
-                _hover={{ opacity: "90%" }}
-                _active={{
-                  filter: "drop-shadow(2px 2px 0px #d1ff45)",
-                  transform: "skew(-12deg) translate(2px, 2px)",
-                }}
-                transform="skew(-12deg)"
-                transition="0.4s all ease-out"
-                filter="drop-shadow(4px 4px 0px #d1ff45)"
-                borderRadius={"0.375rem"}
-                className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
-                display={"flex"}
-                justifyContent={"center"}
-                alignItems={"center"}
-                fontSize={"1rem"}
-                mt="1.25rem"
-                mb="1.25rem"
-                height={{ base: "4.125rem", lg: "4.063rem" }}
-                width={{ base: "17rem", lg: "22rem" }}
-                isLoading={isSubmitting}
-                loadingText="Submiting"
-              >
-                Proceed
-              </Button>
+            <div className="fixed bg-black z-50  lg:w-[55%] w-full   flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto ">
+              <div className="w-full py-2 md:py-4 flex gap-2 pr-6 md:pr-24 md:gap-16 items-end  justify-end">
+                {" "}
+                <a
+                  className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                  href="/terms-of-service"
+                >
+                  Terms of Service
+                </a>
+                <a
+                  className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                  href="/privacy-policy"
+                >
+                  Privacy Policy
+                </a>
+              </div>
+              <div className=" bg-black lg:pl-16   border-t border-[fffffef] w-full   lg:flex-row flex-col flex items-center justify-between ">
+                <Button
+                  id="select-mode-submit-btn"
+                  type="submit"
+                  color={"#fff"}
+                  _hover={{ opacity: "90%" }}
+                  _active={{
+                    filter: "drop-shadow(2px 2px 0px #d1ff45)",
+                    transform: "skew(-12deg) translate(2px, 2px)",
+                  }}
+                  transform="skew(-12deg)"
+                  transition="0.4s all ease-out"
+                  filter="drop-shadow(4px 4px 0px #d1ff45)"
+                  borderRadius={"0.375rem"}
+                  className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
+                  display={"flex"}
+                  justifyContent={"center"}
+                  alignItems={"center"}
+                  fontSize={"1rem"}
+                  mt="1.25rem"
+                  mb="1.25rem"
+                  height={{ base: "4.125rem", lg: "4.063rem" }}
+                  width={{ base: "17rem", lg: "22rem" }}
+                  isLoading={isSubmitting}
+                  loadingText="Submiting"
+                >
+                  Proceed
+                </Button>
+              </div>
             </div>
           </Box>
         </Form>

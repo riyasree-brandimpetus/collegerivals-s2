@@ -125,7 +125,7 @@ export default function ThirdForm() {
         });
         dispatch({
           type: "UPDATE",
-          payload: { ...state, gameDetails: enteredGameValues, activeStep:3 },
+          payload: { ...state, gameDetails: enteredGameValues, activeStep: 3 },
         });
       }
     } catch (error: any) {
@@ -140,9 +140,9 @@ export default function ThirdForm() {
   };
 
   /**
-   * For Edit Profile 
+   * For Edit Profile
    */
- 
+
   useEffect(() => {
     console.log("state", state.gameDetails);
     if (state?.gameDetails.length > 0) {
@@ -176,8 +176,10 @@ export default function ThirdForm() {
           {showLoader && (
             <Flex>
               {" "}
-              <Text paddingLeft="4rem" color="white">Loading Games...</Text>
-              <Spinner size="xs"  color="white"/>
+              <Text paddingLeft="4rem" color="white">
+                Loading Games...
+              </Text>
+              <Spinner size="xs" color="white" />
             </Flex>
           )}
 
@@ -195,7 +197,7 @@ export default function ThirdForm() {
               {gameData.length > 0 &&
                 gameData.map((game: any) => (
                   <GameCheckBox
-                  className="max-md:w-[46%]"
+                    className="max-md:w-[46%]"
                     game={game}
                     key={game.name}
                     {...getCheckboxProps({ value: game.name })}
@@ -204,49 +206,64 @@ export default function ThirdForm() {
             </Flex>
           </Skeleton>
 
-<div className="fixed pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
-         
-          <Button
-            type="submit"
-           id="select-games-btn"
-            onClick={() =>
-              value.length > 0
-                ? filterGameData()
-                : toast({
-                    title: `Select A Game`,
-                    status: "error",
-                    isClosable: true,
-                    description: "Select a game to proceed.",
-                  })
-            }
-         
-            color={"#fff"}
-            _hover={{ opacity: "90%" }}
-            _active={{
-              filter: "drop-shadow(2px 2px 0px #DBFD67)",
-              transform: "skew(-12deg) translate(2px, 2px)",
-            }}
-            transform="skew(-12deg)"
-            transition="0.4s all ease-out"
-            filter="drop-shadow(4px 4px 0px #DBFD67)"
-            borderRadius={"0.375rem"}
-            className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
-            display={"flex"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            fontSize={"1rem"}
-            mt="1.25rem"
-            mb="1.25rem"
-            height={{ base: "4.125rem", lg: "4.063rem" }}
-            width={{ base: "17rem", lg: "22rem" }}
-            loadingText="Updating Data"
-          >
-          Proceed
-          </Button>
+          <div className="fixed bg-black z-50  lg:w-[55%] w-full   flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto ">
+            <div className="w-full py-2 md:py-4 flex gap-2 pr-6 md:pr-24 md:gap-16 items-end  justify-end">
+              {" "}
+              <a
+                className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                href="/terms-of-service"
+              >
+                Terms of Service
+              </a>
+              <a
+                className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                href="/privacy-policy"
+              >
+                Privacy Policy
+              </a>
+            </div>
+            <div className=" bg-black lg:pl-16   border-t border-[fffffef] w-full   lg:flex-row flex-col flex items-center justify-between ">
+              <Button
+                type="submit"
+                id="select-games-btn"
+                onClick={() =>
+                  value.length > 0
+                    ? filterGameData()
+                    : toast({
+                        title: `Select A Game`,
+                        status: "error",
+                        isClosable: true,
+                        description: "Select a game to proceed.",
+                      })
+                }
+                color={"#fff"}
+                _hover={{ opacity: "90%" }}
+                _active={{
+                  filter: "drop-shadow(2px 2px 0px #DBFD67)",
+                  transform: "skew(-12deg) translate(2px, 2px)",
+                }}
+                transform="skew(-12deg)"
+                transition="0.4s all ease-out"
+                filter="drop-shadow(4px 4px 0px #DBFD67)"
+                borderRadius={"0.375rem"}
+                className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                fontSize={"1rem"}
+                mt="1.25rem"
+                mb="1.25rem"
+                height={{ base: "4.125rem", lg: "4.063rem" }}
+                width={{ base: "17rem", lg: "22rem" }}
+                loadingText="Updating Data"
+              >
+                Proceed
+              </Button>
+            </div>
           </div>
         </Flex>
       ) : (
-        <Formik 
+        <Formik
           initialValues={gameDetailsInitialValues}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
@@ -279,51 +296,67 @@ export default function ThirdForm() {
                 <div className="p-12"></div>
               </Flex>
               <Box className="mt-auto sticky z-50 bg-black bottom-0">
-              
                 <Flex
                   className="form-submit-button-container"
                   width={{ base: "100%", lg: "92%" }}
                   justifyContent={{ base: "center", lg: "start" }}
                 >
-                  <div className="fixed pt-6 bg-black lg:pl-16 border-t border-[fffffef] lg:w-[55%]  w-full flex-row flex-wrap  flex items-center justify-between lg:right-0 bottom-0 ">
-                  <Button
-                    colorScheme="whiteAlpha"
-                    _hover={{ opacity: "90%" }}
-                    variant="link"
-                    onClick={() => setShowGameFields(false)}
-                    leftIcon={<ChevronLeftIcon />}
-                  >
-                    Re-Select Game
-                  </Button>
-                  <Button
-                    type="submit"
-                 id="selected-games-ids-submit-btn"
-                    color={"#fff"}
-                    _hover={{ opacity: "90%" }}
-                    _active={{
-                      filter: "drop-shadow(2px 2px 0px #DBFD67)",
-                      transform: "skew(-12deg) translate(2px, 2px)",
-                    }}
-                    transform="skew(-12deg)"
-                    transition="0.4s all ease-out"
-                    filter="drop-shadow(4px 4px 0px #DBFD67)"
-                    borderRadius={"0.375rem"}
-                    className="helvetica-font ml-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
-                    display={"flex"}
-                    justifyContent={"center"}
-                    alignItems={"center"}
-                    fontSize={{ base: "0.8rem", lg: "1rem" }}
-                    mt="1.25rem"
-                    mb="1.25rem"
-                    mr="1.25rem"
-                    ml="auto"
-                    isLoading={isSubmitting}
-                    loadingText="Submitting"
-                    height={{ base: "3rem", lg: "4.063rem" }}
-                    width={{ base: "10rem", lg: "22rem" }}
-                  >
-               Proceed
-                  </Button>
+                  <div className="fixed bg-black z-50  lg:w-[55%] w-full   flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto ">
+                    <div className="w-full py-2 md:py-4 flex gap-2 pr-6 md:pr-24 md:gap-16 items-end  justify-end">
+                      {" "}
+                      <a
+                        className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                        href="/terms-of-service"
+                      >
+                        Terms of Service
+                      </a>
+                      <a
+                        className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                        href="/privacy-policy"
+                      >
+                        Privacy Policy
+                      </a>
+                    </div>
+                    <div className=" bg-black lg:pl-16   border-t border-[fffffef] w-full   flex-row  flex items-center justify-between ">
+                      <Button
+                        colorScheme="whiteAlpha"
+                        _hover={{ opacity: "90%" }}
+                        variant="link"
+                        onClick={() => setShowGameFields(false)}
+                        leftIcon={<ChevronLeftIcon />}
+                      >
+                        Re-Select Game
+                      </Button>
+                      <Button
+                        type="submit"
+                        id="selected-games-ids-submit-btn"
+                        color={"#fff"}
+                        _hover={{ opacity: "90%" }}
+                        _active={{
+                          filter: "drop-shadow(2px 2px 0px #DBFD67)",
+                          transform: "skew(-12deg) translate(2px, 2px)",
+                        }}
+                        transform="skew(-12deg)"
+                        transition="0.4s all ease-out"
+                        filter="drop-shadow(4px 4px 0px #DBFD67)"
+                        borderRadius={"0.375rem"}
+                        className="helvetica-font ml-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
+                        display={"flex"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        fontSize={{ base: "0.8rem", lg: "1rem" }}
+                        mt="1.25rem"
+                        mb="1.25rem"
+                        mr="1.25rem"
+                        ml="auto"
+                        isLoading={isSubmitting}
+                        loadingText="Submitting"
+                        height={{ base: "3rem", lg: "4.063rem" }}
+                        width={{ base: "10rem", lg: "22rem" }}
+                      >
+                        Proceed
+                      </Button>
+                    </div>
                   </div>
                 </Flex>
               </Box>

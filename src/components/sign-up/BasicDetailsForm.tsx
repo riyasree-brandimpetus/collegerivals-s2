@@ -173,7 +173,7 @@ export default function BasicDetailsForm() {
     >
       {({ errors, touched, isSubmitting }) => (
         <Form className="flex flex-col ">
-          <div className="flex  h-[65vh] overflow-scroll flex-col pl-6 lg:pl-16 pr-6 lg:pr-0 pt-8">
+          <div className="flex overflow-scroll flex-col pl-6 lg:pl-16 pr-6 lg:pr-0 pt-8">
             <Heading
               pb={{ base: "0.5rem", lg: "0.25rem" }}
               className="ppFormula-font flex gap-3 text-white italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider"
@@ -359,54 +359,62 @@ export default function BasicDetailsForm() {
               </Flex>
             </Box>
           </div>
-          <Box className="fixed bg-black z-50 pt-6 lg:pl-16 border-t border-[fffffef] lg:w-[55%] w-full   lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
-            {/* 
-           <Divider
-              marginTop="auto"
-              borderColor={'black'}
-              borderBottomWidth="1px"
-              borderBottomStyle="dotted"
-              ml={{ base: '0rem', lg: '-5.063rem' }}
-              width={{ base: '100%', lg: '109%' }}
-            />
-        */}
-            <div className="text-white helvetica-light-font font-normal">
-              Already a member?{" "}
-              <Link
-                href="/login"
-                className="text-#DBFD67 underline helvetica-font"
+          <Box className="fixed bg-black z-50  lg:w-[55%] w-full   flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
+            <div className="w-full py-2 md:py-4 flex gap-2 pr-6 md:pr-24 md:gap-16 items-end  justify-end">
+              {" "}
+              <a
+                className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                href="/terms-of-service"
               >
-                Login
-              </Link>
+                Terms of Service
+              </a>
+              <a
+                className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                href="/privacy-policy"
+              >
+                Privacy Policy
+              </a>
             </div>
-            <Button
-              id="signup-form-submit-btn"
-              type="submit"
-              color={"#fff"}
-              _hover={{ opacity: "90%" }}
-              _active={{
-                filter: "drop-shadow(2px 2px 0px #d1ff45)",
-                transform: "skew(-12deg) translate(2px, 2px)",
-              }}
-              transform="skew(-12deg)"
-              transition="0.4s all ease-out"
-              filter="drop-shadow(4px 4px 0px #d1ff45)"
-              borderRadius={"0.375rem"}
-              className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
-              display={"flex"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              fontSize={"1rem"}
-              mt="1.25rem"
-              mb="1.25rem"
-              height={{ base: "4.125rem", lg: "4.063rem" }}
-              width={{ base: "17rem", lg: "22rem" }}
-              isLoading={isSubmitting}
-              loadingText="Sending OTP"
-              isDisabled={!isVerified || isSubmitting}
-            >
-              Proceed to verify
-            </Button>
+
+            <div className=" bg-black lg:pl-16   border-t border-[fffffef] w-full   lg:flex-row flex-col flex items-center justify-between ">
+              <div className="text-white max-md:pt-2 helvetica-light-font font-normal">
+                Already a member?{" "}
+                <Link
+                  href="/login"
+                  className="text-#DBFD67 underline helvetica-font"
+                >
+                  Login
+                </Link>
+              </div>
+              <Button
+                id="signup-form-submit-btn"
+                type="submit"
+                color={"#fff"}
+                _hover={{ opacity: "90%" }}
+                _active={{
+                  filter: "drop-shadow(2px 2px 0px #d1ff45)",
+                  transform: "skew(-12deg) translate(2px, 2px)",
+                }}
+                transform="skew(-12deg)"
+                transition="0.4s all ease-out"
+                filter="drop-shadow(4px 4px 0px #d1ff45)"
+                borderRadius={"0.375rem"}
+                className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                fontSize={"1rem"}
+                mt="1.25rem"
+                mb="1.25rem"
+                height={{ base: "4.125rem", lg: "4.063rem" }}
+                width={{ base: "17rem", lg: "22rem" }}
+                isLoading={isSubmitting}
+                loadingText="Sending OTP"
+                isDisabled={!isVerified || isSubmitting}
+              >
+                Proceed to verify
+              </Button>
+            </div>
           </Box>
         </Form>
       )}

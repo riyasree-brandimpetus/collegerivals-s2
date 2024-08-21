@@ -15,16 +15,14 @@ import {
   SelectOfflineDateTimeSchema,
   SelectOnlineDateTimeSchema,
 } from "@/schemas/register";
-import { ChangeEvent } from 'react';
+import { ChangeEvent } from "react";
 import api from "@/utils/axios/instance";
-import {
-  DateTimeSlotValues,
-} from "@/types/register/register";
+import { DateTimeSlotValues } from "@/types/register/register";
 import { useContext, useState } from "react";
 import { UserContext } from "@/utils/context/user.context";
 import onlinedate from "../../../public/SelectedDateOnline.json";
 import QualifierText from "./QualifierText";
-import Citynames from "../../../public/citynames.json";;
+import Citynames from "../../../public/citynames.json";
 export default function SelectDate() {
   const toast = useToast();
   const { state, dispatch } = useContext(UserContext);
@@ -107,7 +105,7 @@ export default function SelectDate() {
           type: "UPDATE",
           payload: {
             ...state,
-            isOnlineModeSelected:  false,
+            isOnlineModeSelected: false,
             selectedCity: values.selectedCity,
             selectedDate: "",
             activeStep: 4,
@@ -164,7 +162,7 @@ export default function SelectDate() {
                 >
                   SELECT{" "}
                   <Box as="span" className="text-#DBFD67">
-                    { monthselectedstate ?  "DATE": "MONTH" }
+                    {monthselectedstate ? "DATE" : "MONTH"}
                   </Box>
                 </Heading>
                 {/* <Text color={"white"} pb={{ base: "2.125rem", lg: "1.25rem" }}>
@@ -277,35 +275,52 @@ export default function SelectDate() {
                 </Box>
               </div>
               <Box className=" bg-black bottom-0">
-                <div className="fixed  pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
-                  <Button
-                    id="selected-date-city-submit-btn"
-                    type="submit"
-                    color={"#fff"}
-                    _hover={{ opacity: "90%" }}
-                    _active={{
-                      filter: "drop-shadow(2px 2px 0px #d1ff45)",
-                      transform: "skew(-12deg) translate(2px, 2px)",
-                    }}
-                    transform="skew(-12deg)"
-                    transition="0.4s all ease-out"
-                    filter="drop-shadow(4px 4px 0px #d1ff45)"
-                    borderRadius={"0.375rem"}
-                    className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
-                    display={"flex"}
-                    justifyContent={"center"}
-                    alignItems={"center"}
-                    fontSize={"1rem"}
-                    mt="1.25rem"
-                    mb="1.25rem"
-                    height={{ base: "4.125rem", lg: "4.063rem" }}
-                    width={{ base: "17rem", lg: "22rem" }}
-                    isLoading={isSubmitting}
-                    loadingText="Saving details"
-                    isDisabled={isSubmitting}
-                  >
-                    Proceed and Save
-                  </Button>
+                <div className="fixed bg-black z-50  lg:w-[55%] w-full   flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto ">
+                  <div className="w-full py-2 md:py-4 flex gap-2 pr-6 md:pr-24 md:gap-16 items-end  justify-end">
+                    {" "}
+                    <a
+                      className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                      href="/terms-of-service"
+                    >
+                      Terms of Service
+                    </a>
+                    <a
+                      className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                      href="/privacy-policy"
+                    >
+                      Privacy Policy
+                    </a>
+                  </div>
+                  <div className=" bg-black lg:pl-16   border-t border-[fffffef] w-full   lg:flex-row flex-col flex items-center justify-between ">
+                    <Button
+                      id="selected-date-city-submit-btn"
+                      type="submit"
+                      color={"#fff"}
+                      _hover={{ opacity: "90%" }}
+                      _active={{
+                        filter: "drop-shadow(2px 2px 0px #d1ff45)",
+                        transform: "skew(-12deg) translate(2px, 2px)",
+                      }}
+                      transform="skew(-12deg)"
+                      transition="0.4s all ease-out"
+                      filter="drop-shadow(4px 4px 0px #d1ff45)"
+                      borderRadius={"0.375rem"}
+                      className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
+                      display={"flex"}
+                      justifyContent={"center"}
+                      alignItems={"center"}
+                      fontSize={"1rem"}
+                      mt="1.25rem"
+                      mb="1.25rem"
+                      height={{ base: "4.125rem", lg: "4.063rem" }}
+                      width={{ base: "17rem", lg: "22rem" }}
+                      isLoading={isSubmitting}
+                      loadingText="Saving details"
+                      isDisabled={isSubmitting}
+                    >
+                      Proceed and Save
+                    </Button>
+                  </div>
                 </div>
               </Box>
             </Form>
@@ -331,7 +346,7 @@ export default function SelectDate() {
                   >
                     SELECT{" "}
                     <Box as="span" className="text-#DBFD67">
-                     CITY
+                      CITY
                     </Box>
                   </Heading>
                   {/* <Text
@@ -423,35 +438,52 @@ export default function SelectDate() {
                   </Box>
                 </div>
                 <Box className=" bg-black bottom-0">
-                  <div className="fixed  pt-6 bg-black lg:pl-16  z-50  border-t border-[fffffef] lg:w-[55%]  w-full lg:flex-row flex-col flex items-center justify-between lg:right-0 bottom-0 ">
-                    <Button
-                      id="basic-details-form-submit-btn"
-                      type="submit"
-                      color={"#fff"}
-                      _hover={{ opacity: "90%" }}
-                      _active={{
-                        filter: "drop-shadow(2px 2px 0px #d1ff45)",
-                        transform: "skew(-12deg) translate(2px, 2px)",
-                      }}
-                      transform="skew(-12deg)"
-                      transition="0.4s all ease-out"
-                      filter="drop-shadow(4px 4px 0px #d1ff45)"
-                      borderRadius={"0.375rem"}
-                      className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
-                      display={"flex"}
-                      justifyContent={"center"}
-                      alignItems={"center"}
-                      fontSize={"1rem"}
-                      mt="1.25rem"
-                      mb="1.25rem"
-                      height={{ base: "4.125rem", lg: "4.063rem" }}
-                      width={{ base: "17rem", lg: "22rem" }}
-                      isLoading={isSubmitting}
-                      loadingText="Saving details"
-                      isDisabled={isSubmitting}
-                    >
-                      Proceed and Save
-                    </Button>
+                  <div className="fixed bg-black z-50  lg:w-[55%] w-full   flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto ">
+                    <div className="w-full py-2 md:py-4 flex gap-2 pr-6 md:pr-24 md:gap-16 items-end  justify-end">
+                      {" "}
+                      <a
+                        className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                        href="/terms-of-service"
+                      >
+                        Terms of Service
+                      </a>
+                      <a
+                        className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
+                        href="/privacy-policy"
+                      >
+                        Privacy Policy
+                      </a>
+                    </div>
+                    <div className=" bg-black lg:pl-16   border-t border-[fffffef] w-full   lg:flex-row flex-col flex items-center justify-between ">
+                      <Button
+                        id="basic-details-form-submit-btn"
+                        type="submit"
+                        color={"#fff"}
+                        _hover={{ opacity: "90%" }}
+                        _active={{
+                          filter: "drop-shadow(2px 2px 0px #d1ff45)",
+                          transform: "skew(-12deg) translate(2px, 2px)",
+                        }}
+                        transform="skew(-12deg)"
+                        transition="0.4s all ease-out"
+                        filter="drop-shadow(4px 4px 0px #d1ff45)"
+                        borderRadius={"0.375rem"}
+                        className="helvetica-font mx-auto lg:ml-auto lg:mr-16 uppercase bg-black border border-#DBFD67"
+                        display={"flex"}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                        fontSize={"1rem"}
+                        mt="1.25rem"
+                        mb="1.25rem"
+                        height={{ base: "4.125rem", lg: "4.063rem" }}
+                        width={{ base: "17rem", lg: "22rem" }}
+                        isLoading={isSubmitting}
+                        loadingText="Saving details"
+                        isDisabled={isSubmitting}
+                      >
+                        Proceed and Save
+                      </Button>
+                    </div>
                   </div>
                 </Box>
               </Form>
