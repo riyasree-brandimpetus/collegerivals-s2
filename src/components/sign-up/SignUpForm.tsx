@@ -171,21 +171,6 @@ export default function SignUpForm() {
                 ) : null}
               </div>
             </div>
-            <div className="w-full py-2 md:py-5 flex gap-2 pr-6 md:pr-24 md:gap-16 items-end  justify-end">
-              {" "}
-              <a
-                className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
-                href="/terms-of-service"
-              >
-                Terms of Service
-              </a>
-              <a
-                className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
-                href="/privacy-policy"
-              >
-                Privacy Policy
-              </a>
-            </div>
           </div>
         </div>
       )}

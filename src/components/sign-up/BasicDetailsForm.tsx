@@ -342,8 +342,16 @@ export default function BasicDetailsForm() {
                     alignItems="baseline"
                     color="white"
                   >
-                    I agree to receiving communication, marketing and
-                    promotional material from Ampverse DMI Pvt Ltd.
+                    I agree to our{" "}
+                    <a className="underline" href="/terms-of-service">
+                      Terms of Service
+                    </a>{" "}
+                    and{" "}
+                    <a className="underline" href="/privacy-policy">
+                      Privacy Policy
+                    </a>
+                    , and to receive communication, marketing, and promotional
+                    material from Ampverse DMI Pvt Ltd
                   </Field>
                   {errors.agreedToTerms && touched.agreedToTerms && (
                     <div className="errorDiv">{errors.agreedToTerms}</div>
@@ -360,22 +368,6 @@ export default function BasicDetailsForm() {
             </Box>
           </div>
           <Box className="fixed bg-black z-50  lg:w-[55%] w-full   flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
-            <div className="w-full py-2 md:py-4 flex gap-2 pr-6 md:pr-24 md:gap-16 items-end  justify-end">
-              {" "}
-              <a
-                className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
-                href="/terms-of-service"
-              >
-                Terms of Service
-              </a>
-              <a
-                className="text-white/30 helvetica-extralight-font text-[10px] md:text-sm hover:text-white/70"
-                href="/privacy-policy"
-              >
-                Privacy Policy
-              </a>
-            </div>
-
             <div className=" bg-black lg:pl-16   border-t border-[fffffef] w-full   lg:flex-row flex-col flex items-center justify-between ">
               <div className="text-white max-md:pt-2 helvetica-light-font font-normal">
                 Already a member?{" "}
