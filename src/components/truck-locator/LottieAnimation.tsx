@@ -1,8 +1,8 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
-import { useInView } from 'react-intersection-observer';
-import Lottie, { LottieRefCurrentProps } from 'lottie-react';
-import animationData from '@/constants/lottie/TruckLocator.json';
+import { useEffect, useRef, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import Lottie, { LottieRefCurrentProps } from "lottie-react";
+import animationData from "@/constants/lottie/Ahmedabad.json";
 
 const LottieAnimation = () => {
   const { ref, inView } = useInView({
