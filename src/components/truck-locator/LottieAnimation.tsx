@@ -37,7 +37,7 @@ const LottieAnimation = () => {
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div
-        className="w-full h-full flex items-center justify-center md:px-16"
+        className="w-full h-full max-w-[1440px] flex items-center justify-center md:px-16"
         ref={ref}
       >
         <Lottie
