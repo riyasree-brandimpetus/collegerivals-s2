@@ -2,28 +2,24 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
-import lottieData from "@/constants/lottie/lottie"; // Adjust the path as needed
+import lottieData from "@/constants/lottie/lottie";
 
 const LottieAnimation = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.5, // Adjust the threshold as needed
+    threshold: 0.5,
   });
   const [isVisible, setIsVisible] = useState(false);
-  const [currentLottie, setCurrentLottie] = useState<any>(null); // Track the current Lottie animation
+  const [currentLottie, setCurrentLottie] = useState<any>(null);
   const lottieRef = useRef<LottieRefCurrentProps>(null);
 
   useEffect(() => {
-    // Get the current date and time as a Date object
     const now = new Date();
 
-    // Find the correct Lottie based on the current date
     const selectedLottie = lottieData.find((entry) => {
       const endDate = new Date(entry.endDate);
-      return now < endDate; // Compare Date objects instead of strings
+      return now < endDate;
     });
-
-    // If a valid Lottie file is found, set it as the current one
     if (selectedLottie) {
       import(`../../constants/lottie${selectedLottie.lottiePath}`)
         .then((module) => {
