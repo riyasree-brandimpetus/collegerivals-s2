@@ -1,7 +1,7 @@
 import Image from "next/image";
 import event from "./schedule-date.json";
 
-const eventData: any = event;
+const eventData: any = event.events; // Access the events array
 const Schedule = () => {
   return (
     <div className="w-full bg-black flex items-center justify-center">
@@ -54,20 +54,6 @@ const Schedule = () => {
             </div>
           </div>
         ))}
-        {/* <Image
-          src="/schedule-desktop.png"
-          className="xl:block hidden"
-          width={870}
-          height={2003}
-          alt=""
-        />
-        <Image
-          src="/schedule-mobile.png"
-          className="xl:hidden block"
-          width={312}
-          height={4998}
-          alt=""
-        /> */}
       </div>
     </div>
   );

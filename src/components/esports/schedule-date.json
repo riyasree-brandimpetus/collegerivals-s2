@@ -2,7 +2,7 @@
     "events": [
       {
         "city": "Pune",
-        "image": "https://example.com/path-to-image.jpg",
+        "image": "/pune-img.svg",
         "dates": {
           "registration": {
             "date": "July 16th-26th",
@@ -14,7 +14,7 @@
       },
       {
         "city": "Mumbai",
-        "image": "https://example.com/path-to-another-image.jpg",
+        "image": "/pune-img.svg",
         "dates": {
           "registration": {
             "date": "Aug 1st-10th",
