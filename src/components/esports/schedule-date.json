@@ -1,0 +1,28 @@
+{
+    "events": [
+      {
+        "city": "Pune",
+        "image": "https://example.com/path-to-image.jpg",
+        "dates": {
+          "registration": {
+            "date": "July 16th-26th",
+            "show_dot": true
+          },
+          "online_qualifiers": "Aug 18th-20th",
+          "offline_qualifiers": "July 16th-30th"
+        }
+      },
+      {
+        "city": "Mumbai",
+        "image": "https://example.com/path-to-another-image.jpg",
+        "dates": {
+          "registration": {
+            "date": "Aug 1st-10th",
+            "show_dot": false
+          },
+          "online_qualifiers": "Aug 12th-15th",
+          "offline_qualifiers": "Aug 18th-25th"
+        }
+      }
+    ]
+  }
