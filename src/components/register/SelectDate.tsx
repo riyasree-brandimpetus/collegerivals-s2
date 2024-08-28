@@ -10,6 +10,8 @@ import {
   useToast,
   Text,
   Link,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 import {
   SelectOfflineDateTimeSchema,
@@ -45,14 +47,38 @@ export default function SelectDate() {
     actions: FormikHelpers<DateTimeSlotValues>
   ) => {
     try {
+      // Check if isModeEdited is true, then skip the request
+      if (state.isModeEdited) {
+        dispatch({
+          type: "UPDATE",
+          payload: {
+            ...state,
+            activeStep: 4,
+          },
+        });
+        toast({
+          title: `Details Already Submitted`,
+          status: "info",
+          isClosable: true,
+          description: "Your details are already submitted.",
+        });
+        return; // Exit early if isModeEdited is true
+      }
+
+      // Prepare the payload
+      const payload = {
+        isOnlineModeSelected: state.isOnlineModeSelected,
+        selectedDate: values.selectedDate,
+        isModeEdited: state.collegeName ? true : false,
+      };
+
       const response = await api.post(
         `/users/update/esport-details/${state._id}`,
-        {
-          isOnlineModeSelected: state.isOnlineModeSelected,
-          selectedDate: values.selectedDate,
-        }
+        payload
       );
+
       const data = response.data;
+
       if (response) {
         toast({
           title: `Details Submitted`,
@@ -60,12 +86,14 @@ export default function SelectDate() {
           isClosable: true,
           description: data.message,
         });
+
+        // Dispatch the action after a successful response
         dispatch({
           type: "UPDATE",
           payload: {
             ...state,
             selectedDate: values.selectedDate,
-            selectedCity: "",
+            selectedCity: "", // Ensure selectedCity is reset
             activeStep: 4,
           },
         });
@@ -86,14 +114,38 @@ export default function SelectDate() {
     actions: FormikHelpers<DateTimeSlotValues>
   ) => {
     try {
+      // Check if isModeEdited is true, then skip the request
+      if (state.isModeEdited) {
+        dispatch({
+          type: "UPDATE",
+          payload: {
+            ...state,
+            activeStep: 4,
+          },
+        });
+        toast({
+          title: `Details already Submitted`,
+          status: "info",
+          isClosable: true,
+          description: "Your details are already submitted.",
+        });
+        return; // Exit early if isModeEdited is true
+      }
+
+      // Prepare the payload
+      const payload = {
+        isOnlineModeSelected: state.isOnlineModeSelected,
+        selectedCity: values.selectedCity,
+        isModeEdited: state.collegeName ? true : false,
+      };
+
       const response = await api.post(
         `/users/update/esport-details/${state._id}`,
-        {
-          isOnlineModeSelected: state.isOnlineModeSelected,
-          selectedCity: values.selectedCity,
-        }
+        payload
       );
+
       const data = response.data;
+
       if (response) {
         toast({
           title: `Details Submitted`,
@@ -101,6 +153,8 @@ export default function SelectDate() {
           isClosable: true,
           description: data.message,
         });
+
+        // Dispatch the action after successful response
         dispatch({
           type: "UPDATE",
           payload: {
@@ -147,7 +201,9 @@ export default function SelectDate() {
         <Formik
           initialValues={dateTimeFormInitialValues}
           validationSchema={
-            state.isOnlineModeSelected
+            state.isModeEdited
+              ? undefined // or null if you want no validation schema
+              : state.isOnlineModeSelected
               ? SelectOnlineDateTimeSchema
               : SelectOfflineDateTimeSchema
           }
@@ -158,7 +214,9 @@ export default function SelectDate() {
               <div className="pl-6 lg:pl-16 pr-6 lg:pr-0 overflow-scroll ">
                 <Heading
                   pb={{ base: "0.5rem", lg: "0.25rem" }}
-                  className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
+                  className={`ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white  ${
+                    state.isModeEdited ? "opacity-60" : "opacity-100"
+                  }`}
                 >
                   SELECT{" "}
                   <Box as="span" className="text-#DBFD67">
@@ -196,12 +254,15 @@ export default function SelectDate() {
                           pt={{ base: ".5rem", lg: "0rem" }}
                         >
                           <FormLabel
-                            className="helvetica-font font-bold text-lg"
+                            className={`helvetica-font font-bold text-lg ${
+                              state.isModeEdited ? "opacity-60" : "opacity-100"
+                            }`}
                             color={"#CFCFCF"}
                           >
                             Select Month
                           </FormLabel>
                           <Field
+                            disabled={state.isModeEdited}
                             as={Select}
                             id="selectedMonth"
                             name="selectedMonth"
@@ -239,12 +300,17 @@ export default function SelectDate() {
                             pt={{ base: "1.25rem", lg: "0rem" }}
                           >
                             <FormLabel
-                              className="helvetica-font font-bold text-lg"
+                              className={`helvetica-font font-bold text-lg ${
+                                state.isModeEdited
+                                  ? "opacity-60"
+                                  : "opacity-100"
+                              }`}
                               color={"#CFCFCF"}
                             >
                               Select Date
                             </FormLabel>
                             <Field
+                              disabled={state.isModeEdited}
                               as={Select}
                               id="selectedDate"
                               name="selectedDate"
@@ -260,6 +326,7 @@ export default function SelectDate() {
                                 )
                               )}
                             </Field>
+
                             {errors.selectedDate && touched.selectedDate && (
                               <div className="text-#DBFD67">
                                 {errors.selectedDate}
@@ -269,6 +336,37 @@ export default function SelectDate() {
                           </Flex>
                         )}
                       </div>
+                    )}
+                    {state.isModeEdited && (
+                      <Flex className="pt-4 flex-wrap flex-col items-start w-full">
+                        <Alert
+                          status="info"
+                          className="w-auto bg-slate-800 text-white flex gap-1 "
+                        >
+                          <AlertIcon color={"white"} />
+                          <div className="">
+                            {" "}
+                            You can no longer edit this.
+                            <div className="flex gap-1 flex-wrap">
+                              For changes, contact us at
+                              <Link
+                                className="underline"
+                                href="mailto:hello@collegerivals.com"
+                              >
+                                hello@collegerivals.com
+                              </Link>{" "}
+                              or on{" "}
+                              <Link
+                                className="underline"
+                                target="_blank"
+                                href="https://api.whatsapp.com/send?phone=919999567476&text=Hello,%20%0A%20I%20have%20a%20question%20about%20https%3A%2F%2Fcollegerivals.com%2F"
+                              >
+                                WhatsApp
+                              </Link>
+                            </div>
+                          </div>
+                        </Alert>
+                      </Flex>
                     )}
                   </Flex>
                   <div className=" py-20 "></div>
@@ -316,7 +414,9 @@ export default function SelectDate() {
           <Formik
             initialValues={dateTimeFormInitialValues}
             validationSchema={
-              state.isOnlineModeSelected
+              state.isModeEdited
+                ? undefined // or null if you want no validation schema
+                : state.isOnlineModeSelected
                 ? SelectOnlineDateTimeSchema
                 : SelectOfflineDateTimeSchema
             }
@@ -327,7 +427,9 @@ export default function SelectDate() {
                 <div className="pl-6 lg:pl-16 pr-6 lg:pr-0 overflow-scroll ">
                   <Heading
                     pb={{ base: "0.5rem", lg: "0.25rem" }}
-                    className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white"
+                    className={`ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white ${
+                      state.isModeEdited ? "opacity-60" : "opacity-100"
+                    }`}
                   >
                     SELECT{" "}
                     <Box as="span" className="text-#DBFD67">
@@ -367,7 +469,9 @@ export default function SelectDate() {
                           pt={{ base: "1.25rem", lg: "0rem" }}
                         >
                           <FormLabel
-                            className="helvetica-font font-bold text-lg"
+                            className={`helvetica-font font-bold text-lg ${
+                              state.isModeEdited ? "opacity-60" : "opacity-100"
+                            }`}
                             color={"#CFCFCF"}
                           >
                             Select City
@@ -375,6 +479,7 @@ export default function SelectDate() {
                           <Field name="selectedCity">
                             {({ field, form }: { field: any; form: any }) => (
                               <Select
+                                disabled={state.isModeEdited}
                                 {...field}
                                 id="selectedCity"
                                 height="4.063rem"
@@ -407,6 +512,37 @@ export default function SelectDate() {
                           )}
                           {/* <QualifierText /> */}
                         </Flex>
+                        {state.isModeEdited && (
+                          <Flex className="pt-4 flex-wrap flex-col items-start w-full">
+                            <Alert
+                              status="info"
+                              className="w-auto bg-slate-800 text-white flex gap-1 "
+                            >
+                              <AlertIcon color={"white"} />
+                              <div className="">
+                                {" "}
+                                You can no longer edit this.
+                                <div className="flex gap-1 flex-wrap">
+                                  For changes, contact us at
+                                  <Link
+                                    className="underline"
+                                    href="mailto:hello@collegerivals.com"
+                                  >
+                                    hello@collegerivals.com
+                                  </Link>{" "}
+                                  or on{" "}
+                                  <Link
+                                    className="underline"
+                                    target="_blank"
+                                    href="https://api.whatsapp.com/send?phone=919999567476&text=Hello,%20%0A%20I%20have%20a%20question%20about%20https%3A%2F%2Fcollegerivals.com%2F"
+                                  >
+                                    WhatsApp
+                                  </Link>
+                                </div>
+                              </div>
+                            </Alert>
+                          </Flex>
+                        )}
                         {selectedDatestate && (
                           <div className="flex ">
                             <div className="text-[#949494] rounded-md bg-[#191919] helvetica-light-font  max-md:flex-wrap max-md:w-full max-md:items-center justify-center text-base px-10 flex gap-2 items-center py-3 ">

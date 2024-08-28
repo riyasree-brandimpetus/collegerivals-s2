@@ -1,12 +1,21 @@
 "use client";
 import { Form, Formik, FormikHelpers } from "formik";
-import { Button, Heading, Flex, Box, useToast } from "@chakra-ui/react";
+import {
+  Button,
+  Heading,
+  Flex,
+  Box,
+  useToast,
+  Alert,
+  AlertIcon,
+} from "@chakra-ui/react";
 import { SelectProfileSchema } from "@/schemas/register";
 import api from "@/utils/axios/instance";
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/utils/context/user.context";
 import RadioGroup from "./RadioGroup";
 import CustomRadio from "./CustomRadio";
+import Link from "next/link";
 
 interface SelectMode {
   modeSelected: string;
@@ -28,28 +37,51 @@ export default function SelectProfile() {
     actions: FormikHelpers<SelectMode>
   ) => {
     try {
+      // Determine if online mode is selected
       const isOnlineModeSelected =
-        values.modeSelected == "online" ? true : false;
-      const response = await api.post(
-        `/users/update/esport-details/${state._id}`,
-        {
-          isOnlineModeSelected: isOnlineModeSelected,
+        values.modeSelected === "online" ? true : false;
+
+      if (!state.isModeEdited) {
+        // Proceed with the API call if `isModeEdited` is false
+        const response = await api.post(
+          `/users/update/esport-details/${state._id}`,
+          {
+            isOnlineModeSelected: isOnlineModeSelected,
+          }
+        );
+
+        const data = response.data;
+
+        if (response) {
+          toast({
+            title: `Details Submitted`,
+            status: "success",
+            isClosable: true,
+            description: data.message,
+          });
+
+          dispatch({
+            type: "UPDATE",
+            payload: {
+              ...state,
+              isOnlineModeSelected: isOnlineModeSelected,
+              activeStep: 2, // Will be used for Edit Profile
+            },
+          });
         }
-      );
-      const data = response.data;
-      if (response) {
+      } else {
+        // When `isModeEdited` is true, skip changing `isOnlineModeSelected` but continue with the rest
         toast({
-          title: `Details Submitted`,
-          status: "success",
+          title: `Details Already Submitted`,
+          status: "info",
           isClosable: true,
-          description: data.message,
+          description: "Details submitted without changing the online mode.",
         });
+
         dispatch({
           type: "UPDATE",
           payload: {
             ...state,
-            isOnlineModeSelected:
-              values.modeSelected == "online" ? true : false,
             activeStep: 2, // Will be used for Edit Profile
           },
         });
@@ -101,9 +133,10 @@ export default function SelectProfile() {
         <Form className="flex flex-col grow  pt-8 md:max-h-[80vh]">
           <div className="pl-6 lg:pl-16 pr-6 lg:pr-0">
             <Heading
-              // pb={{ base: '2.125rem', lg: '1.25rem' }}
               pb={{ base: "2.125rem", lg: "1.25rem" }}
-              className="ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal text-white tracking-wide lg:tracking-wider"
+              className={`ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal text-white tracking-wide lg:tracking-wider ${
+                state.isModeEdited ? "opacity-60" : "opacity-100"
+              }`}
             >
               SELECT{" "}
               <Box as="span" className="text-#DBFD67">
@@ -112,6 +145,7 @@ export default function SelectProfile() {
             </Heading>
             <Box>
               <Flex
+                className="flex flex-col gap-12"
                 width={{ base: "100%", lg: "100%" }}
                 pt="1.25rem"
                 flexDirection={{ base: "column", lg: "row" }}
@@ -135,12 +169,14 @@ export default function SelectProfile() {
                         value="online"
                         name="online"
                         imageUrl="/online.svg"
+                        disabled={!!state.isModeEdited}
                       />
 
                       <CustomRadio
                         key="offline"
                         value="offline"
                         name="offline"
+                        disabled={!!state.isModeEdited}
                         imageUrl="/offline.svg"
                       />
                     </RadioGroup>
@@ -150,10 +186,45 @@ export default function SelectProfile() {
                       </div>
                     )}
                     {touched.modeSelected && errors.modeSelected && (
-                      <div className="text-#DBFD67">{errors.modeSelected}</div>
+                      <div className="w-full flex justify-start">
+                        <div className="text-#DBFD67">
+                          {errors.modeSelected}
+                        </div>
+                      </div>
                     )}
                   </div>
                 </Flex>
+                {state.isModeEdited && (
+                  <Flex className="pt-4 flex-wrap flex-col items-start w-full md:w-[85%]">
+                    <Alert
+                      status="info"
+                      className="w-auto bg-slate-800 text-white flex gap-1 "
+                    >
+                      <AlertIcon color={"white"} />
+                      <div className="">
+                        {" "}
+                        You can no longer edit this.
+                        <div className="flex gap-1 flex-wrap">
+                          For changes, contact us at
+                          <Link
+                            className="underline"
+                            href="mailto:hello@collegerivals.com"
+                          >
+                            hello@collegerivals.com
+                          </Link>{" "}
+                          or on{" "}
+                          <Link
+                            className="underline"
+                            target="_blank"
+                            href="https://api.whatsapp.com/send?phone=919999567476&text=Hello,%20%0A%20I%20have%20a%20question%20about%20https%3A%2F%2Fcollegerivals.com%2F"
+                          >
+                            WhatsApp
+                          </Link>
+                        </div>
+                      </div>
+                    </Alert>
+                  </Flex>
+                )}
               </Flex>
             </Box>
           </div>
