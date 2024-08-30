@@ -22,7 +22,8 @@ export interface UserDetailsType {
   dob: string,
   gender:string,
   activeStep:number,
-  gameData:any
+  gameData:any,
+  isModeEdited:Boolean,
   // step:string
 }
 
