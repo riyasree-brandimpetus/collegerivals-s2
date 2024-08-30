@@ -1,34 +1,34 @@
-'use client';
+"use client";
 
-import React, { Dispatch, createContext, useReducer } from 'react';
-import { UserDetailsType } from '@/types/user/user';
-
+import React, { Dispatch, createContext, useReducer } from "react";
+import { UserDetailsType } from "@/types/user/user";
 
 const initialState: UserDetailsType = {
-  name: '',
-  email: '',
-  whatsappNumber: '',
-  whatsappCountryCode: '',
+  name: "",
+  email: "",
+  whatsappNumber: "",
+  whatsappCountryCode: "",
   age: 0,
-  city: '',
-  degreeStudyField: '',
-  idUrl: '',
+  city: "",
+  degreeStudyField: "",
+  idUrl: "",
   verified: false,
-  _id: '',
+  _id: "",
   isWhatsAppVerified: false,
   isUserVerified: false,
-  collegeName: '',
+  collegeName: "",
   gameDetails: [],
   isLoggedIn: false,
-  isOnlineModeSelected: '',
-  profilePhotoUrl: '',
-  selectedDate: '',
-  selectedCity:'',
-  createdAt: '',
-  gender:'',
-  dob: '',
-  activeStep:1,
-  gameData:[]
+  isOnlineModeSelected: "",
+  profilePhotoUrl: "",
+  selectedDate: "",
+  selectedCity: "",
+  createdAt: "",
+  gender: "",
+  dob: "",
+  activeStep: 1,
+  gameData: [],
+  isModeEdited: false,
   // hasBasicDetails: false,
   // step: '1.1',
 }; //1.1 - Basic details,1.2- OTP,2.1-Academic Details, 3.1- Game Selection, 3.2 - Game Details
@@ -40,9 +40,9 @@ type ActionType = {
 
 const reducer = (state: UserDetailsType, action: ActionType) => {
   switch (action.type) {
-    case 'UPDATE':
+    case "UPDATE":
       return { ...state, ...action.payload };
-    case 'DELETE':
+    case "DELETE":
       return { ...initialState };
     default:
       return state;
@@ -54,7 +54,11 @@ export const UserContext = createContext<{
   dispatch: Dispatch<ActionType>;
 }>({ state: initialState, dispatch: () => null });
 
-export const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
+export const UserContextProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
