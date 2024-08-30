@@ -1,5 +1,3 @@
-
-
 import HeroSection from "@/components/homePage/HeroSection";
 import NavbarSeason2 from "@/components/globalComponents/NavbarSeason2";
 import GamingSlider from "@/components/homePage/GamingSlider";
@@ -11,11 +9,9 @@ import FAQ from "@/components/homePage/faq";
 
 import TrackOurtruck from "@/components/homePage/TrackOurtruck";
 import FooterSeason2 from "@/components/globalComponents/FooterSeason2";
-
-
+import InstaSection from "@/components/homePage/InstaSection";
 
 export default function Home() {
-
   return (
     <>
       <NavbarSeason2 />
@@ -23,11 +19,12 @@ export default function Home() {
       <GamingSlider />
       <CityTicker />
       <Highlights />
-      <TrackOurtruck/>
+      <InstaSection />
+      <TrackOurtruck />
       <News />
       <Winner />
-      <FAQ/>
-      <FooterSeason2/>
+      <FAQ />
+      <FooterSeason2 />
     </>
   );
 }
