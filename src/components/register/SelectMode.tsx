@@ -145,7 +145,7 @@ export default function SelectProfile() {
             </Heading>
             <Box>
               <Flex
-                className="flex flex-col gap-12"
+                className="flex flex-col"
                 width={{ base: "100%", lg: "100%" }}
                 pt="1.25rem"
                 flexDirection={{ base: "column", lg: "row" }}
