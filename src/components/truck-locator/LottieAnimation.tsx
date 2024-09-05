@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
-import animationData from "@/constants/lottie/Sonipat.json";
+import animationData from "@/constants/lottie/Dehradun.json";
 
 const LottieAnimation = () => {
   const { ref, inView } = useInView({
