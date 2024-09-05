@@ -25,22 +25,21 @@ const FooterSeason2 = () => {
         </div>
         <div className="footer-bottom-container pt-3.125rem lg:pt-3.813rem pb-4 lg:pb-1.375rem w-full bg-black flex-col">
           <div className="logo-container flex justify-center items-center gap-10 lg:px-1.5rem md:pb-3.125rem pb-8 max-screen-desktop lg:mx-auto ">
-            <Link href="https://ampverse.com/" target="_blank">
-              <Image
-                src="/ampverse-logo.svg"
-                alt="footer-logo"
-                width={80}
-                height={58}
-              />
-            </Link>
-            <Link href="https://www.dmifinance.in/" target="_blank">
+            <Image
+              src="/footer-new-logo.svg"
+              alt="footer-logo"
+              width={200}
+              height={58}
+            />
+
+            {/* <Link href="https://www.dmifinance.in/" target="_blank">
               <Image
                 src="/sponsor-six-new.svg"
                 alt="footer-logo"
                 width={53}
                 height={79}
               />
-            </Link>
+            </Link> */}
           </div>
           <div className="w-full flex justify-center items-center">
             <p className="text-center helvetica-extralight-font font-light text-base md:text-lg text-[#787777] w-80% lg:w-[65%]">
