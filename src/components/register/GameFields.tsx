@@ -5,8 +5,8 @@ import React from "react";
 function GameFields({ game }: any) {
   return (
     <Flex
-      mt="2.438rem"
-      mb="3.125rem"
+      mt={{ lg: "2rem", base: "1.5rem" }}
+      mb={{ lg: "2rem", base: "1.5rem" }}
       justifyContent="flex-start"
       alignItems="flex-start"
       flexDirection={{ lg: "row", base: "column" }}
@@ -17,7 +17,6 @@ function GameFields({ game }: any) {
         backgroundColor="#d1ff45"
         justifyContent="center"
         alignItems="center"
-        
         borderRadius="8px"
       >
         <Image src={game?.imageUrl} alt={game?.name} />
@@ -33,7 +32,10 @@ function GameFields({ game }: any) {
               pl={{ lg: "1.25rem" }}
               className="field"
             >
-              <FormLabel color={"white"} htmlFor={`${game.name}.${requirement.key}`}>
+              <FormLabel
+                color={"white"}
+                htmlFor={`${game.name}.${requirement.key}`}
+              >
                 {`Provide your ${requirement.name}`}
                 {requirement.isMandatory && " *"}
               </FormLabel>
@@ -41,14 +43,29 @@ function GameFields({ game }: any) {
                 as={Input}
                 id={requirement.name}
                 name={`${game.name}.${requirement.key}`}
-                type="text"
-                // mt="0.75rem"
+                type={
+                  game.name === "BGMI" && requirement.key === "characterID"
+                    ? "tel" // Use 'tel' type for numeric input without spinner
+                    : "text"
+                }
                 placeholder={`Eg. ${requirement.placeholder}`}
                 height="4.063rem"
                 borderRadius="0.75rem"
                 color="white"
                 errorBorderColor="red.300"
                 focusBorderColor="#D1FF45"
+                pattern={
+                  game.name === "BGMI" && requirement.key === "characterID"
+                    ? "\\d*" // Numeric restriction for Character ID
+                    : game.name === "VALORANT" && requirement.key === "riotID"
+                    ? "[a-zA-Z0-9]*" // Alphanumeric restriction for Riot ID
+                    : undefined
+                }
+                maxLength={
+                  game.name === "VALORANT" && requirement.key === "riotID"
+                    ? 4 // Maximum length of 4 characters for Riot ID
+                    : undefined
+                }
               />
               <ErrorMessage
                 name={`${game.name}.${requirement.key}`}

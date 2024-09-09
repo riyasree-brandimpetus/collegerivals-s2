@@ -11,6 +11,8 @@ import {
   Text,
   Skeleton,
   Spinner,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 import api from "@/utils/axios/instance";
 import { SecondFormValues } from "@/types/register/register";
@@ -20,6 +22,7 @@ import GameCheckBox from "./GameCheckBox";
 import GameFields from "./GameFields";
 import * as Yup from "yup";
 import { ChevronLeftIcon } from "@chakra-ui/icons";
+import Link from "next/link";
 
 const gameDetailsInitialValues: any = {};
 let validationSchema: any = {};
@@ -60,6 +63,7 @@ export default function ThirdForm() {
     const filteredData = gameData.filter((item: any) => {
       return value.includes(item.name);
     });
+
     filteredData.forEach((game: any) => {
       const requirementsObj: { [requirementName: string]: string } = {};
       game.requirements.forEach((req: any) => {
@@ -67,15 +71,32 @@ export default function ThirdForm() {
       });
       gameDetailsInitialValues[game.name] = requirementsObj;
     });
+
     // Create validation schema dynamically
     validationSchema = Yup.object().shape(
       filteredData.reduce((acc: any, game: any) => {
         const gameSchema = game.requirements.reduce(
           (gameAcc: any, requirement: any) => {
             const { name, isMandatory, key } = requirement;
-            gameAcc[key] = isMandatory
-              ? Yup.string().required(`${name} is required`)
-              : Yup.string();
+
+            // Apply specific validation based on game name and field key
+            if (game.name === "BGMI" && key === "characterID") {
+              gameAcc[key] = Yup.string()
+                .matches(/^\d+$/, "Character ID must be numeric")
+                .min(8, "Character ID must be at least 8 digits")
+                .required(`${name} is required`);
+            } else if (game.name === "VALORANT" && key === "riotID") {
+              gameAcc[key] = Yup.string()
+                .matches(/^[a-zA-Z0-9]*$/, "Riot ID must be alphanumeric")
+                .max(4, "Riot ID must be at most 4 characters")
+                .required(`${name} is required`);
+            } else {
+              // Default validation for other fields
+              gameAcc[key] = isMandatory
+                ? Yup.string().required(`${name} is required`)
+                : Yup.string();
+            }
+
             return gameAcc;
           },
           {}
@@ -85,6 +106,7 @@ export default function ThirdForm() {
         return acc;
       }, {})
     );
+
     setSelectedGameData(filteredData);
     setShowGameFields(true);
   };
@@ -278,6 +300,18 @@ export default function ThirdForm() {
                   selectedGameData.map((game: any) => (
                     <GameFields game={game} key={game.name} />
                   ))}
+                <Flex className="pt-4 flex-wrap flex-col items-start w-full md:w-[85%]">
+                  <Alert
+                    status="info"
+                    className="w-auto bg-slate-800 text-white flex gap-1 "
+                  >
+                    <AlertIcon color={"white"} />
+                    <div className="">
+                      Keep your IGN(In-game name) the same during your matches
+                      or notify our Discord admins of any changes!
+                    </div>
+                  </Alert>
+                </Flex>
                 <div className="p-12"></div>
               </Flex>
               <Box className="mt-auto sticky z-50 bg-black bottom-0">
