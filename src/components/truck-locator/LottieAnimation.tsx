@@ -23,7 +23,7 @@ const LottieAnimation = () => {
   }, [inView]);
 
   return (
-    <div ref={ref}>
+    <div className="w-full" ref={ref}>
       {isVisible && (
         <Lottie
           lottieRef={lottieRef}

@@ -41,47 +41,29 @@ export default function SelectProfile() {
       const isOnlineModeSelected =
         values.modeSelected === "online" ? true : false;
 
-      if (!state.isModeEdited) {
-        // Proceed with the API call if `isModeEdited` is false
-        const response = await api.post(
-          `/users/update/esport-details/${state._id}`,
-          {
-            isOnlineModeSelected: isOnlineModeSelected,
-          }
-        );
-
-        const data = response.data;
-
-        if (response) {
-          toast({
-            title: `Details Submitted`,
-            status: "success",
-            isClosable: true,
-            description: data.message,
-          });
-
-          dispatch({
-            type: "UPDATE",
-            payload: {
-              ...state,
-              isOnlineModeSelected: isOnlineModeSelected,
-              activeStep: 2, // Will be used for Edit Profile
-            },
-          });
+      // Proceed with the API call if `isModeEdited` is false
+      const response = await api.post(
+        `/users/update/esport-details/${state._id}`,
+        {
+          isOnlineModeSelected: isOnlineModeSelected,
         }
-      } else {
-        // When `isModeEdited` is true, skip changing `isOnlineModeSelected` but continue with the rest
+      );
+
+      const data = response.data;
+
+      if (response) {
         toast({
-          title: `Details Already Submitted`,
-          status: "info",
+          title: `Details Submitted`,
+          status: "success",
           isClosable: true,
-          description: "Details submitted without changing the online mode.",
+          description: data.message,
         });
 
         dispatch({
           type: "UPDATE",
           payload: {
             ...state,
+            isOnlineModeSelected: isOnlineModeSelected,
             activeStep: 2, // Will be used for Edit Profile
           },
         });
@@ -169,14 +151,14 @@ export default function SelectProfile() {
                         value="online"
                         name="online"
                         imageUrl="/online.svg"
-                        disabled={!!state.isModeEdited}
+                        // disabled={!!state.isModeEdited}
                       />
 
                       <CustomRadio
                         key="offline"
                         value="offline"
                         name="offline"
-                        disabled={!!state.isModeEdited}
+                        // disabled={!!state.isModeEdited}
                         imageUrl="/offline.svg"
                       />
                     </RadioGroup>
@@ -194,7 +176,7 @@ export default function SelectProfile() {
                     )}
                   </div>
                 </Flex>
-                {state.isModeEdited && (
+                {/* {state.isModeEdited && (
                   <Flex className="pt-4 flex-wrap flex-col items-start w-full md:w-[85%]">
                     <Alert
                       status="info"
@@ -224,7 +206,7 @@ export default function SelectProfile() {
                       </div>
                     </Alert>
                   </Flex>
-                )}
+                )} */}
               </Flex>
             </Box>
           </div>
