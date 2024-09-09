@@ -22,6 +22,14 @@ const nextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/lottie',
+        destination: 'https://college-rivals-prod.s3.ap-south-1.amazonaws.com/lottie/truck_lottie.json',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
