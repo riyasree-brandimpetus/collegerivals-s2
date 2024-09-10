@@ -91,7 +91,7 @@ const ProfileDashboard = () => {
             isClosable: true,
             description: message,
           });
-          router.push("/sign-up");
+          router.push("/login");
           // console.error('Error fetching Data:', error);
         }
       };

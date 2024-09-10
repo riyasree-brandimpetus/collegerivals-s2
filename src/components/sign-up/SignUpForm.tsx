@@ -39,7 +39,7 @@ export default function SignUpForm() {
   }, []);
 
   useEffect(() => {
-    if (state._id && !state.isWhatsAppVerified) {
+    if (state._id && !state.isWhatsAppVerified && state.whatsappNumber) {
       // console.log('Enter OTP');
       setActiveStep(2);
     }

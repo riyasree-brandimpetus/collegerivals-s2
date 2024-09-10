@@ -26,11 +26,8 @@ const FAQ = () => {
     base: "./faq-design-mobile.svg",
   });
   return (
-    <Flex id="section3"
-      className="w-full flex-col md:pb-64 pb-14"
-     bg="black"
-    >
-      <Flex className="faq-section pt-3.125rem lg:pt-9.625rem px-1.5rem lg:px-5rem flex-col overflow-x-hidden w-full relative">
+    <Flex id="section3" className="w-full flex-col md:pb-64 pb-14" bg="black">
+      <Flex className="faq-section pt-32 lg:pt-44 px-1.5rem lg:px-5rem flex-col overflow-x-hidden w-full relative">
         <Heading
           className="ppFormula-font w-full text-white italic text-3xl lg:text-7xl pb-1.875rem lg:pb-5.25rem max-screen-desktop mx-auto font-normal"
           borderBottom="1px dotted black"
@@ -53,7 +50,7 @@ const FAQ = () => {
         <Flex className="questions-container flex-col w-full pt-1.438rem text-white max-screen-desktop mx-auto">
           <Flex className="faq-element w-full">
             <Accordion allowMultiple className="w-full">
-            <AccordionItem borderTopWidth="0px">
+              <AccordionItem borderTopWidth="0px">
                 {({ isExpanded }) => (
                   <>
                     <Flex
@@ -1044,7 +1041,6 @@ const FAQ = () => {
           loading="lazy"
         /> */}
       </Flex>
-    
     </Flex>
   );
 };
