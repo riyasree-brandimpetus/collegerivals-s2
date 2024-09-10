@@ -13,6 +13,13 @@ const OurSponsor = () => {
             <Image
               width={122}
               height={45}
+              src="/play-station.svg"
+              alt=""
+              className="md:w-36 w-20"
+            />
+            <Image
+              width={122}
+              height={45}
               src="/Apache.webp"
               alt=""
               className="md:w-auto w-20"
@@ -62,6 +69,13 @@ const OurSponsor = () => {
               src="/sponsor2.svg"
               alt=""
               className="md:w-auto w-20"
+            />
+            <Image
+              width={138}
+              height={49}
+              src="/nissin.svg"
+              alt=""
+              className="md:w-28 w-20"
             />
           </div>
         </div>
