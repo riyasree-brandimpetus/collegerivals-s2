@@ -116,9 +116,7 @@ export default function SelectProfile() {
           <div className="pl-6 lg:pl-16 pr-6 lg:pr-0">
             <Heading
               pb={{ base: "2.125rem", lg: "1.25rem" }}
-              className={`ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal text-white tracking-wide lg:tracking-wider ${
-                state.isModeEdited ? "opacity-60" : "opacity-100"
-              }`}
+              className={`ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal text-white tracking-wide lg:tracking-wider`}
             >
               SELECT{" "}
               <Box as="span" className="text-#DBFD67">
