@@ -115,28 +115,27 @@ export default function SelectDate() {
   ) => {
     try {
       // Check if isModeEdited is true, then skip the request
-      if (state.isModeEdited) {
-        dispatch({
-          type: "UPDATE",
-          payload: {
-            ...state,
-            activeStep: 4,
-          },
-        });
-        toast({
-          title: `Details already Submitted`,
-          status: "info",
-          isClosable: true,
-          description: "Your details are already submitted.",
-        });
-        return; // Exit early if isModeEdited is true
-      }
+      // if (state.isModeEdited) {
+      //   dispatch({
+      //     type: "UPDATE",
+      //     payload: {
+      //       ...state,
+      //       activeStep: 4,
+      //     },
+      //   });
+      //   toast({
+      //     title: `Details already Submitted`,
+      //     status: "info",
+      //     isClosable: true,
+      //     description: "Your details are already submitted.",
+      //   });
+      //   return; // Exit early if isModeEdited is true
+      // }
 
       // Prepare the payload
       const payload = {
         isOnlineModeSelected: state.isOnlineModeSelected,
         selectedCity: values.selectedCity,
-        isModeEdited: state.collegeName ? true : false,
       };
 
       const response = await api.post(
@@ -427,9 +426,7 @@ export default function SelectDate() {
                 <div className="pl-6 lg:pl-16 pr-6 lg:pr-0 overflow-scroll ">
                   <Heading
                     pb={{ base: "0.5rem", lg: "0.25rem" }}
-                    className={`ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white ${
-                      state.isModeEdited ? "opacity-60" : "opacity-100"
-                    }`}
+                    className={`ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white`}
                   >
                     SELECT{" "}
                     <Box as="span" className="text-#DBFD67">
@@ -479,7 +476,7 @@ export default function SelectDate() {
                           <Field name="selectedCity">
                             {({ field, form }: { field: any; form: any }) => (
                               <Select
-                                disabled={state.isModeEdited}
+                                // disabled={state.isModeEdited}
                                 {...field}
                                 id="selectedCity"
                                 height="4.063rem"
@@ -512,7 +509,7 @@ export default function SelectDate() {
                           )}
                           {/* <QualifierText /> */}
                         </Flex>
-                        {state.isModeEdited && (
+                        {/* {state.isModeEdited && (
                           <Flex className="pt-4 flex-wrap flex-col items-start w-full">
                             <Alert
                               status="info"
@@ -542,7 +539,7 @@ export default function SelectDate() {
                               </div>
                             </Alert>
                           </Flex>
-                        )}
+                        )} */}
                         {selectedDatestate && (
                           <div className="flex ">
                             <div className="text-[#949494] rounded-md bg-[#191919] helvetica-light-font  max-md:flex-wrap max-md:w-full max-md:items-center justify-center text-base px-10 flex gap-2 items-center py-3 ">
