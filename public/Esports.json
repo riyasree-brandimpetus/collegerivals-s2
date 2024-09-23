@@ -3,12 +3,14 @@
       "Online": {
         "monthly_qualifiers":"64",
         "monthly_qualifiers_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ],
-        "monthly_finals":"48",
+        "monthly_finals":"48 Players From",
+     
+        "each_monthly_finals":"8",
         "monthly_finals_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ]
       },
       "offline": {
         "colleges":"50",
-        "monthly_qualifiers":"6",
+        "monthly_qualifiers":"3",
         "monthly_qualifiers_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ],
         "college_playoffs":"16",
         "monthly_finals_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ]
@@ -18,9 +20,10 @@
     },
     "Valorant": {
         "Online": {
-            "monthly_qualifiers":"64",
+            "monthly_qualifiers":"4",
             "monthly_qualifiers_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ],
-            "monthly_finals":"48",
+            "monthly_finals":"6 players from 6 monthly qualifiers",
+            "each_monthly_finals":"1",
             "monthly_finals_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ]
           },
           "offline": {
@@ -34,9 +37,10 @@
     },
     "FIFA": {
         "Online": {
-            "monthly_qualifiers":"64",
+            "monthly_qualifiers":"4",
             "monthly_qualifiers_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ],
-            "monthly_finals":"48",
+            "monthly_finals":"6 players from 6 monthly qualifiers",
+             "each_monthly_finals":"1",
             "monthly_finals_img":["/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg","/assets/avtar1.svg" ]
           },
           "offline": {
