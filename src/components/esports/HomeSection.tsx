@@ -140,7 +140,13 @@ const Esports: React.FC = () => {
                   <p>JAN</p>
                 </div>
               </div>
-              <div className="grid md:grid-cols-6 grid-cols-1 mt-8 gap-1 md:gap-5">
+              <div
+                className={`grid md:grid-cols-6 grid-cols-1 mt-8 gap-1 ${
+                  selectedOption === "Valorant" || selectedOption === "FIFA"
+                    ? "md:gap-10"
+                    : "md:gap-6"
+                }`}
+              >
                 <p className="text-lg  md:flex hidden py-1.375rem text-#DBFD67 font-bold helvetica-font  uppercase">
                   Top {data?.Online.monthly_qualifiers}
                 </p>
