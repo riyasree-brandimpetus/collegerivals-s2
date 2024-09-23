@@ -18,6 +18,7 @@ interface Offline extends Images {
   colleges: string;
   monthly_qualifiers: string;
   college_playoffs: string;
+  total_player: string;
 }
 
 // Main interface for the game data

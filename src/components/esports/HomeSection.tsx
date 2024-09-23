@@ -424,7 +424,7 @@ const Esports: React.FC = () => {
 
                 <div className="rounded-full p-1 bg-black">
                   <div className="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full text-white">
-                    +150
+                    {data?.offline.total_player}
                   </div>
                 </div>
               </div>
