@@ -27,9 +27,15 @@
       },
      
       {
+        "id": 6,
+        "name":"PUNJAB",
+        "Imgsrc": "/punjab.png"
+      },
+     
+      {
         "id": 7,
-        "name":"CHANDIGARH",
-        "Imgsrc": "/chandigarh.png"
+        "name":"HARYANA",
+        "Imgsrc": "/haryana.png"
       },
       {
         "id": 8,
@@ -44,67 +50,73 @@
       },
       {
         "id": 10,
+        "name":"KANPUR",
+        "Imgsrc": "/kanpur.png"
+       
+      },
+
+      {
+        "id": 11,
       "name":"LUCKNOW",
       "Imgsrc": "/lucknow.png"
       },
       {
-        "id": 11,
+        "id": 12,
       "name":"PATNA",
       "Imgsrc": "/patna.png"
       },
       {
-        "id": 12,
+        "id": 13,
       "name":"GUWAHATI",
       "Imgsrc": "/guhati.png"
       },
       {
-        "id": 13,
-      "name":"KOLKATA",
-      "Imgsrc": "/kolkata.png"
-      },
-      {
         "id": 14,
-      "name":"BHUBANESHWAR",
-      "Imgsrc": "/BHUBANESHWAR.png"
+      "name":"RANCHI",
+      "Imgsrc": "/ranchi.png"
       },
       {
         "id": 15,
+      "name":"JAMSHEDPUR",
+      "Imgsrc": "/jamshedpur.png"
+      },
+      {
+        "id": 16,
+      "name":"DHANBAD",
+      "Imgsrc": "/dhanbad.png"
+      },
+      {
+        "id": 17,
       "name":"VIZAG",
       "Imgsrc": "/vizag.png"
       },
       {
-        "id": 16,
+        "id": 18,
       "name":"HYDERABAD",
       "Imgsrc": "/hydrabad.png"
       },
       {
-        "id": 18,
+        "id": 19,
       "name":"BENGALURU",
       "Imgsrc": "/bengaluru.png"
       },
       {
-        "id": 19,
+        "id": 20,
       "name":"CHENNAI",
       "Imgsrc": "/chennai.png"
       },
       {
-        "id": 20,
-      "name":"KOCHI",
+        "id": 21,
+      "name":"KHARAGPUR",
       "Imgsrc": "/kochi.png"
       },
-     
       {
         "id": 22,
-      "name":"MANGALORE",
-      "Imgsrc": "/manglore.png"
-      },
-      {
-        "id": 23,
       "name":"GOA",
       "Imgsrc": "/goa.png"
       },
       {
-        "id": 24,
+        "id": 23,
       "name":"MUMBAI",
       "Imgsrc": "/mumbai.png"
       }
