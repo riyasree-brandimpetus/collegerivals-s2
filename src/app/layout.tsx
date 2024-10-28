@@ -7,8 +7,8 @@ import BodyAnalytics from "./BodyAnalytics";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'College Rivals | Home',
-  description: 'Indian College Esport Competition',
+  title: "College Rivals | Home",
+  description: "Indian College Esport Competition",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html translate="no" lang="en">
       <Suspense>
         <HeadAnalytics />
       </Suspense>
