@@ -27,7 +27,10 @@ const nextConfig = {
       {
         source: '/api/lottie',
         destination: 'https://college-rivals-prod.s3.ap-south-1.amazonaws.com/lottie/truck_lottie.json',
-      },
+      },{
+        source: '/api/finalist',
+        destination: 'https://college-rivals-prod.s3.ap-south-1.amazonaws.com/finalists/data.json',
+      }
     ];
   },
 };
