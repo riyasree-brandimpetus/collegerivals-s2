@@ -16,7 +16,7 @@ const Rules = () => {
               <h3 className="md:text-2xl text-lg font-extrabold">
                 <em>FIFA</em>
               </h3>
-              <div className="gradient-border ">
+              <div className="gradient-border h-fit w-fit">
                 <Link
                   href="/rules/fifa"
                   className="inner md:px-1.5rem text-base md:py-1.125rem bg-black px-4 py-2.5 font-medium helvetica-medium-font"
