@@ -73,7 +73,7 @@ const TournamentDashboard = () => {
   });
 
   return (
-    <Box id="section2" bg="black" w="full">
+    <Box id="winner" bg="black" w="full">
       <Box maxW="1440px" mx="auto" overflow="hidden">
         <Heading
           ref={scrollRef}
