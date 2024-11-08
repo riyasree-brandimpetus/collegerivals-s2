@@ -198,7 +198,7 @@ const TournamentDashboard = () => {
                               }
                             >
                               <Image
-                                className="w-63.5% md:w-1/2"
+                                className="w-63.5% md:w-30%"
                                 src={`./${game.gameName.toLowerCase()}.svg`}
                                 alt={game.gameName}
                               />
@@ -211,16 +211,16 @@ const TournamentDashboard = () => {
                             <div className="w-full min-w-[500px]">
                               <Box className="bg-[#1B1C1D]  w-full px-4 md:px-16 py-3 md:py-7 flex justify-start items-center">
                                 <Flex className="w-full">
-                                  <Text className="text-xs md:text-base uppercase text-white helvetica-font font-normal w-[15%] md:w-[23%]">
+                                  <Text className="text-xs md:text-base uppercase text-white helvetica-font font-normal w-[15%] md:w-[12%]">
                                     Rank
                                   </Text>
-                                  <Text className="text-xs md:text-base uppercase text-white helvetica-font font-normal w-[25%] md:w-[23%]">
+                                  <Text className="text-xs md:text-base uppercase text-white helvetica-font font-normal w-[25%] md:w-[28%]">
                                     In Game Name
                                   </Text>
-                                  <Text className="text-xs md:text-base uppercase text-white helvetica-font font-normal w-[25%] md:w-[23%]">
+                                  <Text className="text-xs md:text-base uppercase text-white helvetica-font font-normal w-[25%] md:w-[28%]">
                                     Real Name
                                   </Text>
-                                  <Text className="text-xs md:text-base uppercase text-white helvetica-font font-normal w-[30%] md;w-[31%]">
+                                  <Text className="text-xs md:text-base uppercase text-white helvetica-font font-normal w-[30%] md:w-[32%]">
                                     College Name
                                   </Text>
                                 </Flex>
@@ -238,17 +238,17 @@ const TournamentDashboard = () => {
                                     className="bg-[#333333] bg-opacity-30 w-full px-4 md:px-16 py-[13px] md:py-7 flex justify-start items-center"
                                   >
                                     <Flex className="w-full">
-                                      <Text className="text-xs md:text-base text-white/60 helvetica-font font-normal w-[15%] md:w-[23%] uppercase">
+                                      <Text className="text-xs md:text-base text-white/60 helvetica-font font-normal w-[15%] md:w-[12%] uppercase">
                                         #{finalist.rank}
                                       </Text>
-                                      <Text className="text-xs md:text-base text-white/60 helvetica-font font-normal w-[25%] md:w-[23%] uppercase">
+                                      <Text className="text-xs md:text-base text-white/60 helvetica-font font-normal w-[25%] md:w-[28%] uppercase">
                                         {finalist.inGameName}
                                       </Text>
-                                      <Text className="text-xs md:text-base text-white/60 helvetica-font font-normal w-[25%] md:w-[23%] uppercase">
+                                      <Text className="text-xs md:text-base text-white/60 helvetica-font font-normal w-[25%] md:w-[28%] uppercase">
                                         {finalist.realName}
                                       </Text>
                                       <Flex
-                                        className="w-[30%] md:w-[31%]"
+                                        className="w-[30%] md:w-[32%]"
                                         alignItems="center"
                                         gap="2"
                                       >
