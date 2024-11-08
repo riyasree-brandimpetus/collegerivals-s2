@@ -51,7 +51,7 @@ const Esports: React.FC = () => {
 
   return (
     <div
-      id="section1"
+      id="format"
       className="w-full flex flex-col place-items-center justify-center bg-black section"
     >
       <EsportsNavbar />
