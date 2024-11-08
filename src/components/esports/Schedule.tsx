@@ -10,18 +10,18 @@ const Schedule = () => {
           </h3>
         </div>
         <Image
-          src="/schedule-desktop.webp"
+          src="/schedule-desk.png"
           className="w-full xl:block hidden"
-          width={870}
-          height={2003}
-          alt="schedule-desktop.webp"
+          width={904}
+          height={444}
+          alt="schedule-desk.png"
         />
         <Image
-          src="/schedule-mobile.webp"
+          src="/schedule-mb.png"
           className="w-full xl:hidden block"
-          width={312}
-          height={4998}
-          alt="schedule-mobile.webp"
+          width={295}
+          height={1152}
+          alt="schedule-mb.png"
         />
       </div>
     </div>
