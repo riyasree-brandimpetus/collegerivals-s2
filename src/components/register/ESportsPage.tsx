@@ -41,12 +41,12 @@ export default function ESportsPage() {
   }, [state.isOnlineModeSelected, state.gameDetails, setActiveStep]);
 
   useEffect(() => {
-    if (state.selectedDate || state.selectedCity) {
+    if (state.activeStep == 4) {
       // console.log('Date, Time Slorts are updated');
       // setActiveStep(3);
       router.push("/add-academic-details");
     }
-  }, [state.selectedDate, router, state.selectedCity]);
+  }, [state.activeStep, router]);
 
   useEffect(() => {
     // Retrieve the data from localStorage
