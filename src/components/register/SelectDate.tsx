@@ -336,7 +336,7 @@ export default function SelectDate() {
                         )}
                       </div>
                     )}
-                    {state.isModeEdited && (
+                    {isDisabled && (
                       <Flex className="pt-4 flex-wrap flex-col items-start w-full">
                         <Alert
                           status="info"
@@ -345,9 +345,9 @@ export default function SelectDate() {
                           <AlertIcon color={"white"} />
                           <div className="">
                             {" "}
-                            You can no longer edit this.
+                            The registrations are closed
                             <div className="flex gap-1 flex-wrap">
-                              For changes, contact us at
+                              You can contact us at
                               <Link
                                 className="underline"
                                 href="mailto:hello@collegerivals.com"
