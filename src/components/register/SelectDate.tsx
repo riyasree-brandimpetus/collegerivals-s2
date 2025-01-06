@@ -28,6 +28,8 @@ import Citynames from "../../../public/citynames.json";
 export default function SelectDate() {
   const toast = useToast();
   const { state, dispatch } = useContext(UserContext);
+  const isDisabled: boolean = true;
+
   /**
    * Initialize first form values
    */
@@ -48,7 +50,7 @@ export default function SelectDate() {
   ) => {
     try {
       // Check if isModeEdited is true, then skip the request
-      if (state.isModeEdited) {
+      if (isDisabled) {
         dispatch({
           type: "UPDATE",
           payload: {
@@ -57,10 +59,10 @@ export default function SelectDate() {
           },
         });
         toast({
-          title: `Details Already Submitted`,
+          title: `Details Submitted`,
           status: "info",
           isClosable: true,
-          description: "Your details are already submitted.",
+          description: "Your details are submitted.",
         });
         return; // Exit early if isModeEdited is true
       }
@@ -203,7 +205,7 @@ export default function SelectDate() {
             state.isModeEdited
               ? undefined // or null if you want no validation schema
               : state.isOnlineModeSelected
-              ? SelectOnlineDateTimeSchema
+              ? undefined
               : SelectOfflineDateTimeSchema
           }
           onSubmit={handleSubmit}
@@ -214,7 +216,7 @@ export default function SelectDate() {
                 <Heading
                   pb={{ base: "0.5rem", lg: "0.25rem" }}
                   className={`ppFormula-font italic font-light text-[1.5rem] lg:text-[3.75rem] leading-tight lg:leading-normal tracking-wide lg:tracking-wider text-white  ${
-                    state.isModeEdited ? "opacity-60" : "opacity-100"
+                    isDisabled ? "opacity-60" : "opacity-100"
                   }`}
                 >
                   SELECT{" "}
@@ -254,14 +256,14 @@ export default function SelectDate() {
                         >
                           <FormLabel
                             className={`helvetica-font font-bold text-lg ${
-                              state.isModeEdited ? "opacity-60" : "opacity-100"
+                              isDisabled ? "opacity-60" : "opacity-100"
                             }`}
                             color={"#CFCFCF"}
                           >
                             Select Month
                           </FormLabel>
                           <Field
-                            disabled={state.isModeEdited}
+                            disabled={isDisabled}
                             as={Select}
                             id="selectedMonth"
                             name="selectedMonth"
@@ -300,16 +302,14 @@ export default function SelectDate() {
                           >
                             <FormLabel
                               className={`helvetica-font font-bold text-lg ${
-                                state.isModeEdited
-                                  ? "opacity-60"
-                                  : "opacity-100"
+                                isDisabled ? "opacity-60" : "opacity-100"
                               }`}
                               color={"#CFCFCF"}
                             >
                               Select Date
                             </FormLabel>
                             <Field
-                              disabled={state.isModeEdited}
+                              disabled={isDisabled}
                               as={Select}
                               id="selectedDate"
                               name="selectedDate"
