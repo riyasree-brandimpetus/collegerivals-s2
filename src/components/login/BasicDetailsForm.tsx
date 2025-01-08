@@ -216,7 +216,7 @@ export default function BasicDetailsForm() {
           </div>
           <Box className="fixed bg-black z-50  lg:w-[55%] w-full   flex-col flex items-center justify-between lg:right-0 bottom-0 mt-auto">
             <div className=" bg-black lg:pl-16   border-t border-[fffffef] w-full   lg:flex-row flex-col flex items-center justify-between ">
-              <div className="text-white max-md:pt-2 helvetica-light-font font-normal">
+              {/* <div className="text-white max-md:pt-2 helvetica-light-font font-normal">
                 Not a member?{" "}
                 <Link
                   className="text-#DBFD67 underline helvetica-font"
@@ -224,7 +224,7 @@ export default function BasicDetailsForm() {
                 >
                   Register
                 </Link>
-              </div>
+              </div> */}
               <Button
                 id="login-form-submit-btn"
                 type="submit"

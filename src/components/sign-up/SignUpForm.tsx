@@ -10,6 +10,7 @@ import OTPForm from "./OTPForm";
 import Link from "next/link";
 import Image from "next/image";
 import LoadingScreen from "../globalComponents/LoadingScreen";
+import RegistrationsClosed from "./RegistrationsClosed";
 
 const steps = [
   { description: "Enter Details" },
@@ -161,14 +162,15 @@ export default function SignUpForm() {
                 </div>
               </div>
               <div className="w-full h-[58vh] md:h-[60vh] xl:h-[65vh] overflow-auto ">
-                {activeStep === 1 ? (
+                {/* {activeStep === 1 ? (
                   // <FirstForm />
                   <BasicDetailsForm />
                 ) : activeStep === 2 ? (
                   <OTPForm />
                 ) : activeStep === 3 ? (
                   <CompletionStepForm />
-                ) : null}
+                ) : null} */}
+                <RegistrationsClosed/>
               </div>
             </div>
           </div>

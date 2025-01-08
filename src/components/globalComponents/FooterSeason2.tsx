@@ -20,7 +20,7 @@ const FooterSeason2 = () => {
             href="/sign-up"
             className="custom-button-pink px-20 py-5 text-lg text-white rounded-lg bg-cover max-lg:hidden helvetica-font"
           >
-            REGISTER NOW
+            LOGIN
           </Link>
         </div>
         <div className="footer-bottom-container pt-3.125rem lg:pt-3.813rem pb-4 lg:pb-1.375rem w-full bg-black flex-col">
