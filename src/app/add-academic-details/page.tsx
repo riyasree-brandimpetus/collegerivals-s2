@@ -1,5 +1,6 @@
 import AcademicDetailsPage from '@/components/register/AcademicDetailsPage';
 import { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 
 // Static metadata
 export const metadata: Metadata = {
@@ -7,5 +8,6 @@ export const metadata: Metadata = {
   description: 'Indian College Esport Competition',
 };
 export default function Page() {
-  return <AcademicDetailsPage />;
+  redirect('/my-profile');
+  // return <AcademicDetailsPage />;
 }

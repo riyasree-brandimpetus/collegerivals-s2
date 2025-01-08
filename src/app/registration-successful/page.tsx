@@ -1,5 +1,6 @@
 import CompletionPage from "@/components/register/CompletionPage";
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 // Static metadata
 export const metadata: Metadata = {
@@ -8,5 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <CompletionPage />;
+  redirect('/my-profile');
+  // return <CompletionPage />;
 }

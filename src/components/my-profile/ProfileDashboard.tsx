@@ -214,7 +214,7 @@ const ProfileDashboard = () => {
                             height={181}
                             className="rounded-2xl  "
                           />
-                          <div className="whitespace-nowrap absolute justify-center items-center flex gap-2  bottom-2 uppercase text-sm md:text-base helvetica-medium-font font-medium text-white  p-4 rounded-md hover:bg-[#212121] bg-[#191919]">
+                          {/* <div className="whitespace-nowrap absolute justify-center items-center flex gap-2  bottom-2 uppercase text-sm md:text-base helvetica-medium-font font-medium text-white  p-4 rounded-md hover:bg-[#212121] bg-[#191919]">
                             edit profile{" "}
                             <Image
                               src="/profile-edit-icon.svg"
@@ -222,7 +222,7 @@ const ProfileDashboard = () => {
                               width={15}
                               height={17}
                             />
-                          </div>
+                          </div> */}
                         </Link>
                       </div>
                       <div className="flex flex-col mt-3  items-center lg:place-items-start place-items-center gap-1">
